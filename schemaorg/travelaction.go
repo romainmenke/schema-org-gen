@@ -9,7 +9,7 @@ typeContext
 
 MoveAction
 
-// Distance see : /distance
+// Distance see : https://schema.org/distance
 // The distance travelled, e.g. exercising or travelling.
 Distance *Distance `json:"distance"`
 

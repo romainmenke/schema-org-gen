@@ -9,7 +9,7 @@ typeContext
 
 TransferAction
 
-// Borrower see : /borrower
+// Borrower see : https://schema.org/borrower
 // A sub property of participant. The person that borrows the object being lent.
 Borrower *Person `json:"borrower"`
 

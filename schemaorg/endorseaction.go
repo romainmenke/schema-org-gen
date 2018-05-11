@@ -9,7 +9,7 @@ typeContext
 
 ReactAction
 
-// Endorsee see : /endorsee
+// Endorsee see : https://schema.org/endorsee
 // A sub property of participant. The person/organization being supported.
 Endorsee interface{} `json:"endorsee"` // types : Organization Person
 

@@ -9,11 +9,11 @@ typeContext
 
 TransferAction
 
-// DeliveryMethod see : /deliveryMethod
+// DeliveryMethod see : https://schema.org/deliveryMethod
 // A sub property of instrument. The method of delivery.
 DeliveryMethod *DeliveryMethod `json:"deliveryMethod"`
 
-// Sender see : /sender
+// Sender see : https://schema.org/sender
 // A sub property of participant. The participant who is at the sending end of the action.
 Sender interface{} `json:"sender"` // types : Audience Organization Person
 

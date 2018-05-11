@@ -9,19 +9,19 @@ typeContext
 
 Reservation
 
-// BoardingGroup see : /boardingGroup
+// BoardingGroup see : https://schema.org/boardingGroup
 // The airline-specific indicator of boarding order / preference.
 BoardingGroup string `json:"boardingGroup"`
 
-// PassengerPriorityStatus see : /passengerPriorityStatus
+// PassengerPriorityStatus see : https://schema.org/passengerPriorityStatus
 // The priority status assigned to a passenger for security or boarding (e.g. FastTrack or Priority).
 PassengerPriorityStatus interface{} `json:"passengerPriorityStatus"` // types : QualitativeValue Text
 
-// PassengerSequenceNumber see : /passengerSequenceNumber
+// PassengerSequenceNumber see : https://schema.org/passengerSequenceNumber
 // The passenger's sequence number as assigned by the airline.
 PassengerSequenceNumber string `json:"passengerSequenceNumber"`
 
-// SecurityScreening see : /securityScreening
+// SecurityScreening see : https://schema.org/securityScreening
 // The type of security screening the passenger is subject to.
 SecurityScreening string `json:"securityScreening"`
 

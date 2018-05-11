@@ -80,7 +80,7 @@ func goTypeFile(goTypes []string) func(ctx context.Context, o *ObjectSource, err
 
 			comment := newLineRegex.ReplaceAllString(field.Comment, "\n// ")
 
-			f.WriteString(fmt.Sprintf("// %s see : %s\n", strings.Title(field.Name), field.URL))
+			f.WriteString(fmt.Sprintf("// %s see : %s%s\n", strings.Title(field.Name), "https://schema.org", field.URL))
 			f.WriteString(fmt.Sprintf("// %s\n", comment))
 
 			if len(field.Types) > 1 {

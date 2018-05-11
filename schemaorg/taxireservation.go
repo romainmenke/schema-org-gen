@@ -9,15 +9,15 @@ typeContext
 
 Reservation
 
-// PartySize see : /partySize
+// PartySize see : https://schema.org/partySize
 // Number of people the reservation should accommodate.
 PartySize interface{} `json:"partySize"` // types : Integer QuantitativeValue
 
-// PickupLocation see : /pickupLocation
+// PickupLocation see : https://schema.org/pickupLocation
 // Where a taxi will pick up a passenger or a rental car can be picked up.
 PickupLocation *Place `json:"pickupLocation"`
 
-// PickupTime see : /pickupTime
+// PickupTime see : https://schema.org/pickupTime
 // When a taxi will pickup a passenger or a rental car can be picked up.
 PickupTime interface{} `json:"pickupTime"`
 

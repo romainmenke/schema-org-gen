@@ -9,15 +9,15 @@ typeContext
 
 CreateAction
 
-// FoodEstablishment see : /foodEstablishment
+// FoodEstablishment see : https://schema.org/foodEstablishment
 // A sub property of location. The specific food establishment where the action occurred.
 FoodEstablishment interface{} `json:"foodEstablishment"` // types : FoodEstablishment Place
 
-// FoodEvent see : /foodEvent
+// FoodEvent see : https://schema.org/foodEvent
 // A sub property of location. The specific food event where the action occurred.
 FoodEvent *FoodEvent `json:"foodEvent"`
 
-// Recipe see : /recipe
+// Recipe see : https://schema.org/recipe
 // A sub property of instrument. The recipe/instructions used to perform the action.
 Recipe *Recipe `json:"recipe"`
 

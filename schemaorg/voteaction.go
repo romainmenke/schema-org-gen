@@ -9,7 +9,7 @@ typeContext
 
 ChooseAction
 
-// Candidate see : /candidate
+// Candidate see : https://schema.org/candidate
 // A sub property of object. The candidate subject of this action.
 Candidate *Person `json:"candidate"`
 

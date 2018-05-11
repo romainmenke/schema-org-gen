@@ -9,11 +9,11 @@ typeContext
 
 CreativeWork
 
-// HasMenuItem see : /hasMenuItem
+// HasMenuItem see : https://schema.org/hasMenuItem
 // A food or drink item contained in a menu or menu section.
 HasMenuItem *MenuItem `json:"hasMenuItem"`
 
-// HasMenuSection see : /hasMenuSection
+// HasMenuSection see : https://schema.org/hasMenuSection
 // A subgrouping of the menu (by dishes, course, serving time period, etc.).
 HasMenuSection *MenuSection `json:"hasMenuSection"`
 

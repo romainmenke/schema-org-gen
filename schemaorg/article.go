@@ -9,27 +9,27 @@ typeContext
 
 CreativeWork
 
-// ArticleBody see : /articleBody
+// ArticleBody see : https://schema.org/articleBody
 // The actual body of the article.
 ArticleBody string `json:"articleBody"`
 
-// ArticleSection see : /articleSection
+// ArticleSection see : https://schema.org/articleSection
 // Articles may belong to one or more 'sections' in a magazine or newspaper, such as Sports, Lifestyle, etc.
 ArticleSection string `json:"articleSection"`
 
-// PageEnd see : /pageEnd
+// PageEnd see : https://schema.org/pageEnd
 // The page on which the work ends; for example "138" or "xvi".
 PageEnd interface{} `json:"pageEnd"` // types : Integer Text
 
-// PageStart see : /pageStart
+// PageStart see : https://schema.org/pageStart
 // The page on which the work starts; for example "135" or "xiii".
 PageStart interface{} `json:"pageStart"` // types : Integer Text
 
-// Pagination see : /pagination
+// Pagination see : https://schema.org/pagination
 // Any description of pages that is not separated into pageStart and pageEnd; for example, "1-6, 9, 55" or "10-12, 46-49".
 Pagination string `json:"pagination"`
 
-// Speakable see : http://pending.schema.org/speakable
+// Speakable see : https://schema.orghttp://pending.schema.org/speakable
 // Indicates sections of a Web page that are particularly 'speakable' in the sense of being highlighted as being especially appropriate for text-to-speech conversion. Other sections of a page may also be usefully spoken in particular circumstances; the 'speakable' property serves to indicate the parts most likely to be generally useful for speech.
 // 
 // The speakable property can be repeated an arbitrary number of times, with three kinds of possible 'content-locator' values:
@@ -44,7 +44,7 @@ Pagination string `json:"pagination"`
 // we define a supporting type, SpeakableSpecification (see: https://schema.org/SpeakableSpecification)  which is defined to be a possible value of the speakable property.
 Speakable interface{} `json:"speakable"` // types : SpeakableSpecification URL
 
-// WordCount see : /wordCount
+// WordCount see : https://schema.org/wordCount
 // The number of words in the text of the Article.
 WordCount int `json:"wordCount"`
 

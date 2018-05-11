@@ -9,11 +9,11 @@ typeContext
 
 SportsOrganization
 
-// Athlete see : /athlete
+// Athlete see : https://schema.org/athlete
 // A person that acts as performing member of a sports team; a player as opposed to a coach.
 Athlete *Person `json:"athlete"`
 
-// Coach see : /coach
+// Coach see : https://schema.org/coach
 // A person that acts in a coaching role for a sports team.
 Coach *Person `json:"coach"`
 

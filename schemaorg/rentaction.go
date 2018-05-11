@@ -9,11 +9,11 @@ typeContext
 
 TradeAction
 
-// Landlord see : /landlord
+// Landlord see : https://schema.org/landlord
 // A sub property of participant. The owner of the real estate property.
 Landlord interface{} `json:"landlord"` // types : Organization Person
 
-// RealEstateAgent see : /realEstateAgent
+// RealEstateAgent see : https://schema.org/realEstateAgent
 // A sub property of participant. The real estate agent involved in the action.
 RealEstateAgent *RealEstateAgent `json:"realEstateAgent"`
 

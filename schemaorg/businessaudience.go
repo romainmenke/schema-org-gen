@@ -9,15 +9,15 @@ typeContext
 
 Audience
 
-// NumberOfEmployees see : /numberOfEmployees
+// NumberOfEmployees see : https://schema.org/numberOfEmployees
 // The number of employees in an organization e.g. business.
 NumberOfEmployees *QuantitativeValue `json:"numberOfEmployees"`
 
-// YearlyRevenue see : /yearlyRevenue
+// YearlyRevenue see : https://schema.org/yearlyRevenue
 // The size of the business in annual revenue.
 YearlyRevenue *QuantitativeValue `json:"yearlyRevenue"`
 
-// YearsInOperation see : /yearsInOperation
+// YearsInOperation see : https://schema.org/yearsInOperation
 // The age of the business.
 YearsInOperation *QuantitativeValue `json:"yearsInOperation"`
 

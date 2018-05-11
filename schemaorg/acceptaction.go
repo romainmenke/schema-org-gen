@@ -9,7 +9,7 @@ typeContext
 
 AllocateAction
 
-// Purpose see : http://health-lifesci.schema.org/purpose
+// Purpose see : https://schema.orghttp://health-lifesci.schema.org/purpose
 // A goal towards an action is taken. Can be concrete or abstract.
 Purpose interface{} `json:"purpose"` // types : MedicalDevicePurpose Thing
 

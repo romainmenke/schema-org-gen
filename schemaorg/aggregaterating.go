@@ -9,15 +9,15 @@ typeContext
 
 Rating
 
-// ItemReviewed see : /itemReviewed
+// ItemReviewed see : https://schema.org/itemReviewed
 // The item that is being reviewed/rated.
 ItemReviewed *Thing `json:"itemReviewed"`
 
-// RatingCount see : /ratingCount
+// RatingCount see : https://schema.org/ratingCount
 // The count of total number of ratings.
 RatingCount int `json:"ratingCount"`
 
-// ReviewCount see : /reviewCount
+// ReviewCount see : https://schema.org/reviewCount
 // The count of total number of reviews.
 ReviewCount int `json:"reviewCount"`
 

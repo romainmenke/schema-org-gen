@@ -9,27 +9,27 @@ typeContext
 
 Reservation
 
-// CheckinTime see : /checkinTime
+// CheckinTime see : https://schema.org/checkinTime
 // The earliest someone may check into a lodging establishment.
 CheckinTime interface{} `json:"checkinTime"`
 
-// CheckoutTime see : /checkoutTime
+// CheckoutTime see : https://schema.org/checkoutTime
 // The latest someone may check out of a lodging establishment.
 CheckoutTime interface{} `json:"checkoutTime"`
 
-// LodgingUnitDescription see : /lodgingUnitDescription
+// LodgingUnitDescription see : https://schema.org/lodgingUnitDescription
 // A full description of the lodging unit.
 LodgingUnitDescription string `json:"lodgingUnitDescription"`
 
-// LodgingUnitType see : /lodgingUnitType
+// LodgingUnitType see : https://schema.org/lodgingUnitType
 // Textual description of the unit type (including suite vs. room, size of bed, etc.).
 LodgingUnitType interface{} `json:"lodgingUnitType"` // types : QualitativeValue Text
 
-// NumAdults see : /numAdults
+// NumAdults see : https://schema.org/numAdults
 // The number of adults staying in the unit.
 NumAdults interface{} `json:"numAdults"` // types : Integer QuantitativeValue
 
-// NumChildren see : /numChildren
+// NumChildren see : https://schema.org/numChildren
 // The number of children staying in the unit.
 NumChildren interface{} `json:"numChildren"` // types : Integer QuantitativeValue
 

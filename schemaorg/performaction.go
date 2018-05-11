@@ -9,7 +9,7 @@ typeContext
 
 PlayAction
 
-// EntertainmentBusiness see : /entertainmentBusiness
+// EntertainmentBusiness see : https://schema.org/entertainmentBusiness
 // A sub property of location. The entertainment business where the action occurred.
 EntertainmentBusiness *EntertainmentBusiness `json:"entertainmentBusiness"`
 

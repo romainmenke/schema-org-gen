@@ -9,7 +9,7 @@ typeContext
 
 OrganizeAction
 
-// Purpose see : /purpose
+// Purpose see : https://schema.org/purpose
 // A goal towards an action is taken. Can be concrete or abstract.
 Purpose interface{} `json:"purpose"` // types : MedicalDevicePurpose Thing
 

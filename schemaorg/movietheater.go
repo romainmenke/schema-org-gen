@@ -9,7 +9,7 @@ typeContext
 
 CivicStructure
 
-// ScreenCount see : /screenCount
+// ScreenCount see : https://schema.org/screenCount
 // The number of screens in the movie theater.
 ScreenCount float64 `json:"screenCount"`
 

@@ -9,7 +9,7 @@ typeContext
 
 Role
 
-// NumberedPosition see : /numberedPosition
+// NumberedPosition see : https://schema.org/numberedPosition
 // A number associated with a role in an organization, for example, the number on an athlete's jersey.
 NumberedPosition float64 `json:"numberedPosition"`
 

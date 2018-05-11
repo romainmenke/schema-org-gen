@@ -9,7 +9,7 @@ typeContext
 
 FinancialProduct
 
-// Amount see : /amount
+// Amount see : https://schema.org/amount
 // The amount of money.
 Amount interface{} `json:"amount"` // types : MonetaryAmount Number
 

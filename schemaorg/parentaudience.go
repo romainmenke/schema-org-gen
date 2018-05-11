@@ -9,11 +9,11 @@ typeContext
 
 PeopleAudience
 
-// ChildMaxAge see : /childMaxAge
+// ChildMaxAge see : https://schema.org/childMaxAge
 // Maximal age of the child.
 ChildMaxAge float64 `json:"childMaxAge"`
 
-// ChildMinAge see : /childMinAge
+// ChildMinAge see : https://schema.org/childMinAge
 // Minimal age of the child.
 ChildMinAge float64 `json:"childMinAge"`
 

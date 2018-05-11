@@ -9,7 +9,7 @@ typeContext
 
 AssessAction
 
-// ActionOption see : /actionOption
+// ActionOption see : https://schema.org/actionOption
 // A sub property of object. The options subject to this action. Supersedes option (see: https://schema.org/option).
 ActionOption interface{} `json:"actionOption"` // types : Text Thing
 

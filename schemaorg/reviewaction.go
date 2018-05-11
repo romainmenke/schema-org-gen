@@ -9,7 +9,7 @@ typeContext
 
 AssessAction
 
-// ResultReview see : /resultReview
+// ResultReview see : https://schema.org/resultReview
 // A sub property of result. The review that resulted in the performing of the action.
 ResultReview *Review `json:"resultReview"`
 

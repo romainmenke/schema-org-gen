@@ -9,7 +9,7 @@ typeContext
 
 TradeAction
 
-// DeliveryMethod see : /deliveryMethod
+// DeliveryMethod see : https://schema.org/deliveryMethod
 // A sub property of instrument. The method of delivery.
 DeliveryMethod *DeliveryMethod `json:"deliveryMethod"`
 

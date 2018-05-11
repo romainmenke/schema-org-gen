@@ -9,7 +9,7 @@ typeContext
 
 InteractAction
 
-// Followee see : /followee
+// Followee see : https://schema.org/followee
 // A sub property of object. The person or organization being followed.
 Followee interface{} `json:"followee"` // types : Organization Person
 

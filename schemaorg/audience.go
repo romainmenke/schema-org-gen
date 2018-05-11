@@ -9,11 +9,11 @@ typeContext
 
 Intangible
 
-// AudienceType see : /audienceType
+// AudienceType see : https://schema.org/audienceType
 // The target group associated with a given audience (e.g. veterans, car owners, musicians, etc.).
 AudienceType string `json:"audienceType"`
 
-// GeographicArea see : /geographicArea
+// GeographicArea see : https://schema.org/geographicArea
 // The geographic area associated with the audience.
 GeographicArea *AdministrativeArea `json:"geographicArea"`
 

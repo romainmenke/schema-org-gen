@@ -9,7 +9,7 @@ typeContext
 
 Product
 
-// InventoryLevel see : /inventoryLevel
+// InventoryLevel see : https://schema.org/inventoryLevel
 // The current approximate inventory level for the item or items.
 InventoryLevel *QuantitativeValue `json:"inventoryLevel"`
 

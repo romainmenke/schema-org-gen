@@ -9,35 +9,35 @@ typeContext
 
 MediaObject
 
-// Actor see : /actor
+// Actor see : https://schema.org/actor
 // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip. Supersedes actors (see: https://schema.org/actors).
 Actor *Person `json:"actor"`
 
-// Caption see : /caption
+// Caption see : https://schema.org/caption
 // The caption for this object.
 Caption string `json:"caption"`
 
-// Director see : /director
+// Director see : https://schema.org/director
 // A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip. Supersedes directors (see: https://schema.org/directors).
 Director *Person `json:"director"`
 
-// MusicBy see : /musicBy
+// MusicBy see : https://schema.org/musicBy
 // The composer of the soundtrack.
 MusicBy interface{} `json:"musicBy"` // types : MusicGroup Person
 
-// Thumbnail see : /thumbnail
+// Thumbnail see : https://schema.org/thumbnail
 // Thumbnail image for an image or video.
 Thumbnail *ImageObject `json:"thumbnail"`
 
-// Transcript see : /transcript
+// Transcript see : https://schema.org/transcript
 // If this MediaObject is an AudioObject or VideoObject, the transcript of that object.
 Transcript string `json:"transcript"`
 
-// VideoFrameSize see : /videoFrameSize
+// VideoFrameSize see : https://schema.org/videoFrameSize
 // The frame size of the video.
 VideoFrameSize string `json:"videoFrameSize"`
 
-// VideoQuality see : /videoQuality
+// VideoQuality see : https://schema.org/videoQuality
 // The quality of the video.
 VideoQuality string `json:"videoQuality"`
 

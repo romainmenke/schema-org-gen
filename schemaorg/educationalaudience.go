@@ -9,7 +9,7 @@ typeContext
 
 Audience
 
-// EducationalRole see : /educationalRole
+// EducationalRole see : https://schema.org/educationalRole
 // An educationalRole of an EducationalAudience.
 EducationalRole string `json:"educationalRole"`
 

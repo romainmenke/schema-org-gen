@@ -9,7 +9,7 @@ typeContext
 
 Article
 
-// ReportNumber see : /reportNumber
+// ReportNumber see : https://schema.org/reportNumber
 // The number or other unique designator assigned to a Report by the publishing organization.
 ReportNumber string `json:"reportNumber"`
 

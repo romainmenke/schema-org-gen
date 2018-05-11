@@ -9,7 +9,7 @@ typeContext
 
 Role
 
-// CharacterName see : /characterName
+// CharacterName see : https://schema.org/characterName
 // The name of a character played in some acting or performing role, i.e. in a PerformanceRole.
 CharacterName string `json:"characterName"`
 

@@ -9,7 +9,7 @@ typeContext
 
 CommunicateAction
 
-// ResultComment see : /resultComment
+// ResultComment see : https://schema.org/resultComment
 // A sub property of result. The Comment created or sent as a result of this action.
 ResultComment *Comment `json:"resultComment"`
 

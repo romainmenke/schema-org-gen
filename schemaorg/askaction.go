@@ -9,7 +9,7 @@ typeContext
 
 CommunicateAction
 
-// Question see : /question
+// Question see : https://schema.org/question
 // A sub property of object. A question.
 Question *Question `json:"question"`
 

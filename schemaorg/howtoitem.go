@@ -9,7 +9,7 @@ typeContext
 
 ListItem
 
-// RequiredQuantity see : /requiredQuantity
+// RequiredQuantity see : https://schema.org/requiredQuantity
 // The required quantity of the item(s).
 RequiredQuantity interface{} `json:"requiredQuantity"` // types : Number QuantitativeValue Text
 

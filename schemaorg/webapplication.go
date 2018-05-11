@@ -9,7 +9,7 @@ typeContext
 
 SoftwareApplication
 
-// BrowserRequirements see : /browserRequirements
+// BrowserRequirements see : https://schema.org/browserRequirements
 // Specifies browser requirements in human-readable text. For example, 'requires HTML5 support'.
 BrowserRequirements string `json:"browserRequirements"`
 

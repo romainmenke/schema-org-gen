@@ -9,7 +9,7 @@ typeContext
 
 Review
 
-// ClaimReviewed see : /claimReviewed
+// ClaimReviewed see : https://schema.org/claimReviewed
 // A short summary of the specific claims reviewed in a ClaimReview.
 ClaimReviewed string `json:"claimReviewed"`
 

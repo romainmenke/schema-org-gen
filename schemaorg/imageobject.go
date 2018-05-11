@@ -9,19 +9,19 @@ typeContext
 
 MediaObject
 
-// Caption see : /caption
+// Caption see : https://schema.org/caption
 // The caption for this object.
 Caption string `json:"caption"`
 
-// ExifData see : /exifData
+// ExifData see : https://schema.org/exifData
 // exif data for this object.
 ExifData interface{} `json:"exifData"` // types : PropertyValue Text
 
-// RepresentativeOfPage see : /representativeOfPage
+// RepresentativeOfPage see : https://schema.org/representativeOfPage
 // Indicates whether this image is representative of the content of the page.
 RepresentativeOfPage bool `json:"representativeOfPage"`
 
-// Thumbnail see : /thumbnail
+// Thumbnail see : https://schema.org/thumbnail
 // Thumbnail image for an image or video.
 Thumbnail *ImageObject `json:"thumbnail"`
 

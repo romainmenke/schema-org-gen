@@ -9,11 +9,11 @@ typeContext
 
 Action
 
-// FromLocation see : /fromLocation
+// FromLocation see : https://schema.org/fromLocation
 // A sub property of location. The original location of the object or the agent before the action.
 FromLocation *Place `json:"fromLocation"`
 
-// ToLocation see : /toLocation
+// ToLocation see : https://schema.org/toLocation
 // A sub property of location. The final location of the object or the agent after the action.
 ToLocation *Place `json:"toLocation"`
 

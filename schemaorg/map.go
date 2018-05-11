@@ -9,7 +9,7 @@ typeContext
 
 CreativeWork
 
-// MapType see : /mapType
+// MapType see : https://schema.org/mapType
 // Indicates the kind of Map, from the MapCategoryType Enumeration.
 MapType *MapCategoryType `json:"mapType"`
 

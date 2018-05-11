@@ -9,7 +9,7 @@ typeContext
 
 TransferAction
 
-// Lender see : /lender
+// Lender see : https://schema.org/lender
 // A sub property of participant. The person that lends the object being borrowed.
 Lender interface{} `json:"lender"` // types : Organization Person
 

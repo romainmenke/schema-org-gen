@@ -9,7 +9,7 @@ typeContext
 
 HowToItem
 
-// EstimatedCost see : /estimatedCost
+// EstimatedCost see : https://schema.org/estimatedCost
 // The estimated cost of the supply or supplies consumed when performing instructions.
 EstimatedCost interface{} `json:"estimatedCost"` // types : MonetaryAmount Text
 

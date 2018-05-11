@@ -9,7 +9,7 @@ typeContext
 
 PlanAction
 
-// ScheduledTime see : /scheduledTime
+// ScheduledTime see : https://schema.org/scheduledTime
 // The time the object is scheduled to.
 ScheduledTime interface{} `json:"scheduledTime"`
 

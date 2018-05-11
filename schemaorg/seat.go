@@ -9,19 +9,19 @@ typeContext
 
 Intangible
 
-// SeatNumber see : /seatNumber
+// SeatNumber see : https://schema.org/seatNumber
 // The location of the reserved seat (e.g., 27).
 SeatNumber string `json:"seatNumber"`
 
-// SeatRow see : /seatRow
+// SeatRow see : https://schema.org/seatRow
 // The row location of the reserved seat (e.g., B).
 SeatRow string `json:"seatRow"`
 
-// SeatSection see : /seatSection
+// SeatSection see : https://schema.org/seatSection
 // The section location of the reserved seat (e.g. Orchestra).
 SeatSection string `json:"seatSection"`
 
-// SeatingType see : /seatingType
+// SeatingType see : https://schema.org/seatingType
 // The type/class of the seat.
 SeatingType interface{} `json:"seatingType"` // types : QualitativeValue Text
 

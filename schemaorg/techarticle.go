@@ -9,11 +9,11 @@ typeContext
 
 Article
 
-// Dependencies see : /dependencies
+// Dependencies see : https://schema.org/dependencies
 // Prerequisites needed to fulfill steps in article.
 Dependencies string `json:"dependencies"`
 
-// ProficiencyLevel see : /proficiencyLevel
+// ProficiencyLevel see : https://schema.org/proficiencyLevel
 // Proficiency needed for this content; expected values: 'Beginner', 'Expert'.
 ProficiencyLevel string `json:"proficiencyLevel"`
 

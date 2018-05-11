@@ -9,7 +9,7 @@ typeContext
 
 UpdateAction
 
-// TargetCollection see : /targetCollection
+// TargetCollection see : https://schema.org/targetCollection
 // A sub property of object. The collection target of the action. Supersedes collection (see: https://schema.org/collection).
 TargetCollection *Thing `json:"targetCollection"`
 

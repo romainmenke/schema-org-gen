@@ -9,7 +9,7 @@ typeContext
 
 StructuredValue
 
-// EngineDisplacement see : http://auto.schema.org/engineDisplacement
+// EngineDisplacement see : https://schema.orghttp://auto.schema.org/engineDisplacement
 // The volume swept by all of the pistons inside the cylinders of an internal combustion engine in a single movement. 
 // 
 // Typical unit code(s): CMQ for cubic centimeter, LTR for liters, INQ for cubic inches
@@ -17,7 +17,7 @@ StructuredValue
 // * Note 2: You can use minValue (see: https://schema.org/minValue) and maxValue (see: https://schema.org/maxValue) to indicate ranges.
 EngineDisplacement *QuantitativeValue `json:"engineDisplacement"`
 
-// EnginePower see : http://auto.schema.org/enginePower
+// EnginePower see : https://schema.orghttp://auto.schema.org/enginePower
 // The power of the vehicle's engine.
 //     Typical unit code(s): KWT for kilowatt, BHP for brake horsepower, N12 for metric horsepower (PS, with 1 PS = 735,49875 W)
 // 
@@ -29,15 +29,15 @@ EngineDisplacement *QuantitativeValue `json:"engineDisplacement"`
 // 
 EnginePower *QuantitativeValue `json:"enginePower"`
 
-// EngineType see : http://auto.schema.org/engineType
+// EngineType see : https://schema.orghttp://auto.schema.org/engineType
 // The type of engine or engines powering the vehicle.
 EngineType interface{} `json:"engineType"` // types : QualitativeValue Text URL
 
-// FuelType see : /fuelType
+// FuelType see : https://schema.org/fuelType
 // The type of fuel suitable for the engine or engines of the vehicle. If the vehicle has only one engine, this property can be attached directly to the vehicle.
 FuelType interface{} `json:"fuelType"` // types : QualitativeValue Text URL
 
-// Torque see : http://auto.schema.org/torque
+// Torque see : https://schema.orghttp://auto.schema.org/torque
 // The torque (turning force) of the vehicle's engine.
 // 
 // Typical unit code(s): NU for newton metre (N m), F17 for pound-force per foot, or F48 for pound-force per inch

@@ -9,7 +9,7 @@ typeContext
 
 Organization
 
-// Sport see : /sport
+// Sport see : https://schema.org/sport
 // A type of sport (e.g. Baseball).
 Sport interface{} `json:"sport"` // types : Text URL
 

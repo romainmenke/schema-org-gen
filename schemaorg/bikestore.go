@@ -9,11 +9,11 @@ typeContext
 
 Store
 
-// CurrenciesAccepted see : /currenciesAccepted
+// CurrenciesAccepted see : https://schema.org/currenciesAccepted
 // The currency accepted (in ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217)).
 CurrenciesAccepted string `json:"currenciesAccepted"`
 
-// OpeningHours see : /openingHours
+// OpeningHours see : https://schema.org/openingHours
 // The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.
 // 
 // 
@@ -25,11 +25,11 @@ CurrenciesAccepted string `json:"currenciesAccepted"`
 // 
 OpeningHours string `json:"openingHours"`
 
-// PaymentAccepted see : /paymentAccepted
+// PaymentAccepted see : https://schema.org/paymentAccepted
 // Cash, credit card, etc.
 PaymentAccepted string `json:"paymentAccepted"`
 
-// PriceRange see : /priceRange
+// PriceRange see : https://schema.org/priceRange
 // The price range of the business, for example $$$.
 PriceRange string `json:"priceRange"`
 

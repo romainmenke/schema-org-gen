@@ -9,27 +9,27 @@ typeContext
 
 MusicPlaylist
 
-// CatalogNumber see : /catalogNumber
+// CatalogNumber see : https://schema.org/catalogNumber
 // The catalog number for the release.
 CatalogNumber string `json:"catalogNumber"`
 
-// CreditedTo see : /creditedTo
+// CreditedTo see : https://schema.org/creditedTo
 // The group the release is credited to if different than the byArtist. For example, Red and Blue is credited to "Stefani Germanotta Band", but by Lady Gaga.
 CreditedTo interface{} `json:"creditedTo"` // types : Organization Person
 
-// Duration see : /duration
+// Duration see : https://schema.org/duration
 // The duration of the item (movie, audio recording, event, etc.) in ISO 8601 date format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601).
 Duration *Duration `json:"duration"`
 
-// MusicReleaseFormat see : /musicReleaseFormat
+// MusicReleaseFormat see : https://schema.org/musicReleaseFormat
 // Format of this release (the type of recording media used, ie. compact disc, digital media, LP, etc.).
 MusicReleaseFormat *MusicReleaseFormatType `json:"musicReleaseFormat"`
 
-// RecordLabel see : /recordLabel
+// RecordLabel see : https://schema.org/recordLabel
 // The label that issued the release.
 RecordLabel *Organization `json:"recordLabel"`
 
-// ReleaseOf see : /releaseOf
+// ReleaseOf see : https://schema.org/releaseOf
 // The album this is a release of. Inverse property: albumRelease (see: https://schema.org/albumRelease).
 ReleaseOf *MusicAlbum `json:"releaseOf"`
 

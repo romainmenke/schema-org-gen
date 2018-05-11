@@ -9,11 +9,11 @@ typeContext
 
 Intangible
 
-// Grantee see : /grantee
+// Grantee see : https://schema.org/grantee
 // The person, organization, contact point, or audience that has been granted this permission.
 Grantee interface{} `json:"grantee"` // types : Audience ContactPoint Organization Person
 
-// PermissionType see : /permissionType
+// PermissionType see : https://schema.org/permissionType
 // The type of permission granted the person, organization, or audience.
 PermissionType *DigitalDocumentPermissionType `json:"permissionType"`
 

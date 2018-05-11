@@ -9,7 +9,7 @@ typeContext
 
 TradeAction
 
-// Price see : /price
+// Price see : https://schema.org/price
 // The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.
 // 
 // Usage guidelines:
@@ -24,7 +24,7 @@ TradeAction
 // 
 Price interface{} `json:"price"` // types : Number Text
 
-// PriceSpecification see : /priceSpecification
+// PriceSpecification see : https://schema.org/priceSpecification
 // One or more detailed price specifications, indicating the unit price and delivery or payment charges.
 PriceSpecification *PriceSpecification `json:"priceSpecification"`
 

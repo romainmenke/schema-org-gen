@@ -9,7 +9,7 @@ typeContext
 
 Action
 
-// Query see : /query
+// Query see : https://schema.org/query
 // A sub property of instrument. The query used on this action.
 Query string `json:"query"`
 

@@ -9,11 +9,11 @@ typeContext
 
 Organization
 
-// BoardingPolicy see : /boardingPolicy
+// BoardingPolicy see : https://schema.org/boardingPolicy
 // The type of boarding policy used by the airline (e.g. zone-based or group-based).
 BoardingPolicy *BoardingPolicyType `json:"boardingPolicy"`
 
-// IataCode see : /iataCode
+// IataCode see : https://schema.org/iataCode
 // IATA identifier for an airline or airport.
 IataCode string `json:"iataCode"`
 

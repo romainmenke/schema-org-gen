@@ -9,19 +9,19 @@ typeContext
 
 Intangible
 
-// DateCreated see : /dateCreated
+// DateCreated see : https://schema.org/dateCreated
 // The date on which the CreativeWork was created or the item was added to a DataFeed.
 DateCreated interface{} `json:"dateCreated"` // types : Date DateTime
 
-// DateDeleted see : /dateDeleted
+// DateDeleted see : https://schema.org/dateDeleted
 // The datetime the item was removed from the DataFeed.
 DateDeleted interface{} `json:"dateDeleted"`
 
-// DateModified see : /dateModified
+// DateModified see : https://schema.org/dateModified
 // The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.
 DateModified interface{} `json:"dateModified"` // types : Date DateTime
 
-// Item see : /item
+// Item see : https://schema.org/item
 // An entity represented by an entry in a list or data feed (e.g. an 'artist' in a list of 'artists')’.
 Item *Thing `json:"item"`
 

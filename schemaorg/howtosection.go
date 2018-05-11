@@ -9,7 +9,7 @@ typeContext
 
 ItemList
 
-// Steps see : /steps
+// Steps see : https://schema.org/steps
 // The steps in the form of a single item (text, document, video, etc.) or an ordered list with HowToStep and/or HowToSection items.
 Steps interface{} `json:"steps"` // types : CreativeWork ItemList Text
 

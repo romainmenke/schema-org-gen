@@ -9,7 +9,7 @@ typeContext
 
 Dataset
 
-// DataFeedElement see : /dataFeedElement
+// DataFeedElement see : https://schema.org/dataFeedElement
 // An item within in a data feed. Data feeds may have many elements.
 DataFeedElement interface{} `json:"dataFeedElement"` // types : DataFeedItem Text Thing
 

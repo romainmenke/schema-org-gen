@@ -9,11 +9,11 @@ typeContext
 
 UpdateAction
 
-// Replacee see : /replacee
+// Replacee see : https://schema.org/replacee
 // A sub property of object. The object that is being replaced.
 Replacee *Thing `json:"replacee"`
 
-// Replacer see : /replacer
+// Replacer see : https://schema.org/replacer
 // A sub property of object. The object that replaces.
 Replacer *Thing `json:"replacer"`
 

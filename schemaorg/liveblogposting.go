@@ -9,15 +9,15 @@ typeContext
 
 BlogPosting
 
-// CoverageEndTime see : /coverageEndTime
+// CoverageEndTime see : https://schema.org/coverageEndTime
 // The time when the live blog will stop covering the Event. Note that coverage may continue after the Event concludes.
 CoverageEndTime interface{} `json:"coverageEndTime"`
 
-// CoverageStartTime see : /coverageStartTime
+// CoverageStartTime see : https://schema.org/coverageStartTime
 // The time when the live blog will begin covering the Event. Note that coverage may begin before the Event's start time. The LiveBlogPosting may also be created before coverage begins.
 CoverageStartTime interface{} `json:"coverageStartTime"`
 
-// LiveBlogUpdate see : /liveBlogUpdate
+// LiveBlogUpdate see : https://schema.org/liveBlogUpdate
 // An update to the LiveBlog.
 LiveBlogUpdate *BlogPosting `json:"liveBlogUpdate"`
 

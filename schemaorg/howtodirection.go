@@ -9,35 +9,35 @@ typeContext
 
 ListItem
 
-// AfterMedia see : /afterMedia
+// AfterMedia see : https://schema.org/afterMedia
 // A media object representing the circumstances after performing this direction.
 AfterMedia *MediaObject `json:"afterMedia"`
 
-// BeforeMedia see : /beforeMedia
+// BeforeMedia see : https://schema.org/beforeMedia
 // A media object representing the circumstances before performing this direction.
 BeforeMedia *MediaObject `json:"beforeMedia"`
 
-// DuringMedia see : /duringMedia
+// DuringMedia see : https://schema.org/duringMedia
 // A media object representing the circumstances while performing this direction.
 DuringMedia *MediaObject `json:"duringMedia"`
 
-// PerformTime see : /performTime
+// PerformTime see : https://schema.org/performTime
 // The length of time it takes to perform instructions or a direction (not including time to prepare the supplies), in ISO 8601 duration format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601).
 PerformTime *Duration `json:"performTime"`
 
-// PrepTime see : /prepTime
+// PrepTime see : https://schema.org/prepTime
 // The length of time it takes to prepare the items to be used in instructions or a direction, in ISO 8601 duration format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601).
 PrepTime *Duration `json:"prepTime"`
 
-// Supply see : /supply
+// Supply see : https://schema.org/supply
 // A sub-property of instrument. A supply consumed when performing instructions or a direction.
 Supply interface{} `json:"supply"` // types : HowToSupply Text
 
-// Tool see : /tool
+// Tool see : https://schema.org/tool
 // A sub property of instrument. An object used (but not consumed) when performing instructions or a direction.
 Tool interface{} `json:"tool"` // types : HowToTool Text
 
-// TotalTime see : /totalTime
+// TotalTime see : https://schema.org/totalTime
 // The total time required to perform instructions or a direction (including time to prepare the supplies), in ISO 8601 duration format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601).
 TotalTime *Duration `json:"totalTime"`
 

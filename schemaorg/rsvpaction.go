@@ -9,15 +9,15 @@ typeContext
 
 InformAction
 
-// AdditionalNumberOfGuests see : /additionalNumberOfGuests
+// AdditionalNumberOfGuests see : https://schema.org/additionalNumberOfGuests
 // If responding yes, the number of guests who will attend in addition to the invitee.
 AdditionalNumberOfGuests float64 `json:"additionalNumberOfGuests"`
 
-// Comment see : /comment
+// Comment see : https://schema.org/comment
 // Comments, typically from users.
 Comment *Comment `json:"comment"`
 
-// RsvpResponse see : /rsvpResponse
+// RsvpResponse see : https://schema.org/rsvpResponse
 // The response (yes, no, maybe) to the RSVP.
 RsvpResponse *RsvpResponseType `json:"rsvpResponse"`
 

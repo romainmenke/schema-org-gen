@@ -9,11 +9,11 @@ typeContext
 
 CivicStructure
 
-// IataCode see : /iataCode
+// IataCode see : https://schema.org/iataCode
 // IATA identifier for an airline or airport.
 IataCode string `json:"iataCode"`
 
-// IcaoCode see : /icaoCode
+// IcaoCode see : https://schema.org/icaoCode
 // ICAO identifier for an airport.
 IcaoCode string `json:"icaoCode"`
 

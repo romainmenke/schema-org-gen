@@ -9,11 +9,11 @@ typeContext
 
 CivicStructure
 
-// AvailableService see : http://health-lifesci.schema.org/availableService
+// AvailableService see : https://schema.orghttp://health-lifesci.schema.org/availableService
 // A medical service available from this provider.
 AvailableService interface{} `json:"availableService"` // types : MedicalProcedure MedicalTest MedicalTherapy
 
-// MedicalSpecialty see : http://health-lifesci.schema.org/medicalSpecialty
+// MedicalSpecialty see : https://schema.orghttp://health-lifesci.schema.org/medicalSpecialty
 // A medical specialty of the provider.
 MedicalSpecialty interface{} `json:"medicalSpecialty"`
 

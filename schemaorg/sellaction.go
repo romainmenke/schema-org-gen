@@ -9,7 +9,7 @@ typeContext
 
 TradeAction
 
-// Buyer see : /buyer
+// Buyer see : https://schema.org/buyer
 // A sub property of participant. The participant/person/organization that bought the object.
 Buyer *Person `json:"buyer"`
 

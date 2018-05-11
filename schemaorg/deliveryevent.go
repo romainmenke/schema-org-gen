@@ -9,19 +9,19 @@ typeContext
 
 Event
 
-// AccessCode see : /accessCode
+// AccessCode see : https://schema.org/accessCode
 // Password, PIN, or access code needed for delivery (e.g. from a locker).
 AccessCode string `json:"accessCode"`
 
-// AvailableFrom see : /availableFrom
+// AvailableFrom see : https://schema.org/availableFrom
 // When the item is available for pickup from the store, locker, etc.
 AvailableFrom interface{} `json:"availableFrom"`
 
-// AvailableThrough see : /availableThrough
+// AvailableThrough see : https://schema.org/availableThrough
 // After this date, the item will no longer be available for pickup.
 AvailableThrough interface{} `json:"availableThrough"`
 
-// HasDeliveryMethod see : /hasDeliveryMethod
+// HasDeliveryMethod see : https://schema.org/hasDeliveryMethod
 // Method used for delivery or shipping.
 HasDeliveryMethod *DeliveryMethod `json:"hasDeliveryMethod"`
 

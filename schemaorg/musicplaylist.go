@@ -9,11 +9,11 @@ typeContext
 
 CreativeWork
 
-// NumTracks see : /numTracks
+// NumTracks see : https://schema.org/numTracks
 // The number of tracks in this album or playlist.
 NumTracks int `json:"numTracks"`
 
-// Track see : /track
+// Track see : https://schema.org/track
 // A music recording (track)—usually a single song. If an ItemList is given, the list should contain items of type MusicRecording. Supersedes tracks (see: https://schema.org/tracks).
 Track interface{} `json:"track"` // types : ItemList MusicRecording
 

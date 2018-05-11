@@ -9,7 +9,7 @@ typeContext
 
 Reservation
 
-// SubReservation see : /subReservation
+// SubReservation see : https://schema.org/subReservation
 // The individual reservations included in the package. Typically a repeated property.
 SubReservation *Reservation `json:"subReservation"`
 

@@ -9,7 +9,7 @@ typeContext
 
 AchieveAction
 
-// Loser see : /loser
+// Loser see : https://schema.org/loser
 // A sub property of participant. The loser of the action.
 Loser *Person `json:"loser"`
 

@@ -9,15 +9,15 @@ typeContext
 
 Intangible
 
-// Game see : /game
+// Game see : https://schema.org/game
 // Video game which is played on this server. Inverse property: gameServer (see: https://schema.org/gameServer).
 Game *VideoGame `json:"game"`
 
-// PlayersOnline see : /playersOnline
+// PlayersOnline see : https://schema.org/playersOnline
 // Number of players on the server.
 PlayersOnline int `json:"playersOnline"`
 
-// ServerStatus see : /serverStatus
+// ServerStatus see : https://schema.org/serverStatus
 // Status of a game server.
 ServerStatus *GameServerStatus `json:"serverStatus"`
 
