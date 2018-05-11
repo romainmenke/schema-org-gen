@@ -16,6 +16,8 @@ func objectParser(tokenizer *html.Tokenizer, o *ObjectSource) error {
 
 	parsedTitle := false
 
+	capturedObject := false
+
 	o.Object.URL = "https://schema.org" + o.URL
 	if o.Parent != nil && o.Parent.Object != nil {
 		o.Object.ParentObject = o.Parent.Object
@@ -56,66 +58,74 @@ TOKENIZER_LOOP:
 						inDefinition = true
 					}
 				}
+
+				if capturedObject {
+					break TOKENIZER_LOOP
+				}
 			}
 
 			if inDefinition {
-
 				if t.Data == "tbody" {
 					for _, attr := range t.Attr {
 						if attr.Key == "class" && attr.Val == "supertype" {
 							inProperties = true
 						}
 					}
-				}
 
-				if inProperties {
-
-					if t.Data == "tr" {
-						inField = true
-					}
-
-					if inField {
-
-						if t.Data == "th" {
-							for _, attr := range t.Attr {
-								if attr.Key == "class" && attr.Val == "prop-nam" {
-									label, url, err := fieldNameParser(tokenizer)
-									if err != nil {
-										return err
-									}
-
-									currentField.Name = label
-									currentField.URL = url
-								}
-							}
-						}
-						if t.Data == "td" {
-							for _, attr := range t.Attr {
-								if attr.Key == "class" && attr.Val == "prop-ect" {
-									fieldTypes, err := fieldTypeParser(tokenizer)
-									if err != nil {
-										return err
-									}
-
-									currentField.Types = fieldTypes
-								}
-							}
-						}
-						if t.Data == "td" {
-							for _, attr := range t.Attr {
-								if attr.Key == "class" && attr.Val == "prop-desc" {
-									comment, err := fieldCommentParser(tokenizer)
-									if err != nil {
-										return err
-									}
-
-									currentField.Comment = comment
-								}
-							}
-						}
-
+					if capturedObject {
+						break TOKENIZER_LOOP
 					}
 				}
+			}
+
+			if inProperties {
+
+				if t.Data == "tr" {
+					inField = true
+					capturedObject = true
+				}
+			}
+
+			if inField {
+
+				if t.Data == "th" {
+					for _, attr := range t.Attr {
+						if attr.Key == "class" && attr.Val == "prop-nam" {
+							label, url, err := fieldNameParser(tokenizer)
+							if err != nil {
+								return err
+							}
+
+							currentField.Name = label
+							currentField.URL = url
+						}
+					}
+				}
+				if t.Data == "td" {
+					for _, attr := range t.Attr {
+						if attr.Key == "class" && attr.Val == "prop-ect" {
+							fieldTypes, err := fieldTypeParser(tokenizer)
+							if err != nil {
+								return err
+							}
+
+							currentField.Types = fieldTypes
+						}
+					}
+				}
+				if t.Data == "td" {
+					for _, attr := range t.Attr {
+						if attr.Key == "class" && attr.Val == "prop-desc" {
+							comment, err := fieldCommentParser(tokenizer)
+							if err != nil {
+								return err
+							}
+
+							currentField.Comment = comment
+						}
+					}
+				}
+
 			}
 
 		case tt == html.EndTagToken:
@@ -125,25 +135,20 @@ TOKENIZER_LOOP:
 				inDefinition = false
 			}
 
-			if inDefinition {
+			if t.Data == "tbody" {
+				inProperties = false
+				break TOKENIZER_LOOP
+			}
 
-				if inProperties {
+			if inDefinition && inProperties && inField {
 
-					if t.Data == "tbody" {
-						inProperties = false
-						break TOKENIZER_LOOP
-					}
-
-					if inField {
-
-						if t.Data == "tr" {
-							inField = false
-							o.Object.Fields = append(o.Object.Fields, currentField)
-							currentField = Field{}
-						}
-					}
+				if t.Data == "tr" {
+					inField = false
+					o.Object.Fields = append(o.Object.Fields, currentField)
+					currentField = Field{}
 				}
 			}
+
 		}
 	}
 	err := tokenizer.Err()

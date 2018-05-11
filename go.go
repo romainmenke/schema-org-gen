@@ -42,11 +42,15 @@ func goTypeFile(ctx context.Context, o *ObjectSource, err error) error {
 
 	f.WriteString("package schemaorg\n\n")
 
+	f.WriteString("import \"encoding/json\"\n\n")
+
 	f.WriteString(fmt.Sprintf("// %s see : %s\n", strings.Title(object.Name), object.URL))
 	f.WriteString(fmt.Sprintf("type %s struct {\n\n", strings.Title(object.Name)))
 
+	f.WriteString("typeContext\n\n")
+
 	if object.ParentObject != nil {
-		f.WriteString(object.ParentObject.Name)
+		f.WriteString(object.ParentObject.Name + "\n\n")
 	}
 
 	for _, field := range object.Fields {
@@ -69,11 +73,20 @@ func goTypeFile(ctx context.Context, o *ObjectSource, err error) error {
 			}
 			f.WriteString(fmt.Sprintf("%s interface{} `json:\"%s\"` // types :%s\n\n", strings.Title(field.Name), field.Name, fieldTypesComment))
 		} else {
-			f.WriteString(fmt.Sprintf("%s string `json:\"%s\"`\n\n", strings.Title(field.Name), field.Name))
+			f.WriteString(fmt.Sprintf("%s %s `json:\"%s\"`\n\n", strings.Title(field.Name), goTypeForSchemaDataType(field.Types[0].Type), field.Name))
 		}
 	}
 
-	f.WriteString("}\n\n")
+	f.WriteString("}\n")
+
+	f.WriteString(fmt.Sprintf(`
+func (v *%s) MarshalJSON() ([]byte, error) {
+	v.C = "http://schema.org"
+	v.T = "%s"
+
+	return json.Marshal(v)
+}
+`, strings.Title(object.Name), strings.Title(object.Name)))
 
 	err = f.Close()
 	if err != nil {
@@ -81,6 +94,87 @@ func goTypeFile(ctx context.Context, o *ObjectSource, err error) error {
 	}
 
 	return nil
+}
+
+func writeGoDataTypes(ctx context.Context) error {
+	if verboseLog {
+		start := time.Now()
+		defer func() {
+			log.Printf("generated go data types, duration : %v\n", time.Since(start))
+		}()
+	}
+
+	f, err := newObjectFile("./schemaorg", "data-types")
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+
+	f.WriteString("package schemaorg\n\n")
+	f.WriteString(`
+import (
+	"fmt"
+	"time"
+)
+`)
+
+	f.WriteString(fmt.Sprintf("// Data Types see : %s\n\n", "https://schema.org/DataType"))
+
+	f.WriteString("// typeContext is used for fixed values")
+	f.WriteString(fmt.Sprintf(`
+type typeContext struct {
+	C string %s
+	T string %s
+}
+`, "`json:\"@context\"`", "`json:\"@type\"`"))
+
+	f.WriteString("// Date https://en.wikipedia.org/wiki/ISO_8601")
+	f.WriteString(`
+type Date time.Time
+
+func (v Date)MarshalJSON() ([]byte, error) {
+	jsonValue := fmt.Sprintf("\"%s\"", time.Time(v).Format("2006-01-02"))
+	return []byte(jsonValue), nil
+}
+`)
+
+	f.WriteString("// DateTime https://en.wikipedia.org/wiki/ISO_8601")
+	f.WriteString(`
+type DateTime time.Time
+
+`)
+
+	f.WriteString("// Time https://schema.org/Time")
+	f.WriteString(`
+type Time string
+
+`)
+
+	err = f.Close()
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func goTypeForSchemaDataType(schemaDataType string) string {
+	switch schemaDataType {
+	case "Boolean":
+		return "bool"
+	case "Number":
+		return "float64"
+	case "Float":
+		return "float64"
+	case "Integer":
+		return "int"
+	case "Text":
+		return "string"
+	case "URL":
+		return "string"
+	default:
+		return schemaDataType
+	}
 }
 
 func newObjectFile(dir string, typeName string) (*os.File, error) {

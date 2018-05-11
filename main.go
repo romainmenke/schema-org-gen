@@ -38,6 +38,11 @@ func useCacheRun() {
 		return
 	}
 
+	err = writeGoDataTypes(context.Background())
+	if err != nil {
+		panic(err)
+	}
+
 	err = tm.walk(context.Background(), goTypeFile)
 	if err != nil {
 		panic(err)
@@ -74,6 +79,11 @@ func cleanRun() {
 	}
 
 	err = typeMapCacheFile.Close()
+	if err != nil {
+		panic(err)
+	}
+
+	err = writeGoDataTypes(context.Background())
 	if err != nil {
 		panic(err)
 	}
