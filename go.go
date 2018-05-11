@@ -13,73 +13,90 @@ import (
 
 var newLineRegex = regexp.MustCompile(`\r?\n`)
 
-func goTypeFile(ctx context.Context, o *ObjectSource, err error) error {
-	if err != nil {
-		return err
-	}
-	if o == nil || o.Object == nil {
-		return nil
-	}
-
-	if verboseLog {
-		start := time.Now()
-		defer func() {
-			log.Printf("generated go : %s, duration : %v\n", o.URL, time.Since(start))
-		}()
-	}
-
-	object := o.Object
-
-	if object.Name == "" {
-		return nil
-	}
-
-	f, err := newObjectFile("./schemaorg", object.Name)
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-
-	f.WriteString("package schemaorg\n\n")
-
-	f.WriteString("import \"encoding/json\"\n\n")
-
-	f.WriteString(fmt.Sprintf("// %s see : %s\n", strings.Title(object.Name), object.URL))
-	f.WriteString(fmt.Sprintf("type %s struct {\n\n", strings.Title(object.Name)))
-
-	f.WriteString("typeContext\n\n")
-
-	if object.ParentObject != nil {
-		f.WriteString(object.ParentObject.Name + "\n\n")
-	}
-
-	for _, field := range object.Fields {
-		if field.Name == "" {
-			continue
+func listGoTypes(sp *[]string) func(ctx context.Context, o *ObjectSource, err error) error {
+	return func(ctx context.Context, o *ObjectSource, err error) error {
+		if err != nil {
+			return err
 		}
-		if len(field.Types) == 0 {
-			continue
+		if o == nil || o.Object == nil || sp == nil {
+			return nil
 		}
 
-		comment := newLineRegex.ReplaceAllString(field.Comment, "\n// ")
+		s := *sp
+		*sp = append(s, strings.Title(o.Object.Name))
 
-		f.WriteString(fmt.Sprintf("// %s see : %s\n", strings.Title(field.Name), field.URL))
-		f.WriteString(fmt.Sprintf("// %s\n", comment))
+		return nil
+	}
+}
 
-		if len(field.Types) > 1 {
-			fieldTypesComment := ""
-			for _, fieldType := range field.Types {
-				fieldTypesComment = fieldTypesComment + " " + fieldType.Type
+func goTypeFile(goTypes []string) func(ctx context.Context, o *ObjectSource, err error) error {
+	return func(ctx context.Context, o *ObjectSource, err error) error {
+		if err != nil {
+			return err
+		}
+		if o == nil || o.Object == nil {
+			return nil
+		}
+
+		if verboseLog {
+			start := time.Now()
+			defer func() {
+				log.Printf("generated go : %s, duration : %v\n", o.URL, time.Since(start))
+			}()
+		}
+
+		object := o.Object
+
+		if object.Name == "" {
+			return nil
+		}
+
+		f, err := newObjectFile("./schemaorg", object.Name)
+		if err != nil {
+			return err
+		}
+		defer f.Close()
+
+		f.WriteString("package schemaorg\n\n")
+
+		f.WriteString("import \"encoding/json\"\n\n")
+
+		f.WriteString(fmt.Sprintf("// %s see : %s\n", strings.Title(object.Name), object.URL))
+		f.WriteString(fmt.Sprintf("type %s struct {\n\n", strings.Title(object.Name)))
+
+		f.WriteString("typeContext\n\n")
+
+		if object.ParentObject != nil {
+			f.WriteString(object.ParentObject.Name + "\n\n")
+		}
+
+		for _, field := range object.Fields {
+			if field.Name == "" {
+				continue
 			}
-			f.WriteString(fmt.Sprintf("%s interface{} `json:\"%s\"` // types :%s\n\n", strings.Title(field.Name), field.Name, fieldTypesComment))
-		} else {
-			f.WriteString(fmt.Sprintf("%s %s `json:\"%s\"`\n\n", strings.Title(field.Name), goTypeForSchemaDataType(field.Types[0].Type), field.Name))
+			if len(field.Types) == 0 {
+				continue
+			}
+
+			comment := newLineRegex.ReplaceAllString(field.Comment, "\n// ")
+
+			f.WriteString(fmt.Sprintf("// %s see : %s\n", strings.Title(field.Name), field.URL))
+			f.WriteString(fmt.Sprintf("// %s\n", comment))
+
+			if len(field.Types) > 1 {
+				fieldTypesComment := ""
+				for _, fieldType := range field.Types {
+					fieldTypesComment = fieldTypesComment + " " + fieldType.Type
+				}
+				f.WriteString(fmt.Sprintf("%s interface{} `json:\"%s\"` // types :%s\n\n", strings.Title(field.Name), field.Name, fieldTypesComment))
+			} else {
+				f.WriteString(fmt.Sprintf("%s %s `json:\"%s\"`\n\n", strings.Title(field.Name), goTypeForSchemaDataType(goTypes, field.Types[0].Type), field.Name))
+			}
 		}
-	}
 
-	f.WriteString("}\n")
+		f.WriteString("}\n")
 
-	f.WriteString(fmt.Sprintf(`
+		f.WriteString(fmt.Sprintf(`
 func (v *%s) MarshalJSON() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "%s"
@@ -88,12 +105,13 @@ func (v *%s) MarshalJSON() ([]byte, error) {
 }
 `, strings.Title(object.Name), strings.Title(object.Name)))
 
-	err = f.Close()
-	if err != nil {
-		return err
-	}
+		err = f.Close()
+		if err != nil {
+			return err
+		}
 
-	return nil
+		return nil
+	}
 }
 
 func writeGoDataTypes(ctx context.Context) error {
@@ -158,7 +176,7 @@ type Time string
 	return nil
 }
 
-func goTypeForSchemaDataType(schemaDataType string) string {
+func goTypeForSchemaDataType(goTypes []string, schemaDataType string) string {
 	switch schemaDataType {
 	case "Boolean":
 		return "bool"
@@ -173,7 +191,12 @@ func goTypeForSchemaDataType(schemaDataType string) string {
 	case "URL":
 		return "string"
 	default:
-		return schemaDataType
+		for _, goType := range goTypes {
+			if goType == schemaDataType {
+				return "*" + schemaDataType
+			}
+		}
+		return "interface{}"
 	}
 }
 

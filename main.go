@@ -9,8 +9,8 @@ import (
 var verboseLog = true
 
 func main() {
-	// useCacheRun()
-	cleanRun()
+	useCacheRun()
+	// cleanRun()
 }
 
 func useCacheRun() {
@@ -43,7 +43,13 @@ func useCacheRun() {
 		panic(err)
 	}
 
-	err = tm.walk(context.Background(), goTypeFile)
+	goTypes := []string{}
+	err = tm.walk(context.Background(), listGoTypes(&goTypes))
+	if err != nil {
+		panic(err)
+	}
+
+	err = tm.walk(context.Background(), goTypeFile(goTypes))
 	if err != nil {
 		panic(err)
 	}
@@ -88,7 +94,13 @@ func cleanRun() {
 		panic(err)
 	}
 
-	err = tm.walk(context.Background(), goTypeFile)
+	goTypes := []string{}
+	err = tm.walk(context.Background(), listGoTypes(&goTypes))
+	if err != nil {
+		panic(err)
+	}
+
+	err = tm.walk(context.Background(), goTypeFile(goTypes))
 	if err != nil {
 		panic(err)
 	}

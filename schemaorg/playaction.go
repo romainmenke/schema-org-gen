@@ -1,0 +1,27 @@
+package schemaorg
+
+import "encoding/json"
+
+// PlayAction see : https://schema.org/PlayAction
+type PlayAction struct {
+
+typeContext
+
+Action
+
+// Audience see : /audience
+// An intended audience, i.e. a group for whom something was created. Supersedes serviceAudience (see: https://schema.org/serviceAudience).
+Audience *Audience `json:"audience"`
+
+// Event see : /event
+// Upcoming or past event associated with this place, organization, or action. Supersedes events (see: https://schema.org/events).
+Event *Event `json:"event"`
+
+}
+
+func (v *PlayAction) MarshalJSON() ([]byte, error) {
+	v.C = "http://schema.org"
+	v.T = "PlayAction"
+
+	return json.Marshal(v)
+}
