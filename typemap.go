@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"os"
 	"time"
@@ -95,6 +96,13 @@ func (v *TypeMap) walk(ctx context.Context, walker walkFunc) error {
 }
 
 func getTypeMap(ctx context.Context) (*TypeMap, error) {
+	if verboseLog {
+		start := time.Now()
+		defer func() {
+			log.Printf("fetched : %s, duration : %v\n", "https://schema.org/docs/full.html", time.Since(start))
+		}()
+	}
+
 	req, err := http.NewRequest("GET", "https://schema.org/docs/full.html", nil)
 	if err != nil {
 		return nil, err
@@ -215,6 +223,13 @@ TOKENIZER_LOOP:
 }
 
 func getObject(ctx context.Context, o *ObjectSource, err error) error {
+	if verboseLog {
+		start := time.Now()
+		defer func() {
+			log.Printf("fetched : %s%s, duration : %v\n", "https://schema.org", o.URL, time.Since(start))
+		}()
+	}
+
 	if err != nil {
 		return err
 	}

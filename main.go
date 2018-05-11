@@ -6,6 +6,8 @@ import (
 	"io"
 )
 
+var verboseLog = true
+
 func main() {
 	// useCacheRun()
 	cleanRun()

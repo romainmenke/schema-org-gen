@@ -3,10 +3,12 @@ package main
 import (
 	"context"
 	"fmt"
+	"log"
 	"os"
 	"path"
 	"regexp"
 	"strings"
+	"time"
 )
 
 var newLineRegex = regexp.MustCompile(`\r?\n`)
@@ -17,6 +19,13 @@ func goTypeFile(ctx context.Context, o *ObjectSource, err error) error {
 	}
 	if o == nil || o.Object == nil {
 		return nil
+	}
+
+	if verboseLog {
+		start := time.Now()
+		defer func() {
+			log.Printf("generated go : %s, duration : %v\n", o.URL, time.Since(start))
+		}()
 	}
 
 	object := o.Object
