@@ -10,8 +10,8 @@ type BuyAction struct {
 
 	// Seller see : https://schema.org/seller
 	// An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider. Supersedes merchant (see: https://schema.org/merchant), vendor (see: https://schema.org/vendor).
-	Seller interface{} `json:"seller,omitempty"` // types : Organization Person
-
+	// types : Organization Person
+	Seller interface{} `json:"seller,omitempty"`
 }
 
 func (v BuyAction) MarshalJSONWithTypeContext() ([]byte, error) {

@@ -10,16 +10,18 @@ type BusinessAudience struct {
 
 	// NumberOfEmployees see : https://schema.org/numberOfEmployees
 	// The number of employees in an organization e.g. business.
-	NumberOfEmployees *QuantitativeValue `json:"numberOfEmployees,omitempty"` // types : QuantitativeValue
+	// types : QuantitativeValue
+	NumberOfEmployees *QuantitativeValue `json:"numberOfEmployees,omitempty"`
 
 	// YearlyRevenue see : https://schema.org/yearlyRevenue
 	// The size of the business in annual revenue.
-	YearlyRevenue *QuantitativeValue `json:"yearlyRevenue,omitempty"` // types : QuantitativeValue
+	// types : QuantitativeValue
+	YearlyRevenue *QuantitativeValue `json:"yearlyRevenue,omitempty"`
 
 	// YearsInOperation see : https://schema.org/yearsInOperation
 	// The age of the business.
-	YearsInOperation *QuantitativeValue `json:"yearsInOperation,omitempty"` // types : QuantitativeValue
-
+	// types : QuantitativeValue
+	YearsInOperation *QuantitativeValue `json:"yearsInOperation,omitempty"`
 }
 
 func (v BusinessAudience) MarshalJSONWithTypeContext() ([]byte, error) {

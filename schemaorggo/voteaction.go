@@ -10,8 +10,8 @@ type VoteAction struct {
 
 	// Candidate see : https://schema.org/candidate
 	// A sub property of object. The candidate subject of this action.
-	Candidate *Person `json:"candidate,omitempty"` // types : Person
-
+	// types : Person
+	Candidate *Person `json:"candidate,omitempty"`
 }
 
 func (v VoteAction) MarshalJSONWithTypeContext() ([]byte, error) {

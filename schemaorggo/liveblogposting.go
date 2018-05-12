@@ -10,16 +10,18 @@ type LiveBlogPosting struct {
 
 	// CoverageEndTime see : https://schema.org/coverageEndTime
 	// The time when the live blog will stop covering the Event. Note that coverage may continue after the Event concludes.
-	CoverageEndTime DateTime `json:"coverageEndTime,omitempty"` // types : DateTime
+	// types : DateTime
+	CoverageEndTime DateTime `json:"coverageEndTime,omitempty"`
 
 	// CoverageStartTime see : https://schema.org/coverageStartTime
-	// The time when the live blog will begin covering the Event. Note that coverage may begin before the Event's start time. The LiveBlogPosting may also be created before coverage begins.
-	CoverageStartTime DateTime `json:"coverageStartTime,omitempty"` // types : DateTime
+	// The time when the live blog will begin covering the Event. Note that coverage may begin before the Event&#39;s start time. The LiveBlogPosting may also be created before coverage begins.
+	// types : DateTime
+	CoverageStartTime DateTime `json:"coverageStartTime,omitempty"`
 
 	// LiveBlogUpdate see : https://schema.org/liveBlogUpdate
 	// An update to the LiveBlog.
-	LiveBlogUpdate *BlogPosting `json:"liveBlogUpdate,omitempty"` // types : BlogPosting
-
+	// types : BlogPosting
+	LiveBlogUpdate *BlogPosting `json:"liveBlogUpdate,omitempty"`
 }
 
 func (v LiveBlogPosting) MarshalJSONWithTypeContext() ([]byte, error) {

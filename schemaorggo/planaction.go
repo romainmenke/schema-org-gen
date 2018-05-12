@@ -10,8 +10,8 @@ type PlanAction struct {
 
 	// ScheduledTime see : https://schema.org/scheduledTime
 	// The time the object is scheduled to.
-	ScheduledTime DateTime `json:"scheduledTime,omitempty"` // types : DateTime
-
+	// types : DateTime
+	ScheduledTime DateTime `json:"scheduledTime,omitempty"`
 }
 
 func (v PlanAction) MarshalJSONWithTypeContext() ([]byte, error) {

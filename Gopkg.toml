@@ -25,6 +25,20 @@
 #   unused-packages = true
 
 
+
+required = [
+  "github.com/mjibson/esc",
+]
+
+[metadata]
+tools = [
+  "github.com/mjibson/esc",
+]
+
+[[constraint]]
+  name = "github.com/mjibson/esc"
+  version = "=0.1.0"
+
 [[constraint]]
   branch = "master"
   name = "golang.org/x/net"

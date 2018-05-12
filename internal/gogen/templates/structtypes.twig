@@ -1,0 +1,37 @@
+package {{ package_name }}
+
+import "encoding/json"
+
+// {{ type_name }} see : {{ type_url }}
+type {{ type_name }} struct {
+	{% if parent_type_name %}
+		{{ parent_type_name }}
+	{% endif %}
+
+	typeContext
+
+	{% for field in fields %}
+		{{ field.external_ref }}
+		{{ field.comment }}
+		{{ field.types_comment }}
+		{{ field.name }} {{ field.go_type }} `json:"{{ field.json_name }},omitempty"`
+	{% endfor %}
+}
+
+func (v {{ type_name }}) MarshalJSONWithTypeContext() ([]byte, error) {
+	v.C = "http://schema.org"
+	v.T = "{{ type_name }}"
+
+	return json.Marshal(v)
+}
+
+func (v *{{ type_name }}) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "{{ type_name }}"
+
+	return json.Marshal(*v)
+}

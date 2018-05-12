@@ -10,8 +10,8 @@ type TrackAction struct {
 
 	// DeliveryMethod see : https://schema.org/deliveryMethod
 	// A sub property of instrument. The method of delivery.
-	DeliveryMethod *DeliveryMethod `json:"deliveryMethod,omitempty"` // types : DeliveryMethod
-
+	// types : DeliveryMethod
+	DeliveryMethod *DeliveryMethod `json:"deliveryMethod,omitempty"`
 }
 
 func (v TrackAction) MarshalJSONWithTypeContext() ([]byte, error) {

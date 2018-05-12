@@ -10,12 +10,13 @@ type TechArticle struct {
 
 	// Dependencies see : https://schema.org/dependencies
 	// Prerequisites needed to fulfill steps in article.
-	Dependencies string `json:"dependencies,omitempty"` // types : Text
+	// types : Text
+	Dependencies string `json:"dependencies,omitempty"`
 
 	// ProficiencyLevel see : https://schema.org/proficiencyLevel
-	// Proficiency needed for this content; expected values: 'Beginner', 'Expert'.
-	ProficiencyLevel string `json:"proficiencyLevel,omitempty"` // types : Text
-
+	// Proficiency needed for this content; expected values: &#39;Beginner&#39;, &#39;Expert&#39;.
+	// types : Text
+	ProficiencyLevel string `json:"proficiencyLevel,omitempty"`
 }
 
 func (v TechArticle) MarshalJSONWithTypeContext() ([]byte, error) {

@@ -10,44 +10,53 @@ type RadioSeason struct {
 
 	// Actor see : https://schema.org/actor
 	// An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip. Supersedes actors (see: https://schema.org/actors).
-	Actor *Person `json:"actor,omitempty"` // types : Person
+	// types : Person
+	Actor *Person `json:"actor,omitempty"`
 
 	// Director see : https://schema.org/director
 	// A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip. Supersedes directors (see: https://schema.org/directors).
-	Director *Person `json:"director,omitempty"` // types : Person
+	// types : Person
+	Director *Person `json:"director,omitempty"`
 
 	// EndDate see : https://schema.org/endDate
 	// The end date and time of the item (in ISO 8601 date format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601)).
-	EndDate interface{} `json:"endDate,omitempty"` // types : Date DateTime
+	// types : Date DateTime
+	EndDate interface{} `json:"endDate,omitempty"`
 
 	// Episode see : https://schema.org/episode
 	// An episode of a tv, radio or game media within a series or season. Supersedes episodes (see: https://schema.org/episodes).
-	Episode *Episode `json:"episode,omitempty"` // types : Episode
+	// types : Episode
+	Episode *Episode `json:"episode,omitempty"`
 
 	// NumberOfEpisodes see : https://schema.org/numberOfEpisodes
 	// The number of episodes in this season or series.
-	NumberOfEpisodes float64 `json:"numberOfEpisodes,omitempty"` // types : Integer
+	// types : Integer
+	NumberOfEpisodes float64 `json:"numberOfEpisodes,omitempty"`
 
 	// PartOfSeries see : https://schema.org/partOfSeries
 	// The series to which this episode or season belongs. Supersedes partOfTVSeries (see: https://schema.org/partOfTVSeries).
-	PartOfSeries *CreativeWorkSeries `json:"partOfSeries,omitempty"` // types : CreativeWorkSeries
+	// types : CreativeWorkSeries
+	PartOfSeries *CreativeWorkSeries `json:"partOfSeries,omitempty"`
 
 	// ProductionCompany see : https://schema.org/productionCompany
 	// The production company or studio responsible for the item e.g. series, video game, episode etc.
-	ProductionCompany *Organization `json:"productionCompany,omitempty"` // types : Organization
+	// types : Organization
+	ProductionCompany *Organization `json:"productionCompany,omitempty"`
 
 	// SeasonNumber see : https://schema.org/seasonNumber
 	// Position of the season within an ordered group of seasons.
-	SeasonNumber interface{} `json:"seasonNumber,omitempty"` // types : Integer Text
+	// types : Integer Text
+	SeasonNumber interface{} `json:"seasonNumber,omitempty"`
 
 	// StartDate see : https://schema.org/startDate
 	// The start date and time of the item (in ISO 8601 date format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601)).
-	StartDate interface{} `json:"startDate,omitempty"` // types : Date DateTime
+	// types : Date DateTime
+	StartDate interface{} `json:"startDate,omitempty"`
 
 	// Trailer see : https://schema.org/trailer
 	// The trailer of a movie or tv/radio series, season, episode, etc.
-	Trailer *VideoObject `json:"trailer,omitempty"` // types : VideoObject
-
+	// types : VideoObject
+	Trailer *VideoObject `json:"trailer,omitempty"`
 }
 
 func (v RadioSeason) MarshalJSONWithTypeContext() ([]byte, error) {

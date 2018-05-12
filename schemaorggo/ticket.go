@@ -10,36 +10,43 @@ type Ticket struct {
 
 	// DateIssued see : https://schema.org/dateIssued
 	// The date the ticket was issued.
-	DateIssued DateTime `json:"dateIssued,omitempty"` // types : DateTime
+	// types : DateTime
+	DateIssued DateTime `json:"dateIssued,omitempty"`
 
 	// IssuedBy see : https://schema.org/issuedBy
 	// The organization issuing the ticket or permit.
-	IssuedBy *Organization `json:"issuedBy,omitempty"` // types : Organization
+	// types : Organization
+	IssuedBy *Organization `json:"issuedBy,omitempty"`
 
 	// PriceCurrency see : https://schema.org/priceCurrency
 	// The currency (in 3-letter ISO 4217 format) of the price or a price component, when attached to PriceSpecification (see: https://schema.org/PriceSpecification) and its subtypes.
-	PriceCurrency string `json:"priceCurrency,omitempty"` // types : Text
+	// types : Text
+	PriceCurrency string `json:"priceCurrency,omitempty"`
 
 	// TicketNumber see : https://schema.org/ticketNumber
 	// The unique identifier for the ticket.
-	TicketNumber string `json:"ticketNumber,omitempty"` // types : Text
+	// types : Text
+	TicketNumber string `json:"ticketNumber,omitempty"`
 
 	// TicketToken see : https://schema.org/ticketToken
 	// Reference to an asset (e.g., Barcode, QR code image or PDF) usable for entrance.
-	TicketToken string `json:"ticketToken,omitempty"` // types : Text URL
+	// types : Text URL
+	TicketToken string `json:"ticketToken,omitempty"`
 
 	// TicketedSeat see : https://schema.org/ticketedSeat
 	// The seat associated with the ticket.
-	TicketedSeat *Seat `json:"ticketedSeat,omitempty"` // types : Seat
+	// types : Seat
+	TicketedSeat *Seat `json:"ticketedSeat,omitempty"`
 
 	// TotalPrice see : https://schema.org/totalPrice
 	// The total price for the reservation or ticket, including applicable taxes, shipping, etc.
-	TotalPrice interface{} `json:"totalPrice,omitempty"` // types : Number PriceSpecification Text
+	// types : Number PriceSpecification Text
+	TotalPrice interface{} `json:"totalPrice,omitempty"`
 
 	// UnderName see : https://schema.org/underName
 	// The person or organization the reservation or ticket is for.
-	UnderName interface{} `json:"underName,omitempty"` // types : Organization Person
-
+	// types : Organization Person
+	UnderName interface{} `json:"underName,omitempty"`
 }
 
 func (v Ticket) MarshalJSONWithTypeContext() ([]byte, error) {

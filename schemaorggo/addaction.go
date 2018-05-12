@@ -10,8 +10,8 @@ type AddAction struct {
 
 	// TargetCollection see : https://schema.org/targetCollection
 	// A sub property of object. The collection target of the action. Supersedes collection (see: https://schema.org/collection).
-	TargetCollection *Thing `json:"targetCollection,omitempty"` // types : Thing
-
+	// types : Thing
+	TargetCollection *Thing `json:"targetCollection,omitempty"`
 }
 
 func (v AddAction) MarshalJSONWithTypeContext() ([]byte, error) {

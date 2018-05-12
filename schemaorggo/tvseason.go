@@ -10,8 +10,8 @@ type TVSeason struct {
 
 	// CountryOfOrigin see : https://schema.org/countryOfOrigin
 	// The country of the principal offices of the production company or individual responsible for the movie or program.
-	CountryOfOrigin *Country `json:"countryOfOrigin,omitempty"` // types : Country
-
+	// types : Country
+	CountryOfOrigin *Country `json:"countryOfOrigin,omitempty"`
 }
 
 func (v TVSeason) MarshalJSONWithTypeContext() ([]byte, error) {

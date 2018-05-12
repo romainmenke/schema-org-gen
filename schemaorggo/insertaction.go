@@ -10,8 +10,8 @@ type InsertAction struct {
 
 	// ToLocation see : https://schema.org/toLocation
 	// A sub property of location. The final location of the object or the agent after the action.
-	ToLocation *Place `json:"toLocation,omitempty"` // types : Place
-
+	// types : Place
+	ToLocation *Place `json:"toLocation,omitempty"`
 }
 
 func (v InsertAction) MarshalJSONWithTypeContext() ([]byte, error) {

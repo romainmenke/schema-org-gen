@@ -10,8 +10,8 @@ type WarrantyScope struct {
 
 	// SupersededBy see : http://meta.schema.org/supersededBy
 	// Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
-	SupersededBy interface{} `json:"supersededBy,omitempty"` // types : Class Enumeration Property
-
+	// types : Class Enumeration Property
+	SupersededBy interface{} `json:"supersededBy,omitempty"`
 }
 
 func (v WarrantyScope) MarshalJSONWithTypeContext() ([]byte, error) {

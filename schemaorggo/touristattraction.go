@@ -10,12 +10,13 @@ type TouristAttraction struct {
 
 	// AvailableLanguage see : https://schema.org/availableLanguage
 	// A language someone may use with or at the item, service or place. Please use one of the language codes from the IETF BCP 47 standard (see: https://schema.orghttp://tools.ietf.org/html/bcp47). See also inLanguage (see: https://schema.org/inLanguage)
-	AvailableLanguage interface{} `json:"availableLanguage,omitempty"` // types : Language Text
+	// types : Language Text
+	AvailableLanguage interface{} `json:"availableLanguage,omitempty"`
 
 	// TouristType see : https://schema.org/touristType
 	// Attraction suitable for type(s) of tourist. eg. Children, visitors from a particular country, etc.
-	TouristType interface{} `json:"touristType,omitempty"` // types : Audience Text
-
+	// types : Audience Text
+	TouristType interface{} `json:"touristType,omitempty"`
 }
 
 func (v TouristAttraction) MarshalJSONWithTypeContext() ([]byte, error) {

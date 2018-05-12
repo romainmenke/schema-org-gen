@@ -17,6 +17,33 @@
   revision = "2efee857e7cfd4f3d0138cc3cbb1b4966962b93a"
 
 [[projects]]
+  name = "github.com/mjibson/esc"
+  packages = [
+    ".",
+    "embed"
+  ]
+  revision = "58d9cde84f237ecdd89bd7f61c2de2853f4c5c6e"
+  version = "v0.1.0"
+
+[[projects]]
+  name = "github.com/shopspring/decimal"
+  packages = ["."]
+  revision = "69b3a8ad1f5f2c8bd855cb6506d18593064a346b"
+  version = "1.0.1"
+
+[[projects]]
+  branch = "master"
+  name = "github.com/tyler-sommer/stick"
+  packages = [
+    ".",
+    "parse",
+    "twig",
+    "twig/escape",
+    "twig/filter"
+  ]
+  revision = "05634229ddd17c5a0244788fbdb9995729bb42b0"
+
+[[projects]]
   branch = "master"
   name = "golang.org/x/net"
   packages = [
@@ -34,6 +61,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "93375272109708fd5e2250d81d314dd622395ed24adb9b15c57d270b3b5a8ec7"
+  inputs-digest = "808bd757757b0caae9575b9dfcea79db59030728430dd80a3521b2ad06eda239"
   solver-name = "gps-cdcl"
   solver-version = 1

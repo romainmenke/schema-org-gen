@@ -10,12 +10,13 @@ type ReceiveAction struct {
 
 	// DeliveryMethod see : https://schema.org/deliveryMethod
 	// A sub property of instrument. The method of delivery.
-	DeliveryMethod *DeliveryMethod `json:"deliveryMethod,omitempty"` // types : DeliveryMethod
+	// types : DeliveryMethod
+	DeliveryMethod *DeliveryMethod `json:"deliveryMethod,omitempty"`
 
 	// Sender see : https://schema.org/sender
 	// A sub property of participant. The participant who is at the sending end of the action.
-	Sender interface{} `json:"sender,omitempty"` // types : Audience Organization Person
-
+	// types : Audience Organization Person
+	Sender interface{} `json:"sender,omitempty"`
 }
 
 func (v ReceiveAction) MarshalJSONWithTypeContext() ([]byte, error) {

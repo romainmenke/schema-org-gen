@@ -10,8 +10,8 @@ type MovieTheater struct {
 
 	// ScreenCount see : https://schema.org/screenCount
 	// The number of screens in the movie theater.
-	ScreenCount float64 `json:"screenCount,omitempty"` // types : Number
-
+	// types : Number
+	ScreenCount float64 `json:"screenCount,omitempty"`
 }
 
 func (v MovieTheater) MarshalJSONWithTypeContext() ([]byte, error) {

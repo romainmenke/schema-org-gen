@@ -10,8 +10,8 @@ type RejectAction struct {
 
 	// Purpose see : http://health-lifesci.schema.org/purpose
 	// A goal towards an action is taken. Can be concrete or abstract.
-	Purpose interface{} `json:"purpose,omitempty"` // types : MedicalDevicePurpose Thing
-
+	// types : MedicalDevicePurpose Thing
+	Purpose interface{} `json:"purpose,omitempty"`
 }
 
 func (v RejectAction) MarshalJSONWithTypeContext() ([]byte, error) {

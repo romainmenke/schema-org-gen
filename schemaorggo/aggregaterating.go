@@ -10,16 +10,18 @@ type AggregateRating struct {
 
 	// ItemReviewed see : https://schema.org/itemReviewed
 	// The item that is being reviewed/rated.
-	ItemReviewed *Thing `json:"itemReviewed,omitempty"` // types : Thing
+	// types : Thing
+	ItemReviewed *Thing `json:"itemReviewed,omitempty"`
 
 	// RatingCount see : https://schema.org/ratingCount
 	// The count of total number of ratings.
-	RatingCount float64 `json:"ratingCount,omitempty"` // types : Integer
+	// types : Integer
+	RatingCount float64 `json:"ratingCount,omitempty"`
 
 	// ReviewCount see : https://schema.org/reviewCount
 	// The count of total number of reviews.
-	ReviewCount float64 `json:"reviewCount,omitempty"` // types : Integer
-
+	// types : Integer
+	ReviewCount float64 `json:"reviewCount,omitempty"`
 }
 
 func (v AggregateRating) MarshalJSONWithTypeContext() ([]byte, error) {

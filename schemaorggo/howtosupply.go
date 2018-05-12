@@ -10,8 +10,8 @@ type HowToSupply struct {
 
 	// EstimatedCost see : https://schema.org/estimatedCost
 	// The estimated cost of the supply or supplies consumed when performing instructions.
-	EstimatedCost interface{} `json:"estimatedCost,omitempty"` // types : MonetaryAmount Text
-
+	// types : MonetaryAmount Text
+	EstimatedCost interface{} `json:"estimatedCost,omitempty"`
 }
 
 func (v HowToSupply) MarshalJSONWithTypeContext() ([]byte, error) {

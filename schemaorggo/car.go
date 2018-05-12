@@ -10,7 +10,8 @@ type Car struct {
 
 	// AcrissCode see : https://schema.org/acrissCode
 	// The ACRISS Car Classification Code is a code used by many car rental companies, for classifying vehicles. ACRISS stands for Association of Car Rental Industry Systems and Standards.
-	AcrissCode string `json:"acrissCode,omitempty"` // types : Text
+	// types : Text
+	AcrissCode string `json:"acrissCode,omitempty"`
 
 	// RoofLoad see : https://schema.org/roofLoad
 	// The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.
@@ -23,8 +24,8 @@ type Car struct {
 	// Note 3: Note that you can use minValue (see: https://schema.org/minValue) and maxValue (see: https://schema.org/maxValue) to indicate ranges.
 	//
 	//
-	RoofLoad *QuantitativeValue `json:"roofLoad,omitempty"` // types : QuantitativeValue
-
+	// types : QuantitativeValue
+	RoofLoad *QuantitativeValue `json:"roofLoad,omitempty"`
 }
 
 func (v Car) MarshalJSONWithTypeContext() ([]byte, error) {

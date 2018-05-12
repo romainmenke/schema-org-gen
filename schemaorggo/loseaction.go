@@ -10,8 +10,8 @@ type LoseAction struct {
 
 	// Winner see : https://schema.org/winner
 	// A sub property of participant. The winner of the action.
-	Winner *Person `json:"winner,omitempty"` // types : Person
-
+	// types : Person
+	Winner *Person `json:"winner,omitempty"`
 }
 
 func (v LoseAction) MarshalJSONWithTypeContext() ([]byte, error) {

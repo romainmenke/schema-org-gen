@@ -10,12 +10,13 @@ type PaymentChargeSpecification struct {
 
 	// AppliesToDeliveryMethod see : https://schema.org/appliesToDeliveryMethod
 	// The delivery method(s) to which the delivery charge or payment charge specification applies.
-	AppliesToDeliveryMethod *DeliveryMethod `json:"appliesToDeliveryMethod,omitempty"` // types : DeliveryMethod
+	// types : DeliveryMethod
+	AppliesToDeliveryMethod *DeliveryMethod `json:"appliesToDeliveryMethod,omitempty"`
 
 	// AppliesToPaymentMethod see : https://schema.org/appliesToPaymentMethod
 	// The payment method(s) to which the payment charge specification applies.
-	AppliesToPaymentMethod *PaymentMethod `json:"appliesToPaymentMethod,omitempty"` // types : PaymentMethod
-
+	// types : PaymentMethod
+	AppliesToPaymentMethod *PaymentMethod `json:"appliesToPaymentMethod,omitempty"`
 }
 
 func (v PaymentChargeSpecification) MarshalJSONWithTypeContext() ([]byte, error) {

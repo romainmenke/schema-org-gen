@@ -10,12 +10,13 @@ type DigitalDocumentPermission struct {
 
 	// Grantee see : https://schema.org/grantee
 	// The person, organization, contact point, or audience that has been granted this permission.
-	Grantee interface{} `json:"grantee,omitempty"` // types : Audience ContactPoint Organization Person
+	// types : Audience ContactPoint Organization Person
+	Grantee interface{} `json:"grantee,omitempty"`
 
 	// PermissionType see : https://schema.org/permissionType
 	// The type of permission granted the person, organization, or audience.
-	PermissionType *DigitalDocumentPermissionType `json:"permissionType,omitempty"` // types : DigitalDocumentPermissionType
-
+	// types : DigitalDocumentPermissionType
+	PermissionType *DigitalDocumentPermissionType `json:"permissionType,omitempty"`
 }
 
 func (v DigitalDocumentPermission) MarshalJSONWithTypeContext() ([]byte, error) {

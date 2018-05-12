@@ -10,20 +10,23 @@ type ImageObject struct {
 
 	// Caption see : https://schema.org/caption
 	// The caption for this object.
-	Caption string `json:"caption,omitempty"` // types : Text
+	// types : Text
+	Caption string `json:"caption,omitempty"`
 
 	// ExifData see : https://schema.org/exifData
 	// exif data for this object.
-	ExifData interface{} `json:"exifData,omitempty"` // types : PropertyValue Text
+	// types : PropertyValue Text
+	ExifData interface{} `json:"exifData,omitempty"`
 
 	// RepresentativeOfPage see : https://schema.org/representativeOfPage
 	// Indicates whether this image is representative of the content of the page.
-	RepresentativeOfPage bool `json:"representativeOfPage,omitempty"` // types : Boolean
+	// types : Boolean
+	RepresentativeOfPage bool `json:"representativeOfPage,omitempty"`
 
 	// Thumbnail see : https://schema.org/thumbnail
 	// Thumbnail image for an image or video.
-	Thumbnail *ImageObject `json:"thumbnail,omitempty"` // types : ImageObject
-
+	// types : ImageObject
+	Thumbnail *ImageObject `json:"thumbnail,omitempty"`
 }
 
 func (v ImageObject) MarshalJSONWithTypeContext() ([]byte, error) {

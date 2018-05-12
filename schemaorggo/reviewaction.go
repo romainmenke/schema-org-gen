@@ -10,8 +10,8 @@ type ReviewAction struct {
 
 	// ResultReview see : https://schema.org/resultReview
 	// A sub property of result. The review that resulted in the performing of the action.
-	ResultReview *Review `json:"resultReview,omitempty"` // types : Review
-
+	// types : Review
+	ResultReview *Review `json:"resultReview,omitempty"`
 }
 
 func (v ReviewAction) MarshalJSONWithTypeContext() ([]byte, error) {

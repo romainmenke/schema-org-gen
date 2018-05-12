@@ -10,16 +10,18 @@ type CookAction struct {
 
 	// FoodEstablishment see : https://schema.org/foodEstablishment
 	// A sub property of location. The specific food establishment where the action occurred.
-	FoodEstablishment interface{} `json:"foodEstablishment,omitempty"` // types : FoodEstablishment Place
+	// types : FoodEstablishment Place
+	FoodEstablishment interface{} `json:"foodEstablishment,omitempty"`
 
 	// FoodEvent see : https://schema.org/foodEvent
 	// A sub property of location. The specific food event where the action occurred.
-	FoodEvent *FoodEvent `json:"foodEvent,omitempty"` // types : FoodEvent
+	// types : FoodEvent
+	FoodEvent *FoodEvent `json:"foodEvent,omitempty"`
 
 	// Recipe see : https://schema.org/recipe
 	// A sub property of instrument. The recipe/instructions used to perform the action.
-	Recipe *Recipe `json:"recipe,omitempty"` // types : Recipe
-
+	// types : Recipe
+	Recipe *Recipe `json:"recipe,omitempty"`
 }
 
 func (v CookAction) MarshalJSONWithTypeContext() ([]byte, error) {

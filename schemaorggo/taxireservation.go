@@ -10,16 +10,18 @@ type TaxiReservation struct {
 
 	// PartySize see : https://schema.org/partySize
 	// Number of people the reservation should accommodate.
-	PartySize interface{} `json:"partySize,omitempty"` // types : Integer QuantitativeValue
+	// types : Integer QuantitativeValue
+	PartySize interface{} `json:"partySize,omitempty"`
 
 	// PickupLocation see : https://schema.org/pickupLocation
 	// Where a taxi will pick up a passenger or a rental car can be picked up.
-	PickupLocation *Place `json:"pickupLocation,omitempty"` // types : Place
+	// types : Place
+	PickupLocation *Place `json:"pickupLocation,omitempty"`
 
 	// PickupTime see : https://schema.org/pickupTime
 	// When a taxi will pickup a passenger or a rental car can be picked up.
-	PickupTime DateTime `json:"pickupTime,omitempty"` // types : DateTime
-
+	// types : DateTime
+	PickupTime DateTime `json:"pickupTime,omitempty"`
 }
 
 func (v TaxiReservation) MarshalJSONWithTypeContext() ([]byte, error) {

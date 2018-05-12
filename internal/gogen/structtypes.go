@@ -2,10 +2,12 @@ package gogen
 
 import (
 	"context"
+	"errors"
 	"fmt"
 	"strings"
 
 	"github.com/romainmenke/schema-org-gen/internal/typemap"
+	"github.com/tyler-sommer/stick"
 )
 
 func goTypeFile(goTypes []string, dir string, packageName string) func(ctx context.Context, o *typemap.ObjectSource, err error) error {
@@ -17,13 +19,16 @@ func goTypeFile(goTypes []string, dir string, packageName string) func(ctx conte
 			return nil
 		}
 
+		tmpls := templatesFromContext(ctx)
+		if tmpls == nil {
+			return errors.New("no template found")
+		}
+
 		object := o.Object
 
 		if object.Name == "" {
 			return nil
 		}
-
-		objectTypeName := strings.Title(object.Name)
 
 		f, err := newObjectFile(dir, object.Name)
 		if err != nil {
@@ -31,19 +36,17 @@ func goTypeFile(goTypes []string, dir string, packageName string) func(ctx conte
 		}
 		defer f.Close()
 
-		f.WriteString(fmt.Sprintf("package %s\n\n", packageName))
-
-		f.WriteString("import \"encoding/json\"\n\n")
-
-		f.WriteString(fmt.Sprintf("// %s see : %s\n", objectTypeName, seeUrl(object.URL)))
-		f.WriteString(fmt.Sprintf("type %s struct {\n\n", objectTypeName))
-
-		if object.ParentObject != nil {
-			f.WriteString(object.ParentObject.Name + "\n\n")
+		data := map[string]stick.Value{
+			"package_name": packageName,
+			"type_name":    strings.Title(object.Name),
+			"type_url":     seeUrl(object.URL),
 		}
 
-		f.WriteString("typeContext\n\n")
+		if object.ParentObject != nil {
+			data["parent_type_name"] = object.ParentObject.Name
+		}
 
+		dataFields := []map[string]interface{}{}
 		for _, field := range object.Fields {
 			if field.Name == "" {
 				continue
@@ -52,47 +55,33 @@ func goTypeFile(goTypes []string, dir string, packageName string) func(ctx conte
 				continue
 			}
 
-			fieldTypes := normalizeTypes(field.Types)
-
-			fieldName := strings.Title(field.Name)
+			dataField := map[string]interface{}{}
+			dataField["name"] = strings.Title(field.Name)
+			dataField["json_name"] = field.Name
+			dataField["external_ref"] = fmt.Sprintf("// %s see : %s", strings.Title(field.Name), seeUrl(field.URL))
 
 			comment := newLineRegex.ReplaceAllString(field.Comment, "\n// ")
+			dataField["comment"] = fmt.Sprintf("// %s", comment)
 
-			f.WriteString(fmt.Sprintf("// %s see : %s\n", fieldName, seeUrl(field.URL)))
-			f.WriteString(fmt.Sprintf("// %s\n", comment))
+			fieldTypes := normalizeTypes(field.Types)
 
 			fieldTypesComment := ""
 			for _, fieldType := range field.Types {
 				fieldTypesComment = fieldTypesComment + " " + fieldType.Type
 			}
+			dataField["types_comment"] = fmt.Sprintf("// types :%s", fieldTypesComment)
+
 			if len(fieldTypes) > 1 {
-				f.WriteString(fmt.Sprintf("%s interface{} `json:\"%s,omitempty\"` // types :%s\n\n", fieldName, field.Name, fieldTypesComment))
+				dataField["go_type"] = "interface{}"
 			} else {
-				f.WriteString(fmt.Sprintf("%s %s `json:\"%s,omitempty\"` // types :%s\n\n", fieldName, goTypeForSchemaDataType(goTypes, fieldTypes[0].Type), field.Name, fieldTypesComment))
+				dataField["go_type"] = goTypeForSchemaDataType(goTypes, fieldTypes[0].Type)
 			}
+
+			dataFields = append(dataFields, dataField)
 		}
 
-		f.WriteString("}\n")
-
-		f.WriteString(fmt.Sprintf(`
-func (v %s) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "%s"
-
-	return json.Marshal(v)
-}
-
-func (v *%s) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
-	}
-
-	v.C = "http://schema.org"
-	v.T = "%s"
-
-	return json.Marshal(*v)
-}
-`, objectTypeName, objectTypeName, objectTypeName, objectTypeName))
+		data["fields"] = dataFields
+		tmpls.Execute("/templates/structtypes.twig", f, data)
 
 		err = f.Close()
 		if err != nil {

@@ -10,36 +10,43 @@ type ServiceChannel struct {
 
 	// AvailableLanguage see : https://schema.org/availableLanguage
 	// A language someone may use with or at the item, service or place. Please use one of the language codes from the IETF BCP 47 standard (see: https://schema.orghttp://tools.ietf.org/html/bcp47). See also inLanguage (see: https://schema.org/inLanguage)
-	AvailableLanguage interface{} `json:"availableLanguage,omitempty"` // types : Language Text
+	// types : Language Text
+	AvailableLanguage interface{} `json:"availableLanguage,omitempty"`
 
 	// ProcessingTime see : https://schema.org/processingTime
 	// Estimated processing time for the service using this channel.
-	ProcessingTime *Duration `json:"processingTime,omitempty"` // types : Duration
+	// types : Duration
+	ProcessingTime *Duration `json:"processingTime,omitempty"`
 
 	// ProvidesService see : https://schema.org/providesService
 	// The service provided by this channel.
-	ProvidesService *Service `json:"providesService,omitempty"` // types : Service
+	// types : Service
+	ProvidesService *Service `json:"providesService,omitempty"`
 
 	// ServiceLocation see : https://schema.org/serviceLocation
 	// The location (e.g. civic structure, local business, etc.) where a person can go to access the service.
-	ServiceLocation *Place `json:"serviceLocation,omitempty"` // types : Place
+	// types : Place
+	ServiceLocation *Place `json:"serviceLocation,omitempty"`
 
 	// ServicePhone see : https://schema.org/servicePhone
 	// The phone number to use to access the service.
-	ServicePhone *ContactPoint `json:"servicePhone,omitempty"` // types : ContactPoint
+	// types : ContactPoint
+	ServicePhone *ContactPoint `json:"servicePhone,omitempty"`
 
 	// ServicePostalAddress see : https://schema.org/servicePostalAddress
 	// The address for accessing the service by mail.
-	ServicePostalAddress *PostalAddress `json:"servicePostalAddress,omitempty"` // types : PostalAddress
+	// types : PostalAddress
+	ServicePostalAddress *PostalAddress `json:"servicePostalAddress,omitempty"`
 
 	// ServiceSmsNumber see : https://schema.org/serviceSmsNumber
 	// The number to access the service by text message.
-	ServiceSmsNumber *ContactPoint `json:"serviceSmsNumber,omitempty"` // types : ContactPoint
+	// types : ContactPoint
+	ServiceSmsNumber *ContactPoint `json:"serviceSmsNumber,omitempty"`
 
 	// ServiceUrl see : https://schema.org/serviceUrl
 	// The website to access the service.
-	ServiceUrl string `json:"serviceUrl,omitempty"` // types : URL
-
+	// types : URL
+	ServiceUrl string `json:"serviceUrl,omitempty"`
 }
 
 func (v ServiceChannel) MarshalJSONWithTypeContext() ([]byte, error) {

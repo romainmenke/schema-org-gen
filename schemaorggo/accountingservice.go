@@ -10,8 +10,8 @@ type AccountingService struct {
 
 	// FeesAndCommissionsSpecification see : https://schema.org/feesAndCommissionsSpecification
 	// Description of fees, commissions, and other terms applied either to a class of financial product, or by a financial service organization.
-	FeesAndCommissionsSpecification string `json:"feesAndCommissionsSpecification,omitempty"` // types : Text URL
-
+	// types : Text URL
+	FeesAndCommissionsSpecification string `json:"feesAndCommissionsSpecification,omitempty"`
 }
 
 func (v AccountingService) MarshalJSONWithTypeContext() ([]byte, error) {

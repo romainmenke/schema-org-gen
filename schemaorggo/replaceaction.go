@@ -10,12 +10,13 @@ type ReplaceAction struct {
 
 	// Replacee see : https://schema.org/replacee
 	// A sub property of object. The object that is being replaced.
-	Replacee *Thing `json:"replacee,omitempty"` // types : Thing
+	// types : Thing
+	Replacee *Thing `json:"replacee,omitempty"`
 
 	// Replacer see : https://schema.org/replacer
 	// A sub property of object. The object that replaces.
-	Replacer *Thing `json:"replacer,omitempty"` // types : Thing
-
+	// types : Thing
+	Replacer *Thing `json:"replacer,omitempty"`
 }
 
 func (v ReplaceAction) MarshalJSONWithTypeContext() ([]byte, error) {

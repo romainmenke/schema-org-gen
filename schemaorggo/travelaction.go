@@ -10,8 +10,8 @@ type TravelAction struct {
 
 	// Distance see : https://schema.org/distance
 	// The distance travelled, e.g. exercising or travelling.
-	Distance *Distance `json:"distance,omitempty"` // types : Distance
-
+	// types : Distance
+	Distance *Distance `json:"distance,omitempty"`
 }
 
 func (v TravelAction) MarshalJSONWithTypeContext() ([]byte, error) {

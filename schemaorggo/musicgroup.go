@@ -10,16 +10,18 @@ type MusicGroup struct {
 
 	// Album see : https://schema.org/album
 	// A music album. Supersedes albums (see: https://schema.org/albums).
-	Album *MusicAlbum `json:"album,omitempty"` // types : MusicAlbum
+	// types : MusicAlbum
+	Album *MusicAlbum `json:"album,omitempty"`
 
 	// Genre see : https://schema.org/genre
 	// Genre of the creative work, broadcast channel or group.
-	Genre string `json:"genre,omitempty"` // types : Text URL
+	// types : Text URL
+	Genre string `json:"genre,omitempty"`
 
 	// Track see : https://schema.org/track
 	// A music recording (track)—usually a single song. If an ItemList is given, the list should contain items of type MusicRecording. Supersedes tracks (see: https://schema.org/tracks).
-	Track interface{} `json:"track,omitempty"` // types : ItemList MusicRecording
-
+	// types : ItemList MusicRecording
+	Track interface{} `json:"track,omitempty"`
 }
 
 func (v MusicGroup) MarshalJSONWithTypeContext() ([]byte, error) {

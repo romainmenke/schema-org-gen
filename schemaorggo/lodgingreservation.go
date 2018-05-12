@@ -10,28 +10,33 @@ type LodgingReservation struct {
 
 	// CheckinTime see : https://schema.org/checkinTime
 	// The earliest someone may check into a lodging establishment.
-	CheckinTime DateTime `json:"checkinTime,omitempty"` // types : DateTime
+	// types : DateTime
+	CheckinTime DateTime `json:"checkinTime,omitempty"`
 
 	// CheckoutTime see : https://schema.org/checkoutTime
 	// The latest someone may check out of a lodging establishment.
-	CheckoutTime DateTime `json:"checkoutTime,omitempty"` // types : DateTime
+	// types : DateTime
+	CheckoutTime DateTime `json:"checkoutTime,omitempty"`
 
 	// LodgingUnitDescription see : https://schema.org/lodgingUnitDescription
 	// A full description of the lodging unit.
-	LodgingUnitDescription string `json:"lodgingUnitDescription,omitempty"` // types : Text
+	// types : Text
+	LodgingUnitDescription string `json:"lodgingUnitDescription,omitempty"`
 
 	// LodgingUnitType see : https://schema.org/lodgingUnitType
 	// Textual description of the unit type (including suite vs. room, size of bed, etc.).
-	LodgingUnitType interface{} `json:"lodgingUnitType,omitempty"` // types : QualitativeValue Text
+	// types : QualitativeValue Text
+	LodgingUnitType interface{} `json:"lodgingUnitType,omitempty"`
 
 	// NumAdults see : https://schema.org/numAdults
 	// The number of adults staying in the unit.
-	NumAdults interface{} `json:"numAdults,omitempty"` // types : Integer QuantitativeValue
+	// types : Integer QuantitativeValue
+	NumAdults interface{} `json:"numAdults,omitempty"`
 
 	// NumChildren see : https://schema.org/numChildren
 	// The number of children staying in the unit.
-	NumChildren interface{} `json:"numChildren,omitempty"` // types : Integer QuantitativeValue
-
+	// types : Integer QuantitativeValue
+	NumChildren interface{} `json:"numChildren,omitempty"`
 }
 
 func (v LodgingReservation) MarshalJSONWithTypeContext() ([]byte, error) {

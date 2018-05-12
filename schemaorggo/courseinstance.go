@@ -9,13 +9,14 @@ type CourseInstance struct {
 	typeContext
 
 	// CourseMode see : https://schema.org/courseMode
-	// The medium or means of delivery of the course instance or the mode of study, either as a text label (e.g. "online", "onsite" or "blended"; "synchronous" or "asynchronous"; "full-time" or "part-time") or as a URL reference to a term from a controlled vocabulary (e.g. https://ceds.ed.gov/element/001311#Asynchronous ).
-	CourseMode string `json:"courseMode,omitempty"` // types : Text URL
+	// The medium or means of delivery of the course instance or the mode of study, either as a text label (e.g. &quot;online&quot;, &quot;onsite&quot; or &quot;blended&quot;; &quot;synchronous&quot; or &quot;asynchronous&quot;; &quot;full-time&quot; or &quot;part-time&quot;) or as a URL reference to a term from a controlled vocabulary (e.g. https://ceds.ed.gov/element/001311#Asynchronous ).
+	// types : Text URL
+	CourseMode string `json:"courseMode,omitempty"`
 
 	// Instructor see : https://schema.org/instructor
 	// A person assigned to instruct or provide instructional assistance for the CourseInstance (see: https://schema.org/CourseInstance).
-	Instructor *Person `json:"instructor,omitempty"` // types : Person
-
+	// types : Person
+	Instructor *Person `json:"instructor,omitempty"`
 }
 
 func (v CourseInstance) MarshalJSONWithTypeContext() ([]byte, error) {

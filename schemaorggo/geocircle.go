@@ -10,12 +10,13 @@ type GeoCircle struct {
 
 	// GeoMidpoint see : https://schema.org/geoMidpoint
 	// Indicates the GeoCoordinates at the centre of a GeoShape e.g. GeoCircle.
-	GeoMidpoint *GeoCoordinates `json:"geoMidpoint,omitempty"` // types : GeoCoordinates
+	// types : GeoCoordinates
+	GeoMidpoint *GeoCoordinates `json:"geoMidpoint,omitempty"`
 
 	// GeoRadius see : https://schema.org/geoRadius
 	// Indicates the approximate radius of a GeoCircle (metres unless indicated otherwise via Distance notation).
-	GeoRadius interface{} `json:"geoRadius,omitempty"` // types : Distance Number Text
-
+	// types : Distance Number Text
+	GeoRadius interface{} `json:"geoRadius,omitempty"`
 }
 
 func (v GeoCircle) MarshalJSONWithTypeContext() ([]byte, error) {

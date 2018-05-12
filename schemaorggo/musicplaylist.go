@@ -10,12 +10,13 @@ type MusicPlaylist struct {
 
 	// NumTracks see : https://schema.org/numTracks
 	// The number of tracks in this album or playlist.
-	NumTracks float64 `json:"numTracks,omitempty"` // types : Integer
+	// types : Integer
+	NumTracks float64 `json:"numTracks,omitempty"`
 
 	// Track see : https://schema.org/track
 	// A music recording (track)—usually a single song. If an ItemList is given, the list should contain items of type MusicRecording. Supersedes tracks (see: https://schema.org/tracks).
-	Track interface{} `json:"track,omitempty"` // types : ItemList MusicRecording
-
+	// types : ItemList MusicRecording
+	Track interface{} `json:"track,omitempty"`
 }
 
 func (v MusicPlaylist) MarshalJSONWithTypeContext() ([]byte, error) {

@@ -10,53 +10,60 @@ type PropertyValue struct {
 
 	// MaxValue see : https://schema.org/maxValue
 	// The upper value of some characteristic or property.
-	MaxValue float64 `json:"maxValue,omitempty"` // types : Number
+	// types : Number
+	MaxValue float64 `json:"maxValue,omitempty"`
 
 	// MeasurementTechnique see : http://pending.schema.org/measurementTechnique
 	// A technique or technology used in a Dataset (see: https://schema.org/Dataset) (or DataDownload (see: https://schema.org/DataDownload), DataCatalog (see: https://schema.org/DataCatalog)),
 	// corresponding to the method used for measuring the corresponding variable(s) (described using variableMeasured (see: https://schema.org/variableMeasured)). This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but rather as a high level summary for dataset discovery.
 	//
-	// For example, if variableMeasured (see: https://schema.org/variableMeasured) is: molecule concentration, measurementTechnique (see: https://schema.org/measurementTechnique) could be: "mass spectrometry" or "nmr spectroscopy" or "colorimetry" or "immunofluorescence".
+	// For example, if variableMeasured (see: https://schema.org/variableMeasured) is: molecule concentration, measurementTechnique (see: https://schema.org/measurementTechnique) could be: &quot;mass spectrometry&quot; or &quot;nmr spectroscopy&quot; or &quot;colorimetry&quot; or &quot;immunofluorescence&quot;.
 	//
-	// If the variableMeasured (see: https://schema.org/variableMeasured) is "depression rating", the measurementTechnique (see: https://schema.org/measurementTechnique) could be "Zung Scale" or "HAM-D" or "Beck Depression Inventory".
+	// If the variableMeasured (see: https://schema.org/variableMeasured) is &quot;depression rating&quot;, the measurementTechnique (see: https://schema.org/measurementTechnique) could be &quot;Zung Scale&quot; or &quot;HAM-D&quot; or &quot;Beck Depression Inventory&quot;.
 	//
 	// If there are several variableMeasured (see: https://schema.org/variableMeasured) properties recorded for some given data object, use a PropertyValue (see: https://schema.org/PropertyValue) for each variableMeasured (see: https://schema.org/variableMeasured) and attach the corresponding measurementTechnique (see: https://schema.org/measurementTechnique).
-	MeasurementTechnique string `json:"measurementTechnique,omitempty"` // types : Text URL
+	// types : Text URL
+	MeasurementTechnique string `json:"measurementTechnique,omitempty"`
 
 	// MinValue see : https://schema.org/minValue
 	// The lower value of some characteristic or property.
-	MinValue float64 `json:"minValue,omitempty"` // types : Number
+	// types : Number
+	MinValue float64 `json:"minValue,omitempty"`
 
 	// PropertyID see : https://schema.org/propertyID
 	// A commonly used identifier for the characteristic represented by the property, e.g. a manufacturer or a standard code for a property. propertyID can be
 	// (1) a prefixed string, mainly meant to be used with standards for product properties; (2) a site-specific, non-prefixed string (e.g. the primary key of the property or the vendor-specific id of the property), or (3)
 	// a URL indicating the type of the property, either pointing to an external vocabulary, or a Web resource that describes the property (e.g. a glossary entry).
 	// Standards bodies should promote a standard prefix for the identifiers of properties from their standards.
-	PropertyID string `json:"propertyID,omitempty"` // types : Text URL
+	// types : Text URL
+	PropertyID string `json:"propertyID,omitempty"`
 
 	// UnitCode see : https://schema.org/unitCode
 	// The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.
-	UnitCode string `json:"unitCode,omitempty"` // types : Text URL
+	// types : Text URL
+	UnitCode string `json:"unitCode,omitempty"`
 
 	// UnitText see : https://schema.org/unitText
 	// A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for
 	// unitCode (see: https://schema.orgunitCode).
-	UnitText string `json:"unitText,omitempty"` // types : Text
+	// types : Text
+	UnitText string `json:"unitText,omitempty"`
 
 	// Value see : https://schema.org/value
 	// The value of the quantitative value or property value node.
 	//
 	//
-	// For QuantitativeValue (see: https://schema.org/QuantitativeValue) and MonetaryAmount (see: https://schema.org/MonetaryAmount), the recommended type for values is 'Number'.
-	// For PropertyValue (see: https://schema.org/PropertyValue), it can be 'Text;', 'Number', 'Boolean', or 'StructuredValue'.
+	// For QuantitativeValue (see: https://schema.org/QuantitativeValue) and MonetaryAmount (see: https://schema.org/MonetaryAmount), the recommended type for values is &#39;Number&#39;.
+	// For PropertyValue (see: https://schema.org/PropertyValue), it can be &#39;Text;&#39;, &#39;Number&#39;, &#39;Boolean&#39;, or &#39;StructuredValue&#39;.
 	//
 	//
-	Value interface{} `json:"value,omitempty"` // types : Boolean Number StructuredValue Text
+	// types : Boolean Number StructuredValue Text
+	Value interface{} `json:"value,omitempty"`
 
 	// ValueReference see : https://schema.org/valueReference
 	// A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature.
-	ValueReference interface{} `json:"valueReference,omitempty"` // types : Enumeration PropertyValue QualitativeValue QuantitativeValue StructuredValue
-
+	// types : Enumeration PropertyValue QualitativeValue QuantitativeValue StructuredValue
+	ValueReference interface{} `json:"valueReference,omitempty"`
 }
 
 func (v PropertyValue) MarshalJSONWithTypeContext() ([]byte, error) {

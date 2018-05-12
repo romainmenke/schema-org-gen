@@ -10,8 +10,8 @@ type DataFeed struct {
 
 	// DataFeedElement see : https://schema.org/dataFeedElement
 	// An item within in a data feed. Data feeds may have many elements.
-	DataFeedElement interface{} `json:"dataFeedElement,omitempty"` // types : DataFeedItem Text Thing
-
+	// types : DataFeedItem Text Thing
+	DataFeedElement interface{} `json:"dataFeedElement,omitempty"`
 }
 
 func (v DataFeed) MarshalJSONWithTypeContext() ([]byte, error) {

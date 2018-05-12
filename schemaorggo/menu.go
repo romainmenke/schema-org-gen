@@ -10,12 +10,13 @@ type Menu struct {
 
 	// HasMenuItem see : https://schema.org/hasMenuItem
 	// A food or drink item contained in a menu or menu section.
-	HasMenuItem *MenuItem `json:"hasMenuItem,omitempty"` // types : MenuItem
+	// types : MenuItem
+	HasMenuItem *MenuItem `json:"hasMenuItem,omitempty"`
 
 	// HasMenuSection see : https://schema.org/hasMenuSection
 	// A subgrouping of the menu (by dishes, course, serving time period, etc.).
-	HasMenuSection *MenuSection `json:"hasMenuSection,omitempty"` // types : MenuSection
-
+	// types : MenuSection
+	HasMenuSection *MenuSection `json:"hasMenuSection,omitempty"`
 }
 
 func (v Menu) MarshalJSONWithTypeContext() ([]byte, error) {

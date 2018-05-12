@@ -10,8 +10,8 @@ type SearchAction struct {
 
 	// Query see : https://schema.org/query
 	// A sub property of instrument. The query used on this action.
-	Query string `json:"query,omitempty"` // types : Text
-
+	// types : Text
+	Query string `json:"query,omitempty"`
 }
 
 func (v SearchAction) MarshalJSONWithTypeContext() ([]byte, error) {

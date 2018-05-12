@@ -10,20 +10,23 @@ type OwnershipInfo struct {
 
 	// AcquiredFrom see : https://schema.org/acquiredFrom
 	// The organization or person from which the product was acquired.
-	AcquiredFrom interface{} `json:"acquiredFrom,omitempty"` // types : Organization Person
+	// types : Organization Person
+	AcquiredFrom interface{} `json:"acquiredFrom,omitempty"`
 
 	// OwnedFrom see : https://schema.org/ownedFrom
 	// The date and time of obtaining the product.
-	OwnedFrom DateTime `json:"ownedFrom,omitempty"` // types : DateTime
+	// types : DateTime
+	OwnedFrom DateTime `json:"ownedFrom,omitempty"`
 
 	// OwnedThrough see : https://schema.org/ownedThrough
 	// The date and time of giving up ownership on the product.
-	OwnedThrough DateTime `json:"ownedThrough,omitempty"` // types : DateTime
+	// types : DateTime
+	OwnedThrough DateTime `json:"ownedThrough,omitempty"`
 
 	// TypeOfGood see : https://schema.org/typeOfGood
 	// The product that this structured value is referring to.
-	TypeOfGood interface{} `json:"typeOfGood,omitempty"` // types : Product Service
-
+	// types : Product Service
+	TypeOfGood interface{} `json:"typeOfGood,omitempty"`
 }
 
 func (v OwnershipInfo) MarshalJSONWithTypeContext() ([]byte, error) {

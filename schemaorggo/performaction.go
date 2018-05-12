@@ -10,8 +10,8 @@ type PerformAction struct {
 
 	// EntertainmentBusiness see : https://schema.org/entertainmentBusiness
 	// A sub property of location. The entertainment business where the action occurred.
-	EntertainmentBusiness *EntertainmentBusiness `json:"entertainmentBusiness,omitempty"` // types : EntertainmentBusiness
-
+	// types : EntertainmentBusiness
+	EntertainmentBusiness *EntertainmentBusiness `json:"entertainmentBusiness,omitempty"`
 }
 
 func (v PerformAction) MarshalJSONWithTypeContext() ([]byte, error) {

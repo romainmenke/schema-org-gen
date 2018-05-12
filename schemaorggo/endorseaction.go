@@ -10,8 +10,8 @@ type EndorseAction struct {
 
 	// Endorsee see : https://schema.org/endorsee
 	// A sub property of participant. The person/organization being supported.
-	Endorsee interface{} `json:"endorsee,omitempty"` // types : Organization Person
-
+	// types : Organization Person
+	Endorsee interface{} `json:"endorsee,omitempty"`
 }
 
 func (v EndorseAction) MarshalJSONWithTypeContext() ([]byte, error) {

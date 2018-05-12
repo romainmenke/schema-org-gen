@@ -10,8 +10,8 @@ type CollegeOrUniversity struct {
 
 	// Alumni see : https://schema.org/alumni
 	// Alumni of an organization. Inverse property: alumniOf (see: https://schema.org/alumniOf).
-	Alumni *Person `json:"alumni,omitempty"` // types : Person
-
+	// types : Person
+	Alumni *Person `json:"alumni,omitempty"`
 }
 
 func (v CollegeOrUniversity) MarshalJSONWithTypeContext() ([]byte, error) {

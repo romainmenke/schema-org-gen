@@ -10,32 +10,38 @@ type PeopleAudience struct {
 
 	// HealthCondition see : http://health-lifesci.schema.org/healthCondition
 	// Specifying the health condition(s) of a patient, medical study, or other target audience.
-	HealthCondition interface{} `json:"healthCondition,omitempty"` // types : MedicalCondition
+	// types : MedicalCondition
+	HealthCondition interface{} `json:"healthCondition,omitempty"`
 
 	// RequiredGender see : https://schema.org/requiredGender
-	// Audiences defined by a person's gender.
-	RequiredGender string `json:"requiredGender,omitempty"` // types : Text
+	// Audiences defined by a person&#39;s gender.
+	// types : Text
+	RequiredGender string `json:"requiredGender,omitempty"`
 
 	// RequiredMaxAge see : https://schema.org/requiredMaxAge
-	// Audiences defined by a person's maximum age.
-	RequiredMaxAge float64 `json:"requiredMaxAge,omitempty"` // types : Integer
+	// Audiences defined by a person&#39;s maximum age.
+	// types : Integer
+	RequiredMaxAge float64 `json:"requiredMaxAge,omitempty"`
 
 	// RequiredMinAge see : https://schema.org/requiredMinAge
-	// Audiences defined by a person's minimum age.
-	RequiredMinAge float64 `json:"requiredMinAge,omitempty"` // types : Integer
+	// Audiences defined by a person&#39;s minimum age.
+	// types : Integer
+	RequiredMinAge float64 `json:"requiredMinAge,omitempty"`
 
 	// SuggestedGender see : https://schema.org/suggestedGender
 	// The gender of the person or audience.
-	SuggestedGender string `json:"suggestedGender,omitempty"` // types : Text
+	// types : Text
+	SuggestedGender string `json:"suggestedGender,omitempty"`
 
 	// SuggestedMaxAge see : https://schema.org/suggestedMaxAge
 	// Maximal age recommended for viewing content.
-	SuggestedMaxAge float64 `json:"suggestedMaxAge,omitempty"` // types : Number
+	// types : Number
+	SuggestedMaxAge float64 `json:"suggestedMaxAge,omitempty"`
 
 	// SuggestedMinAge see : https://schema.org/suggestedMinAge
 	// Minimal age recommended for viewing content.
-	SuggestedMinAge float64 `json:"suggestedMinAge,omitempty"` // types : Number
-
+	// types : Number
+	SuggestedMinAge float64 `json:"suggestedMinAge,omitempty"`
 }
 
 func (v PeopleAudience) MarshalJSONWithTypeContext() ([]byte, error) {

@@ -10,12 +10,13 @@ type TVEpisode struct {
 
 	// CountryOfOrigin see : https://schema.org/countryOfOrigin
 	// The country of the principal offices of the production company or individual responsible for the movie or program.
-	CountryOfOrigin *Country `json:"countryOfOrigin,omitempty"` // types : Country
+	// types : Country
+	CountryOfOrigin *Country `json:"countryOfOrigin,omitempty"`
 
 	// SubtitleLanguage see : https://schema.org/subtitleLanguage
 	// Languages in which subtitles/captions are available, in IETF BCP 47 standard format (see: https://schema.orghttp://tools.ietf.org/html/bcp47).
-	SubtitleLanguage interface{} `json:"subtitleLanguage,omitempty"` // types : Language Text
-
+	// types : Language Text
+	SubtitleLanguage interface{} `json:"subtitleLanguage,omitempty"`
 }
 
 func (v TVEpisode) MarshalJSONWithTypeContext() ([]byte, error) {

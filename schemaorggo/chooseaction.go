@@ -10,8 +10,8 @@ type ChooseAction struct {
 
 	// ActionOption see : https://schema.org/actionOption
 	// A sub property of object. The options subject to this action. Supersedes option (see: https://schema.org/option).
-	ActionOption interface{} `json:"actionOption,omitempty"` // types : Text Thing
-
+	// types : Text Thing
+	ActionOption interface{} `json:"actionOption,omitempty"`
 }
 
 func (v ChooseAction) MarshalJSONWithTypeContext() ([]byte, error) {

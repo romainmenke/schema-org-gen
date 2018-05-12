@@ -10,8 +10,8 @@ type HowToTool struct {
 
 	// RequiredQuantity see : https://schema.org/requiredQuantity
 	// The required quantity of the item(s).
-	RequiredQuantity interface{} `json:"requiredQuantity,omitempty"` // types : Number QuantitativeValue Text
-
+	// types : Number QuantitativeValue Text
+	RequiredQuantity interface{} `json:"requiredQuantity,omitempty"`
 }
 
 func (v HowToTool) MarshalJSONWithTypeContext() ([]byte, error) {

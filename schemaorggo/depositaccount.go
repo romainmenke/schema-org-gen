@@ -10,8 +10,8 @@ type DepositAccount struct {
 
 	// Amount see : https://schema.org/amount
 	// The amount of money.
-	Amount interface{} `json:"amount,omitempty"` // types : MonetaryAmount Number
-
+	// types : MonetaryAmount Number
+	Amount interface{} `json:"amount,omitempty"`
 }
 
 func (v DepositAccount) MarshalJSONWithTypeContext() ([]byte, error) {

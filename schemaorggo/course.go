@@ -10,20 +10,23 @@ type Course struct {
 
 	// CourseCode see : https://schema.org/courseCode
 	// The identifier for the Course (see: https://schema.org/Course) used by the course provider (see: https://schema.org/provider) (e.g. CS101 or 6.001).
-	CourseCode string `json:"courseCode,omitempty"` // types : Text
+	// types : Text
+	CourseCode string `json:"courseCode,omitempty"`
 
 	// CoursePrerequisites see : https://schema.org/coursePrerequisites
-	// Requirements for taking the Course. May be completion of another Course (see: https://schema.org/Course) or a textual description like "permission of instructor". Requirements may be a pre-requisite competency, referenced using AlignmentObject (see: https://schema.org/AlignmentObject).
-	CoursePrerequisites interface{} `json:"coursePrerequisites,omitempty"` // types : AlignmentObject Course Text
+	// Requirements for taking the Course. May be completion of another Course (see: https://schema.org/Course) or a textual description like &quot;permission of instructor&quot;. Requirements may be a pre-requisite competency, referenced using AlignmentObject (see: https://schema.org/AlignmentObject).
+	// types : AlignmentObject Course Text
+	CoursePrerequisites interface{} `json:"coursePrerequisites,omitempty"`
 
 	// EducationalCredentialAwarded see : http://pending.schema.org/educationalCredentialAwarded
 	// A description of the qualification, award, certificate, diploma or other educational credential awarded as a consequence of successful completion of this course.
-	EducationalCredentialAwarded string `json:"educationalCredentialAwarded,omitempty"` // types : Text URL
+	// types : Text URL
+	EducationalCredentialAwarded string `json:"educationalCredentialAwarded,omitempty"`
 
 	// HasCourseInstance see : https://schema.org/hasCourseInstance
 	// An offering of the course at a specific time and place or through specific media or mode of study or to a specific section of students.
-	HasCourseInstance *CourseInstance `json:"hasCourseInstance,omitempty"` // types : CourseInstance
-
+	// types : CourseInstance
+	HasCourseInstance *CourseInstance `json:"hasCourseInstance,omitempty"`
 }
 
 func (v Course) MarshalJSONWithTypeContext() ([]byte, error) {

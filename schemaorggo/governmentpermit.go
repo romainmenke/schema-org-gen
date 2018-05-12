@@ -10,32 +10,38 @@ type GovernmentPermit struct {
 
 	// IssuedBy see : https://schema.org/issuedBy
 	// The organization issuing the ticket or permit.
-	IssuedBy *Organization `json:"issuedBy,omitempty"` // types : Organization
+	// types : Organization
+	IssuedBy *Organization `json:"issuedBy,omitempty"`
 
 	// IssuedThrough see : https://schema.org/issuedThrough
 	// The service through with the permit was granted.
-	IssuedThrough *Service `json:"issuedThrough,omitempty"` // types : Service
+	// types : Service
+	IssuedThrough *Service `json:"issuedThrough,omitempty"`
 
 	// PermitAudience see : https://schema.org/permitAudience
 	// The target audience for this permit.
-	PermitAudience *Audience `json:"permitAudience,omitempty"` // types : Audience
+	// types : Audience
+	PermitAudience *Audience `json:"permitAudience,omitempty"`
 
 	// ValidFor see : https://schema.org/validFor
 	// The time validity of the permit.
-	ValidFor *Duration `json:"validFor,omitempty"` // types : Duration
+	// types : Duration
+	ValidFor *Duration `json:"validFor,omitempty"`
 
 	// ValidFrom see : https://schema.org/validFrom
 	// The date when the item becomes valid.
-	ValidFrom DateTime `json:"validFrom,omitempty"` // types : DateTime
+	// types : DateTime
+	ValidFrom DateTime `json:"validFrom,omitempty"`
 
 	// ValidIn see : https://schema.org/validIn
 	// The geographic area where the permit is valid.
-	ValidIn *AdministrativeArea `json:"validIn,omitempty"` // types : AdministrativeArea
+	// types : AdministrativeArea
+	ValidIn *AdministrativeArea `json:"validIn,omitempty"`
 
 	// ValidUntil see : https://schema.org/validUntil
 	// The date when the item is no longer valid.
-	ValidUntil Date `json:"validUntil,omitempty"` // types : Date
-
+	// types : Date
+	ValidUntil Date `json:"validUntil,omitempty"`
 }
 
 func (v GovernmentPermit) MarshalJSONWithTypeContext() ([]byte, error) {

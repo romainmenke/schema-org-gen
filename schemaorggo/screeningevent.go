@@ -10,16 +10,18 @@ type ScreeningEvent struct {
 
 	// SubtitleLanguage see : https://schema.org/subtitleLanguage
 	// Languages in which subtitles/captions are available, in IETF BCP 47 standard format (see: https://schema.orghttp://tools.ietf.org/html/bcp47).
-	SubtitleLanguage interface{} `json:"subtitleLanguage,omitempty"` // types : Language Text
+	// types : Language Text
+	SubtitleLanguage interface{} `json:"subtitleLanguage,omitempty"`
 
 	// VideoFormat see : https://schema.org/videoFormat
 	// The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.).
-	VideoFormat string `json:"videoFormat,omitempty"` // types : Text
+	// types : Text
+	VideoFormat string `json:"videoFormat,omitempty"`
 
 	// WorkPresented see : https://schema.org/workPresented
 	// The movie presented during this event.
-	WorkPresented *Movie `json:"workPresented,omitempty"` // types : Movie
-
+	// types : Movie
+	WorkPresented *Movie `json:"workPresented,omitempty"`
 }
 
 func (v ScreeningEvent) MarshalJSONWithTypeContext() ([]byte, error) {

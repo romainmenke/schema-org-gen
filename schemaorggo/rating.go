@@ -10,20 +10,23 @@ type Rating struct {
 
 	// Author see : https://schema.org/author
 	// The author of this content or rating. Please note that author is special in that HTML 5 provides a special mechanism for indicating authorship via the rel tag. That is equivalent to this and may be used interchangeably.
-	Author interface{} `json:"author,omitempty"` // types : Organization Person
+	// types : Organization Person
+	Author interface{} `json:"author,omitempty"`
 
 	// BestRating see : https://schema.org/bestRating
 	// The highest value allowed in this rating system. If bestRating is omitted, 5 is assumed.
-	BestRating interface{} `json:"bestRating,omitempty"` // types : Number Text
+	// types : Number Text
+	BestRating interface{} `json:"bestRating,omitempty"`
 
 	// RatingValue see : https://schema.org/ratingValue
 	// The rating for the content.
-	RatingValue interface{} `json:"ratingValue,omitempty"` // types : Number Text
+	// types : Number Text
+	RatingValue interface{} `json:"ratingValue,omitempty"`
 
 	// WorstRating see : https://schema.org/worstRating
 	// The lowest value allowed in this rating system. If worstRating is omitted, 1 is assumed.
-	WorstRating interface{} `json:"worstRating,omitempty"` // types : Number Text
-
+	// types : Number Text
+	WorstRating interface{} `json:"worstRating,omitempty"`
 }
 
 func (v Rating) MarshalJSONWithTypeContext() ([]byte, error) {

@@ -10,8 +10,8 @@ type DonateAction struct {
 
 	// Recipient see : https://schema.org/recipient
 	// A sub property of participant. The participant who is at the receiving end of the action.
-	Recipient interface{} `json:"recipient,omitempty"` // types : Audience ContactPoint Organization Person
-
+	// types : Audience ContactPoint Organization Person
+	Recipient interface{} `json:"recipient,omitempty"`
 }
 
 func (v DonateAction) MarshalJSONWithTypeContext() ([]byte, error) {

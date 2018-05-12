@@ -10,24 +10,28 @@ type OpeningHoursSpecification struct {
 
 	// Closes see : https://schema.org/closes
 	// The closing hour of the place or service on the given day(s) of the week.
-	Closes Time `json:"closes,omitempty"` // types : Time
+	// types : Time
+	Closes Time `json:"closes,omitempty"`
 
 	// DayOfWeek see : https://schema.org/dayOfWeek
 	// The day of the week for which these opening hours are valid.
-	DayOfWeek *DayOfWeek `json:"dayOfWeek,omitempty"` // types : DayOfWeek
+	// types : DayOfWeek
+	DayOfWeek *DayOfWeek `json:"dayOfWeek,omitempty"`
 
 	// Opens see : https://schema.org/opens
 	// The opening hour of the place or service on the given day(s) of the week.
-	Opens Time `json:"opens,omitempty"` // types : Time
+	// types : Time
+	Opens Time `json:"opens,omitempty"`
 
 	// ValidFrom see : https://schema.org/validFrom
 	// The date when the item becomes valid.
-	ValidFrom DateTime `json:"validFrom,omitempty"` // types : DateTime
+	// types : DateTime
+	ValidFrom DateTime `json:"validFrom,omitempty"`
 
 	// ValidThrough see : https://schema.org/validThrough
 	// The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
-	ValidThrough DateTime `json:"validThrough,omitempty"` // types : DateTime
-
+	// types : DateTime
+	ValidThrough DateTime `json:"validThrough,omitempty"`
 }
 
 func (v OpeningHoursSpecification) MarshalJSONWithTypeContext() ([]byte, error) {

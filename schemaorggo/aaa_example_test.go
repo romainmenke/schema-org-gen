@@ -40,6 +40,6 @@ func ExampleAirline() {
 	}
 
 	fmt.Println(string(b))
-	// Output: {"name":"Super Sonic","dissolutionDate":"2002-02-02","foundingDate":"2001-01-01","@context":"http://schema.org","@type":"Airline"}
+	// Output: {"name":"Super Sonic","dissolutionDate":"2002-02-02","founder":{"name":"John","@context":"http://schema.org","@type":"Person","birthDate":null,"deathDate":null},"foundingDate":"2001-01-01","@context":"http://schema.org","@type":"Airline"}
 
 }

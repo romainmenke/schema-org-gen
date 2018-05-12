@@ -10,8 +10,8 @@ type SocialMediaPosting struct {
 
 	// SharedContent see : https://schema.org/sharedContent
 	// A CreativeWork such as an image, video, or audio clip shared as part of this posting.
-	SharedContent *CreativeWork `json:"sharedContent,omitempty"` // types : CreativeWork
-
+	// types : CreativeWork
+	SharedContent *CreativeWork `json:"sharedContent,omitempty"`
 }
 
 func (v SocialMediaPosting) MarshalJSONWithTypeContext() ([]byte, error) {

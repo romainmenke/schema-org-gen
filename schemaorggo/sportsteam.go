@@ -10,12 +10,13 @@ type SportsTeam struct {
 
 	// Athlete see : https://schema.org/athlete
 	// A person that acts as performing member of a sports team; a player as opposed to a coach.
-	Athlete *Person `json:"athlete,omitempty"` // types : Person
+	// types : Person
+	Athlete *Person `json:"athlete,omitempty"`
 
 	// Coach see : https://schema.org/coach
 	// A person that acts in a coaching role for a sports team.
-	Coach *Person `json:"coach,omitempty"` // types : Person
-
+	// types : Person
+	Coach *Person `json:"coach,omitempty"`
 }
 
 func (v SportsTeam) MarshalJSONWithTypeContext() ([]byte, error) {

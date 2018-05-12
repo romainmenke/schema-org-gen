@@ -10,20 +10,23 @@ type RentalCarReservation struct {
 
 	// DropoffLocation see : https://schema.org/dropoffLocation
 	// Where a rental car can be dropped off.
-	DropoffLocation *Place `json:"dropoffLocation,omitempty"` // types : Place
+	// types : Place
+	DropoffLocation *Place `json:"dropoffLocation,omitempty"`
 
 	// DropoffTime see : https://schema.org/dropoffTime
 	// When a rental car can be dropped off.
-	DropoffTime DateTime `json:"dropoffTime,omitempty"` // types : DateTime
+	// types : DateTime
+	DropoffTime DateTime `json:"dropoffTime,omitempty"`
 
 	// PickupLocation see : https://schema.org/pickupLocation
 	// Where a taxi will pick up a passenger or a rental car can be picked up.
-	PickupLocation *Place `json:"pickupLocation,omitempty"` // types : Place
+	// types : Place
+	PickupLocation *Place `json:"pickupLocation,omitempty"`
 
 	// PickupTime see : https://schema.org/pickupTime
 	// When a taxi will pickup a passenger or a rental car can be picked up.
-	PickupTime DateTime `json:"pickupTime,omitempty"` // types : DateTime
-
+	// types : DateTime
+	PickupTime DateTime `json:"pickupTime,omitempty"`
 }
 
 func (v RentalCarReservation) MarshalJSONWithTypeContext() ([]byte, error) {

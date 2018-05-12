@@ -10,8 +10,8 @@ type CommentAction struct {
 
 	// ResultComment see : https://schema.org/resultComment
 	// A sub property of result. The Comment created or sent as a result of this action.
-	ResultComment *Comment `json:"resultComment,omitempty"` // types : Comment
-
+	// types : Comment
+	ResultComment *Comment `json:"resultComment,omitempty"`
 }
 
 func (v CommentAction) MarshalJSONWithTypeContext() ([]byte, error) {

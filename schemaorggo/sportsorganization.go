@@ -10,8 +10,8 @@ type SportsOrganization struct {
 
 	// Sport see : https://schema.org/sport
 	// A type of sport (e.g. Baseball).
-	Sport string `json:"sport,omitempty"` // types : Text URL
-
+	// types : Text URL
+	Sport string `json:"sport,omitempty"`
 }
 
 func (v SportsOrganization) MarshalJSONWithTypeContext() ([]byte, error) {
