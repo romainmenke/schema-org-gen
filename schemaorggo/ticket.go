@@ -10,7 +10,7 @@ type Ticket struct {
 
 	// DateIssued see : https://schema.org/dateIssued
 	// The date the ticket was issued.
-	DateIssued interface{} `json:"dateIssued"`
+	DateIssued DateTime `json:"dateIssued"`
 
 	// IssuedBy see : https://schema.org/issuedBy
 	// The organization issuing the ticket or permit.

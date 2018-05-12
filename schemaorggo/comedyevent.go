@@ -42,7 +42,7 @@ type ComedyEvent struct {
 
 	// DoorTime see : https://schema.org/doorTime
 	// The time admission will commence.
-	DoorTime interface{} `json:"doorTime"`
+	DoorTime DateTime `json:"doorTime"`
 
 	// Duration see : https://schema.org/duration
 	// The duration of the item (movie, audio recording, event, etc.) in ISO 8601 date format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601).
@@ -90,7 +90,7 @@ type ComedyEvent struct {
 
 	// PreviousStartDate see : https://schema.org/previousStartDate
 	// Used in conjunction with eventStatus for rescheduled or cancelled events. This property contains the previously scheduled start date. For rescheduled events, the startDate property should be used for the newly scheduled start date. In the (rare) case of an event that has been postponed and rescheduled multiple times, this field may be repeated.
-	PreviousStartDate interface{} `json:"previousStartDate"`
+	PreviousStartDate Date `json:"previousStartDate"`
 
 	// RecordedIn see : https://schema.org/recordedIn
 	// The CreativeWork that captured all or part of this Event. Inverse property: recordedAt (see: https://schema.org/recordedAt).

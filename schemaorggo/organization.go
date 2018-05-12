@@ -50,7 +50,7 @@ type Organization struct {
 
 	// DissolutionDate see : https://schema.org/dissolutionDate
 	// The date that this organization was dissolved.
-	DissolutionDate interface{} `json:"dissolutionDate"`
+	DissolutionDate Date `json:"dissolutionDate"`
 
 	// DiversityPolicy see : https://pending.schema.org/diversityPolicy
 	// Statement on diversity policy by an Organization (see: https://schema.org/Organization) e.g. a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization). For a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization), a statement describing the newsroom’s diversity policy on both staffing and sources, typically providing staffing data.
@@ -86,7 +86,7 @@ type Organization struct {
 
 	// FoundingDate see : https://schema.org/foundingDate
 	// The date that this organization was founded.
-	FoundingDate interface{} `json:"foundingDate"`
+	FoundingDate Date `json:"foundingDate"`
 
 	// FoundingLocation see : https://schema.org/foundingLocation
 	// The place where the Organization was founded.

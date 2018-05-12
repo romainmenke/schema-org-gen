@@ -22,11 +22,11 @@ type MonetaryAmount struct {
 
 	// ValidFrom see : https://schema.org/validFrom
 	// The date when the item becomes valid.
-	ValidFrom interface{} `json:"validFrom"`
+	ValidFrom DateTime `json:"validFrom"`
 
 	// ValidThrough see : https://schema.org/validThrough
 	// The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
-	ValidThrough interface{} `json:"validThrough"`
+	ValidThrough DateTime `json:"validThrough"`
 
 	// Value see : https://schema.org/value
 	// The value of the quantitative value or property value node.

@@ -62,7 +62,7 @@ type MediaObject struct {
 
 	// UploadDate see : https://schema.org/uploadDate
 	// Date when this media object was uploaded to this site.
-	UploadDate interface{} `json:"uploadDate"`
+	UploadDate Date `json:"uploadDate"`
 
 	// Width see : https://schema.org/width
 	// The width of the item.

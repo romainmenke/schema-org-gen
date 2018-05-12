@@ -26,7 +26,7 @@ type GovernmentPermit struct {
 
 	// ValidFrom see : https://schema.org/validFrom
 	// The date when the item becomes valid.
-	ValidFrom interface{} `json:"validFrom"`
+	ValidFrom DateTime `json:"validFrom"`
 
 	// ValidIn see : https://schema.org/validIn
 	// The geographic area where the permit is valid.
@@ -34,7 +34,7 @@ type GovernmentPermit struct {
 
 	// ValidUntil see : https://schema.org/validUntil
 	// The date when the item is no longer valid.
-	ValidUntil interface{} `json:"validUntil"`
+	ValidUntil Date `json:"validUntil"`
 }
 
 func (v *GovernmentPermit) MarshalJSON() ([]byte, error) {

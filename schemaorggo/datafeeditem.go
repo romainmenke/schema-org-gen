@@ -14,7 +14,7 @@ type DataFeedItem struct {
 
 	// DateDeleted see : https://schema.org/dateDeleted
 	// The datetime the item was removed from the DataFeed.
-	DateDeleted interface{} `json:"dateDeleted"`
+	DateDeleted DateTime `json:"dateDeleted"`
 
 	// DateModified see : https://schema.org/dateModified
 	// The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.

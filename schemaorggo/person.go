@@ -30,7 +30,7 @@ type Person struct {
 
 	// BirthDate see : https://schema.org/birthDate
 	// Date of birth.
-	BirthDate interface{} `json:"birthDate"`
+	BirthDate Date `json:"birthDate"`
 
 	// BirthPlace see : https://schema.org/birthPlace
 	// The place where the person was born.
@@ -54,7 +54,7 @@ type Person struct {
 
 	// DeathDate see : https://schema.org/deathDate
 	// Date of death.
-	DeathDate interface{} `json:"deathDate"`
+	DeathDate Date `json:"deathDate"`
 
 	// DeathPlace see : https://schema.org/deathPlace
 	// The place where the person died.

@@ -26,7 +26,7 @@ type Flight struct {
 
 	// ArrivalTime see : https://schema.org/arrivalTime
 	// The expected arrival time.
-	ArrivalTime interface{} `json:"arrivalTime"`
+	ArrivalTime DateTime `json:"arrivalTime"`
 
 	// BoardingPolicy see : https://schema.org/boardingPolicy
 	// The type of boarding policy used by the airline (e.g. zone-based or group-based).
@@ -46,7 +46,7 @@ type Flight struct {
 
 	// DepartureTime see : https://schema.org/departureTime
 	// The expected departure time.
-	DepartureTime interface{} `json:"departureTime"`
+	DepartureTime DateTime `json:"departureTime"`
 
 	// EstimatedFlightDuration see : https://schema.org/estimatedFlightDuration
 	// The estimated time the flight will take.
@@ -74,7 +74,7 @@ type Flight struct {
 
 	// WebCheckinTime see : https://schema.org/webCheckinTime
 	// The time when a passenger can check into the flight online.
-	WebCheckinTime interface{} `json:"webCheckinTime"`
+	WebCheckinTime DateTime `json:"webCheckinTime"`
 }
 
 func (v *Flight) MarshalJSON() ([]byte, error) {

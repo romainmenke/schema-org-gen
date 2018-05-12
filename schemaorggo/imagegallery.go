@@ -14,7 +14,7 @@ type ImageGallery struct {
 
 	// LastReviewed see : https://schema.org/lastReviewed
 	// Date on which the content on this web page was last reviewed for accuracy and/or completeness.
-	LastReviewed interface{} `json:"lastReviewed"`
+	LastReviewed Date `json:"lastReviewed"`
 
 	// MainContentOfPage see : https://schema.org/mainContentOfPage
 	// Indicates if this web page element is the main subject of the page. Supersedes aspect (see: https://schema.orghttp://health-lifesci.schema.org/aspect).

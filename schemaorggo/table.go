@@ -98,7 +98,7 @@ type Table struct {
 
 	// ContentReferenceTime see : http://pending.schema.org/contentReferenceTime
 	// The specific time described by a creative work, for works (e.g. articles, video objects etc.) that emphasise a particular moment within an Event.
-	ContentReferenceTime interface{} `json:"contentReferenceTime"`
+	ContentReferenceTime DateTime `json:"contentReferenceTime"`
 
 	// Contributor see : https://schema.org/contributor
 	// A secondary contributor to the CreativeWork or Event.
@@ -126,7 +126,7 @@ type Table struct {
 
 	// DatePublished see : https://schema.org/datePublished
 	// Date of first broadcast/publication.
-	DatePublished interface{} `json:"datePublished"`
+	DatePublished Date `json:"datePublished"`
 
 	// DiscussionUrl see : https://schema.org/discussionUrl
 	// A link to the page containing the comments of the CreativeWork.
@@ -154,7 +154,7 @@ type Table struct {
 
 	// Expires see : https://schema.org/expires
 	// Date the content expires and is no longer useful or available. For example a VideoObject (see: https://schema.org/VideoObject) or NewsArticle (see: https://schema.org/NewsArticle) whose availability or relevance is time-limited, or a ClaimReview (see: https://schema.org/ClaimReview) fact check whose publisher wants to indicate that it may no longer be relevant (or helpful to highlight) after some date.
-	Expires interface{} `json:"expires"`
+	Expires Date `json:"expires"`
 
 	// FileFormat see : https://schema.org/fileFormat
 	// Media type, typically MIME format (see IANA site (see: https://schema.orghttp://www.iana.org/assignments/media-types/media-types.xhtml)) of the content e.g. application/zip of a SoftwareApplication binary. In cases where a CreativeWork has several media type representations, 'encoding' can be used to indicate each MediaObject alongside particular fileFormat information. Unregistered or niche file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia entry.

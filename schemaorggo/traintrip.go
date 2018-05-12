@@ -18,7 +18,7 @@ type TrainTrip struct {
 
 	// ArrivalTime see : https://schema.org/arrivalTime
 	// The expected arrival time.
-	ArrivalTime interface{} `json:"arrivalTime"`
+	ArrivalTime DateTime `json:"arrivalTime"`
 
 	// DeparturePlatform see : https://schema.org/departurePlatform
 	// The platform from which the train departs.
@@ -30,7 +30,7 @@ type TrainTrip struct {
 
 	// DepartureTime see : https://schema.org/departureTime
 	// The expected departure time.
-	DepartureTime interface{} `json:"departureTime"`
+	DepartureTime DateTime `json:"departureTime"`
 
 	// Provider see : https://schema.org/provider
 	// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier (see: https://schema.org/carrier).

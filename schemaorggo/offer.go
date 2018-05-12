@@ -34,11 +34,11 @@ type Offer struct {
 
 	// AvailabilityEnds see : https://schema.org/availabilityEnds
 	// The end of the availability of the product or service included in the offer.
-	AvailabilityEnds interface{} `json:"availabilityEnds"`
+	AvailabilityEnds DateTime `json:"availabilityEnds"`
 
 	// AvailabilityStarts see : https://schema.org/availabilityStarts
 	// The beginning of the availability of the product or service included in the offer.
-	AvailabilityStarts interface{} `json:"availabilityStarts"`
+	AvailabilityStarts DateTime `json:"availabilityStarts"`
 
 	// AvailableAtOrFrom see : https://schema.org/availableAtOrFrom
 	// The place(s) from which the offer can be obtained (e.g. store locations).
@@ -153,7 +153,7 @@ type Offer struct {
 
 	// PriceValidUntil see : https://schema.org/priceValidUntil
 	// The date after which the price is no longer available.
-	PriceValidUntil interface{} `json:"priceValidUntil"`
+	PriceValidUntil Date `json:"priceValidUntil"`
 
 	// Review see : https://schema.org/review
 	// A review of the item. Supersedes reviews (see: https://schema.org/reviews).
@@ -173,11 +173,11 @@ type Offer struct {
 
 	// ValidFrom see : https://schema.org/validFrom
 	// The date when the item becomes valid.
-	ValidFrom interface{} `json:"validFrom"`
+	ValidFrom DateTime `json:"validFrom"`
 
 	// ValidThrough see : https://schema.org/validThrough
 	// The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
-	ValidThrough interface{} `json:"validThrough"`
+	ValidThrough DateTime `json:"validThrough"`
 
 	// Warranty see : https://schema.org/warranty
 	// The warranty promise(s) included in the offer. Supersedes warrantyPromise (see: https://schema.org/warrantyPromise).

@@ -38,7 +38,7 @@ type Invoice struct {
 
 	// PaymentDueDate see : https://schema.org/paymentDueDate
 	// The date that payment is due. Supersedes paymentDue (see: https://schema.org/paymentDue).
-	PaymentDueDate interface{} `json:"paymentDueDate"`
+	PaymentDueDate DateTime `json:"paymentDueDate"`
 
 	// PaymentMethod see : https://schema.org/paymentMethod
 	// The name of the credit card or other method of payment for the order.
@@ -62,7 +62,7 @@ type Invoice struct {
 
 	// ScheduledPaymentDate see : https://schema.org/scheduledPaymentDate
 	// The date the invoice is scheduled to be paid.
-	ScheduledPaymentDate interface{} `json:"scheduledPaymentDate"`
+	ScheduledPaymentDate Date `json:"scheduledPaymentDate"`
 
 	// TotalPaymentDue see : https://schema.org/totalPaymentDue
 	// The total amount due.

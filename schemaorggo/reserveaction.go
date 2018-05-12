@@ -10,7 +10,7 @@ type ReserveAction struct {
 
 	// ScheduledTime see : https://schema.org/scheduledTime
 	// The time the object is scheduled to.
-	ScheduledTime interface{} `json:"scheduledTime"`
+	ScheduledTime DateTime `json:"scheduledTime"`
 }
 
 func (v *ReserveAction) MarshalJSON() ([]byte, error) {

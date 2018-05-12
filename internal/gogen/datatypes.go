@@ -6,7 +6,7 @@ import (
 )
 
 func writeGoDataTypes(ctx context.Context, dir string, packageName string) error {
-	f, err := newObjectFile(dir, "data-types")
+	f, err := newObjectFile(dir, "aaa_data-types")
 	if err != nil {
 		return err
 	}
@@ -74,6 +74,12 @@ func goTypeForSchemaDataType(goTypes []string, schemaDataType string) string {
 		return "string"
 	case "URL":
 		return "string"
+	case "Date":
+		return "Date"
+	case "DateTime":
+		return "DateTime"
+	case "Time":
+		return "Time"
 	default:
 		for _, goType := range goTypes {
 			if goType == schemaDataType {

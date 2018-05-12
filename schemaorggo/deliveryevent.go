@@ -14,11 +14,11 @@ type DeliveryEvent struct {
 
 	// AvailableFrom see : https://schema.org/availableFrom
 	// When the item is available for pickup from the store, locker, etc.
-	AvailableFrom interface{} `json:"availableFrom"`
+	AvailableFrom DateTime `json:"availableFrom"`
 
 	// AvailableThrough see : https://schema.org/availableThrough
 	// After this date, the item will no longer be available for pickup.
-	AvailableThrough interface{} `json:"availableThrough"`
+	AvailableThrough DateTime `json:"availableThrough"`
 
 	// HasDeliveryMethod see : https://schema.org/hasDeliveryMethod
 	// Method used for delivery or shipping.

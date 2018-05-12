@@ -46,7 +46,7 @@ type Order struct {
 
 	// OrderDate see : https://schema.org/orderDate
 	// Date order was placed.
-	OrderDate interface{} `json:"orderDate"`
+	OrderDate DateTime `json:"orderDate"`
 
 	// OrderDelivery see : https://schema.org/orderDelivery
 	// The delivery of the parcel related to this order or order item.
@@ -70,7 +70,7 @@ type Order struct {
 
 	// PaymentDueDate see : https://schema.org/paymentDueDate
 	// The date that payment is due. Supersedes paymentDue (see: https://schema.org/paymentDue).
-	PaymentDueDate interface{} `json:"paymentDueDate"`
+	PaymentDueDate DateTime `json:"paymentDueDate"`
 
 	// PaymentMethod see : https://schema.org/paymentMethod
 	// The name of the credit card or other method of payment for the order.

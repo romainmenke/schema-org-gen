@@ -2,13 +2,20 @@ package gogen
 
 import (
 	"context"
+	"log"
+	"os"
 	"os/exec"
 
 	"github.com/romainmenke/schema-org-gen/internal/typemap"
 )
 
 func Generate(ctx context.Context, tm *typemap.TypeMap, dir string, packageName string) error {
-	err := writeGoDataTypes(ctx, dir, packageName)
+	err := os.RemoveAll(dir)
+	if err != nil {
+		log.Println(err)
+	}
+
+	err = writeGoDataTypes(ctx, dir, packageName)
 	if err != nil {
 		return err
 	}

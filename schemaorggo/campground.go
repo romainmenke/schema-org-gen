@@ -22,11 +22,11 @@ type Campground struct {
 
 	// CheckinTime see : https://schema.org/checkinTime
 	// The earliest someone may check into a lodging establishment.
-	CheckinTime interface{} `json:"checkinTime"`
+	CheckinTime DateTime `json:"checkinTime"`
 
 	// CheckoutTime see : https://schema.org/checkoutTime
 	// The latest someone may check out of a lodging establishment.
-	CheckoutTime interface{} `json:"checkoutTime"`
+	CheckoutTime DateTime `json:"checkoutTime"`
 
 	// PetsAllowed see : https://schema.org/petsAllowed
 	// Indicates whether pets are allowed to enter the accommodation or lodging business. More detailed information can be put in a text value.

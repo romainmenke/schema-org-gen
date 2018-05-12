@@ -14,7 +14,7 @@ type RentalCarReservation struct {
 
 	// DropoffTime see : https://schema.org/dropoffTime
 	// When a rental car can be dropped off.
-	DropoffTime interface{} `json:"dropoffTime"`
+	DropoffTime DateTime `json:"dropoffTime"`
 
 	// PickupLocation see : https://schema.org/pickupLocation
 	// Where a taxi will pick up a passenger or a rental car can be picked up.
@@ -22,7 +22,7 @@ type RentalCarReservation struct {
 
 	// PickupTime see : https://schema.org/pickupTime
 	// When a taxi will pickup a passenger or a rental car can be picked up.
-	PickupTime interface{} `json:"pickupTime"`
+	PickupTime DateTime `json:"pickupTime"`
 }
 
 func (v *RentalCarReservation) MarshalJSON() ([]byte, error) {

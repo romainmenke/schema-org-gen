@@ -18,15 +18,15 @@ type EmailMessage struct {
 
 	// DateRead see : https://schema.org/dateRead
 	// The date/time at which the message has been read by the recipient if a single recipient exists.
-	DateRead interface{} `json:"dateRead"`
+	DateRead DateTime `json:"dateRead"`
 
 	// DateReceived see : https://schema.org/dateReceived
 	// The date/time the message was received if a single recipient exists.
-	DateReceived interface{} `json:"dateReceived"`
+	DateReceived DateTime `json:"dateReceived"`
 
 	// DateSent see : https://schema.org/dateSent
 	// The date/time at which the message was sent.
-	DateSent interface{} `json:"dateSent"`
+	DateSent DateTime `json:"dateSent"`
 
 	// MessageAttachment see : https://schema.org/messageAttachment
 	// A CreativeWork attached to the message.

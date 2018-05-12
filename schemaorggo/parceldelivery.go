@@ -18,11 +18,11 @@ type ParcelDelivery struct {
 
 	// ExpectedArrivalFrom see : https://schema.org/expectedArrivalFrom
 	// The earliest date the package may arrive.
-	ExpectedArrivalFrom interface{} `json:"expectedArrivalFrom"`
+	ExpectedArrivalFrom DateTime `json:"expectedArrivalFrom"`
 
 	// ExpectedArrivalUntil see : https://schema.org/expectedArrivalUntil
 	// The latest date the package may arrive.
-	ExpectedArrivalUntil interface{} `json:"expectedArrivalUntil"`
+	ExpectedArrivalUntil DateTime `json:"expectedArrivalUntil"`
 
 	// HasDeliveryMethod see : https://schema.org/hasDeliveryMethod
 	// Method used for delivery or shipping.

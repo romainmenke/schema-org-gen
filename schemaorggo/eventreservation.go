@@ -10,7 +10,7 @@ type EventReservation struct {
 
 	// BookingTime see : https://schema.org/bookingTime
 	// The date and time the reservation was booked.
-	BookingTime interface{} `json:"bookingTime"`
+	BookingTime DateTime `json:"bookingTime"`
 
 	// Broker see : https://schema.org/broker
 	// An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred. Supersedes bookingAgent (see: https://schema.org/bookingAgent).
@@ -18,7 +18,7 @@ type EventReservation struct {
 
 	// ModifiedTime see : https://schema.org/modifiedTime
 	// The date and time the reservation was modified.
-	ModifiedTime interface{} `json:"modifiedTime"`
+	ModifiedTime DateTime `json:"modifiedTime"`
 
 	// PriceCurrency see : https://schema.org/priceCurrency
 	// The currency (in 3-letter ISO 4217 format) of the price or a price component, when attached to PriceSpecification (see: https://schema.org/PriceSpecification) and its subtypes.

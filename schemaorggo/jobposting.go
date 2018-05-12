@@ -14,7 +14,7 @@ type JobPosting struct {
 
 	// DatePosted see : https://schema.org/datePosted
 	// Publication date for the job posting.
-	DatePosted interface{} `json:"datePosted"`
+	DatePosted Date `json:"datePosted"`
 
 	// EducationRequirements see : https://schema.org/educationRequirements
 	// Educational background needed for the position.
@@ -82,7 +82,7 @@ type JobPosting struct {
 
 	// ValidThrough see : https://schema.org/validThrough
 	// The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
-	ValidThrough interface{} `json:"validThrough"`
+	ValidThrough DateTime `json:"validThrough"`
 
 	// WorkHours see : https://schema.org/workHours
 	// The typical working hours for this job (e.g. 1st shift, night shift, 8am-5pm).

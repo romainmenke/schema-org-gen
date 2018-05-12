@@ -33,7 +33,7 @@ type Vehicle struct {
 
 	// DateVehicleFirstRegistered see : https://schema.org/dateVehicleFirstRegistered
 	// The date of the first registration of the vehicle with the respective public authorities.
-	DateVehicleFirstRegistered interface{} `json:"dateVehicleFirstRegistered"`
+	DateVehicleFirstRegistered Date `json:"dateVehicleFirstRegistered"`
 
 	// DriveWheelConfiguration see : https://schema.org/driveWheelConfiguration
 	// The drive wheel configuration, i.e. which roadwheels will receive torque from the vehicle's engine via the drivetrain.
@@ -91,7 +91,7 @@ type Vehicle struct {
 
 	// ModelDate see : https://auto.schema.org/modelDate
 	// The release date of a vehicle model (often used to differentiate versions of the same make and model).
-	ModelDate interface{} `json:"modelDate"`
+	ModelDate Date `json:"modelDate"`
 
 	// NumberOfAirbags see : https://schema.org/numberOfAirbags
 	// The number or type of airbags in the vehicle.
@@ -137,11 +137,11 @@ type Vehicle struct {
 
 	// ProductionDate see : https://schema.org/productionDate
 	// The date of production of the item, e.g. vehicle.
-	ProductionDate interface{} `json:"productionDate"`
+	ProductionDate Date `json:"productionDate"`
 
 	// PurchaseDate see : https://schema.org/purchaseDate
 	// The date the item e.g. vehicle was purchased by the current owner.
-	PurchaseDate interface{} `json:"purchaseDate"`
+	PurchaseDate Date `json:"purchaseDate"`
 
 	// SeatingCapacity see : https://auto.schema.org/seatingCapacity
 	// The number of persons that can be seated (e.g. in a vehicle), both in terms of the physical space available, and in terms of limitations set by law.
@@ -206,7 +206,7 @@ type Vehicle struct {
 
 	// VehicleModelDate see : https://schema.org/vehicleModelDate
 	// The release date of a vehicle model (often used to differentiate versions of the same make and model).
-	VehicleModelDate interface{} `json:"vehicleModelDate"`
+	VehicleModelDate Date `json:"vehicleModelDate"`
 
 	// VehicleSeatingCapacity see : https://schema.org/vehicleSeatingCapacity
 	// The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.

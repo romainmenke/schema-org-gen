@@ -18,7 +18,7 @@ type TaxiReservation struct {
 
 	// PickupTime see : https://schema.org/pickupTime
 	// When a taxi will pickup a passenger or a rental car can be picked up.
-	PickupTime interface{} `json:"pickupTime"`
+	PickupTime DateTime `json:"pickupTime"`
 }
 
 func (v *TaxiReservation) MarshalJSON() ([]byte, error) {

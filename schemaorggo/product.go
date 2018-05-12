@@ -112,15 +112,15 @@ type Product struct {
 
 	// ProductionDate see : https://schema.org/productionDate
 	// The date of production of the item, e.g. vehicle.
-	ProductionDate interface{} `json:"productionDate"`
+	ProductionDate Date `json:"productionDate"`
 
 	// PurchaseDate see : https://schema.org/purchaseDate
 	// The date the item e.g. vehicle was purchased by the current owner.
-	PurchaseDate interface{} `json:"purchaseDate"`
+	PurchaseDate Date `json:"purchaseDate"`
 
 	// ReleaseDate see : https://schema.org/releaseDate
 	// The release date of a product or product model. This can be used to distinguish the exact variant of a product.
-	ReleaseDate interface{} `json:"releaseDate"`
+	ReleaseDate Date `json:"releaseDate"`
 
 	// Review see : https://schema.org/review
 	// A review of the item. Supersedes reviews (see: https://schema.org/reviews).
