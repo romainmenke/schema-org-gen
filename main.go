@@ -4,6 +4,10 @@ import (
 	"context"
 	"encoding/json"
 	"io"
+
+	"github.com/romainmenke/schema-org-gen/internal/fetch"
+	"github.com/romainmenke/schema-org-gen/internal/gogen"
+	"github.com/romainmenke/schema-org-gen/internal/typemap"
 )
 
 var verboseLog = true
@@ -15,7 +19,7 @@ func main() {
 
 func useCacheRun() {
 
-	typeMapCacheFile, err := newOrExistingTypeMapCacheFile()
+	typeMapCacheFile, err := typemap.NewOrExistingTypeMapCacheFile()
 	if err != nil {
 		panic(err)
 	}
@@ -23,7 +27,7 @@ func useCacheRun() {
 
 	dec := json.NewDecoder(typeMapCacheFile)
 
-	tm := &TypeMap{}
+	tm := &typemap.TypeMap{}
 	err = dec.Decode(tm)
 	if err == io.EOF {
 		cleanRun()
@@ -33,28 +37,17 @@ func useCacheRun() {
 		panic(err)
 	}
 
+	err = typeMapCacheFile.Close()
+	if err != nil {
+		panic(err)
+	}
+
 	if tm.UpdatedAt.IsZero() {
 		cleanRun()
 		return
 	}
 
-	err = writeGoDataTypes(context.Background())
-	if err != nil {
-		panic(err)
-	}
-
-	goTypes := []string{}
-	err = tm.walk(context.Background(), listGoTypes(&goTypes))
-	if err != nil {
-		panic(err)
-	}
-
-	err = tm.walk(context.Background(), goTypeFile(goTypes))
-	if err != nil {
-		panic(err)
-	}
-
-	err = typeMapCacheFile.Close()
+	err = gogen.Generate(context.Background(), tm, "./schemaorggo", "schemaorggo")
 	if err != nil {
 		panic(err)
 	}
@@ -62,18 +55,18 @@ func useCacheRun() {
 
 func cleanRun() {
 
-	typeMapCacheFile, err := newTypeMapCacheFile()
+	typeMapCacheFile, err := typemap.NewTypeMapCacheFile()
 	if err != nil {
 		panic(err)
 	}
 	defer typeMapCacheFile.Close()
 
-	tm, err := getTypeMap(context.Background())
+	tm, err := fetch.TypeMap(context.Background())
 	if err != nil {
 		panic(err)
 	}
 
-	err = tm.walk(context.Background(), getObject)
+	err = tm.Walk(context.Background(), fetch.Object)
 	if err != nil {
 		panic(err)
 	}
@@ -89,18 +82,7 @@ func cleanRun() {
 		panic(err)
 	}
 
-	err = writeGoDataTypes(context.Background())
-	if err != nil {
-		panic(err)
-	}
-
-	goTypes := []string{}
-	err = tm.walk(context.Background(), listGoTypes(&goTypes))
-	if err != nil {
-		panic(err)
-	}
-
-	err = tm.walk(context.Background(), goTypeFile(goTypes))
+	err = gogen.Generate(context.Background(), tm, "./schemaorggo", "schemaorggo")
 	if err != nil {
 		panic(err)
 	}
