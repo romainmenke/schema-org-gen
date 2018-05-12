@@ -1,4 +1,4 @@
-package gogen
+package gengo
 
 import (
 	"context"

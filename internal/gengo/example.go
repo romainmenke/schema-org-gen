@@ -1,4 +1,4 @@
-package gogen
+package gengo
 
 import (
 	"context"
@@ -7,8 +7,8 @@ import (
 	"github.com/tyler-sommer/stick"
 )
 
-func writeMarshalJSON(ctx context.Context, dir string, packageName string) error {
-	f, err := newObjectFile(dir, "aaa_util")
+func writeExample(ctx context.Context, dir string, packageName string) error {
+	f, err := newObjectFile(dir, "aaa_example_test")
 	if err != nil {
 		return err
 	}
@@ -19,7 +19,7 @@ func writeMarshalJSON(ctx context.Context, dir string, packageName string) error
 		return errors.New("no template found")
 	}
 
-	tmpls.Execute("/templates/util.twig", f,
+	tmpls.Execute("/templates/example.twig", f,
 		map[string]stick.Value{
 			"package_name": packageName,
 		},

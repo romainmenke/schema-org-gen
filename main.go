@@ -11,7 +11,7 @@ import (
 	"time"
 
 	"github.com/romainmenke/schema-org-gen/internal/fetch"
-	"github.com/romainmenke/schema-org-gen/internal/gogen"
+	"github.com/romainmenke/schema-org-gen/internal/gengo"
 	"github.com/romainmenke/schema-org-gen/internal/typemap"
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 )
@@ -71,7 +71,7 @@ func main() {
 
 	switch cmd {
 	case goCmd.FullCommand():
-		err = gogen.Generate(ctx, tm, "./schemaorggo", "schemaorggo")
+		err = gengo.Generate(ctx, tm, "./schemaorggo", "schemaorggo")
 		if err != nil {
 			log.Fatal(err)
 		}
