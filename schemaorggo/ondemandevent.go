@@ -10,7 +10,7 @@ type OnDemandEvent struct {
 
 	// IsAccessibleForFree see : https://schema.org/isAccessibleForFree
 	// A flag to signal that the item, event, or place is accessible for free. Supersedes free (see: https://schema.org/free).
-	IsAccessibleForFree bool `json:"isAccessibleForFree,omitempty"`
+	IsAccessibleForFree bool `json:"isAccessibleForFree,omitempty"` // types : Boolean
 
 	// PublishedBy see : http://bib.schema.org/publishedBy
 	// An agent associated with the publication event.
@@ -18,7 +18,8 @@ type OnDemandEvent struct {
 
 	// PublishedOn see : https://schema.org/publishedOn
 	// A broadcast service associated with the publication event.
-	PublishedOn *BroadcastService `json:"publishedOn,omitempty"`
+	PublishedOn *BroadcastService `json:"publishedOn,omitempty"` // types : BroadcastService
+
 }
 
 func (v OnDemandEvent) MarshalJSONWithTypeContext() ([]byte, error) {

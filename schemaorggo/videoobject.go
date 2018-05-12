@@ -10,15 +10,15 @@ type VideoObject struct {
 
 	// Actor see : https://schema.org/actor
 	// An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip. Supersedes actors (see: https://schema.org/actors).
-	Actor *Person `json:"actor,omitempty"`
+	Actor *Person `json:"actor,omitempty"` // types : Person
 
 	// Caption see : https://schema.org/caption
 	// The caption for this object.
-	Caption string `json:"caption,omitempty"`
+	Caption string `json:"caption,omitempty"` // types : Text
 
 	// Director see : https://schema.org/director
 	// A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip. Supersedes directors (see: https://schema.org/directors).
-	Director *Person `json:"director,omitempty"`
+	Director *Person `json:"director,omitempty"` // types : Person
 
 	// MusicBy see : https://schema.org/musicBy
 	// The composer of the soundtrack.
@@ -26,19 +26,20 @@ type VideoObject struct {
 
 	// Thumbnail see : https://schema.org/thumbnail
 	// Thumbnail image for an image or video.
-	Thumbnail *ImageObject `json:"thumbnail,omitempty"`
+	Thumbnail *ImageObject `json:"thumbnail,omitempty"` // types : ImageObject
 
 	// Transcript see : https://schema.org/transcript
 	// If this MediaObject is an AudioObject or VideoObject, the transcript of that object.
-	Transcript string `json:"transcript,omitempty"`
+	Transcript string `json:"transcript,omitempty"` // types : Text
 
 	// VideoFrameSize see : https://schema.org/videoFrameSize
 	// The frame size of the video.
-	VideoFrameSize string `json:"videoFrameSize,omitempty"`
+	VideoFrameSize string `json:"videoFrameSize,omitempty"` // types : Text
 
 	// VideoQuality see : https://schema.org/videoQuality
 	// The quality of the video.
-	VideoQuality string `json:"videoQuality,omitempty"`
+	VideoQuality string `json:"videoQuality,omitempty"` // types : Text
+
 }
 
 func (v VideoObject) MarshalJSONWithTypeContext() ([]byte, error) {

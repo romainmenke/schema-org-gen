@@ -10,7 +10,8 @@ type EducationalAudience struct {
 
 	// EducationalRole see : https://schema.org/educationalRole
 	// An educationalRole of an EducationalAudience.
-	EducationalRole string `json:"educationalRole,omitempty"`
+	EducationalRole string `json:"educationalRole,omitempty"` // types : Text
+
 }
 
 func (v EducationalAudience) MarshalJSONWithTypeContext() ([]byte, error) {

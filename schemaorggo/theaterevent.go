@@ -10,15 +10,15 @@ type TheaterEvent struct {
 
 	// About see : https://schema.org/about
 	// The subject matter of the content.
-	About *Thing `json:"about,omitempty"`
+	About *Thing `json:"about,omitempty"` // types : Thing
 
 	// Actor see : https://schema.org/actor
 	// An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip. Supersedes actors (see: https://schema.org/actors).
-	Actor *Person `json:"actor,omitempty"`
+	Actor *Person `json:"actor,omitempty"` // types : Person
 
 	// AggregateRating see : https://schema.org/aggregateRating
 	// The overall rating, based on a collection of reviews or ratings, of the item.
-	AggregateRating *AggregateRating `json:"aggregateRating,omitempty"`
+	AggregateRating *AggregateRating `json:"aggregateRating,omitempty"` // types : AggregateRating
 
 	// Attendee see : https://schema.org/attendee
 	// A person or organization attending the event. Supersedes attendees (see: https://schema.org/attendees).
@@ -26,7 +26,7 @@ type TheaterEvent struct {
 
 	// Audience see : https://schema.org/audience
 	// An intended audience, i.e. a group for whom something was created. Supersedes serviceAudience (see: https://schema.org/serviceAudience).
-	Audience *Audience `json:"audience,omitempty"`
+	Audience *Audience `json:"audience,omitempty"` // types : Audience
 
 	// Composer see : https://schema.org/composer
 	// The person or organization who wrote a composition, or who is the composer of a work performed at some event.
@@ -38,15 +38,15 @@ type TheaterEvent struct {
 
 	// Director see : https://schema.org/director
 	// A director of e.g. tv, radio, movie, video gaming etc. content, or of an event. Directors can be associated with individual items or with a series, episode, clip. Supersedes directors (see: https://schema.org/directors).
-	Director *Person `json:"director,omitempty"`
+	Director *Person `json:"director,omitempty"` // types : Person
 
 	// DoorTime see : https://schema.org/doorTime
 	// The time admission will commence.
-	DoorTime DateTime `json:"doorTime,omitempty"`
+	DoorTime DateTime `json:"doorTime,omitempty"` // types : DateTime
 
 	// Duration see : https://schema.org/duration
 	// The duration of the item (movie, audio recording, event, etc.) in ISO 8601 date format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601).
-	Duration *Duration `json:"duration,omitempty"`
+	Duration *Duration `json:"duration,omitempty"` // types : Duration
 
 	// EndDate see : https://schema.org/endDate
 	// The end date and time of the item (in ISO 8601 date format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601)).
@@ -54,7 +54,7 @@ type TheaterEvent struct {
 
 	// EventStatus see : https://schema.org/eventStatus
 	// An eventStatus of an event represents its status; particularly useful when an event is cancelled or rescheduled.
-	EventStatus *EventStatusType `json:"eventStatus,omitempty"`
+	EventStatus *EventStatusType `json:"eventStatus,omitempty"` // types : EventStatusType
 
 	// Funder see : https://schema.org/funder
 	// A person or organization that supports (sponsors) something through some kind of financial contribution.
@@ -66,7 +66,7 @@ type TheaterEvent struct {
 
 	// IsAccessibleForFree see : https://schema.org/isAccessibleForFree
 	// A flag to signal that the item, event, or place is accessible for free. Supersedes free (see: https://schema.org/free).
-	IsAccessibleForFree bool `json:"isAccessibleForFree,omitempty"`
+	IsAccessibleForFree bool `json:"isAccessibleForFree,omitempty"` // types : Boolean
 
 	// Location see : https://schema.org/location
 	// The location of for example where the event is happening, an organization is located, or where an action takes place.
@@ -74,11 +74,11 @@ type TheaterEvent struct {
 
 	// MaximumAttendeeCapacity see : https://schema.org/maximumAttendeeCapacity
 	// The total number of individuals that may attend an event or venue.
-	MaximumAttendeeCapacity int `json:"maximumAttendeeCapacity,omitempty"`
+	MaximumAttendeeCapacity float64 `json:"maximumAttendeeCapacity,omitempty"` // types : Integer
 
 	// Offers see : https://schema.org/offers
 	// An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event.
-	Offers *Offer `json:"offers,omitempty"`
+	Offers *Offer `json:"offers,omitempty"` // types : Offer
 
 	// Organizer see : https://schema.org/organizer
 	// An organizer of an Event.
@@ -90,19 +90,19 @@ type TheaterEvent struct {
 
 	// PreviousStartDate see : https://schema.org/previousStartDate
 	// Used in conjunction with eventStatus for rescheduled or cancelled events. This property contains the previously scheduled start date. For rescheduled events, the startDate property should be used for the newly scheduled start date. In the (rare) case of an event that has been postponed and rescheduled multiple times, this field may be repeated.
-	PreviousStartDate Date `json:"previousStartDate,omitempty"`
+	PreviousStartDate Date `json:"previousStartDate,omitempty"` // types : Date
 
 	// RecordedIn see : https://schema.org/recordedIn
 	// The CreativeWork that captured all or part of this Event. Inverse property: recordedAt (see: https://schema.org/recordedAt).
-	RecordedIn *CreativeWork `json:"recordedIn,omitempty"`
+	RecordedIn *CreativeWork `json:"recordedIn,omitempty"` // types : CreativeWork
 
 	// RemainingAttendeeCapacity see : https://schema.org/remainingAttendeeCapacity
 	// The number of attendee places for an event that remain unallocated.
-	RemainingAttendeeCapacity int `json:"remainingAttendeeCapacity,omitempty"`
+	RemainingAttendeeCapacity float64 `json:"remainingAttendeeCapacity,omitempty"` // types : Integer
 
 	// Review see : https://schema.org/review
 	// A review of the item. Supersedes reviews (see: https://schema.org/reviews).
-	Review *Review `json:"review,omitempty"`
+	Review *Review `json:"review,omitempty"` // types : Review
 
 	// Sponsor see : https://schema.org/sponsor
 	// A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
@@ -114,11 +114,11 @@ type TheaterEvent struct {
 
 	// SubEvent see : https://schema.org/subEvent
 	// An Event that is part of this event. For example, a conference event includes many presentations, each of which is a subEvent of the conference. Supersedes subEvents (see: https://schema.org/subEvents). Inverse property: superEvent (see: https://schema.org/superEvent).
-	SubEvent *Event `json:"subEvent,omitempty"`
+	SubEvent *Event `json:"subEvent,omitempty"` // types : Event
 
 	// SuperEvent see : https://schema.org/superEvent
 	// An event that this event is a part of. For example, a collection of individual music performances might each have a music festival as their superEvent. Inverse property: subEvent (see: https://schema.org/subEvent).
-	SuperEvent *Event `json:"superEvent,omitempty"`
+	SuperEvent *Event `json:"superEvent,omitempty"` // types : Event
 
 	// Translator see : https://schema.org/translator
 	// Organization or person who adapts a creative work to different languages, regional differences and technical requirements of a target market, or that translates during some event.
@@ -126,16 +126,17 @@ type TheaterEvent struct {
 
 	// TypicalAgeRange see : https://schema.org/typicalAgeRange
 	// The typical expected age range, e.g. '7-9', '11-'.
-	TypicalAgeRange string `json:"typicalAgeRange,omitempty"`
+	TypicalAgeRange string `json:"typicalAgeRange,omitempty"` // types : Text
 
 	// WorkFeatured see : https://schema.org/workFeatured
 	// A work featured in some event, e.g. exhibited in an ExhibitionEvent.
 	//        Specific subproperties are available for workPerformed (e.g. a play), or a workPresented (a Movie at a ScreeningEvent).
-	WorkFeatured *CreativeWork `json:"workFeatured,omitempty"`
+	WorkFeatured *CreativeWork `json:"workFeatured,omitempty"` // types : CreativeWork
 
 	// WorkPerformed see : https://schema.org/workPerformed
 	// A work performed in some event, for example a play performed in a TheaterEvent.
-	WorkPerformed *CreativeWork `json:"workPerformed,omitempty"`
+	WorkPerformed *CreativeWork `json:"workPerformed,omitempty"` // types : CreativeWork
+
 }
 
 func (v TheaterEvent) MarshalJSONWithTypeContext() ([]byte, error) {

@@ -10,7 +10,7 @@ type MusicRelease struct {
 
 	// CatalogNumber see : https://schema.org/catalogNumber
 	// The catalog number for the release.
-	CatalogNumber string `json:"catalogNumber,omitempty"`
+	CatalogNumber string `json:"catalogNumber,omitempty"` // types : Text
 
 	// CreditedTo see : https://schema.org/creditedTo
 	// The group the release is credited to if different than the byArtist. For example, Red and Blue is credited to "Stefani Germanotta Band", but by Lady Gaga.
@@ -18,19 +18,20 @@ type MusicRelease struct {
 
 	// Duration see : https://schema.org/duration
 	// The duration of the item (movie, audio recording, event, etc.) in ISO 8601 date format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601).
-	Duration *Duration `json:"duration,omitempty"`
+	Duration *Duration `json:"duration,omitempty"` // types : Duration
 
 	// MusicReleaseFormat see : https://schema.org/musicReleaseFormat
 	// Format of this release (the type of recording media used, ie. compact disc, digital media, LP, etc.).
-	MusicReleaseFormat *MusicReleaseFormatType `json:"musicReleaseFormat,omitempty"`
+	MusicReleaseFormat *MusicReleaseFormatType `json:"musicReleaseFormat,omitempty"` // types : MusicReleaseFormatType
 
 	// RecordLabel see : https://schema.org/recordLabel
 	// The label that issued the release.
-	RecordLabel *Organization `json:"recordLabel,omitempty"`
+	RecordLabel *Organization `json:"recordLabel,omitempty"` // types : Organization
 
 	// ReleaseOf see : https://schema.org/releaseOf
 	// The album this is a release of. Inverse property: albumRelease (see: https://schema.org/albumRelease).
-	ReleaseOf *MusicAlbum `json:"releaseOf,omitempty"`
+	ReleaseOf *MusicAlbum `json:"releaseOf,omitempty"` // types : MusicAlbum
+
 }
 
 func (v MusicRelease) MarshalJSONWithTypeContext() ([]byte, error) {

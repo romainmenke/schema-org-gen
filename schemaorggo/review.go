@@ -10,15 +10,16 @@ type Review struct {
 
 	// ItemReviewed see : https://schema.org/itemReviewed
 	// The item that is being reviewed/rated.
-	ItemReviewed *Thing `json:"itemReviewed,omitempty"`
+	ItemReviewed *Thing `json:"itemReviewed,omitempty"` // types : Thing
 
 	// ReviewBody see : https://schema.org/reviewBody
 	// The actual body of the review.
-	ReviewBody string `json:"reviewBody,omitempty"`
+	ReviewBody string `json:"reviewBody,omitempty"` // types : Text
 
 	// ReviewRating see : https://schema.org/reviewRating
 	// The rating given in this review. Note that reviews can themselves be rated. The reviewRating applies to rating given by the review. The aggregateRating (see: https://schema.org/aggregateRating) property applies to the review itself, as a creative work.
-	ReviewRating *Rating `json:"reviewRating,omitempty"`
+	ReviewRating *Rating `json:"reviewRating,omitempty"` // types : Rating
+
 }
 
 func (v Review) MarshalJSONWithTypeContext() ([]byte, error) {

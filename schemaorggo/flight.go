@@ -14,39 +14,39 @@ type Flight struct {
 
 	// ArrivalAirport see : https://schema.org/arrivalAirport
 	// The airport where the flight terminates.
-	ArrivalAirport *Airport `json:"arrivalAirport,omitempty"`
+	ArrivalAirport *Airport `json:"arrivalAirport,omitempty"` // types : Airport
 
 	// ArrivalGate see : https://schema.org/arrivalGate
 	// Identifier of the flight's arrival gate.
-	ArrivalGate string `json:"arrivalGate,omitempty"`
+	ArrivalGate string `json:"arrivalGate,omitempty"` // types : Text
 
 	// ArrivalTerminal see : https://schema.org/arrivalTerminal
 	// Identifier of the flight's arrival terminal.
-	ArrivalTerminal string `json:"arrivalTerminal,omitempty"`
+	ArrivalTerminal string `json:"arrivalTerminal,omitempty"` // types : Text
 
 	// ArrivalTime see : https://schema.org/arrivalTime
 	// The expected arrival time.
-	ArrivalTime DateTime `json:"arrivalTime,omitempty"`
+	ArrivalTime DateTime `json:"arrivalTime,omitempty"` // types : DateTime
 
 	// BoardingPolicy see : https://schema.org/boardingPolicy
 	// The type of boarding policy used by the airline (e.g. zone-based or group-based).
-	BoardingPolicy *BoardingPolicyType `json:"boardingPolicy,omitempty"`
+	BoardingPolicy *BoardingPolicyType `json:"boardingPolicy,omitempty"` // types : BoardingPolicyType
 
 	// DepartureAirport see : https://schema.org/departureAirport
 	// The airport where the flight originates.
-	DepartureAirport *Airport `json:"departureAirport,omitempty"`
+	DepartureAirport *Airport `json:"departureAirport,omitempty"` // types : Airport
 
 	// DepartureGate see : https://schema.org/departureGate
 	// Identifier of the flight's departure gate.
-	DepartureGate string `json:"departureGate,omitempty"`
+	DepartureGate string `json:"departureGate,omitempty"` // types : Text
 
 	// DepartureTerminal see : https://schema.org/departureTerminal
 	// Identifier of the flight's departure terminal.
-	DepartureTerminal string `json:"departureTerminal,omitempty"`
+	DepartureTerminal string `json:"departureTerminal,omitempty"` // types : Text
 
 	// DepartureTime see : https://schema.org/departureTime
 	// The expected departure time.
-	DepartureTime DateTime `json:"departureTime,omitempty"`
+	DepartureTime DateTime `json:"departureTime,omitempty"` // types : DateTime
 
 	// EstimatedFlightDuration see : https://schema.org/estimatedFlightDuration
 	// The estimated time the flight will take.
@@ -58,11 +58,11 @@ type Flight struct {
 
 	// FlightNumber see : https://schema.org/flightNumber
 	// The unique identifier for a flight including the airline IATA code. For example, if describing United flight 110, where the IATA code for United is 'UA', the flightNumber is 'UA110'.
-	FlightNumber string `json:"flightNumber,omitempty"`
+	FlightNumber string `json:"flightNumber,omitempty"` // types : Text
 
 	// MealService see : https://schema.org/mealService
 	// Description of the meals that will be provided or available for purchase.
-	MealService string `json:"mealService,omitempty"`
+	MealService string `json:"mealService,omitempty"` // types : Text
 
 	// Provider see : https://schema.org/provider
 	// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier (see: https://schema.org/carrier).
@@ -74,7 +74,8 @@ type Flight struct {
 
 	// WebCheckinTime see : https://schema.org/webCheckinTime
 	// The time when a passenger can check into the flight online.
-	WebCheckinTime DateTime `json:"webCheckinTime,omitempty"`
+	WebCheckinTime DateTime `json:"webCheckinTime,omitempty"` // types : DateTime
+
 }
 
 func (v Flight) MarshalJSONWithTypeContext() ([]byte, error) {

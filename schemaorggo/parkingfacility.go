@@ -18,7 +18,8 @@ type ParkingFacility struct {
 	// If a business is open 7 days a week, then it can be specified as <time itemprop="openingHours" datetime="Mo-Su">Monday through Sunday, all day</time>.
 	//
 	//
-	OpeningHours string `json:"openingHours,omitempty"`
+	OpeningHours string `json:"openingHours,omitempty"` // types : Text
+
 }
 
 func (v ParkingFacility) MarshalJSONWithTypeContext() ([]byte, error) {

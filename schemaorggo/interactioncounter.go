@@ -14,11 +14,12 @@ type InteractionCounter struct {
 
 	// InteractionType see : https://schema.org/interactionType
 	// The Action representing the type of interaction. For up votes, +1s, etc. use LikeAction (see: https://schema.org/LikeAction). For down votes use DislikeAction (see: https://schema.org/DislikeAction). Otherwise, use the most specific Action.
-	InteractionType *Action `json:"interactionType,omitempty"`
+	InteractionType *Action `json:"interactionType,omitempty"` // types : Action
 
 	// UserInteractionCount see : https://schema.org/userInteractionCount
 	// The number of interactions for the CreativeWork using the WebSite or SoftwareApplication.
-	UserInteractionCount int `json:"userInteractionCount,omitempty"`
+	UserInteractionCount float64 `json:"userInteractionCount,omitempty"` // types : Integer
+
 }
 
 func (v InteractionCounter) MarshalJSONWithTypeContext() ([]byte, error) {

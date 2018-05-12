@@ -10,15 +10,16 @@ type RsvpAction struct {
 
 	// AdditionalNumberOfGuests see : https://schema.org/additionalNumberOfGuests
 	// If responding yes, the number of guests who will attend in addition to the invitee.
-	AdditionalNumberOfGuests float64 `json:"additionalNumberOfGuests,omitempty"`
+	AdditionalNumberOfGuests float64 `json:"additionalNumberOfGuests,omitempty"` // types : Number
 
 	// Comment see : https://schema.org/comment
 	// Comments, typically from users.
-	Comment *Comment `json:"comment,omitempty"`
+	Comment *Comment `json:"comment,omitempty"` // types : Comment
 
 	// RsvpResponse see : https://schema.org/rsvpResponse
 	// The response (yes, no, maybe) to the RSVP.
-	RsvpResponse *RsvpResponseType `json:"rsvpResponse,omitempty"`
+	RsvpResponse *RsvpResponseType `json:"rsvpResponse,omitempty"` // types : RsvpResponseType
+
 }
 
 func (v RsvpAction) MarshalJSONWithTypeContext() ([]byte, error) {

@@ -14,7 +14,8 @@ type DigitalDocumentPermission struct {
 
 	// PermissionType see : https://schema.org/permissionType
 	// The type of permission granted the person, organization, or audience.
-	PermissionType *DigitalDocumentPermissionType `json:"permissionType,omitempty"`
+	PermissionType *DigitalDocumentPermissionType `json:"permissionType,omitempty"` // types : DigitalDocumentPermissionType
+
 }
 
 func (v DigitalDocumentPermission) MarshalJSONWithTypeContext() ([]byte, error) {

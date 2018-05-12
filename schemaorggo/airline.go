@@ -10,11 +10,12 @@ type Airline struct {
 
 	// BoardingPolicy see : https://schema.org/boardingPolicy
 	// The type of boarding policy used by the airline (e.g. zone-based or group-based).
-	BoardingPolicy *BoardingPolicyType `json:"boardingPolicy,omitempty"`
+	BoardingPolicy *BoardingPolicyType `json:"boardingPolicy,omitempty"` // types : BoardingPolicyType
 
 	// IataCode see : https://schema.org/iataCode
 	// IATA identifier for an airline or airport.
-	IataCode string `json:"iataCode,omitempty"`
+	IataCode string `json:"iataCode,omitempty"` // types : Text
+
 }
 
 func (v Airline) MarshalJSONWithTypeContext() ([]byte, error) {

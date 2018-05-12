@@ -10,7 +10,7 @@ type SportsOrganization struct {
 
 	// Sport see : https://schema.org/sport
 	// A type of sport (e.g. Baseball).
-	Sport interface{} `json:"sport,omitempty"` // types : Text URL
+	Sport string `json:"sport,omitempty"` // types : Text URL
 
 }
 

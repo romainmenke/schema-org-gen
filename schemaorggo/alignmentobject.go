@@ -10,23 +10,24 @@ type AlignmentObject struct {
 
 	// AlignmentType see : https://schema.org/alignmentType
 	// A category of alignment between the learning resource and the framework node. Recommended values include: 'assesses', 'teaches', 'requires', 'textComplexity', 'readingLevel', 'educationalSubject', and 'educationalLevel'.
-	AlignmentType string `json:"alignmentType,omitempty"`
+	AlignmentType string `json:"alignmentType,omitempty"` // types : Text
 
 	// EducationalFramework see : https://schema.org/educationalFramework
 	// The framework to which the resource being described is aligned.
-	EducationalFramework string `json:"educationalFramework,omitempty"`
+	EducationalFramework string `json:"educationalFramework,omitempty"` // types : Text
 
 	// TargetDescription see : https://schema.org/targetDescription
 	// The description of a node in an established educational framework.
-	TargetDescription string `json:"targetDescription,omitempty"`
+	TargetDescription string `json:"targetDescription,omitempty"` // types : Text
 
 	// TargetName see : https://schema.org/targetName
 	// The name of a node in an established educational framework.
-	TargetName string `json:"targetName,omitempty"`
+	TargetName string `json:"targetName,omitempty"` // types : Text
 
 	// TargetUrl see : https://schema.org/targetUrl
 	// The URL of a node in an established educational framework.
-	TargetUrl string `json:"targetUrl,omitempty"`
+	TargetUrl string `json:"targetUrl,omitempty"` // types : URL
+
 }
 
 func (v AlignmentObject) MarshalJSONWithTypeContext() ([]byte, error) {

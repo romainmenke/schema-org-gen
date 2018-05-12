@@ -10,7 +10,8 @@ type ClaimReview struct {
 
 	// ClaimReviewed see : https://schema.org/claimReviewed
 	// A short summary of the specific claims reviewed in a ClaimReview.
-	ClaimReviewed string `json:"claimReviewed,omitempty"`
+	ClaimReviewed string `json:"claimReviewed,omitempty"` // types : Text
+
 }
 
 func (v ClaimReview) MarshalJSONWithTypeContext() ([]byte, error) {

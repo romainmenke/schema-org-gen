@@ -14,7 +14,7 @@ type PaymentService struct {
 
 	// FeesAndCommissionsSpecification see : https://schema.org/feesAndCommissionsSpecification
 	// Description of fees, commissions, and other terms applied either to a class of financial product, or by a financial service organization.
-	FeesAndCommissionsSpecification interface{} `json:"feesAndCommissionsSpecification,omitempty"` // types : Text URL
+	FeesAndCommissionsSpecification string `json:"feesAndCommissionsSpecification,omitempty"` // types : Text URL
 
 	// InterestRate see : https://schema.org/interestRate
 	// The interest rate, charged or paid, applicable to the financial product. Note: This is different from the calculated annualPercentageRate.

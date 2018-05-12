@@ -30,7 +30,8 @@ type GeoCoordinates struct {
 
 	// PostalCode see : https://schema.org/postalCode
 	// The postal code. For example, 94043.
-	PostalCode string `json:"postalCode,omitempty"`
+	PostalCode string `json:"postalCode,omitempty"` // types : Text
+
 }
 
 func (v GeoCoordinates) MarshalJSONWithTypeContext() ([]byte, error) {

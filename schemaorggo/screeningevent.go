@@ -14,11 +14,12 @@ type ScreeningEvent struct {
 
 	// VideoFormat see : https://schema.org/videoFormat
 	// The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.).
-	VideoFormat string `json:"videoFormat,omitempty"`
+	VideoFormat string `json:"videoFormat,omitempty"` // types : Text
 
 	// WorkPresented see : https://schema.org/workPresented
 	// The movie presented during this event.
-	WorkPresented *Movie `json:"workPresented,omitempty"`
+	WorkPresented *Movie `json:"workPresented,omitempty"` // types : Movie
+
 }
 
 func (v ScreeningEvent) MarshalJSONWithTypeContext() ([]byte, error) {

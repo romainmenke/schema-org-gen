@@ -14,7 +14,8 @@ type Hospital struct {
 
 	// MedicalSpecialty see : http://health-lifesci.schema.org/medicalSpecialty
 	// A medical specialty of the provider.
-	MedicalSpecialty interface{} `json:"medicalSpecialty,omitempty"`
+	MedicalSpecialty interface{} `json:"medicalSpecialty,omitempty"` // types : MedicalSpecialty
+
 }
 
 func (v Hospital) MarshalJSONWithTypeContext() ([]byte, error) {

@@ -14,31 +14,32 @@ type ServiceChannel struct {
 
 	// ProcessingTime see : https://schema.org/processingTime
 	// Estimated processing time for the service using this channel.
-	ProcessingTime *Duration `json:"processingTime,omitempty"`
+	ProcessingTime *Duration `json:"processingTime,omitempty"` // types : Duration
 
 	// ProvidesService see : https://schema.org/providesService
 	// The service provided by this channel.
-	ProvidesService *Service `json:"providesService,omitempty"`
+	ProvidesService *Service `json:"providesService,omitempty"` // types : Service
 
 	// ServiceLocation see : https://schema.org/serviceLocation
 	// The location (e.g. civic structure, local business, etc.) where a person can go to access the service.
-	ServiceLocation *Place `json:"serviceLocation,omitempty"`
+	ServiceLocation *Place `json:"serviceLocation,omitempty"` // types : Place
 
 	// ServicePhone see : https://schema.org/servicePhone
 	// The phone number to use to access the service.
-	ServicePhone *ContactPoint `json:"servicePhone,omitempty"`
+	ServicePhone *ContactPoint `json:"servicePhone,omitempty"` // types : ContactPoint
 
 	// ServicePostalAddress see : https://schema.org/servicePostalAddress
 	// The address for accessing the service by mail.
-	ServicePostalAddress *PostalAddress `json:"servicePostalAddress,omitempty"`
+	ServicePostalAddress *PostalAddress `json:"servicePostalAddress,omitempty"` // types : PostalAddress
 
 	// ServiceSmsNumber see : https://schema.org/serviceSmsNumber
 	// The number to access the service by text message.
-	ServiceSmsNumber *ContactPoint `json:"serviceSmsNumber,omitempty"`
+	ServiceSmsNumber *ContactPoint `json:"serviceSmsNumber,omitempty"` // types : ContactPoint
 
 	// ServiceUrl see : https://schema.org/serviceUrl
 	// The website to access the service.
-	ServiceUrl string `json:"serviceUrl,omitempty"`
+	ServiceUrl string `json:"serviceUrl,omitempty"` // types : URL
+
 }
 
 func (v ServiceChannel) MarshalJSONWithTypeContext() ([]byte, error) {

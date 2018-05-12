@@ -10,7 +10,8 @@ type AskAction struct {
 
 	// Question see : https://schema.org/question
 	// A sub property of object. A question.
-	Question *Question `json:"question,omitempty"`
+	Question *Question `json:"question,omitempty"` // types : Question
+
 }
 
 func (v AskAction) MarshalJSONWithTypeContext() ([]byte, error) {

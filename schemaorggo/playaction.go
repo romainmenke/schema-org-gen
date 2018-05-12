@@ -10,11 +10,12 @@ type PlayAction struct {
 
 	// Audience see : https://schema.org/audience
 	// An intended audience, i.e. a group for whom something was created. Supersedes serviceAudience (see: https://schema.org/serviceAudience).
-	Audience *Audience `json:"audience,omitempty"`
+	Audience *Audience `json:"audience,omitempty"` // types : Audience
 
 	// Event see : https://schema.org/event
 	// Upcoming or past event associated with this place, organization, or action. Supersedes events (see: https://schema.org/events).
-	Event *Event `json:"event,omitempty"`
+	Event *Event `json:"event,omitempty"` // types : Event
+
 }
 
 func (v PlayAction) MarshalJSONWithTypeContext() ([]byte, error) {

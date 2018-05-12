@@ -10,7 +10,8 @@ type LendAction struct {
 
 	// Borrower see : https://schema.org/borrower
 	// A sub property of participant. The person that borrows the object being lent.
-	Borrower *Person `json:"borrower,omitempty"`
+	Borrower *Person `json:"borrower,omitempty"` // types : Person
+
 }
 
 func (v LendAction) MarshalJSONWithTypeContext() ([]byte, error) {

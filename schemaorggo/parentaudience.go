@@ -10,11 +10,12 @@ type ParentAudience struct {
 
 	// ChildMaxAge see : https://schema.org/childMaxAge
 	// Maximal age of the child.
-	ChildMaxAge float64 `json:"childMaxAge,omitempty"`
+	ChildMaxAge float64 `json:"childMaxAge,omitempty"` // types : Number
 
 	// ChildMinAge see : https://schema.org/childMinAge
 	// Minimal age of the child.
-	ChildMinAge float64 `json:"childMinAge,omitempty"`
+	ChildMinAge float64 `json:"childMinAge,omitempty"` // types : Number
+
 }
 
 func (v ParentAudience) MarshalJSONWithTypeContext() ([]byte, error) {

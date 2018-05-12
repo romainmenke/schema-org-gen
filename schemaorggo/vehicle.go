@@ -17,7 +17,7 @@ type Vehicle struct {
 	// Note: There are unfortunately no standard unit codes for seconds/0..100 km/h or seconds/0..60 mph. Simply use "SEC" for seconds and indicate the velocities in the name (see: https://schema.org/name) of the QuantitativeValue (see: https://schema.org/QuantitativeValue), or use valueReference (see: https://schema.org/valueReference) with a QuantitativeValue (see: https://schema.org/QuantitativeValue) of 0..60 mph or 0..100 km/h to specify the reference speeds.
 	//
 	//
-	AccelerationTime *QuantitativeValue `json:"accelerationTime,omitempty"`
+	AccelerationTime *QuantitativeValue `json:"accelerationTime,omitempty"` // types : QuantitativeValue
 
 	// BodyType see : https://auto.schema.org/bodyType
 	// Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).
@@ -29,11 +29,11 @@ type Vehicle struct {
 	// Typical unit code(s): LTR for liters, FTQ for cubic foot/feet
 	//
 	// Note: You can use minValue (see: https://schema.org/minValue) and maxValue (see: https://schema.org/maxValue) to indicate ranges.
-	CargoVolume *QuantitativeValue `json:"cargoVolume,omitempty"`
+	CargoVolume *QuantitativeValue `json:"cargoVolume,omitempty"` // types : QuantitativeValue
 
 	// DateVehicleFirstRegistered see : https://schema.org/dateVehicleFirstRegistered
 	// The date of the first registration of the vehicle with the respective public authorities.
-	DateVehicleFirstRegistered Date `json:"dateVehicleFirstRegistered,omitempty"`
+	DateVehicleFirstRegistered Date `json:"dateVehicleFirstRegistered,omitempty"` // types : Date
 
 	// DriveWheelConfiguration see : https://schema.org/driveWheelConfiguration
 	// The drive wheel configuration, i.e. which roadwheels will receive torque from the vehicle's engine via the drivetrain.
@@ -41,13 +41,13 @@ type Vehicle struct {
 
 	// EmissionsCO2 see : https://auto.schema.org/emissionsCO2
 	// The CO2 emissions in g/km. When used in combination with a QuantitativeValue, put "g/km" into the unitText property of that value, since there is no UN/CEFACT Common Code for "g/km".
-	EmissionsCO2 float64 `json:"emissionsCO2,omitempty"`
+	EmissionsCO2 float64 `json:"emissionsCO2,omitempty"` // types : Number
 
 	// FuelCapacity see : https://auto.schema.org/fuelCapacity
 	// The capacity of the fuel tank or in the case of electric cars, the battery. If there are multiple components for storage, this should indicate the total of all storage of the same type.
 	//
 	// Typical unit code(s): LTR for liters, GLL of US gallons, GLI for UK / imperial gallons, AMH for ampere-hours (for electrical vehicles).
-	FuelCapacity *QuantitativeValue `json:"fuelCapacity,omitempty"`
+	FuelCapacity *QuantitativeValue `json:"fuelCapacity,omitempty"` // types : QuantitativeValue
 
 	// FuelConsumption see : https://schema.org/fuelConsumption
 	// The amount of fuel consumed for traveling a particular distance or temporal duration with the given vehicle (e.g. liters per 100 km).
@@ -58,7 +58,7 @@ type Vehicle struct {
 	// Note 3: Often, the absolute value is useful only when related to driving speed ("at 80 km/h") or usage pattern ("city traffic"). You can use valueReference (see: https://schema.org/valueReference) to link the value for the fuel consumption to another value.
 	//
 	//
-	FuelConsumption *QuantitativeValue `json:"fuelConsumption,omitempty"`
+	FuelConsumption *QuantitativeValue `json:"fuelConsumption,omitempty"` // types : QuantitativeValue
 
 	// FuelEfficiency see : https://schema.org/fuelEfficiency
 	// The distance traveled per unit of fuel used; most commonly miles per gallon (mpg) or kilometers per liter (km/L).
@@ -69,7 +69,7 @@ type Vehicle struct {
 	// Note 3: Often, the absolute value is useful only when related to driving speed ("at 80 km/h") or usage pattern ("city traffic"). You can use valueReference (see: https://schema.org/valueReference) to link the value for the fuel economy to another value.
 	//
 	//
-	FuelEfficiency *QuantitativeValue `json:"fuelEfficiency,omitempty"`
+	FuelEfficiency *QuantitativeValue `json:"fuelEfficiency,omitempty"` // types : QuantitativeValue
 
 	// FuelType see : https://schema.org/fuelType
 	// The type of fuel suitable for the engine or engines of the vehicle. If the vehicle has only one engine, this property can be attached directly to the vehicle.
@@ -77,7 +77,7 @@ type Vehicle struct {
 
 	// KnownVehicleDamages see : https://schema.org/knownVehicleDamages
 	// A textual description of known damages, both repaired and unrepaired.
-	KnownVehicleDamages string `json:"knownVehicleDamages,omitempty"`
+	KnownVehicleDamages string `json:"knownVehicleDamages,omitempty"` // types : Text
 
 	// MeetsEmissionStandard see : https://auto.schema.org/meetsEmissionStandard
 	// Indicates that the vehicle meets the respective emission standard.
@@ -87,11 +87,11 @@ type Vehicle struct {
 	// The total distance travelled by the particular vehicle since its initial production, as read from its odometer.
 	//
 	// Typical unit code(s): KMT for kilometers, SMI for statute miles
-	MileageFromOdometer *QuantitativeValue `json:"mileageFromOdometer,omitempty"`
+	MileageFromOdometer *QuantitativeValue `json:"mileageFromOdometer,omitempty"` // types : QuantitativeValue
 
 	// ModelDate see : https://auto.schema.org/modelDate
 	// The release date of a vehicle model (often used to differentiate versions of the same make and model).
-	ModelDate Date `json:"modelDate,omitempty"`
+	ModelDate Date `json:"modelDate,omitempty"` // types : Date
 
 	// NumberOfAirbags see : https://schema.org/numberOfAirbags
 	// The number or type of airbags in the vehicle.
@@ -133,15 +133,15 @@ type Vehicle struct {
 	// Note 4: Note that you can use minValue (see: https://schema.org/minValue) and maxValue (see: https://schema.org/maxValue) to indicate ranges.
 	//
 	//
-	Payload *QuantitativeValue `json:"payload,omitempty"`
+	Payload *QuantitativeValue `json:"payload,omitempty"` // types : QuantitativeValue
 
 	// ProductionDate see : https://schema.org/productionDate
 	// The date of production of the item, e.g. vehicle.
-	ProductionDate Date `json:"productionDate,omitempty"`
+	ProductionDate Date `json:"productionDate,omitempty"` // types : Date
 
 	// PurchaseDate see : https://schema.org/purchaseDate
 	// The date the item e.g. vehicle was purchased by the current owner.
-	PurchaseDate Date `json:"purchaseDate,omitempty"`
+	PurchaseDate Date `json:"purchaseDate,omitempty"` // types : Date
 
 	// SeatingCapacity see : https://auto.schema.org/seatingCapacity
 	// The number of persons that can be seated (e.g. in a vehicle), both in terms of the physical space available, and in terms of limitations set by law.
@@ -156,11 +156,11 @@ type Vehicle struct {
 	//
 	// *Note 1: Use minValue (see: https://schema.org/minValue) and maxValue (see: https://schema.org/maxValue) to indicate the range. Typically, the minimal value is zero.
 	// * Note 2: There are many different ways of measuring the speed range. You can link to information about how the given value has been determined using the valueReference (see: https://schema.org/valueReference) property.
-	Speed *QuantitativeValue `json:"speed,omitempty"`
+	Speed *QuantitativeValue `json:"speed,omitempty"` // types : QuantitativeValue
 
 	// SteeringPosition see : https://schema.org/steeringPosition
 	// The position of the steering wheel or similar device (mostly for cars).
-	SteeringPosition *SteeringPositionValue `json:"steeringPosition,omitempty"`
+	SteeringPosition *SteeringPositionValue `json:"steeringPosition,omitempty"` // types : SteeringPositionValue
 
 	// TongueWeight see : https://auto.schema.org/tongueWeight
 	// The permitted vertical load (TWR) of a trailer attached to the vehicle. Also referred to as Tongue Load Rating (TLR) or Vertical Load Rating (VLR)
@@ -173,7 +173,7 @@ type Vehicle struct {
 	// Note 3: Note that you can use minValue (see: https://schema.org/minValue) and maxValue (see: https://schema.org/maxValue) to indicate ranges.
 	//
 	//
-	TongueWeight *QuantitativeValue `json:"tongueWeight,omitempty"`
+	TongueWeight *QuantitativeValue `json:"tongueWeight,omitempty"` // types : QuantitativeValue
 
 	// TrailerWeight see : https://auto.schema.org/trailerWeight
 	// The permitted weight of a trailer attached to the vehicle.
@@ -182,31 +182,31 @@ type Vehicle struct {
 	// * Note 1: You can indicate additional information in the name (see: https://schema.org/name) of the QuantitativeValue (see: https://schema.org/QuantitativeValue) node.
 	// * Note 2: You may also link to a QualitativeValue (see: https://schema.org/QualitativeValue) node that provides additional information using valueReference (see: https://schema.org/valueReference).
 	// * Note 3: Note that you can use minValue (see: https://schema.org/minValue) and maxValue (see: https://schema.org/maxValue) to indicate ranges.
-	TrailerWeight *QuantitativeValue `json:"trailerWeight,omitempty"`
+	TrailerWeight *QuantitativeValue `json:"trailerWeight,omitempty"` // types : QuantitativeValue
 
 	// VehicleConfiguration see : https://schema.org/vehicleConfiguration
 	// A short text indicating the configuration of the vehicle, e.g. '5dr hatchback ST 2.5 MT 225 hp' or 'limited edition'.
-	VehicleConfiguration string `json:"vehicleConfiguration,omitempty"`
+	VehicleConfiguration string `json:"vehicleConfiguration,omitempty"` // types : Text
 
 	// VehicleEngine see : https://schema.org/vehicleEngine
 	// Information about the engine or engines of the vehicle.
-	VehicleEngine *EngineSpecification `json:"vehicleEngine,omitempty"`
+	VehicleEngine *EngineSpecification `json:"vehicleEngine,omitempty"` // types : EngineSpecification
 
 	// VehicleIdentificationNumber see : https://schema.org/vehicleIdentificationNumber
 	// The Vehicle Identification Number (VIN) is a unique serial number used by the automotive industry to identify individual motor vehicles.
-	VehicleIdentificationNumber string `json:"vehicleIdentificationNumber,omitempty"`
+	VehicleIdentificationNumber string `json:"vehicleIdentificationNumber,omitempty"` // types : Text
 
 	// VehicleInteriorColor see : https://schema.org/vehicleInteriorColor
 	// The color or color combination of the interior of the vehicle.
-	VehicleInteriorColor string `json:"vehicleInteriorColor,omitempty"`
+	VehicleInteriorColor string `json:"vehicleInteriorColor,omitempty"` // types : Text
 
 	// VehicleInteriorType see : https://schema.org/vehicleInteriorType
 	// The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.). While most interior types are characterized by the material used, an interior type can also be based on vehicle usage or target audience.
-	VehicleInteriorType string `json:"vehicleInteriorType,omitempty"`
+	VehicleInteriorType string `json:"vehicleInteriorType,omitempty"` // types : Text
 
 	// VehicleModelDate see : https://schema.org/vehicleModelDate
 	// The release date of a vehicle model (often used to differentiate versions of the same make and model).
-	VehicleModelDate Date `json:"vehicleModelDate,omitempty"`
+	VehicleModelDate Date `json:"vehicleModelDate,omitempty"` // types : Date
 
 	// VehicleSeatingCapacity see : https://schema.org/vehicleSeatingCapacity
 	// The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.
@@ -233,13 +233,14 @@ type Vehicle struct {
 	// Note 3: Note that you can use minValue (see: https://schema.org/minValue) and maxValue (see: https://schema.org/maxValue) to indicate ranges.
 	//
 	//
-	WeightTotal *QuantitativeValue `json:"weightTotal,omitempty"`
+	WeightTotal *QuantitativeValue `json:"weightTotal,omitempty"` // types : QuantitativeValue
 
 	// Wheelbase see : https://auto.schema.org/wheelbase
 	// The distance between the centers of the front and rear wheels.
 	//
 	// Typical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet
-	Wheelbase *QuantitativeValue `json:"wheelbase,omitempty"`
+	Wheelbase *QuantitativeValue `json:"wheelbase,omitempty"` // types : QuantitativeValue
+
 }
 
 func (v Vehicle) MarshalJSONWithTypeContext() ([]byte, error) {

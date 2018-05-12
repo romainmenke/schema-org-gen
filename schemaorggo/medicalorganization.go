@@ -10,15 +10,16 @@ type MedicalOrganization struct {
 
 	// HealthPlanNetworkId see : http://pending.schema.org/healthPlanNetworkId
 	// Name or unique ID of network. (Networks are often reused across different insurance plans).
-	HealthPlanNetworkId string `json:"healthPlanNetworkId,omitempty"`
+	HealthPlanNetworkId string `json:"healthPlanNetworkId,omitempty"` // types : Text
 
 	// IsAcceptingNewPatients see : http://pending.schema.org/isAcceptingNewPatients
 	// Whether the provider is accepting new patients.
-	IsAcceptingNewPatients bool `json:"isAcceptingNewPatients,omitempty"`
+	IsAcceptingNewPatients bool `json:"isAcceptingNewPatients,omitempty"` // types : Boolean
 
 	// MedicalSpecialty see : http://health-lifesci.schema.org/medicalSpecialty
 	// A medical specialty of the provider.
-	MedicalSpecialty interface{} `json:"medicalSpecialty,omitempty"`
+	MedicalSpecialty interface{} `json:"medicalSpecialty,omitempty"` // types : MedicalSpecialty
+
 }
 
 func (v MedicalOrganization) MarshalJSONWithTypeContext() ([]byte, error) {

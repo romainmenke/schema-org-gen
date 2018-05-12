@@ -10,7 +10,7 @@ type TVEpisode struct {
 
 	// CountryOfOrigin see : https://schema.org/countryOfOrigin
 	// The country of the principal offices of the production company or individual responsible for the movie or program.
-	CountryOfOrigin *Country `json:"countryOfOrigin,omitempty"`
+	CountryOfOrigin *Country `json:"countryOfOrigin,omitempty"` // types : Country
 
 	// SubtitleLanguage see : https://schema.org/subtitleLanguage
 	// Languages in which subtitles/captions are available, in IETF BCP 47 standard format (see: https://schema.orghttp://tools.ietf.org/html/bcp47).

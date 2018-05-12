@@ -10,23 +10,23 @@ type MonetaryAmount struct {
 
 	// Currency see : https://schema.org/currency
 	// The currency in which the monetary amount is expressed (in 3-letter ISO 4217 (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217) format).
-	Currency string `json:"currency,omitempty"`
+	Currency string `json:"currency,omitempty"` // types : Text
 
 	// MaxValue see : https://schema.org/maxValue
 	// The upper value of some characteristic or property.
-	MaxValue float64 `json:"maxValue,omitempty"`
+	MaxValue float64 `json:"maxValue,omitempty"` // types : Number
 
 	// MinValue see : https://schema.org/minValue
 	// The lower value of some characteristic or property.
-	MinValue float64 `json:"minValue,omitempty"`
+	MinValue float64 `json:"minValue,omitempty"` // types : Number
 
 	// ValidFrom see : https://schema.org/validFrom
 	// The date when the item becomes valid.
-	ValidFrom DateTime `json:"validFrom,omitempty"`
+	ValidFrom DateTime `json:"validFrom,omitempty"` // types : DateTime
 
 	// ValidThrough see : https://schema.org/validThrough
 	// The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
-	ValidThrough DateTime `json:"validThrough,omitempty"`
+	ValidThrough DateTime `json:"validThrough,omitempty"` // types : DateTime
 
 	// Value see : https://schema.org/value
 	// The value of the quantitative value or property value node.

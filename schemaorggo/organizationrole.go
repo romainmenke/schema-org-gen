@@ -10,7 +10,8 @@ type OrganizationRole struct {
 
 	// NumberedPosition see : https://schema.org/numberedPosition
 	// A number associated with a role in an organization, for example, the number on an athlete's jersey.
-	NumberedPosition float64 `json:"numberedPosition,omitempty"`
+	NumberedPosition float64 `json:"numberedPosition,omitempty"` // types : Number
+
 }
 
 func (v OrganizationRole) MarshalJSONWithTypeContext() ([]byte, error) {

@@ -10,7 +10,8 @@ type Map struct {
 
 	// MapType see : https://schema.org/mapType
 	// Indicates the kind of Map, from the MapCategoryType Enumeration.
-	MapType *MapCategoryType `json:"mapType,omitempty"`
+	MapType *MapCategoryType `json:"mapType,omitempty"` // types : MapCategoryType
+
 }
 
 func (v Map) MarshalJSONWithTypeContext() ([]byte, error) {

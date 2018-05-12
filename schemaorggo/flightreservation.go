@@ -10,7 +10,7 @@ type FlightReservation struct {
 
 	// BoardingGroup see : https://schema.org/boardingGroup
 	// The airline-specific indicator of boarding order / preference.
-	BoardingGroup string `json:"boardingGroup,omitempty"`
+	BoardingGroup string `json:"boardingGroup,omitempty"` // types : Text
 
 	// PassengerPriorityStatus see : https://schema.org/passengerPriorityStatus
 	// The priority status assigned to a passenger for security or boarding (e.g. FastTrack or Priority).
@@ -18,11 +18,12 @@ type FlightReservation struct {
 
 	// PassengerSequenceNumber see : https://schema.org/passengerSequenceNumber
 	// The passenger's sequence number as assigned by the airline.
-	PassengerSequenceNumber string `json:"passengerSequenceNumber,omitempty"`
+	PassengerSequenceNumber string `json:"passengerSequenceNumber,omitempty"` // types : Text
 
 	// SecurityScreening see : https://schema.org/securityScreening
 	// The type of security screening the passenger is subject to.
-	SecurityScreening string `json:"securityScreening,omitempty"`
+	SecurityScreening string `json:"securityScreening,omitempty"` // types : Text
+
 }
 
 func (v FlightReservation) MarshalJSONWithTypeContext() ([]byte, error) {

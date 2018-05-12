@@ -18,7 +18,7 @@ type PublicationVolume struct {
 
 	// Pagination see : https://schema.org/pagination
 	// Any description of pages that is not separated into pageStart and pageEnd; for example, "1-6, 9, 55" or "10-12, 46-49".
-	Pagination string `json:"pagination,omitempty"`
+	Pagination string `json:"pagination,omitempty"` // types : Text
 
 	// VolumeNumber see : https://schema.org/volumeNumber
 	// Identifies the volume of publication or multi-part work; for example, "iii" or "2".

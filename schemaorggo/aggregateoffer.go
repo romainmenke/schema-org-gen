@@ -18,11 +18,12 @@ type AggregateOffer struct {
 
 	// OfferCount see : https://schema.org/offerCount
 	// The number of offers for the product.
-	OfferCount int `json:"offerCount,omitempty"`
+	OfferCount float64 `json:"offerCount,omitempty"` // types : Integer
 
 	// Offers see : https://schema.org/offers
 	// An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event.
-	Offers *Offer `json:"offers,omitempty"`
+	Offers *Offer `json:"offers,omitempty"` // types : Offer
+
 }
 
 func (v AggregateOffer) MarshalJSONWithTypeContext() ([]byte, error) {

@@ -14,7 +14,8 @@ type RentAction struct {
 
 	// RealEstateAgent see : https://schema.org/realEstateAgent
 	// A sub property of participant. The real estate agent involved in the action.
-	RealEstateAgent *RealEstateAgent `json:"realEstateAgent,omitempty"`
+	RealEstateAgent *RealEstateAgent `json:"realEstateAgent,omitempty"` // types : RealEstateAgent
+
 }
 
 func (v RentAction) MarshalJSONWithTypeContext() ([]byte, error) {

@@ -14,25 +14,25 @@ type VisualArtwork struct {
 
 	// ArtMedium see : https://schema.org/artMedium
 	// The material used. (e.g. Oil, Watercolour, Acrylic, Linoprint, Marble, Cyanotype, Digital, Lithograph, DryPoint, Intaglio, Pastel, Woodcut, Pencil, Mixed Media, etc.)
-	ArtMedium interface{} `json:"artMedium,omitempty"` // types : Text URL
+	ArtMedium string `json:"artMedium,omitempty"` // types : Text URL
 
 	// Artform see : https://schema.org/artform
 	// e.g. Painting, Drawing, Sculpture, Print, Photograph, Assemblage, Collage, etc.
-	Artform interface{} `json:"artform,omitempty"` // types : Text URL
+	Artform string `json:"artform,omitempty"` // types : Text URL
 
 	// Artist see : http://bib.schema.org/artist
 	// The primary artist for a work
 	//     in a medium other than pencils or digital line art--for example, if the
 	//     primary artwork is done in watercolors or digital paints.
-	Artist *Person `json:"artist,omitempty"`
+	Artist *Person `json:"artist,omitempty"` // types : Person
 
 	// ArtworkSurface see : https://schema.org/artworkSurface
 	// The supporting materials for the artwork, e.g. Canvas, Paper, Wood, Board, etc. Supersedes surface (see: https://schema.org/surface).
-	ArtworkSurface interface{} `json:"artworkSurface,omitempty"` // types : Text URL
+	ArtworkSurface string `json:"artworkSurface,omitempty"` // types : Text URL
 
 	// Colorist see : http://bib.schema.org/colorist
 	// The individual who adds color to inked drawings.
-	Colorist *Person `json:"colorist,omitempty"`
+	Colorist *Person `json:"colorist,omitempty"` // types : Person
 
 	// Depth see : https://schema.org/depth
 	// The depth of the item.
@@ -44,15 +44,15 @@ type VisualArtwork struct {
 
 	// Inker see : http://bib.schema.org/inker
 	// The individual who traces over the pencil drawings in ink after pencils are complete.
-	Inker *Person `json:"inker,omitempty"`
+	Inker *Person `json:"inker,omitempty"` // types : Person
 
 	// Letterer see : http://bib.schema.org/letterer
 	// The individual who adds lettering, including speech balloons and sound effects, to artwork.
-	Letterer *Person `json:"letterer,omitempty"`
+	Letterer *Person `json:"letterer,omitempty"` // types : Person
 
 	// Penciler see : http://bib.schema.org/penciler
 	// The individual who draws the primary narrative artwork.
-	Penciler *Person `json:"penciler,omitempty"`
+	Penciler *Person `json:"penciler,omitempty"` // types : Person
 
 	// Width see : https://schema.org/width
 	// The width of the item.

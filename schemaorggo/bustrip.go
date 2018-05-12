@@ -14,15 +14,15 @@ type BusTrip struct {
 
 	// ArrivalTime see : https://schema.org/arrivalTime
 	// The expected arrival time.
-	ArrivalTime DateTime `json:"arrivalTime,omitempty"`
+	ArrivalTime DateTime `json:"arrivalTime,omitempty"` // types : DateTime
 
 	// BusName see : https://schema.org/busName
 	// The name of the bus (e.g. Bolt Express).
-	BusName string `json:"busName,omitempty"`
+	BusName string `json:"busName,omitempty"` // types : Text
 
 	// BusNumber see : https://schema.org/busNumber
 	// The unique identifier for the bus.
-	BusNumber string `json:"busNumber,omitempty"`
+	BusNumber string `json:"busNumber,omitempty"` // types : Text
 
 	// DepartureBusStop see : https://schema.org/departureBusStop
 	// The stop or station from which the bus departs.
@@ -30,7 +30,7 @@ type BusTrip struct {
 
 	// DepartureTime see : https://schema.org/departureTime
 	// The expected departure time.
-	DepartureTime DateTime `json:"departureTime,omitempty"`
+	DepartureTime DateTime `json:"departureTime,omitempty"` // types : DateTime
 
 	// Provider see : https://schema.org/provider
 	// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier (see: https://schema.org/carrier).

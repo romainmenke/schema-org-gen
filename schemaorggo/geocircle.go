@@ -10,7 +10,7 @@ type GeoCircle struct {
 
 	// GeoMidpoint see : https://schema.org/geoMidpoint
 	// Indicates the GeoCoordinates at the centre of a GeoShape e.g. GeoCircle.
-	GeoMidpoint *GeoCoordinates `json:"geoMidpoint,omitempty"`
+	GeoMidpoint *GeoCoordinates `json:"geoMidpoint,omitempty"` // types : GeoCoordinates
 
 	// GeoRadius see : https://schema.org/geoRadius
 	// Indicates the approximate radius of a GeoCircle (metres unless indicated otherwise via Distance notation).

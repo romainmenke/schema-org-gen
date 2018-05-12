@@ -10,11 +10,12 @@ type Audience struct {
 
 	// AudienceType see : https://schema.org/audienceType
 	// The target group associated with a given audience (e.g. veterans, car owners, musicians, etc.).
-	AudienceType string `json:"audienceType,omitempty"`
+	AudienceType string `json:"audienceType,omitempty"` // types : Text
 
 	// GeographicArea see : https://schema.org/geographicArea
 	// The geographic area associated with the audience.
-	GeographicArea *AdministrativeArea `json:"geographicArea,omitempty"`
+	GeographicArea *AdministrativeArea `json:"geographicArea,omitempty"` // types : AdministrativeArea
+
 }
 
 func (v Audience) MarshalJSONWithTypeContext() ([]byte, error) {

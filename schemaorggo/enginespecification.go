@@ -14,7 +14,7 @@ type EngineSpecification struct {
 	// Typical unit code(s): CMQ for cubic centimeter, LTR for liters, INQ for cubic inches
 	// * Note 1: You can link to information about how the given value has been determined using the valueReference (see: https://schema.org/valueReference) property.
 	// * Note 2: You can use minValue (see: https://schema.org/minValue) and maxValue (see: https://schema.org/maxValue) to indicate ranges.
-	EngineDisplacement *QuantitativeValue `json:"engineDisplacement,omitempty"`
+	EngineDisplacement *QuantitativeValue `json:"engineDisplacement,omitempty"` // types : QuantitativeValue
 
 	// EnginePower see : http://auto.schema.org/enginePower
 	// The power of the vehicle's engine.
@@ -26,7 +26,7 @@ type EngineSpecification struct {
 	// Note 3: You can use minValue (see: https://schema.org/minValue) and maxValue (see: https://schema.org/maxValue) to indicate ranges.
 	//
 	//
-	EnginePower *QuantitativeValue `json:"enginePower,omitempty"`
+	EnginePower *QuantitativeValue `json:"enginePower,omitempty"` // types : QuantitativeValue
 
 	// EngineType see : http://auto.schema.org/engineType
 	// The type of engine or engines powering the vehicle.
@@ -46,7 +46,8 @@ type EngineSpecification struct {
 	// Note 2: You can use minValue (see: https://schema.org/minValue) and maxValue (see: https://schema.org/maxValue) to indicate ranges.
 	//
 	//
-	Torque *QuantitativeValue `json:"torque,omitempty"`
+	Torque *QuantitativeValue `json:"torque,omitempty"` // types : QuantitativeValue
+
 }
 
 func (v EngineSpecification) MarshalJSONWithTypeContext() ([]byte, error) {

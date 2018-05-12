@@ -10,7 +10,8 @@ type ReservationPackage struct {
 
 	// SubReservation see : https://schema.org/subReservation
 	// The individual reservations included in the package. Typically a repeated property.
-	SubReservation *Reservation `json:"subReservation,omitempty"`
+	SubReservation *Reservation `json:"subReservation,omitempty"` // types : Reservation
+
 }
 
 func (v ReservationPackage) MarshalJSONWithTypeContext() ([]byte, error) {

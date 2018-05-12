@@ -10,7 +10,8 @@ type CompoundPriceSpecification struct {
 
 	// PriceComponent see : https://schema.org/priceComponent
 	// This property links to all UnitPriceSpecification (see: https://schema.org/UnitPriceSpecification) nodes that apply in parallel for the CompoundPriceSpecification (see: https://schema.org/CompoundPriceSpecification) node.
-	PriceComponent *UnitPriceSpecification `json:"priceComponent,omitempty"`
+	PriceComponent *UnitPriceSpecification `json:"priceComponent,omitempty"` // types : UnitPriceSpecification
+
 }
 
 func (v CompoundPriceSpecification) MarshalJSONWithTypeContext() ([]byte, error) {

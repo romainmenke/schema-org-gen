@@ -10,27 +10,27 @@ type TrainTrip struct {
 
 	// ArrivalPlatform see : https://schema.org/arrivalPlatform
 	// The platform where the train arrives.
-	ArrivalPlatform string `json:"arrivalPlatform,omitempty"`
+	ArrivalPlatform string `json:"arrivalPlatform,omitempty"` // types : Text
 
 	// ArrivalStation see : https://schema.org/arrivalStation
 	// The station where the train trip ends.
-	ArrivalStation *TrainStation `json:"arrivalStation,omitempty"`
+	ArrivalStation *TrainStation `json:"arrivalStation,omitempty"` // types : TrainStation
 
 	// ArrivalTime see : https://schema.org/arrivalTime
 	// The expected arrival time.
-	ArrivalTime DateTime `json:"arrivalTime,omitempty"`
+	ArrivalTime DateTime `json:"arrivalTime,omitempty"` // types : DateTime
 
 	// DeparturePlatform see : https://schema.org/departurePlatform
 	// The platform from which the train departs.
-	DeparturePlatform string `json:"departurePlatform,omitempty"`
+	DeparturePlatform string `json:"departurePlatform,omitempty"` // types : Text
 
 	// DepartureStation see : https://schema.org/departureStation
 	// The station from which the train departs.
-	DepartureStation *TrainStation `json:"departureStation,omitempty"`
+	DepartureStation *TrainStation `json:"departureStation,omitempty"` // types : TrainStation
 
 	// DepartureTime see : https://schema.org/departureTime
 	// The expected departure time.
-	DepartureTime DateTime `json:"departureTime,omitempty"`
+	DepartureTime DateTime `json:"departureTime,omitempty"` // types : DateTime
 
 	// Provider see : https://schema.org/provider
 	// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier (see: https://schema.org/carrier).
@@ -38,11 +38,12 @@ type TrainTrip struct {
 
 	// TrainName see : https://schema.org/trainName
 	// The name of the train (e.g. The Orient Express).
-	TrainName string `json:"trainName,omitempty"`
+	TrainName string `json:"trainName,omitempty"` // types : Text
 
 	// TrainNumber see : https://schema.org/trainNumber
 	// The unique identifier for the train.
-	TrainNumber string `json:"trainNumber,omitempty"`
+	TrainNumber string `json:"trainNumber,omitempty"` // types : Text
+
 }
 
 func (v TrainTrip) MarshalJSONWithTypeContext() ([]byte, error) {

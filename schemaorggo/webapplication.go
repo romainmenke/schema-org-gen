@@ -10,7 +10,8 @@ type WebApplication struct {
 
 	// BrowserRequirements see : https://schema.org/browserRequirements
 	// Specifies browser requirements in human-readable text. For example, 'requires HTML5 support'.
-	BrowserRequirements string `json:"browserRequirements,omitempty"`
+	BrowserRequirements string `json:"browserRequirements,omitempty"` // types : Text
+
 }
 
 func (v WebApplication) MarshalJSONWithTypeContext() ([]byte, error) {

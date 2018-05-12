@@ -10,7 +10,8 @@ type AudioObject struct {
 
 	// Transcript see : https://schema.org/transcript
 	// If this MediaObject is an AudioObject or VideoObject, the transcript of that object.
-	Transcript string `json:"transcript,omitempty"`
+	Transcript string `json:"transcript,omitempty"` // types : Text
+
 }
 
 func (v AudioObject) MarshalJSONWithTypeContext() ([]byte, error) {

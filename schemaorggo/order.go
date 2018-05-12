@@ -10,11 +10,11 @@ type Order struct {
 
 	// AcceptedOffer see : https://schema.org/acceptedOffer
 	// The offer(s) -- e.g., product, quantity and price combinations -- included in the order.
-	AcceptedOffer *Offer `json:"acceptedOffer,omitempty"`
+	AcceptedOffer *Offer `json:"acceptedOffer,omitempty"` // types : Offer
 
 	// BillingAddress see : https://schema.org/billingAddress
 	// The billing address for the order.
-	BillingAddress *PostalAddress `json:"billingAddress,omitempty"`
+	BillingAddress *PostalAddress `json:"billingAddress,omitempty"` // types : PostalAddress
 
 	// Broker see : https://schema.org/broker
 	// An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred. Supersedes bookingAgent (see: https://schema.org/bookingAgent).
@@ -22,7 +22,7 @@ type Order struct {
 
 	// ConfirmationNumber see : https://schema.org/confirmationNumber
 	// A number that confirms the given order or payment has been received.
-	ConfirmationNumber string `json:"confirmationNumber,omitempty"`
+	ConfirmationNumber string `json:"confirmationNumber,omitempty"` // types : Text
 
 	// Customer see : https://schema.org/customer
 	// Party placing the order or paying the invoice.
@@ -34,31 +34,31 @@ type Order struct {
 
 	// DiscountCode see : https://schema.org/discountCode
 	// Code used to redeem a discount.
-	DiscountCode string `json:"discountCode,omitempty"`
+	DiscountCode string `json:"discountCode,omitempty"` // types : Text
 
 	// DiscountCurrency see : https://schema.org/discountCurrency
 	// The currency (in 3-letter ISO 4217 format) of the discount.
-	DiscountCurrency string `json:"discountCurrency,omitempty"`
+	DiscountCurrency string `json:"discountCurrency,omitempty"` // types : Text
 
 	// IsGift see : https://schema.org/isGift
 	// Was the offer accepted as a gift for someone other than the buyer.
-	IsGift bool `json:"isGift,omitempty"`
+	IsGift bool `json:"isGift,omitempty"` // types : Boolean
 
 	// OrderDate see : https://schema.org/orderDate
 	// Date order was placed.
-	OrderDate DateTime `json:"orderDate,omitempty"`
+	OrderDate DateTime `json:"orderDate,omitempty"` // types : DateTime
 
 	// OrderDelivery see : https://schema.org/orderDelivery
 	// The delivery of the parcel related to this order or order item.
-	OrderDelivery *ParcelDelivery `json:"orderDelivery,omitempty"`
+	OrderDelivery *ParcelDelivery `json:"orderDelivery,omitempty"` // types : ParcelDelivery
 
 	// OrderNumber see : https://schema.org/orderNumber
 	// The identifier of the transaction.
-	OrderNumber string `json:"orderNumber,omitempty"`
+	OrderNumber string `json:"orderNumber,omitempty"` // types : Text
 
 	// OrderStatus see : https://schema.org/orderStatus
 	// The current status of the order.
-	OrderStatus *OrderStatus `json:"orderStatus,omitempty"`
+	OrderStatus *OrderStatus `json:"orderStatus,omitempty"` // types : OrderStatus
 
 	// OrderedItem see : https://schema.org/orderedItem
 	// The item ordered.
@@ -66,23 +66,23 @@ type Order struct {
 
 	// PartOfInvoice see : https://schema.org/partOfInvoice
 	// The order is being paid as part of the referenced Invoice.
-	PartOfInvoice *Invoice `json:"partOfInvoice,omitempty"`
+	PartOfInvoice *Invoice `json:"partOfInvoice,omitempty"` // types : Invoice
 
 	// PaymentDueDate see : https://schema.org/paymentDueDate
 	// The date that payment is due. Supersedes paymentDue (see: https://schema.org/paymentDue).
-	PaymentDueDate DateTime `json:"paymentDueDate,omitempty"`
+	PaymentDueDate DateTime `json:"paymentDueDate,omitempty"` // types : DateTime
 
 	// PaymentMethod see : https://schema.org/paymentMethod
 	// The name of the credit card or other method of payment for the order.
-	PaymentMethod *PaymentMethod `json:"paymentMethod,omitempty"`
+	PaymentMethod *PaymentMethod `json:"paymentMethod,omitempty"` // types : PaymentMethod
 
 	// PaymentMethodId see : https://schema.org/paymentMethodId
 	// An identifier for the method of payment used (e.g. the last 4 digits of the credit card).
-	PaymentMethodId string `json:"paymentMethodId,omitempty"`
+	PaymentMethodId string `json:"paymentMethodId,omitempty"` // types : Text
 
 	// PaymentUrl see : https://schema.org/paymentUrl
 	// The URL for sending a payment.
-	PaymentUrl string `json:"paymentUrl,omitempty"`
+	PaymentUrl string `json:"paymentUrl,omitempty"` // types : URL
 
 	// Seller see : https://schema.org/seller
 	// An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider. Supersedes merchant (see: https://schema.org/merchant), vendor (see: https://schema.org/vendor).

@@ -14,11 +14,11 @@ type OwnershipInfo struct {
 
 	// OwnedFrom see : https://schema.org/ownedFrom
 	// The date and time of obtaining the product.
-	OwnedFrom DateTime `json:"ownedFrom,omitempty"`
+	OwnedFrom DateTime `json:"ownedFrom,omitempty"` // types : DateTime
 
 	// OwnedThrough see : https://schema.org/ownedThrough
 	// The date and time of giving up ownership on the product.
-	OwnedThrough DateTime `json:"ownedThrough,omitempty"`
+	OwnedThrough DateTime `json:"ownedThrough,omitempty"` // types : DateTime
 
 	// TypeOfGood see : https://schema.org/typeOfGood
 	// The product that this structured value is referring to.

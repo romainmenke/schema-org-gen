@@ -18,23 +18,23 @@ type ContactPoint struct {
 
 	// ContactOption see : https://schema.org/contactOption
 	// An option available on this contact point (e.g. a toll-free number or support for hearing-impaired callers).
-	ContactOption *ContactPointOption `json:"contactOption,omitempty"`
+	ContactOption *ContactPointOption `json:"contactOption,omitempty"` // types : ContactPointOption
 
 	// ContactType see : https://schema.org/contactType
 	// A person or organization can have different contact points, for different purposes. For example, a sales contact point, a PR contact point and so on. This property is used to specify the kind of contact point.
-	ContactType string `json:"contactType,omitempty"`
+	ContactType string `json:"contactType,omitempty"` // types : Text
 
 	// Email see : https://schema.org/email
 	// Email address.
-	Email string `json:"email,omitempty"`
+	Email string `json:"email,omitempty"` // types : Text
 
 	// FaxNumber see : https://schema.org/faxNumber
 	// The fax number.
-	FaxNumber string `json:"faxNumber,omitempty"`
+	FaxNumber string `json:"faxNumber,omitempty"` // types : Text
 
 	// HoursAvailable see : https://schema.org/hoursAvailable
 	// The hours during which this service or contact is available.
-	HoursAvailable *OpeningHoursSpecification `json:"hoursAvailable,omitempty"`
+	HoursAvailable *OpeningHoursSpecification `json:"hoursAvailable,omitempty"` // types : OpeningHoursSpecification
 
 	// ProductSupported see : https://schema.org/productSupported
 	// The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. "iPhone") or a general category of products or services (e.g. "smartphones").
@@ -42,7 +42,8 @@ type ContactPoint struct {
 
 	// Telephone see : https://schema.org/telephone
 	// The telephone number.
-	Telephone string `json:"telephone,omitempty"`
+	Telephone string `json:"telephone,omitempty"` // types : Text
+
 }
 
 func (v ContactPoint) MarshalJSONWithTypeContext() ([]byte, error) {

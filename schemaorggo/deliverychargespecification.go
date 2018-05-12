@@ -10,7 +10,7 @@ type DeliveryChargeSpecification struct {
 
 	// AppliesToDeliveryMethod see : https://schema.org/appliesToDeliveryMethod
 	// The delivery method(s) to which the delivery charge or payment charge specification applies.
-	AppliesToDeliveryMethod *DeliveryMethod `json:"appliesToDeliveryMethod,omitempty"`
+	AppliesToDeliveryMethod *DeliveryMethod `json:"appliesToDeliveryMethod,omitempty"` // types : DeliveryMethod
 
 	// AreaServed see : https://schema.org/areaServed
 	// The geographic area where a service or offered item is provided. Supersedes serviceArea (see: https://schema.org/serviceArea).

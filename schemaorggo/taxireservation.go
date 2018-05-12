@@ -14,11 +14,12 @@ type TaxiReservation struct {
 
 	// PickupLocation see : https://schema.org/pickupLocation
 	// Where a taxi will pick up a passenger or a rental car can be picked up.
-	PickupLocation *Place `json:"pickupLocation,omitempty"`
+	PickupLocation *Place `json:"pickupLocation,omitempty"` // types : Place
 
 	// PickupTime see : https://schema.org/pickupTime
 	// When a taxi will pickup a passenger or a rental car can be picked up.
-	PickupTime DateTime `json:"pickupTime,omitempty"`
+	PickupTime DateTime `json:"pickupTime,omitempty"` // types : DateTime
+
 }
 
 func (v TaxiReservation) MarshalJSONWithTypeContext() ([]byte, error) {

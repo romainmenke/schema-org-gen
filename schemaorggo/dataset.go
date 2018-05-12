@@ -10,15 +10,15 @@ type Dataset struct {
 
 	// Distribution see : https://schema.org/distribution
 	// A downloadable form of this dataset, at a specific location, in a specific format.
-	Distribution *DataDownload `json:"distribution,omitempty"`
+	Distribution *DataDownload `json:"distribution,omitempty"` // types : DataDownload
 
 	// IncludedInDataCatalog see : https://schema.org/includedInDataCatalog
 	// A data catalog which contains this dataset. Supersedes catalog (see: https://schema.org/catalog), includedDataCatalog (see: https://schema.org/includedDataCatalog). Inverse property: dataset (see: https://schema.org/dataset).
-	IncludedInDataCatalog *DataCatalog `json:"includedInDataCatalog,omitempty"`
+	IncludedInDataCatalog *DataCatalog `json:"includedInDataCatalog,omitempty"` // types : DataCatalog
 
 	// Issn see : https://schema.org/issn
 	// The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.
-	Issn string `json:"issn,omitempty"`
+	Issn string `json:"issn,omitempty"` // types : Text
 
 	// MeasurementTechnique see : http://pending.schema.org/measurementTechnique
 	// A technique or technology used in a Dataset (see: https://schema.org/Dataset) (or DataDownload (see: https://schema.org/DataDownload), DataCatalog (see: https://schema.org/DataCatalog)),
@@ -29,7 +29,7 @@ type Dataset struct {
 	// If the variableMeasured (see: https://schema.org/variableMeasured) is "depression rating", the measurementTechnique (see: https://schema.org/measurementTechnique) could be "Zung Scale" or "HAM-D" or "Beck Depression Inventory".
 	//
 	// If there are several variableMeasured (see: https://schema.org/variableMeasured) properties recorded for some given data object, use a PropertyValue (see: https://schema.org/PropertyValue) for each variableMeasured (see: https://schema.org/variableMeasured) and attach the corresponding measurementTechnique (see: https://schema.org/measurementTechnique).
-	MeasurementTechnique interface{} `json:"measurementTechnique,omitempty"` // types : Text URL
+	MeasurementTechnique string `json:"measurementTechnique,omitempty"` // types : Text URL
 
 	// VariableMeasured see : http://pending.schema.org/variableMeasured
 	// The variableMeasured property can indicate (repeated as necessary) the  variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue.

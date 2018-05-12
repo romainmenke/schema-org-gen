@@ -12,24 +12,24 @@ type QuantitativeValue struct {
 	// A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.
 	//
 	// Note: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
-	AdditionalProperty *PropertyValue `json:"additionalProperty,omitempty"`
+	AdditionalProperty *PropertyValue `json:"additionalProperty,omitempty"` // types : PropertyValue
 
 	// MaxValue see : https://schema.org/maxValue
 	// The upper value of some characteristic or property.
-	MaxValue float64 `json:"maxValue,omitempty"`
+	MaxValue float64 `json:"maxValue,omitempty"` // types : Number
 
 	// MinValue see : https://schema.org/minValue
 	// The lower value of some characteristic or property.
-	MinValue float64 `json:"minValue,omitempty"`
+	MinValue float64 `json:"minValue,omitempty"` // types : Number
 
 	// UnitCode see : https://schema.org/unitCode
 	// The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.
-	UnitCode interface{} `json:"unitCode,omitempty"` // types : Text URL
+	UnitCode string `json:"unitCode,omitempty"` // types : Text URL
 
 	// UnitText see : https://schema.org/unitText
 	// A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for
 	// unitCode (see: https://schema.orgunitCode).
-	UnitText string `json:"unitText,omitempty"`
+	UnitText string `json:"unitText,omitempty"` // types : Text
 
 	// Value see : https://schema.org/value
 	// The value of the quantitative value or property value node.

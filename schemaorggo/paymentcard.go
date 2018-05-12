@@ -14,11 +14,12 @@ type PaymentCard struct {
 
 	// ContactlessPayment see : http://pending.schema.org/contactlessPayment
 	// A secure method for consumers to purchase products or services via debit, credit or smartcards by using RFID or NFC technology.
-	ContactlessPayment bool `json:"contactlessPayment,omitempty"`
+	ContactlessPayment bool `json:"contactlessPayment,omitempty"` // types : Boolean
 
 	// FloorLimit see : http://pending.schema.org/floorLimit
 	// A floor limit is the amount of money above which credit card transactions must be authorized.
-	FloorLimit *MonetaryAmount `json:"floorLimit,omitempty"`
+	FloorLimit *MonetaryAmount `json:"floorLimit,omitempty"` // types : MonetaryAmount
+
 }
 
 func (v PaymentCard) MarshalJSONWithTypeContext() ([]byte, error) {

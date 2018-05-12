@@ -14,7 +14,8 @@ type EmployeeRole struct {
 
 	// SalaryCurrency see : https://schema.org/salaryCurrency
 	// The currency (coded using ISO 4217 (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217) ) used for the main salary information in this job posting or for this employee.
-	SalaryCurrency string `json:"salaryCurrency,omitempty"`
+	SalaryCurrency string `json:"salaryCurrency,omitempty"` // types : Text
+
 }
 
 func (v EmployeeRole) MarshalJSONWithTypeContext() ([]byte, error) {

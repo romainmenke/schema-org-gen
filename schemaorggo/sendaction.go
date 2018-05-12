@@ -10,7 +10,7 @@ type SendAction struct {
 
 	// DeliveryMethod see : https://schema.org/deliveryMethod
 	// A sub property of instrument. The method of delivery.
-	DeliveryMethod *DeliveryMethod `json:"deliveryMethod,omitempty"`
+	DeliveryMethod *DeliveryMethod `json:"deliveryMethod,omitempty"` // types : DeliveryMethod
 
 	// Recipient see : https://schema.org/recipient
 	// A sub property of participant. The participant who is at the receiving end of the action.

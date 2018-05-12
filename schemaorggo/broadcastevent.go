@@ -10,15 +10,16 @@ type BroadcastEvent struct {
 
 	// BroadcastOfEvent see : https://schema.org/broadcastOfEvent
 	// The event being broadcast such as a sporting event or awards ceremony.
-	BroadcastOfEvent *Event `json:"broadcastOfEvent,omitempty"`
+	BroadcastOfEvent *Event `json:"broadcastOfEvent,omitempty"` // types : Event
 
 	// IsLiveBroadcast see : https://schema.org/isLiveBroadcast
 	// True is the broadcast is of a live event.
-	IsLiveBroadcast bool `json:"isLiveBroadcast,omitempty"`
+	IsLiveBroadcast bool `json:"isLiveBroadcast,omitempty"` // types : Boolean
 
 	// VideoFormat see : https://schema.org/videoFormat
 	// The type of screening or video broadcast used (e.g. IMAX, 3D, SD, HD, etc.).
-	VideoFormat string `json:"videoFormat,omitempty"`
+	VideoFormat string `json:"videoFormat,omitempty"` // types : Text
+
 }
 
 func (v BroadcastEvent) MarshalJSONWithTypeContext() ([]byte, error) {

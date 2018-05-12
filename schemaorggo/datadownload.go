@@ -17,7 +17,7 @@ type DataDownload struct {
 	// If the variableMeasured (see: https://schema.org/variableMeasured) is "depression rating", the measurementTechnique (see: https://schema.org/measurementTechnique) could be "Zung Scale" or "HAM-D" or "Beck Depression Inventory".
 	//
 	// If there are several variableMeasured (see: https://schema.org/variableMeasured) properties recorded for some given data object, use a PropertyValue (see: https://schema.org/PropertyValue) for each variableMeasured (see: https://schema.org/variableMeasured) and attach the corresponding measurementTechnique (see: https://schema.org/measurementTechnique).
-	MeasurementTechnique interface{} `json:"measurementTechnique,omitempty"` // types : Text URL
+	MeasurementTechnique string `json:"measurementTechnique,omitempty"` // types : Text URL
 
 }
 

@@ -14,23 +14,24 @@ type PostalAddress struct {
 
 	// AddressLocality see : https://schema.org/addressLocality
 	// The locality. For example, Mountain View.
-	AddressLocality string `json:"addressLocality,omitempty"`
+	AddressLocality string `json:"addressLocality,omitempty"` // types : Text
 
 	// AddressRegion see : https://schema.org/addressRegion
 	// The region. For example, CA.
-	AddressRegion string `json:"addressRegion,omitempty"`
+	AddressRegion string `json:"addressRegion,omitempty"` // types : Text
 
 	// PostOfficeBoxNumber see : https://schema.org/postOfficeBoxNumber
 	// The post office box number for PO box addresses.
-	PostOfficeBoxNumber string `json:"postOfficeBoxNumber,omitempty"`
+	PostOfficeBoxNumber string `json:"postOfficeBoxNumber,omitempty"` // types : Text
 
 	// PostalCode see : https://schema.org/postalCode
 	// The postal code. For example, 94043.
-	PostalCode string `json:"postalCode,omitempty"`
+	PostalCode string `json:"postalCode,omitempty"` // types : Text
 
 	// StreetAddress see : https://schema.org/streetAddress
 	// The street address. For example, 1600 Amphitheatre Pkwy.
-	StreetAddress string `json:"streetAddress,omitempty"`
+	StreetAddress string `json:"streetAddress,omitempty"` // types : Text
+
 }
 
 func (v PostalAddress) MarshalJSONWithTypeContext() ([]byte, error) {

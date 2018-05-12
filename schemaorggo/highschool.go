@@ -10,7 +10,8 @@ type HighSchool struct {
 
 	// Alumni see : https://schema.org/alumni
 	// Alumni of an organization. Inverse property: alumniOf (see: https://schema.org/alumniOf).
-	Alumni *Person `json:"alumni,omitempty"`
+	Alumni *Person `json:"alumni,omitempty"` // types : Person
+
 }
 
 func (v HighSchool) MarshalJSONWithTypeContext() ([]byte, error) {

@@ -52,21 +52,23 @@ func goTypeFile(goTypes []string, dir string, packageName string) func(ctx conte
 				continue
 			}
 
-			fieldTypeName := strings.Title(field.Name)
+			fieldTypes := normalizeTypes(field.Types)
+
+			fieldName := strings.Title(field.Name)
 
 			comment := newLineRegex.ReplaceAllString(field.Comment, "\n// ")
 
-			f.WriteString(fmt.Sprintf("// %s see : %s\n", fieldTypeName, seeUrl(field.URL)))
+			f.WriteString(fmt.Sprintf("// %s see : %s\n", fieldName, seeUrl(field.URL)))
 			f.WriteString(fmt.Sprintf("// %s\n", comment))
 
-			if len(field.Types) > 1 {
-				fieldTypesComment := ""
-				for _, fieldType := range field.Types {
-					fieldTypesComment = fieldTypesComment + " " + fieldType.Type
-				}
-				f.WriteString(fmt.Sprintf("%s interface{} `json:\"%s,omitempty\"` // types :%s\n\n", fieldTypeName, field.Name, fieldTypesComment))
+			fieldTypesComment := ""
+			for _, fieldType := range field.Types {
+				fieldTypesComment = fieldTypesComment + " " + fieldType.Type
+			}
+			if len(fieldTypes) > 1 {
+				f.WriteString(fmt.Sprintf("%s interface{} `json:\"%s,omitempty\"` // types :%s\n\n", fieldName, field.Name, fieldTypesComment))
 			} else {
-				f.WriteString(fmt.Sprintf("%s %s `json:\"%s,omitempty\"`\n\n", fieldTypeName, goTypeForSchemaDataType(goTypes, field.Types[0].Type), field.Name))
+				f.WriteString(fmt.Sprintf("%s %s `json:\"%s,omitempty\"` // types :%s\n\n", fieldName, goTypeForSchemaDataType(goTypes, fieldTypes[0].Type), field.Name, fieldTypesComment))
 			}
 		}
 

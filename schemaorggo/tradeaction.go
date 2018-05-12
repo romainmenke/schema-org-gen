@@ -25,7 +25,8 @@ type TradeAction struct {
 
 	// PriceSpecification see : https://schema.org/priceSpecification
 	// One or more detailed price specifications, indicating the unit price and delivery or payment charges.
-	PriceSpecification *PriceSpecification `json:"priceSpecification,omitempty"`
+	PriceSpecification *PriceSpecification `json:"priceSpecification,omitempty"` // types : PriceSpecification
+
 }
 
 func (v TradeAction) MarshalJSONWithTypeContext() ([]byte, error) {

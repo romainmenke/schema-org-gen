@@ -14,19 +14,19 @@ type ItemPage struct {
 
 	// LastReviewed see : https://schema.org/lastReviewed
 	// Date on which the content on this web page was last reviewed for accuracy and/or completeness.
-	LastReviewed Date `json:"lastReviewed,omitempty"`
+	LastReviewed Date `json:"lastReviewed,omitempty"` // types : Date
 
 	// MainContentOfPage see : https://schema.org/mainContentOfPage
 	// Indicates if this web page element is the main subject of the page. Supersedes aspect (see: https://schema.orghttp://health-lifesci.schema.org/aspect).
-	MainContentOfPage *WebPageElement `json:"mainContentOfPage,omitempty"`
+	MainContentOfPage *WebPageElement `json:"mainContentOfPage,omitempty"` // types : WebPageElement
 
 	// PrimaryImageOfPage see : https://schema.org/primaryImageOfPage
 	// Indicates the main image on the page.
-	PrimaryImageOfPage *ImageObject `json:"primaryImageOfPage,omitempty"`
+	PrimaryImageOfPage *ImageObject `json:"primaryImageOfPage,omitempty"` // types : ImageObject
 
 	// RelatedLink see : https://schema.org/relatedLink
 	// A link related to this web page, for example to other related web pages.
-	RelatedLink string `json:"relatedLink,omitempty"`
+	RelatedLink string `json:"relatedLink,omitempty"` // types : URL
 
 	// ReviewedBy see : https://schema.org/reviewedBy
 	// People or organizations that have reviewed the content on this web page for accuracy and/or completeness.
@@ -34,7 +34,7 @@ type ItemPage struct {
 
 	// SignificantLink see : https://schema.org/significantLink
 	// One of the more significant URLs on the page. Typically, these are the non-navigation links that are clicked on the most. Supersedes significantLinks (see: https://schema.org/significantLinks).
-	SignificantLink string `json:"significantLink,omitempty"`
+	SignificantLink string `json:"significantLink,omitempty"` // types : URL
 
 	// Speakable see : http://pending.schema.org/speakable
 	// Indicates sections of a Web page that are particularly 'speakable' in the sense of being highlighted as being especially appropriate for text-to-speech conversion. Other sections of a page may also be usefully spoken in particular circumstances; the 'speakable' property serves to indicate the parts most likely to be generally useful for speech.
@@ -53,7 +53,8 @@ type ItemPage struct {
 
 	// Specialty see : https://schema.org/specialty
 	// One of the domain specialities to which this web page's content applies.
-	Specialty *Specialty `json:"specialty,omitempty"`
+	Specialty *Specialty `json:"specialty,omitempty"` // types : Specialty
+
 }
 
 func (v ItemPage) MarshalJSONWithTypeContext() ([]byte, error) {

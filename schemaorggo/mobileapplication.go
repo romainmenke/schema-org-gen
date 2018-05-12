@@ -10,7 +10,8 @@ type MobileApplication struct {
 
 	// CarrierRequirements see : https://schema.org/carrierRequirements
 	// Specifies specific carrier(s) requirements for the application (e.g. an application may only work on a specific carrier network).
-	CarrierRequirements string `json:"carrierRequirements,omitempty"`
+	CarrierRequirements string `json:"carrierRequirements,omitempty"` // types : Text
+
 }
 
 func (v MobileApplication) MarshalJSONWithTypeContext() ([]byte, error) {

@@ -10,7 +10,8 @@ type Report struct {
 
 	// ReportNumber see : https://schema.org/reportNumber
 	// The number or other unique designator assigned to a Report by the publishing organization.
-	ReportNumber string `json:"reportNumber,omitempty"`
+	ReportNumber string `json:"reportNumber,omitempty"` // types : Text
+
 }
 
 func (v Report) MarshalJSONWithTypeContext() ([]byte, error) {

@@ -10,23 +10,23 @@ type HowToDirection struct {
 
 	// AfterMedia see : https://schema.org/afterMedia
 	// A media object representing the circumstances after performing this direction.
-	AfterMedia *MediaObject `json:"afterMedia,omitempty"`
+	AfterMedia *MediaObject `json:"afterMedia,omitempty"` // types : MediaObject
 
 	// BeforeMedia see : https://schema.org/beforeMedia
 	// A media object representing the circumstances before performing this direction.
-	BeforeMedia *MediaObject `json:"beforeMedia,omitempty"`
+	BeforeMedia *MediaObject `json:"beforeMedia,omitempty"` // types : MediaObject
 
 	// DuringMedia see : https://schema.org/duringMedia
 	// A media object representing the circumstances while performing this direction.
-	DuringMedia *MediaObject `json:"duringMedia,omitempty"`
+	DuringMedia *MediaObject `json:"duringMedia,omitempty"` // types : MediaObject
 
 	// PerformTime see : https://schema.org/performTime
 	// The length of time it takes to perform instructions or a direction (not including time to prepare the supplies), in ISO 8601 duration format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601).
-	PerformTime *Duration `json:"performTime,omitempty"`
+	PerformTime *Duration `json:"performTime,omitempty"` // types : Duration
 
 	// PrepTime see : https://schema.org/prepTime
 	// The length of time it takes to prepare the items to be used in instructions or a direction, in ISO 8601 duration format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601).
-	PrepTime *Duration `json:"prepTime,omitempty"`
+	PrepTime *Duration `json:"prepTime,omitempty"` // types : Duration
 
 	// Supply see : https://schema.org/supply
 	// A sub-property of instrument. A supply consumed when performing instructions or a direction.
@@ -38,7 +38,8 @@ type HowToDirection struct {
 
 	// TotalTime see : https://schema.org/totalTime
 	// The total time required to perform instructions or a direction (including time to prepare the supplies), in ISO 8601 duration format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601).
-	TotalTime *Duration `json:"totalTime,omitempty"`
+	TotalTime *Duration `json:"totalTime,omitempty"` // types : Duration
+
 }
 
 func (v HowToDirection) MarshalJSONWithTypeContext() ([]byte, error) {

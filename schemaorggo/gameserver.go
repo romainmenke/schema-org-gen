@@ -10,15 +10,16 @@ type GameServer struct {
 
 	// Game see : https://schema.org/game
 	// Video game which is played on this server. Inverse property: gameServer (see: https://schema.org/gameServer).
-	Game *VideoGame `json:"game,omitempty"`
+	Game *VideoGame `json:"game,omitempty"` // types : VideoGame
 
 	// PlayersOnline see : https://schema.org/playersOnline
 	// Number of players on the server.
-	PlayersOnline int `json:"playersOnline,omitempty"`
+	PlayersOnline float64 `json:"playersOnline,omitempty"` // types : Integer
 
 	// ServerStatus see : https://schema.org/serverStatus
 	// Status of a game server.
-	ServerStatus *GameServerStatus `json:"serverStatus,omitempty"`
+	ServerStatus *GameServerStatus `json:"serverStatus,omitempty"` // types : GameServerStatus
+
 }
 
 func (v GameServer) MarshalJSONWithTypeContext() ([]byte, error) {

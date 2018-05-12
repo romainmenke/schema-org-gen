@@ -10,7 +10,7 @@ type MusicPlaylist struct {
 
 	// NumTracks see : https://schema.org/numTracks
 	// The number of tracks in this album or playlist.
-	NumTracks int `json:"numTracks,omitempty"`
+	NumTracks float64 `json:"numTracks,omitempty"` // types : Integer
 
 	// Track see : https://schema.org/track
 	// A music recording (track)—usually a single song. If an ItemList is given, the list should contain items of type MusicRecording. Supersedes tracks (see: https://schema.org/tracks).

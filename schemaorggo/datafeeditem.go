@@ -14,7 +14,7 @@ type DataFeedItem struct {
 
 	// DateDeleted see : https://schema.org/dateDeleted
 	// The datetime the item was removed from the DataFeed.
-	DateDeleted DateTime `json:"dateDeleted,omitempty"`
+	DateDeleted DateTime `json:"dateDeleted,omitempty"` // types : DateTime
 
 	// DateModified see : https://schema.org/dateModified
 	// The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed.
@@ -22,7 +22,8 @@ type DataFeedItem struct {
 
 	// Item see : https://schema.org/item
 	// An entity represented by an entry in a list or data feed (e.g. an 'artist' in a list of 'artists')’.
-	Item *Thing `json:"item,omitempty"`
+	Item *Thing `json:"item,omitempty"` // types : Thing
+
 }
 
 func (v DataFeedItem) MarshalJSONWithTypeContext() ([]byte, error) {

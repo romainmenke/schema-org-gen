@@ -14,11 +14,12 @@ type Physician struct {
 
 	// HospitalAffiliation see : http://health-lifesci.schema.org/hospitalAffiliation
 	// A hospital with which the physician or office is affiliated.
-	HospitalAffiliation *Hospital `json:"hospitalAffiliation,omitempty"`
+	HospitalAffiliation *Hospital `json:"hospitalAffiliation,omitempty"` // types : Hospital
 
 	// MedicalSpecialty see : http://health-lifesci.schema.org/medicalSpecialty
 	// A medical specialty of the provider.
-	MedicalSpecialty interface{} `json:"medicalSpecialty,omitempty"`
+	MedicalSpecialty interface{} `json:"medicalSpecialty,omitempty"` // types : MedicalSpecialty
+
 }
 
 func (v Physician) MarshalJSONWithTypeContext() ([]byte, error) {

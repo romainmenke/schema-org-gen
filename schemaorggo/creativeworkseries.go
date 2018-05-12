@@ -14,7 +14,7 @@ type CreativeWorkSeries struct {
 
 	// Issn see : https://schema.org/issn
 	// The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.
-	Issn string `json:"issn,omitempty"`
+	Issn string `json:"issn,omitempty"` // types : Text
 
 	// StartDate see : https://schema.org/startDate
 	// The start date and time of the item (in ISO 8601 date format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601)).

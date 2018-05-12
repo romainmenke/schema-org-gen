@@ -10,7 +10,8 @@ type WatchAction struct {
 
 	// ExpectsAcceptanceOf see : https://schema.org/expectsAcceptanceOf
 	// An Offer which must be accepted before the user can perform the Action. For example, the user may need to buy a movie before being able to watch it.
-	ExpectsAcceptanceOf *Offer `json:"expectsAcceptanceOf,omitempty"`
+	ExpectsAcceptanceOf *Offer `json:"expectsAcceptanceOf,omitempty"` // types : Offer
+
 }
 
 func (v WatchAction) MarshalJSONWithTypeContext() ([]byte, error) {

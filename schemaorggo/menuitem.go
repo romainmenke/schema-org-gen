@@ -14,15 +14,16 @@ type MenuItem struct {
 
 	// Nutrition see : https://schema.org/nutrition
 	// Nutrition information about the recipe or menu item.
-	Nutrition *NutritionInformation `json:"nutrition,omitempty"`
+	Nutrition *NutritionInformation `json:"nutrition,omitempty"` // types : NutritionInformation
 
 	// Offers see : https://schema.org/offers
 	// An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event.
-	Offers *Offer `json:"offers,omitempty"`
+	Offers *Offer `json:"offers,omitempty"` // types : Offer
 
 	// SuitableForDiet see : https://schema.org/suitableForDiet
 	// Indicates a dietary restriction or guideline for which this recipe or menu item is suitable, e.g. diabetic, halal etc.
-	SuitableForDiet *RestrictedDiet `json:"suitableForDiet,omitempty"`
+	SuitableForDiet *RestrictedDiet `json:"suitableForDiet,omitempty"` // types : RestrictedDiet
+
 }
 
 func (v MenuItem) MarshalJSONWithTypeContext() ([]byte, error) {

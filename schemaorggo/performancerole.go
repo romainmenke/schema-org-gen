@@ -10,7 +10,8 @@ type PerformanceRole struct {
 
 	// CharacterName see : https://schema.org/characterName
 	// The name of a character played in some acting or performing role, i.e. in a PerformanceRole.
-	CharacterName string `json:"characterName,omitempty"`
+	CharacterName string `json:"characterName,omitempty"` // types : Text
+
 }
 
 func (v PerformanceRole) MarshalJSONWithTypeContext() ([]byte, error) {

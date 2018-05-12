@@ -18,11 +18,11 @@ type GeoShape struct {
 
 	// Box see : https://schema.org/box
 	// A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character.
-	Box string `json:"box,omitempty"`
+	Box string `json:"box,omitempty"` // types : Text
 
 	// Circle see : https://schema.org/circle
 	// A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters.
-	Circle string `json:"circle,omitempty"`
+	Circle string `json:"circle,omitempty"` // types : Text
 
 	// Elevation see : https://schema.org/elevation
 	// The elevation of a location (WGS 84 (see: https://schema.orghttps://en.wikipedia.org/wiki/World_Geodetic_System)).
@@ -30,15 +30,16 @@ type GeoShape struct {
 
 	// Line see : https://schema.org/line
 	// A line is a point-to-point path consisting of two or more points. A line is expressed as a series of two or more point objects separated by space.
-	Line string `json:"line,omitempty"`
+	Line string `json:"line,omitempty"` // types : Text
 
 	// Polygon see : https://schema.org/polygon
 	// A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical.
-	Polygon string `json:"polygon,omitempty"`
+	Polygon string `json:"polygon,omitempty"` // types : Text
 
 	// PostalCode see : https://schema.org/postalCode
 	// The postal code. For example, 94043.
-	PostalCode string `json:"postalCode,omitempty"`
+	PostalCode string `json:"postalCode,omitempty"` // types : Text
+
 }
 
 func (v GeoShape) MarshalJSONWithTypeContext() ([]byte, error) {

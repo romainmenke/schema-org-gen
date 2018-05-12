@@ -10,27 +10,28 @@ type Book struct {
 
 	// Abridged see : http://bib.schema.org/abridged
 	// Indicates whether the book is an abridged edition.
-	Abridged bool `json:"abridged,omitempty"`
+	Abridged bool `json:"abridged,omitempty"` // types : Boolean
 
 	// BookEdition see : https://schema.org/bookEdition
 	// The edition of the book.
-	BookEdition string `json:"bookEdition,omitempty"`
+	BookEdition string `json:"bookEdition,omitempty"` // types : Text
 
 	// BookFormat see : https://schema.org/bookFormat
 	// The format of the book.
-	BookFormat *BookFormatType `json:"bookFormat,omitempty"`
+	BookFormat *BookFormatType `json:"bookFormat,omitempty"` // types : BookFormatType
 
 	// Illustrator see : https://schema.org/illustrator
 	// The illustrator of the book.
-	Illustrator *Person `json:"illustrator,omitempty"`
+	Illustrator *Person `json:"illustrator,omitempty"` // types : Person
 
 	// Isbn see : https://schema.org/isbn
 	// The ISBN of the book.
-	Isbn string `json:"isbn,omitempty"`
+	Isbn string `json:"isbn,omitempty"` // types : Text
 
 	// NumberOfPages see : https://schema.org/numberOfPages
 	// The number of pages in the book.
-	NumberOfPages int `json:"numberOfPages,omitempty"`
+	NumberOfPages float64 `json:"numberOfPages,omitempty"` // types : Integer
+
 }
 
 func (v Book) MarshalJSONWithTypeContext() ([]byte, error) {

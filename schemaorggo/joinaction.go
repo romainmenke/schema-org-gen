@@ -10,7 +10,8 @@ type JoinAction struct {
 
 	// Event see : https://schema.org/event
 	// Upcoming or past event associated with this place, organization, or action. Supersedes events (see: https://schema.org/events).
-	Event *Event `json:"event,omitempty"`
+	Event *Event `json:"event,omitempty"` // types : Event
+
 }
 
 func (v JoinAction) MarshalJSONWithTypeContext() ([]byte, error) {

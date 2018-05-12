@@ -18,11 +18,12 @@ type IceCreamShop struct {
 
 	// ServesCuisine see : https://schema.org/servesCuisine
 	// The cuisine of the restaurant.
-	ServesCuisine string `json:"servesCuisine,omitempty"`
+	ServesCuisine string `json:"servesCuisine,omitempty"` // types : Text
 
 	// StarRating see : https://schema.org/starRating
 	// An official rating for a lodging business or food establishment, e.g. from national associations or standards bodies. Use the author property to indicate the rating organization, e.g. as an Organization with name such as (e.g. HOTREC, DEHOGA, WHR, or Hotelstars).
-	StarRating *Rating `json:"starRating,omitempty"`
+	StarRating *Rating `json:"starRating,omitempty"` // types : Rating
+
 }
 
 func (v IceCreamShop) MarshalJSONWithTypeContext() ([]byte, error) {

@@ -10,11 +10,11 @@ type Game struct {
 
 	// CharacterAttribute see : https://schema.org/characterAttribute
 	// A piece of data that represents a particular aspect of a fictional character (skill, power, character points, advantage, disadvantage).
-	CharacterAttribute *Thing `json:"characterAttribute,omitempty"`
+	CharacterAttribute *Thing `json:"characterAttribute,omitempty"` // types : Thing
 
 	// GameItem see : https://schema.org/gameItem
 	// An item is an object within the game world that can be collected by a player or, occasionally, a non-player character.
-	GameItem *Thing `json:"gameItem,omitempty"`
+	GameItem *Thing `json:"gameItem,omitempty"` // types : Thing
 
 	// GameLocation see : https://schema.org/gameLocation
 	// Real or fictional location of the game (or part of game).
@@ -22,11 +22,12 @@ type Game struct {
 
 	// NumberOfPlayers see : https://schema.org/numberOfPlayers
 	// Indicate how many people can play this game (minimum, maximum, or range).
-	NumberOfPlayers *QuantitativeValue `json:"numberOfPlayers,omitempty"`
+	NumberOfPlayers *QuantitativeValue `json:"numberOfPlayers,omitempty"` // types : QuantitativeValue
 
 	// Quest see : https://schema.org/quest
 	// The task that a player-controlled character, or group of characters may complete in order to gain a reward.
-	Quest *Thing `json:"quest,omitempty"`
+	Quest *Thing `json:"quest,omitempty"` // types : Thing
+
 }
 
 func (v Game) MarshalJSONWithTypeContext() ([]byte, error) {

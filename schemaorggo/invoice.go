@@ -10,11 +10,11 @@ type Invoice struct {
 
 	// AccountId see : https://schema.org/accountId
 	// The identifier for the account the payment will be applied to.
-	AccountId string `json:"accountId,omitempty"`
+	AccountId string `json:"accountId,omitempty"` // types : Text
 
 	// BillingPeriod see : https://schema.org/billingPeriod
 	// The time interval used to compute the invoice.
-	BillingPeriod *Duration `json:"billingPeriod,omitempty"`
+	BillingPeriod *Duration `json:"billingPeriod,omitempty"` // types : Duration
 
 	// Broker see : https://schema.org/broker
 	// An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred. Supersedes bookingAgent (see: https://schema.org/bookingAgent).
@@ -26,7 +26,7 @@ type Invoice struct {
 
 	// ConfirmationNumber see : https://schema.org/confirmationNumber
 	// A number that confirms the given order or payment has been received.
-	ConfirmationNumber string `json:"confirmationNumber,omitempty"`
+	ConfirmationNumber string `json:"confirmationNumber,omitempty"` // types : Text
 
 	// Customer see : https://schema.org/customer
 	// Party placing the order or paying the invoice.
@@ -38,15 +38,15 @@ type Invoice struct {
 
 	// PaymentDueDate see : https://schema.org/paymentDueDate
 	// The date that payment is due. Supersedes paymentDue (see: https://schema.org/paymentDue).
-	PaymentDueDate DateTime `json:"paymentDueDate,omitempty"`
+	PaymentDueDate DateTime `json:"paymentDueDate,omitempty"` // types : DateTime
 
 	// PaymentMethod see : https://schema.org/paymentMethod
 	// The name of the credit card or other method of payment for the order.
-	PaymentMethod *PaymentMethod `json:"paymentMethod,omitempty"`
+	PaymentMethod *PaymentMethod `json:"paymentMethod,omitempty"` // types : PaymentMethod
 
 	// PaymentMethodId see : https://schema.org/paymentMethodId
 	// An identifier for the method of payment used (e.g. the last 4 digits of the credit card).
-	PaymentMethodId string `json:"paymentMethodId,omitempty"`
+	PaymentMethodId string `json:"paymentMethodId,omitempty"` // types : Text
 
 	// PaymentStatus see : https://schema.org/paymentStatus
 	// The status of payment; whether the invoice has been paid or not.
@@ -58,11 +58,11 @@ type Invoice struct {
 
 	// ReferencesOrder see : https://schema.org/referencesOrder
 	// The Order(s) related to this Invoice. One or more Orders may be combined into a single Invoice.
-	ReferencesOrder *Order `json:"referencesOrder,omitempty"`
+	ReferencesOrder *Order `json:"referencesOrder,omitempty"` // types : Order
 
 	// ScheduledPaymentDate see : https://schema.org/scheduledPaymentDate
 	// The date the invoice is scheduled to be paid.
-	ScheduledPaymentDate Date `json:"scheduledPaymentDate,omitempty"`
+	ScheduledPaymentDate Date `json:"scheduledPaymentDate,omitempty"` // types : Date
 
 	// TotalPaymentDue see : https://schema.org/totalPaymentDue
 	// The total amount due.

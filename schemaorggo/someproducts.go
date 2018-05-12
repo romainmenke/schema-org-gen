@@ -10,7 +10,8 @@ type SomeProducts struct {
 
 	// InventoryLevel see : https://schema.org/inventoryLevel
 	// The current approximate inventory level for the item or items.
-	InventoryLevel *QuantitativeValue `json:"inventoryLevel,omitempty"`
+	InventoryLevel *QuantitativeValue `json:"inventoryLevel,omitempty"` // types : QuantitativeValue
+
 }
 
 func (v SomeProducts) MarshalJSONWithTypeContext() ([]byte, error) {

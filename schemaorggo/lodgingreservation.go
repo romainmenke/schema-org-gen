@@ -10,15 +10,15 @@ type LodgingReservation struct {
 
 	// CheckinTime see : https://schema.org/checkinTime
 	// The earliest someone may check into a lodging establishment.
-	CheckinTime DateTime `json:"checkinTime,omitempty"`
+	CheckinTime DateTime `json:"checkinTime,omitempty"` // types : DateTime
 
 	// CheckoutTime see : https://schema.org/checkoutTime
 	// The latest someone may check out of a lodging establishment.
-	CheckoutTime DateTime `json:"checkoutTime,omitempty"`
+	CheckoutTime DateTime `json:"checkoutTime,omitempty"` // types : DateTime
 
 	// LodgingUnitDescription see : https://schema.org/lodgingUnitDescription
 	// A full description of the lodging unit.
-	LodgingUnitDescription string `json:"lodgingUnitDescription,omitempty"`
+	LodgingUnitDescription string `json:"lodgingUnitDescription,omitempty"` // types : Text
 
 	// LodgingUnitType see : https://schema.org/lodgingUnitType
 	// Textual description of the unit type (including suite vs. room, size of bed, etc.).
