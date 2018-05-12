@@ -12,6 +12,7 @@ import (
 
 	"github.com/romainmenke/schema-org-gen/internal/fetch"
 	"github.com/romainmenke/schema-org-gen/internal/gengo"
+	"github.com/romainmenke/schema-org-gen/internal/genjson"
 	"github.com/romainmenke/schema-org-gen/internal/typemap"
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 )
@@ -22,7 +23,8 @@ func main() {
 		app   = kingpin.New("schema-org-gen", "A generator for schema.org types")
 		clean = app.Flag("clean", "Fetch the typemap from schema.org before generating.").Bool()
 
-		goCmd = app.Command("go", "Generate for Go")
+		goCmd   = app.Command("go", "Generate for Go")
+		jsonCmd = app.Command("json", "Generate JSON examples")
 
 		tm  *typemap.TypeMap
 		err error
@@ -72,6 +74,12 @@ func main() {
 	switch cmd {
 	case goCmd.FullCommand():
 		err = gengo.Generate(ctx, tm, "./schemaorggo", "schemaorggo")
+		if err != nil {
+			log.Fatal(err)
+		}
+
+	case jsonCmd.FullCommand():
+		err = genjson.Generate(ctx, tm, "./schemaorgjson")
 		if err != nil {
 			log.Fatal(err)
 		}

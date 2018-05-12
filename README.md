@@ -21,6 +21,9 @@ Commands:
 
   go
     Generate for Go
+
+  json
+    Generate JSON examples
 ```
 
 # Using the generated types
