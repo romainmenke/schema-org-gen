@@ -1,8 +1,15 @@
 # Schema.org Type Generator
 
-see : [schema.org](https://schema.org)
-
 [![GoDoc](https://godoc.org/github.com/romainmenke/schema-org-gen/schemaorggo?status.svg)](https://godoc.org/github.com/romainmenke/schema-org-gen/schemaorggo)
+
+* [schema.org](https://schema.org)
+* [google structured data](https://developers.google.com/search/docs/guides/intro-structured-data)
+
+This generator is for those who like type safety and do not want to lookup the possible keys for Google structured data and other implementations of schema.org.
+
+# How it works :
+
+The code generator scrapes schema.org collecting a type map, field definitions, data types, comments and notes. All this is converted to one of the supported languages. The result is a package which you import in your own project and use to write `ld+json`'s.
 
 ### Generate
 
