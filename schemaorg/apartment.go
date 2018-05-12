@@ -5,9 +5,9 @@ import "encoding/json"
 // Apartment see : https://schema.org/Apartment
 type Apartment struct {
 
-typeContext
-
 Accommodation
+
+typeContext
 
 // NumberOfRooms see : https://schema.org/numberOfRooms
 // The number of rooms (excluding bathrooms and closets) of the acccommodation or lodging business.

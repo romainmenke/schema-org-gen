@@ -5,9 +5,9 @@ import "encoding/json"
 // InteractionCounter see : https://schema.org/InteractionCounter
 type InteractionCounter struct {
 
-typeContext
-
 StructuredValue
+
+typeContext
 
 // InteractionService see : https://schema.org/interactionService
 // The WebSite or SoftwareApplication where the interactions took place.

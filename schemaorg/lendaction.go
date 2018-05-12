@@ -5,9 +5,9 @@ import "encoding/json"
 // LendAction see : https://schema.org/LendAction
 type LendAction struct {
 
-typeContext
-
 TransferAction
+
+typeContext
 
 // Borrower see : https://schema.org/borrower
 // A sub property of participant. The person that borrows the object being lent.

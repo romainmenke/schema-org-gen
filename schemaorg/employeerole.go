@@ -5,9 +5,9 @@ import "encoding/json"
 // EmployeeRole see : https://schema.org/EmployeeRole
 type EmployeeRole struct {
 
-typeContext
-
 OrganizationRole
+
+typeContext
 
 // BaseSalary see : https://schema.org/baseSalary
 // The base salary of the job or of an employee in an EmployeeRole.

@@ -5,9 +5,9 @@ import "encoding/json"
 // MovieTheater see : https://schema.org/MovieTheater
 type MovieTheater struct {
 
-typeContext
-
 CivicStructure
+
+typeContext
 
 // ScreenCount see : https://schema.org/screenCount
 // The number of screens in the movie theater.

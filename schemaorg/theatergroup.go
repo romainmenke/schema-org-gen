@@ -5,11 +5,11 @@ import "encoding/json"
 // TheaterGroup see : https://schema.org/TheaterGroup
 type TheaterGroup struct {
 
-typeContext
-
 PerformingGroup
 
-// ActionableFeedbackPolicy see : https://schema.orghttp://pending.schema.org/actionableFeedbackPolicy
+typeContext
+
+// ActionableFeedbackPolicy see : http://pending.schema.org/actionableFeedbackPolicy
 // For a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization) or other news-related Organization (see: https://schema.org/Organization), a statement about public engagement activities (for news media, the newsroom’s), including involving the public - digitally or otherwise -- in coverage decisions, reporting and activities after publication.
 ActionableFeedbackPolicy interface{} `json:"actionableFeedbackPolicy"` // types : CreativeWork URL
 
@@ -41,7 +41,7 @@ Brand interface{} `json:"brand"` // types : Brand Organization
 // A contact point for a person or organization. Supersedes contactPoints (see: https://schema.org/contactPoints).
 ContactPoint *ContactPoint `json:"contactPoint"`
 
-// CorrectionsPolicy see : https://schema.orghttp://pending.schema.org/correctionsPolicy
+// CorrectionsPolicy see : http://pending.schema.org/correctionsPolicy
 // For an Organization (see: https://schema.org/Organization) (e.g. NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization)), a statement describing (in news media, the newsroom’s) disclosure and correction policy for errors.
 CorrectionsPolicy interface{} `json:"correctionsPolicy"` // types : CreativeWork URL
 
@@ -53,7 +53,7 @@ Department *Organization `json:"department"`
 // The date that this organization was dissolved.
 DissolutionDate interface{} `json:"dissolutionDate"`
 
-// DiversityPolicy see : https://schema.orghttp://pending.schema.org/diversityPolicy
+// DiversityPolicy see : http://pending.schema.org/diversityPolicy
 // Statement on diversity policy by an Organization (see: https://schema.org/Organization) e.g. a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization). For a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization), a statement describing the newsroom’s diversity policy on both staffing and sources, typically providing staffing data.
 DiversityPolicy interface{} `json:"diversityPolicy"` // types : CreativeWork URL
 
@@ -69,7 +69,7 @@ Email string `json:"email"`
 // Someone working for this organization. Supersedes employees (see: https://schema.org/employees).
 Employee *Person `json:"employee"`
 
-// EthicsPolicy see : https://schema.orghttp://pending.schema.org/ethicsPolicy
+// EthicsPolicy see : http://pending.schema.org/ethicsPolicy
 // Statement about ethics policy, e.g. of a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization) regarding journalistic and publishing practices, or of a Restaurant (see: https://schema.org/Restaurant), a page describing food source policies. In the case of a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization), an ethicsPolicy is typically a statement describing the personal, organizational, and corporate standards of behavior expected by the organization.
 EthicsPolicy interface{} `json:"ethicsPolicy"` // types : CreativeWork URL
 
@@ -187,7 +187,7 @@ TaxID string `json:"taxID"`
 // The telephone number.
 Telephone string `json:"telephone"`
 
-// UnnamedSourcesPolicy see : https://schema.orghttp://pending.schema.org/unnamedSourcesPolicy
+// UnnamedSourcesPolicy see : http://pending.schema.org/unnamedSourcesPolicy
 // For an Organization (see: https://schema.org/Organization) (typically a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization)), a statement about policy on use of unnamed sources and the decision process required.
 UnnamedSourcesPolicy interface{} `json:"unnamedSourcesPolicy"` // types : CreativeWork URL
 

@@ -5,9 +5,9 @@ import "encoding/json"
 // Festival see : https://schema.org/Festival
 type Festival struct {
 
-typeContext
-
 Event
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

@@ -5,9 +5,9 @@ import "encoding/json"
 // Car see : https://schema.org/Car
 type Car struct {
 
-typeContext
-
 Vehicle
+
+typeContext
 
 // AcrissCode see : https://schema.org/acrissCode
 // The ACRISS Car Classification Code is a code used by many car rental companies, for classifying vehicles. ACRISS stands for Association of Car Rental Industry Systems and Standards.

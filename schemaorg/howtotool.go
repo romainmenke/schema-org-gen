@@ -5,9 +5,9 @@ import "encoding/json"
 // HowToTool see : https://schema.org/HowToTool
 type HowToTool struct {
 
-typeContext
-
 HowToItem
+
+typeContext
 
 // RequiredQuantity see : https://schema.org/requiredQuantity
 // The required quantity of the item(s).

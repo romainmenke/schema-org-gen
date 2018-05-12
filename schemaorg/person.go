@@ -5,9 +5,9 @@ import "encoding/json"
 // Person see : https://schema.org/Person
 type Person struct {
 
-typeContext
-
 Thing
+
+typeContext
 
 // AdditionalName see : https://schema.org/additionalName
 // An additional name for a Person, can be used for a middle name.

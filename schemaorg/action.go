@@ -5,9 +5,9 @@ import "encoding/json"
 // Action see : https://schema.org/Action
 type Action struct {
 
-typeContext
-
 Thing
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

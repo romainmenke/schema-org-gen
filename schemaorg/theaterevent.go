@@ -5,9 +5,9 @@ import "encoding/json"
 // TheaterEvent see : https://schema.org/TheaterEvent
 type TheaterEvent struct {
 
-typeContext
-
 Event
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

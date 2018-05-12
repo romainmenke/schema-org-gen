@@ -5,9 +5,9 @@ import "encoding/json"
 // ItemList see : https://schema.org/ItemList
 type ItemList struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // ItemListElement see : https://schema.org/itemListElement
 // For itemListElement values, you can use simple strings (e.g. "Peter", "Paul", "Mary"), existing entities, or use ListItem.

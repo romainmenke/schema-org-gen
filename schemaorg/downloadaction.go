@@ -5,9 +5,9 @@ import "encoding/json"
 // DownloadAction see : https://schema.org/DownloadAction
 type DownloadAction struct {
 
-typeContext
-
 TransferAction
+
+typeContext
 
 // FromLocation see : https://schema.org/fromLocation
 // A sub property of location. The original location of the object or the agent before the action.

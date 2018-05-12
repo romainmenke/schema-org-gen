@@ -5,9 +5,9 @@ import "encoding/json"
 // TrainReservation see : https://schema.org/TrainReservation
 type TrainReservation struct {
 
-typeContext
-
 Reservation
+
+typeContext
 
 // BookingTime see : https://schema.org/bookingTime
 // The date and time the reservation was booked.

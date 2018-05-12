@@ -5,9 +5,9 @@ import "encoding/json"
 // SubscribeAction see : https://schema.org/SubscribeAction
 type SubscribeAction struct {
 
-typeContext
-
 InteractAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

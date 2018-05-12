@@ -5,9 +5,9 @@ import "encoding/json"
 // JobPosting see : https://schema.org/JobPosting
 type JobPosting struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // BaseSalary see : https://schema.org/baseSalary
 // The base salary of the job or of an employee in an EmployeeRole.

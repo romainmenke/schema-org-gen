@@ -5,9 +5,9 @@ import "encoding/json"
 // Report see : https://schema.org/Report
 type Report struct {
 
-typeContext
-
 Article
+
+typeContext
 
 // ReportNumber see : https://schema.org/reportNumber
 // The number or other unique designator assigned to a Report by the publishing organization.

@@ -5,9 +5,9 @@ import "encoding/json"
 // BusinessEvent see : https://schema.org/BusinessEvent
 type BusinessEvent struct {
 
-typeContext
-
 Event
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

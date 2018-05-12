@@ -5,9 +5,9 @@ import "encoding/json"
 // OwnershipInfo see : https://schema.org/OwnershipInfo
 type OwnershipInfo struct {
 
-typeContext
-
 StructuredValue
+
+typeContext
 
 // AcquiredFrom see : https://schema.org/acquiredFrom
 // The organization or person from which the product was acquired.

@@ -5,9 +5,9 @@ import "encoding/json"
 // RentalCarReservation see : https://schema.org/RentalCarReservation
 type RentalCarReservation struct {
 
-typeContext
-
 Reservation
+
+typeContext
 
 // DropoffLocation see : https://schema.org/dropoffLocation
 // Where a rental car can be dropped off.

@@ -5,9 +5,9 @@ import "encoding/json"
 // SoftwareSourceCode see : https://schema.org/SoftwareSourceCode
 type SoftwareSourceCode struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // CodeRepository see : https://schema.org/codeRepository
 // Link to the repository where the un-compiled, human readable code and related code is located (SVN, github, CodePlex).

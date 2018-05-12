@@ -5,9 +5,9 @@ import "encoding/json"
 // PerformanceRole see : https://schema.org/PerformanceRole
 type PerformanceRole struct {
 
-typeContext
-
 Role
+
+typeContext
 
 // CharacterName see : https://schema.org/characterName
 // The name of a character played in some acting or performing role, i.e. in a PerformanceRole.

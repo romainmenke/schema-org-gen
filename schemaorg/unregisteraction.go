@@ -5,9 +5,9 @@ import "encoding/json"
 // UnRegisterAction see : https://schema.org/UnRegisterAction
 type UnRegisterAction struct {
 
-typeContext
-
 InteractAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

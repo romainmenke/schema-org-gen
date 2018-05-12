@@ -5,9 +5,9 @@ import "encoding/json"
 // EducationalOrganization see : https://schema.org/EducationalOrganization
 type EducationalOrganization struct {
 
-typeContext
-
 Organization
+
+typeContext
 
 // Alumni see : https://schema.org/alumni
 // Alumni of an organization. Inverse property: alumniOf (see: https://schema.org/alumniOf).

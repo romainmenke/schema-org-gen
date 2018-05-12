@@ -5,9 +5,9 @@ import "encoding/json"
 // PlayAction see : https://schema.org/PlayAction
 type PlayAction struct {
 
-typeContext
-
 Action
+
+typeContext
 
 // Audience see : https://schema.org/audience
 // An intended audience, i.e. a group for whom something was created. Supersedes serviceAudience (see: https://schema.org/serviceAudience).

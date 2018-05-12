@@ -5,9 +5,9 @@ import "encoding/json"
 // TravelAction see : https://schema.org/TravelAction
 type TravelAction struct {
 
-typeContext
-
 MoveAction
+
+typeContext
 
 // Distance see : https://schema.org/distance
 // The distance travelled, e.g. exercising or travelling.

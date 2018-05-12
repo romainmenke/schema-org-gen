@@ -5,9 +5,9 @@ import "encoding/json"
 // TrainTrip see : https://schema.org/TrainTrip
 type TrainTrip struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // ArrivalPlatform see : https://schema.org/arrivalPlatform
 // The platform where the train arrives.

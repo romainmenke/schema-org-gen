@@ -5,9 +5,9 @@ import "encoding/json"
 // GeoCoordinates see : https://schema.org/GeoCoordinates
 type GeoCoordinates struct {
 
-typeContext
-
 StructuredValue
+
+typeContext
 
 // Address see : https://schema.org/address
 // Physical address of the item.

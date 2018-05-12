@@ -5,9 +5,9 @@ import "encoding/json"
 // GeoShape see : https://schema.org/GeoShape
 type GeoShape struct {
 
-typeContext
-
 StructuredValue
+
+typeContext
 
 // Address see : https://schema.org/address
 // Physical address of the item.

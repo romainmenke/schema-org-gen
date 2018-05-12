@@ -5,9 +5,9 @@ import "encoding/json"
 // Article see : https://schema.org/Article
 type Article struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // ArticleBody see : https://schema.org/articleBody
 // The actual body of the article.
@@ -29,7 +29,7 @@ PageStart interface{} `json:"pageStart"` // types : Integer Text
 // Any description of pages that is not separated into pageStart and pageEnd; for example, "1-6, 9, 55" or "10-12, 46-49".
 Pagination string `json:"pagination"`
 
-// Speakable see : https://schema.orghttp://pending.schema.org/speakable
+// Speakable see : http://pending.schema.org/speakable
 // Indicates sections of a Web page that are particularly 'speakable' in the sense of being highlighted as being especially appropriate for text-to-speech conversion. Other sections of a page may also be usefully spoken in particular circumstances; the 'speakable' property serves to indicate the parts most likely to be generally useful for speech.
 // 
 // The speakable property can be repeated an arbitrary number of times, with three kinds of possible 'content-locator' values:

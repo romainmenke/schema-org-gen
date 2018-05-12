@@ -5,9 +5,9 @@ import "encoding/json"
 // AudioObject see : https://schema.org/AudioObject
 type AudioObject struct {
 
-typeContext
-
 MediaObject
+
+typeContext
 
 // Transcript see : https://schema.org/transcript
 // If this MediaObject is an AudioObject or VideoObject, the transcript of that object.

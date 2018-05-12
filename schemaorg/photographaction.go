@@ -5,9 +5,9 @@ import "encoding/json"
 // PhotographAction see : https://schema.org/PhotographAction
 type PhotographAction struct {
 
-typeContext
-
 CreateAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

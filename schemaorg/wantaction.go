@@ -5,9 +5,9 @@ import "encoding/json"
 // WantAction see : https://schema.org/WantAction
 type WantAction struct {
 
-typeContext
-
 ReactAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

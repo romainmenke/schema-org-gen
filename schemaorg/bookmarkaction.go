@@ -5,9 +5,9 @@ import "encoding/json"
 // BookmarkAction see : https://schema.org/BookmarkAction
 type BookmarkAction struct {
 
-typeContext
-
 OrganizeAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

@@ -5,9 +5,9 @@ import "encoding/json"
 // TrackAction see : https://schema.org/TrackAction
 type TrackAction struct {
 
-typeContext
-
 FindAction
+
+typeContext
 
 // DeliveryMethod see : https://schema.org/deliveryMethod
 // A sub property of instrument. The method of delivery.

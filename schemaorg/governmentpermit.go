@@ -5,9 +5,9 @@ import "encoding/json"
 // GovernmentPermit see : https://schema.org/GovernmentPermit
 type GovernmentPermit struct {
 
-typeContext
-
 Permit
+
+typeContext
 
 // IssuedBy see : https://schema.org/issuedBy
 // The organization issuing the ticket or permit.

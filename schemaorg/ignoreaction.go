@@ -5,9 +5,9 @@ import "encoding/json"
 // IgnoreAction see : https://schema.org/IgnoreAction
 type IgnoreAction struct {
 
-typeContext
-
 AssessAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

@@ -5,9 +5,9 @@ import "encoding/json"
 // SearchAction see : https://schema.org/SearchAction
 type SearchAction struct {
 
-typeContext
-
 Action
+
+typeContext
 
 // Query see : https://schema.org/query
 // A sub property of instrument. The query used on this action.

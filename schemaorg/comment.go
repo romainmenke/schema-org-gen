@@ -5,9 +5,9 @@ import "encoding/json"
 // Comment see : https://schema.org/Comment
 type Comment struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // DownvoteCount see : https://schema.org/downvoteCount
 // The number of downvotes this question, answer or comment has received from the community.

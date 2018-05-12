@@ -5,9 +5,9 @@ import "encoding/json"
 // TouristAttraction see : https://schema.org/TouristAttraction
 type TouristAttraction struct {
 
-typeContext
-
 Place
+
+typeContext
 
 // AvailableLanguage see : https://schema.org/availableLanguage
 // A language someone may use with or at the item, service or place. Please use one of the language codes from the IETF BCP 47 standard (see: https://schema.orghttp://tools.ietf.org/html/bcp47). See also inLanguage (see: https://schema.org/inLanguage)

@@ -5,9 +5,9 @@ import "encoding/json"
 // UnitPriceSpecification see : https://schema.org/UnitPriceSpecification
 type UnitPriceSpecification struct {
 
-typeContext
-
 PriceSpecification
+
+typeContext
 
 // BillingIncrement see : https://schema.org/billingIncrement
 // This property specifies the minimal quantity and rounding increment that will be the basis for the billing. The unit of measurement is specified by the unitCode property.

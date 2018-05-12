@@ -5,9 +5,9 @@ import "encoding/json"
 // OpeningHoursSpecification see : https://schema.org/OpeningHoursSpecification
 type OpeningHoursSpecification struct {
 
-typeContext
-
 StructuredValue
+
+typeContext
 
 // Closes see : https://schema.org/closes
 // The closing hour of the place or service on the given day(s) of the week.

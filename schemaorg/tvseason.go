@@ -5,9 +5,9 @@ import "encoding/json"
 // TVSeason see : https://schema.org/TVSeason
 type TVSeason struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // CountryOfOrigin see : https://schema.org/countryOfOrigin
 // The country of the principal offices of the production company or individual responsible for the movie or program.

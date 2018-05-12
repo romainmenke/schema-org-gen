@@ -5,9 +5,9 @@ import "encoding/json"
 // ExhibitionEvent see : https://schema.org/ExhibitionEvent
 type ExhibitionEvent struct {
 
-typeContext
-
 Event
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

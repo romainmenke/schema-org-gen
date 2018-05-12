@@ -5,9 +5,9 @@ import "encoding/json"
 // MusicRecording see : https://schema.org/MusicRecording
 type MusicRecording struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // ByArtist see : https://schema.org/byArtist
 // The artist that performed this album or recording.

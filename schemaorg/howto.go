@@ -5,9 +5,9 @@ import "encoding/json"
 // HowTo see : https://schema.org/HowTo
 type HowTo struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // EstimatedCost see : https://schema.org/estimatedCost
 // The estimated cost of the supply or supplies consumed when performing instructions.

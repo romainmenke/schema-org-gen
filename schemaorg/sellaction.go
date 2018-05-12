@@ -5,9 +5,9 @@ import "encoding/json"
 // SellAction see : https://schema.org/SellAction
 type SellAction struct {
 
-typeContext
-
 TradeAction
+
+typeContext
 
 // Buyer see : https://schema.org/buyer
 // A sub property of participant. The participant/person/organization that bought the object.

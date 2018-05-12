@@ -5,9 +5,9 @@ import "encoding/json"
 // ReviewAction see : https://schema.org/ReviewAction
 type ReviewAction struct {
 
-typeContext
-
 AssessAction
+
+typeContext
 
 // ResultReview see : https://schema.org/resultReview
 // A sub property of result. The review that resulted in the performing of the action.

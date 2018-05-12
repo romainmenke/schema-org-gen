@@ -5,9 +5,9 @@ import "encoding/json"
 // DepartAction see : https://schema.org/DepartAction
 type DepartAction struct {
 
-typeContext
-
 MoveAction
+
+typeContext
 
 // FromLocation see : https://schema.org/fromLocation
 // A sub property of location. The original location of the object or the agent before the action.

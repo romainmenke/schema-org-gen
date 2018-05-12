@@ -5,9 +5,9 @@ import "encoding/json"
 // Seat see : https://schema.org/Seat
 type Seat struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // SeatNumber see : https://schema.org/seatNumber
 // The location of the reserved seat (e.g., 27).

@@ -5,9 +5,9 @@ import "encoding/json"
 // Ticket see : https://schema.org/Ticket
 type Ticket struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // DateIssued see : https://schema.org/dateIssued
 // The date the ticket was issued.

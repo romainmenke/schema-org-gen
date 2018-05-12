@@ -5,9 +5,9 @@ import "encoding/json"
 // JewelryStore see : https://schema.org/JewelryStore
 type JewelryStore struct {
 
-typeContext
-
 Store
+
+typeContext
 
 // CurrenciesAccepted see : https://schema.org/currenciesAccepted
 // The currency accepted (in ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217)).

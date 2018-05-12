@@ -5,9 +5,9 @@ import "encoding/json"
 // PaymentService see : https://schema.org/PaymentService
 type PaymentService struct {
 
-typeContext
-
 FinancialProduct
+
+typeContext
 
 // AnnualPercentageRate see : https://schema.org/annualPercentageRate
 // The annual rate that is charged for borrowing (or made by investing), expressed as a single percentage number that represents the actual yearly cost of funds over the term of a loan. This includes any fees or additional costs associated with the transaction.

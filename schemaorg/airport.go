@@ -5,9 +5,9 @@ import "encoding/json"
 // Airport see : https://schema.org/Airport
 type Airport struct {
 
-typeContext
-
 CivicStructure
+
+typeContext
 
 // IataCode see : https://schema.org/iataCode
 // IATA identifier for an airline or airport.

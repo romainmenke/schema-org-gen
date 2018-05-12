@@ -5,9 +5,9 @@ import "encoding/json"
 // InformAction see : https://schema.org/InformAction
 type InformAction struct {
 
-typeContext
-
 CommunicateAction
+
+typeContext
 
 // Event see : https://schema.org/event
 // Upcoming or past event associated with this place, organization, or action. Supersedes events (see: https://schema.org/events).

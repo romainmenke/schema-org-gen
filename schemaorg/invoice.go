@@ -5,9 +5,9 @@ import "encoding/json"
 // Invoice see : https://schema.org/Invoice
 type Invoice struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // AccountId see : https://schema.org/accountId
 // The identifier for the account the payment will be applied to.

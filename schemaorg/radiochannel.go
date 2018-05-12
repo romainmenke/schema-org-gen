@@ -5,15 +5,15 @@ import "encoding/json"
 // RadioChannel see : https://schema.org/RadioChannel
 type RadioChannel struct {
 
-typeContext
-
 BroadcastChannel
+
+typeContext
 
 // BroadcastChannelId see : https://schema.org/broadcastChannelId
 // The unique address by which the BroadcastService can be identified in a provider lineup. In US, this is typically a number.
 BroadcastChannelId string `json:"broadcastChannelId"`
 
-// BroadcastFrequency see : https://schema.orghttp://pending.schema.org/broadcastFrequency
+// BroadcastFrequency see : http://pending.schema.org/broadcastFrequency
 // The frequency used for over-the-air broadcasts. Numeric values or simple ranges e.g. 87-99. In addition a shortcut idiom is supported for frequences of AM and FM radio channels, e.g. "87 FM".
 BroadcastFrequency interface{} `json:"broadcastFrequency"` // types : BroadcastFrequencySpecification Text
 

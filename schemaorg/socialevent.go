@@ -5,9 +5,9 @@ import "encoding/json"
 // SocialEvent see : https://schema.org/SocialEvent
 type SocialEvent struct {
 
-typeContext
-
 Event
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

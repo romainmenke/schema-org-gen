@@ -5,9 +5,9 @@ import "encoding/json"
 // MediaObject see : https://schema.org/MediaObject
 type MediaObject struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // AssociatedArticle see : https://schema.org/associatedArticle
 // A NewsArticle associated with the Media Object.

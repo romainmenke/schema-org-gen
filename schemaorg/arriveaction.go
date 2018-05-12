@@ -5,9 +5,9 @@ import "encoding/json"
 // ArriveAction see : https://schema.org/ArriveAction
 type ArriveAction struct {
 
-typeContext
-
 MoveAction
+
+typeContext
 
 // FromLocation see : https://schema.org/fromLocation
 // A sub property of location. The original location of the object or the agent before the action.

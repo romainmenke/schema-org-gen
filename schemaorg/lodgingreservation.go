@@ -5,9 +5,9 @@ import "encoding/json"
 // LodgingReservation see : https://schema.org/LodgingReservation
 type LodgingReservation struct {
 
-typeContext
-
 Reservation
+
+typeContext
 
 // CheckinTime see : https://schema.org/checkinTime
 // The earliest someone may check into a lodging establishment.

@@ -5,9 +5,9 @@ import "encoding/json"
 // BusTrip see : https://schema.org/BusTrip
 type BusTrip struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // ArrivalBusStop see : https://schema.org/arrivalBusStop
 // The stop or station from which the bus arrives.

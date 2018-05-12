@@ -5,9 +5,9 @@ import "encoding/json"
 // Photograph see : https://schema.org/Photograph
 type Photograph struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.
@@ -97,7 +97,7 @@ ContentLocation *Place `json:"contentLocation"`
 // Official rating of a piece of content—for example,'MPAA PG-13'.
 ContentRating string `json:"contentRating"`
 
-// ContentReferenceTime see : https://schema.orghttp://pending.schema.org/contentReferenceTime
+// ContentReferenceTime see : http://pending.schema.org/contentReferenceTime
 // The specific time described by a creative work, for works (e.g. articles, video objects etc.) that emphasise a particular moment within an Event.
 ContentReferenceTime interface{} `json:"contentReferenceTime"`
 
@@ -257,7 +257,7 @@ Publication *PublicationEvent `json:"publication"`
 // The publisher of the creative work.
 Publisher interface{} `json:"publisher"` // types : Organization Person
 
-// PublisherImprint see : https://schema.orghttp://bib.schema.org/publisherImprint
+// PublisherImprint see : http://bib.schema.org/publisherImprint
 // The publishing division which published the comic.
 PublisherImprint *Organization `json:"publisherImprint"`
 
@@ -315,7 +315,7 @@ ThumbnailUrl string `json:"thumbnailUrl"`
 // Approximate or typical time it takes to work with or through this learning resource for the typical intended target audience, e.g. 'P30M', 'P1H25M'.
 TimeRequired *Duration `json:"timeRequired"`
 
-// TranslationOfWork see : https://schema.orghttp://bib.schema.org/translationOfWork
+// TranslationOfWork see : http://bib.schema.org/translationOfWork
 // The work that this work has been translated from. e.g. 物种起源 is a translationOf “On the Origin of Species” Inverse property: workTranslation (see: https://schema.orghttp://bib.schema.org/workTranslation).
 TranslationOfWork *CreativeWork `json:"translationOfWork"`
 
@@ -339,7 +339,7 @@ Video *VideoObject `json:"video"`
 // Example/instance/realization/derivation of the concept of this creative work. eg. The paperback edition, first edition, or eBook. Inverse property: exampleOfWork (see: https://schema.org/exampleOfWork).
 WorkExample *CreativeWork `json:"workExample"`
 
-// WorkTranslation see : https://schema.orghttp://bib.schema.org/workTranslation
+// WorkTranslation see : http://bib.schema.org/workTranslation
 // A work that is a translation of the content of this work. e.g. 西遊記 has an English workTranslation “Journey to the West”,a German workTranslation “Monkeys Pilgerfahrt” and a Vietnamese  translation Tây du ký bình khảo. Inverse property: translationOfWork (see: https://schema.orghttp://bib.schema.org/translationOfWork).
 WorkTranslation *CreativeWork `json:"workTranslation"`
 

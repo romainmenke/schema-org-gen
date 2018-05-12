@@ -5,9 +5,9 @@ import "encoding/json"
 // Recipe see : https://schema.org/Recipe
 type Recipe struct {
 
-typeContext
-
 HowTo
+
+typeContext
 
 // CookTime see : https://schema.org/cookTime
 // The time it takes to actually cook the dish, in ISO 8601 duration format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601).

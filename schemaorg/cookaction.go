@@ -5,9 +5,9 @@ import "encoding/json"
 // CookAction see : https://schema.org/CookAction
 type CookAction struct {
 
-typeContext
-
 CreateAction
+
+typeContext
 
 // FoodEstablishment see : https://schema.org/foodEstablishment
 // A sub property of location. The specific food establishment where the action occurred.

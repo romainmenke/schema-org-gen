@@ -5,9 +5,9 @@ import "encoding/json"
 // ScheduleAction see : https://schema.org/ScheduleAction
 type ScheduleAction struct {
 
-typeContext
-
 PlanAction
+
+typeContext
 
 // ScheduledTime see : https://schema.org/scheduledTime
 // The time the object is scheduled to.

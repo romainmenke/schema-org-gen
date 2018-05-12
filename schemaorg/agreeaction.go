@@ -5,9 +5,9 @@ import "encoding/json"
 // AgreeAction see : https://schema.org/AgreeAction
 type AgreeAction struct {
 
-typeContext
-
 ReactAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

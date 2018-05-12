@@ -5,9 +5,9 @@ import "encoding/json"
 // EndorseAction see : https://schema.org/EndorseAction
 type EndorseAction struct {
 
-typeContext
-
 ReactAction
+
+typeContext
 
 // Endorsee see : https://schema.org/endorsee
 // A sub property of participant. The person/organization being supported.

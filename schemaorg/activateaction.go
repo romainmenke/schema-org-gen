@@ -5,9 +5,9 @@ import "encoding/json"
 // ActivateAction see : https://schema.org/ActivateAction
 type ActivateAction struct {
 
-typeContext
-
 ControlAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

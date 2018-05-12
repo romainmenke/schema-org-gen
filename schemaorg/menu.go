@@ -5,9 +5,9 @@ import "encoding/json"
 // Menu see : https://schema.org/Menu
 type Menu struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // HasMenuItem see : https://schema.org/hasMenuItem
 // A food or drink item contained in a menu or menu section.

@@ -5,9 +5,9 @@ import "encoding/json"
 // AskAction see : https://schema.org/AskAction
 type AskAction struct {
 
-typeContext
-
 CommunicateAction
+
+typeContext
 
 // Question see : https://schema.org/question
 // A sub property of object. A question.

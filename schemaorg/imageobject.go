@@ -5,9 +5,9 @@ import "encoding/json"
 // ImageObject see : https://schema.org/ImageObject
 type ImageObject struct {
 
-typeContext
-
 MediaObject
+
+typeContext
 
 // Caption see : https://schema.org/caption
 // The caption for this object.

@@ -5,9 +5,9 @@ import "encoding/json"
 // Demand see : https://schema.org/Demand
 type Demand struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // AcceptedPaymentMethod see : https://schema.org/acceptedPaymentMethod
 // The payment method(s) accepted by seller for this offer.

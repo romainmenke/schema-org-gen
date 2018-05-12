@@ -5,9 +5,9 @@ import "encoding/json"
 // BarOrPub see : https://schema.org/BarOrPub
 type BarOrPub struct {
 
-typeContext
-
 FoodEstablishment
+
+typeContext
 
 // AcceptsReservations see : https://schema.org/acceptsReservations
 // Indicates whether a FoodEstablishment accepts reservations. Values can be Boolean, an URL at which reservations can be made or (for backwards compatibility) the strings Yes or No.

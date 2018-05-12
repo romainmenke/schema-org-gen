@@ -5,9 +5,9 @@ import "encoding/json"
 // Movie see : https://schema.org/Movie
 type Movie struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // Actor see : https://schema.org/actor
 // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip. Supersedes actors (see: https://schema.org/actors).

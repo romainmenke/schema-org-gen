@@ -5,9 +5,9 @@ import "encoding/json"
 // GeoCircle see : https://schema.org/GeoCircle
 type GeoCircle struct {
 
-typeContext
-
 GeoShape
+
+typeContext
 
 // GeoMidpoint see : https://schema.org/geoMidpoint
 // Indicates the GeoCoordinates at the centre of a GeoShape e.g. GeoCircle.

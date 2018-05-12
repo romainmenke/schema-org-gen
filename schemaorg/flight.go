@@ -5,9 +5,9 @@ import "encoding/json"
 // Flight see : https://schema.org/Flight
 type Flight struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // Aircraft see : https://schema.org/aircraft
 // The kind of aircraft (e.g., "Boeing 747").

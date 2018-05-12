@@ -5,9 +5,9 @@ import "encoding/json"
 // HowToItem see : https://schema.org/HowToItem
 type HowToItem struct {
 
-typeContext
-
 ListItem
+
+typeContext
 
 // RequiredQuantity see : https://schema.org/requiredQuantity
 // The required quantity of the item(s).

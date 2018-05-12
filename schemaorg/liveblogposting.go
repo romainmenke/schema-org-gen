@@ -5,9 +5,9 @@ import "encoding/json"
 // LiveBlogPosting see : https://schema.org/LiveBlogPosting
 type LiveBlogPosting struct {
 
-typeContext
-
 BlogPosting
+
+typeContext
 
 // CoverageEndTime see : https://schema.org/coverageEndTime
 // The time when the live blog will stop covering the Event. Note that coverage may continue after the Event concludes.

@@ -5,9 +5,9 @@ import "encoding/json"
 // ParcelDelivery see : https://schema.org/ParcelDelivery
 type ParcelDelivery struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // DeliveryAddress see : https://schema.org/deliveryAddress
 // Destination address.

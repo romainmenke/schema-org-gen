@@ -5,9 +5,9 @@ import "encoding/json"
 // DiscussionForumPosting see : https://schema.org/DiscussionForumPosting
 type DiscussionForumPosting struct {
 
-typeContext
-
 SocialMediaPosting
+
+typeContext
 
 // SharedContent see : https://schema.org/sharedContent
 // A CreativeWork such as an image, video, or audio clip shared as part of this posting.

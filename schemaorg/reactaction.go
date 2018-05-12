@@ -5,9 +5,9 @@ import "encoding/json"
 // ReactAction see : https://schema.org/ReactAction
 type ReactAction struct {
 
-typeContext
-
 AssessAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

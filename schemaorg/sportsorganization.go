@@ -5,9 +5,9 @@ import "encoding/json"
 // SportsOrganization see : https://schema.org/SportsOrganization
 type SportsOrganization struct {
 
-typeContext
-
 Organization
+
+typeContext
 
 // Sport see : https://schema.org/sport
 // A type of sport (e.g. Baseball).

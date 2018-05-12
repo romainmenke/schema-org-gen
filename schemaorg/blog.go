@@ -5,9 +5,9 @@ import "encoding/json"
 // Blog see : https://schema.org/Blog
 type Blog struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // BlogPost see : https://schema.org/blogPost
 // A posting that is part of this blog. Supersedes blogPosts (see: https://schema.org/blogPosts).

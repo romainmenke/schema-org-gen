@@ -5,9 +5,9 @@ import "encoding/json"
 // ContactPoint see : https://schema.org/ContactPoint
 type ContactPoint struct {
 
-typeContext
-
 StructuredValue
+
+typeContext
 
 // AreaServed see : https://schema.org/areaServed
 // The geographic area where a service or offered item is provided. Supersedes serviceArea (see: https://schema.org/serviceArea).

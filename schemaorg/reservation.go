@@ -5,9 +5,9 @@ import "encoding/json"
 // Reservation see : https://schema.org/Reservation
 type Reservation struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // BookingTime see : https://schema.org/bookingTime
 // The date and time the reservation was booked.

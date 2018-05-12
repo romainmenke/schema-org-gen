@@ -5,9 +5,9 @@ import "encoding/json"
 // WebApplication see : https://schema.org/WebApplication
 type WebApplication struct {
 
-typeContext
-
 SoftwareApplication
+
+typeContext
 
 // BrowserRequirements see : https://schema.org/browserRequirements
 // Specifies browser requirements in human-readable text. For example, 'requires HTML5 support'.

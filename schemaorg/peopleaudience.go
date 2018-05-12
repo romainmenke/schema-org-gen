@@ -5,11 +5,11 @@ import "encoding/json"
 // PeopleAudience see : https://schema.org/PeopleAudience
 type PeopleAudience struct {
 
-typeContext
-
 Audience
 
-// HealthCondition see : https://schema.orghttp://health-lifesci.schema.org/healthCondition
+typeContext
+
+// HealthCondition see : http://health-lifesci.schema.org/healthCondition
 // Specifying the health condition(s) of a patient, medical study, or other target audience.
 HealthCondition interface{} `json:"healthCondition"`
 

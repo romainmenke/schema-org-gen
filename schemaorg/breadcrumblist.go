@@ -5,9 +5,9 @@ import "encoding/json"
 // BreadcrumbList see : https://schema.org/BreadcrumbList
 type BreadcrumbList struct {
 
-typeContext
-
 ItemList
+
+typeContext
 
 // ItemListElement see : https://schema.org/itemListElement
 // For itemListElement values, you can use simple strings (e.g. "Peter", "Paul", "Mary"), existing entities, or use ListItem.

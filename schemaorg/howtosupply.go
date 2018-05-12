@@ -5,9 +5,9 @@ import "encoding/json"
 // HowToSupply see : https://schema.org/HowToSupply
 type HowToSupply struct {
 
-typeContext
-
 HowToItem
+
+typeContext
 
 // EstimatedCost see : https://schema.org/estimatedCost
 // The estimated cost of the supply or supplies consumed when performing instructions.

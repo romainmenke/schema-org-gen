@@ -5,9 +5,9 @@ import "encoding/json"
 // DeactivateAction see : https://schema.org/DeactivateAction
 type DeactivateAction struct {
 
-typeContext
-
 ControlAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

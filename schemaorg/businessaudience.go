@@ -5,9 +5,9 @@ import "encoding/json"
 // BusinessAudience see : https://schema.org/BusinessAudience
 type BusinessAudience struct {
 
-typeContext
-
 Audience
+
+typeContext
 
 // NumberOfEmployees see : https://schema.org/numberOfEmployees
 // The number of employees in an organization e.g. business.

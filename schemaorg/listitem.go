@@ -5,9 +5,9 @@ import "encoding/json"
 // ListItem see : https://schema.org/ListItem
 type ListItem struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // Item see : https://schema.org/item
 // An entity represented by an entry in a list or data feed (e.g. an 'artist' in a list of 'artists')’.

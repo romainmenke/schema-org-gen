@@ -5,9 +5,9 @@ import "encoding/json"
 // ClaimReview see : https://schema.org/ClaimReview
 type ClaimReview struct {
 
-typeContext
-
 Review
+
+typeContext
 
 // ClaimReviewed see : https://schema.org/claimReviewed
 // A short summary of the specific claims reviewed in a ClaimReview.

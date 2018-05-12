@@ -5,9 +5,9 @@ import "encoding/json"
 // ConfirmAction see : https://schema.org/ConfirmAction
 type ConfirmAction struct {
 
-typeContext
-
 InformAction
+
+typeContext
 
 // Event see : https://schema.org/event
 // Upcoming or past event associated with this place, organization, or action. Supersedes events (see: https://schema.org/events).

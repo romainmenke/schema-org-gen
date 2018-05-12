@@ -61,14 +61,14 @@ func goTypeFile(goTypes []string) func(ctx context.Context, o *ObjectSource, err
 
 		f.WriteString("import \"encoding/json\"\n\n")
 
-		f.WriteString(fmt.Sprintf("// %s see : %s\n", strings.Title(object.Name), object.URL))
+		f.WriteString(fmt.Sprintf("// %s see : %s\n", strings.Title(object.Name), seeUrl(object.URL)))
 		f.WriteString(fmt.Sprintf("type %s struct {\n\n", strings.Title(object.Name)))
-
-		f.WriteString("typeContext\n\n")
 
 		if object.ParentObject != nil {
 			f.WriteString(object.ParentObject.Name + "\n\n")
 		}
+
+		f.WriteString("typeContext\n\n")
 
 		for _, field := range object.Fields {
 			if field.Name == "" {
@@ -80,7 +80,7 @@ func goTypeFile(goTypes []string) func(ctx context.Context, o *ObjectSource, err
 
 			comment := newLineRegex.ReplaceAllString(field.Comment, "\n// ")
 
-			f.WriteString(fmt.Sprintf("// %s see : %s%s\n", strings.Title(field.Name), "https://schema.org", field.URL))
+			f.WriteString(fmt.Sprintf("// %s see : %s\n", strings.Title(field.Name), seeUrl(field.URL)))
 			f.WriteString(fmt.Sprintf("// %s\n", comment))
 
 			if len(field.Types) > 1 {
@@ -112,6 +112,14 @@ func (v *%s) MarshalJSON() ([]byte, error) {
 
 		return nil
 	}
+}
+
+func seeUrl(str string) string {
+	if strings.HasPrefix(str, "http") {
+		return str
+	}
+
+	return "https://schema.org" + str
 }
 
 func writeGoDataTypes(ctx context.Context) error {

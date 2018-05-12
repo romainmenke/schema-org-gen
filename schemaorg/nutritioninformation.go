@@ -5,9 +5,9 @@ import "encoding/json"
 // NutritionInformation see : https://schema.org/NutritionInformation
 type NutritionInformation struct {
 
-typeContext
-
 StructuredValue
+
+typeContext
 
 // Calories see : https://schema.org/calories
 // The number of calories.

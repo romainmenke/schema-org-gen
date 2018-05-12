@@ -5,9 +5,9 @@ import "encoding/json"
 // VisualArtsEvent see : https://schema.org/VisualArtsEvent
 type VisualArtsEvent struct {
 
-typeContext
-
 Event
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

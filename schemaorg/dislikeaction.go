@@ -5,9 +5,9 @@ import "encoding/json"
 // DislikeAction see : https://schema.org/DislikeAction
 type DislikeAction struct {
 
-typeContext
-
 ReactAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

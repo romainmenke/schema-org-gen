@@ -5,9 +5,9 @@ import "encoding/json"
 // AllocateAction see : https://schema.org/AllocateAction
 type AllocateAction struct {
 
-typeContext
-
 OrganizeAction
+
+typeContext
 
 // Purpose see : https://schema.org/purpose
 // A goal towards an action is taken. Can be concrete or abstract.

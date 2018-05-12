@@ -5,9 +5,9 @@ import "encoding/json"
 // StadiumOrArena see : https://schema.org/StadiumOrArena
 type StadiumOrArena struct {
 
-typeContext
-
 CivicStructure
+
+typeContext
 
 // CurrenciesAccepted see : https://schema.org/currenciesAccepted
 // The currency accepted (in ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217)).

@@ -5,9 +5,9 @@ import "encoding/json"
 // RsvpAction see : https://schema.org/RsvpAction
 type RsvpAction struct {
 
-typeContext
-
 InformAction
+
+typeContext
 
 // AdditionalNumberOfGuests see : https://schema.org/additionalNumberOfGuests
 // If responding yes, the number of guests who will attend in addition to the invitee.

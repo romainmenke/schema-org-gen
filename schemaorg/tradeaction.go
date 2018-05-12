@@ -5,9 +5,9 @@ import "encoding/json"
 // TradeAction see : https://schema.org/TradeAction
 type TradeAction struct {
 
-typeContext
-
 Action
+
+typeContext
 
 // Price see : https://schema.org/price
 // The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.

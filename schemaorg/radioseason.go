@@ -5,9 +5,9 @@ import "encoding/json"
 // RadioSeason see : https://schema.org/RadioSeason
 type RadioSeason struct {
 
-typeContext
-
 CreativeWorkSeason
+
+typeContext
 
 // Actor see : https://schema.org/actor
 // An actor, e.g. in tv, radio, movie, video games etc., or in an event. Actors can be associated with individual items or with a series, episode, clip. Supersedes actors (see: https://schema.org/actors).

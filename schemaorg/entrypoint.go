@@ -5,9 +5,9 @@ import "encoding/json"
 // EntryPoint see : https://schema.org/EntryPoint
 type EntryPoint struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // ActionApplication see : https://schema.org/actionApplication
 // An application that can complete the request. Supersedes application (see: https://schema.org/application).

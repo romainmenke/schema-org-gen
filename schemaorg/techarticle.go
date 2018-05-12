@@ -5,9 +5,9 @@ import "encoding/json"
 // TechArticle see : https://schema.org/TechArticle
 type TechArticle struct {
 
-typeContext
-
 Article
+
+typeContext
 
 // Dependencies see : https://schema.org/dependencies
 // Prerequisites needed to fulfill steps in article.

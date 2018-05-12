@@ -5,9 +5,9 @@ import "encoding/json"
 // EducationalAudience see : https://schema.org/EducationalAudience
 type EducationalAudience struct {
 
-typeContext
-
 Audience
+
+typeContext
 
 // EducationalRole see : https://schema.org/educationalRole
 // An educationalRole of an EducationalAudience.

@@ -5,9 +5,9 @@ import "encoding/json"
 // FollowAction see : https://schema.org/FollowAction
 type FollowAction struct {
 
-typeContext
-
 InteractAction
+
+typeContext
 
 // Followee see : https://schema.org/followee
 // A sub property of object. The person or organization being followed.

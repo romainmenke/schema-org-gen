@@ -5,9 +5,9 @@ import "encoding/json"
 // NewsArticle see : https://schema.org/NewsArticle
 type NewsArticle struct {
 
-typeContext
-
 Article
+
+typeContext
 
 // Dateline see : https://schema.org/dateline
 // A dateline (see: https://schema.orghttps://en.wikipedia.org/wiki/Dateline) is a brief piece of text included in news articles that describes where and when the story was written or filed though the date is often omitted. Sometimes only a placename is provided.

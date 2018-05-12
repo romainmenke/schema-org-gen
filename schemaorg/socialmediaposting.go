@@ -5,9 +5,9 @@ import "encoding/json"
 // SocialMediaPosting see : https://schema.org/SocialMediaPosting
 type SocialMediaPosting struct {
 
-typeContext
-
 Article
+
+typeContext
 
 // SharedContent see : https://schema.org/sharedContent
 // A CreativeWork such as an image, video, or audio clip shared as part of this posting.

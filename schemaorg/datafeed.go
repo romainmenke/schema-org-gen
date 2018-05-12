@@ -5,9 +5,9 @@ import "encoding/json"
 // DataFeed see : https://schema.org/DataFeed
 type DataFeed struct {
 
-typeContext
-
 Dataset
+
+typeContext
 
 // DataFeedElement see : https://schema.org/dataFeedElement
 // An item within in a data feed. Data feeds may have many elements.

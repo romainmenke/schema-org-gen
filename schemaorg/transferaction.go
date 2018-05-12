@@ -5,9 +5,9 @@ import "encoding/json"
 // TransferAction see : https://schema.org/TransferAction
 type TransferAction struct {
 
-typeContext
-
 Action
+
+typeContext
 
 // FromLocation see : https://schema.org/fromLocation
 // A sub property of location. The original location of the object or the agent before the action.

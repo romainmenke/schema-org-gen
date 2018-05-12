@@ -5,9 +5,9 @@ import "encoding/json"
 // Dataset see : https://schema.org/Dataset
 type Dataset struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // Distribution see : https://schema.org/distribution
 // A downloadable form of this dataset, at a specific location, in a specific format.
@@ -21,7 +21,7 @@ IncludedInDataCatalog *DataCatalog `json:"includedInDataCatalog"`
 // The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.
 Issn string `json:"issn"`
 
-// MeasurementTechnique see : https://schema.orghttp://pending.schema.org/measurementTechnique
+// MeasurementTechnique see : http://pending.schema.org/measurementTechnique
 // A technique or technology used in a Dataset (see: https://schema.org/Dataset) (or DataDownload (see: https://schema.org/DataDownload), DataCatalog (see: https://schema.org/DataCatalog)),
 // corresponding to the method used for measuring the corresponding variable(s) (described using variableMeasured (see: https://schema.org/variableMeasured)). This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but rather as a high level summary for dataset discovery.
 // 
@@ -32,7 +32,7 @@ Issn string `json:"issn"`
 // If there are several variableMeasured (see: https://schema.org/variableMeasured) properties recorded for some given data object, use a PropertyValue (see: https://schema.org/PropertyValue) for each variableMeasured (see: https://schema.org/variableMeasured) and attach the corresponding measurementTechnique (see: https://schema.org/measurementTechnique).
 MeasurementTechnique interface{} `json:"measurementTechnique"` // types : Text URL
 
-// VariableMeasured see : https://schema.orghttp://pending.schema.org/variableMeasured
+// VariableMeasured see : http://pending.schema.org/variableMeasured
 // The variableMeasured property can indicate (repeated as necessary) the  variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue.
 VariableMeasured interface{} `json:"variableMeasured"` // types : PropertyValue Text
 

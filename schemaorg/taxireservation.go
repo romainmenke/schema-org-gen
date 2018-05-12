@@ -5,9 +5,9 @@ import "encoding/json"
 // TaxiReservation see : https://schema.org/TaxiReservation
 type TaxiReservation struct {
 
-typeContext
-
 Reservation
+
+typeContext
 
 // PartySize see : https://schema.org/partySize
 // Number of people the reservation should accommodate.

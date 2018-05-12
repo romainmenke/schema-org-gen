@@ -5,9 +5,9 @@ import "encoding/json"
 // Answer see : https://schema.org/Answer
 type Answer struct {
 
-typeContext
-
 Comment
+
+typeContext
 
 // DownvoteCount see : https://schema.org/downvoteCount
 // The number of downvotes this question, answer or comment has received from the community.

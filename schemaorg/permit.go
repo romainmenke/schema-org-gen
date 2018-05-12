@@ -5,9 +5,9 @@ import "encoding/json"
 // Permit see : https://schema.org/Permit
 type Permit struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // IssuedBy see : https://schema.org/issuedBy
 // The organization issuing the ticket or permit.

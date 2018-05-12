@@ -5,9 +5,9 @@ import "encoding/json"
 // Map see : https://schema.org/Map
 type Map struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // MapType see : https://schema.org/mapType
 // Indicates the kind of Map, from the MapCategoryType Enumeration.

@@ -5,9 +5,9 @@ import "encoding/json"
 // TypeAndQuantityNode see : https://schema.org/TypeAndQuantityNode
 type TypeAndQuantityNode struct {
 
-typeContext
-
 StructuredValue
+
+typeContext
 
 // AmountOfThisGood see : https://schema.org/amountOfThisGood
 // The quantity of the goods included in the offer.

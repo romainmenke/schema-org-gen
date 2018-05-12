@@ -5,9 +5,9 @@ import "encoding/json"
 // LiteraryEvent see : https://schema.org/LiteraryEvent
 type LiteraryEvent struct {
 
-typeContext
-
 Event
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

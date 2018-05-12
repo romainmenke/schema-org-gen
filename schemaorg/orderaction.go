@@ -5,9 +5,9 @@ import "encoding/json"
 // OrderAction see : https://schema.org/OrderAction
 type OrderAction struct {
 
-typeContext
-
 TradeAction
+
+typeContext
 
 // DeliveryMethod see : https://schema.org/deliveryMethod
 // A sub property of instrument. The method of delivery.

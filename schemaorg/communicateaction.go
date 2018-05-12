@@ -5,9 +5,9 @@ import "encoding/json"
 // CommunicateAction see : https://schema.org/CommunicateAction
 type CommunicateAction struct {
 
-typeContext
-
 InteractAction
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

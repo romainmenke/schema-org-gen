@@ -5,9 +5,9 @@ import "encoding/json"
 // DisagreeAction see : https://schema.org/DisagreeAction
 type DisagreeAction struct {
 
-typeContext
-
 ReactAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

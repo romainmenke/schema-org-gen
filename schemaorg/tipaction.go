@@ -5,9 +5,9 @@ import "encoding/json"
 // TipAction see : https://schema.org/TipAction
 type TipAction struct {
 
-typeContext
-
 TradeAction
+
+typeContext
 
 // Recipient see : https://schema.org/recipient
 // A sub property of participant. The participant who is at the receiving end of the action.

@@ -5,9 +5,9 @@ import "encoding/json"
 // ComedyEvent see : https://schema.org/ComedyEvent
 type ComedyEvent struct {
 
-typeContext
-
 Event
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

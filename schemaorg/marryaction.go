@@ -5,9 +5,9 @@ import "encoding/json"
 // MarryAction see : https://schema.org/MarryAction
 type MarryAction struct {
 
-typeContext
-
 InteractAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

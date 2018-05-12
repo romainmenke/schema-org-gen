@@ -5,9 +5,9 @@ import "encoding/json"
 // FinancialService see : https://schema.org/FinancialService
 type FinancialService struct {
 
-typeContext
-
 LocalBusiness
+
+typeContext
 
 // FeesAndCommissionsSpecification see : https://schema.org/feesAndCommissionsSpecification
 // Description of fees, commissions, and other terms applied either to a class of financial product, or by a financial service organization.

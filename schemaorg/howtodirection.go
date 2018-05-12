@@ -5,9 +5,9 @@ import "encoding/json"
 // HowToDirection see : https://schema.org/HowToDirection
 type HowToDirection struct {
 
-typeContext
-
 ListItem
+
+typeContext
 
 // AfterMedia see : https://schema.org/afterMedia
 // A media object representing the circumstances after performing this direction.

@@ -5,9 +5,9 @@ import "encoding/json"
 // ScreeningEvent see : https://schema.org/ScreeningEvent
 type ScreeningEvent struct {
 
-typeContext
-
 Event
+
+typeContext
 
 // SubtitleLanguage see : https://schema.org/subtitleLanguage
 // Languages in which subtitles/captions are available, in IETF BCP 47 standard format (see: https://schema.orghttp://tools.ietf.org/html/bcp47).

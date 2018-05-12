@@ -5,9 +5,9 @@ import "encoding/json"
 // FoodEvent see : https://schema.org/FoodEvent
 type FoodEvent struct {
 
-typeContext
-
 Event
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

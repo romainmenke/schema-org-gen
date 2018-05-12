@@ -5,9 +5,9 @@ import "encoding/json"
 // UpdateAction see : https://schema.org/UpdateAction
 type UpdateAction struct {
 
-typeContext
-
 Action
+
+typeContext
 
 // TargetCollection see : https://schema.org/targetCollection
 // A sub property of object. The collection target of the action. Supersedes collection (see: https://schema.org/collection).

@@ -5,9 +5,9 @@ import "encoding/json"
 // MonetaryAmount see : https://schema.org/MonetaryAmount
 type MonetaryAmount struct {
 
-typeContext
-
 StructuredValue
+
+typeContext
 
 // Currency see : https://schema.org/currency
 // The currency in which the monetary amount is expressed (in 3-letter ISO 4217 (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217) format).

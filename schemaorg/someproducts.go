@@ -5,9 +5,9 @@ import "encoding/json"
 // SomeProducts see : https://schema.org/SomeProducts
 type SomeProducts struct {
 
-typeContext
-
 Product
+
+typeContext
 
 // InventoryLevel see : https://schema.org/inventoryLevel
 // The current approximate inventory level for the item or items.

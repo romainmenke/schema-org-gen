@@ -5,9 +5,9 @@ import "encoding/json"
 // ReceiveAction see : https://schema.org/ReceiveAction
 type ReceiveAction struct {
 
-typeContext
-
 TransferAction
+
+typeContext
 
 // DeliveryMethod see : https://schema.org/deliveryMethod
 // A sub property of instrument. The method of delivery.

@@ -5,9 +5,9 @@ import "encoding/json"
 // Airline see : https://schema.org/Airline
 type Airline struct {
 
-typeContext
-
 Organization
+
+typeContext
 
 // BoardingPolicy see : https://schema.org/boardingPolicy
 // The type of boarding policy used by the airline (e.g. zone-based or group-based).

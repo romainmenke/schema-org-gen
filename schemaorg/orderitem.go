@@ -5,9 +5,9 @@ import "encoding/json"
 // OrderItem see : https://schema.org/OrderItem
 type OrderItem struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // OrderDelivery see : https://schema.org/orderDelivery
 // The delivery of the parcel related to this order or order item.

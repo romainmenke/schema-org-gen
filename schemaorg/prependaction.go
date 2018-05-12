@@ -5,9 +5,9 @@ import "encoding/json"
 // PrependAction see : https://schema.org/PrependAction
 type PrependAction struct {
 
-typeContext
-
 InsertAction
+
+typeContext
 
 // ToLocation see : https://schema.org/toLocation
 // A sub property of location. The final location of the object or the agent after the action.

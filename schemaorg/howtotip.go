@@ -5,9 +5,9 @@ import "encoding/json"
 // HowToTip see : https://schema.org/HowToTip
 type HowToTip struct {
 
-typeContext
-
 ListItem
+
+typeContext
 
 // Item see : https://schema.org/item
 // An entity represented by an entry in a list or data feed (e.g. an 'artist' in a list of 'artists')’.

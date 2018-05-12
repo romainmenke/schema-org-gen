@@ -5,9 +5,9 @@ import "encoding/json"
 // Barcode see : https://schema.org/Barcode
 type Barcode struct {
 
-typeContext
-
 ImageObject
+
+typeContext
 
 // Caption see : https://schema.org/caption
 // The caption for this object.

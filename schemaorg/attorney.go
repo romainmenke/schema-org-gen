@@ -5,9 +5,9 @@ import "encoding/json"
 // Attorney see : https://schema.org/Attorney
 type Attorney struct {
 
-typeContext
-
 LegalService
+
+typeContext
 
 // CurrenciesAccepted see : https://schema.org/currenciesAccepted
 // The currency accepted (in ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217)).

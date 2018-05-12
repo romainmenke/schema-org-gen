@@ -5,9 +5,9 @@ import "encoding/json"
 // House see : https://schema.org/House
 type House struct {
 
-typeContext
-
 Accommodation
+
+typeContext
 
 // NumberOfRooms see : https://schema.org/numberOfRooms
 // The number of rooms (excluding bathrooms and closets) of the acccommodation or lodging business.

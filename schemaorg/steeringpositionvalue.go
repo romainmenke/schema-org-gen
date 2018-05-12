@@ -5,9 +5,9 @@ import "encoding/json"
 // SteeringPositionValue see : https://schema.org/SteeringPositionValue
 type SteeringPositionValue struct {
 
-typeContext
-
 QualitativeValue
+
+typeContext
 
 // AdditionalProperty see : https://schema.org/additionalProperty
 // A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.

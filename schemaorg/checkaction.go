@@ -5,9 +5,9 @@ import "encoding/json"
 // CheckAction see : https://schema.org/CheckAction
 type CheckAction struct {
 
-typeContext
-
 FindAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

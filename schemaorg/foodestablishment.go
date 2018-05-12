@@ -5,9 +5,9 @@ import "encoding/json"
 // FoodEstablishment see : https://schema.org/FoodEstablishment
 type FoodEstablishment struct {
 
-typeContext
-
 LocalBusiness
+
+typeContext
 
 // AcceptsReservations see : https://schema.org/acceptsReservations
 // Indicates whether a FoodEstablishment accepts reservations. Values can be Boolean, an URL at which reservations can be made or (for backwards compatibility) the strings Yes or No.

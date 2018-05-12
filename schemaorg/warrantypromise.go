@@ -5,9 +5,9 @@ import "encoding/json"
 // WarrantyPromise see : https://schema.org/WarrantyPromise
 type WarrantyPromise struct {
 
-typeContext
-
 StructuredValue
+
+typeContext
 
 // DurationOfWarranty see : https://schema.org/durationOfWarranty
 // The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.

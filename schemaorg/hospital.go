@@ -5,15 +5,15 @@ import "encoding/json"
 // Hospital see : https://schema.org/Hospital
 type Hospital struct {
 
-typeContext
-
 CivicStructure
 
-// AvailableService see : https://schema.orghttp://health-lifesci.schema.org/availableService
+typeContext
+
+// AvailableService see : http://health-lifesci.schema.org/availableService
 // A medical service available from this provider.
 AvailableService interface{} `json:"availableService"` // types : MedicalProcedure MedicalTest MedicalTherapy
 
-// MedicalSpecialty see : https://schema.orghttp://health-lifesci.schema.org/medicalSpecialty
+// MedicalSpecialty see : http://health-lifesci.schema.org/medicalSpecialty
 // A medical specialty of the provider.
 MedicalSpecialty interface{} `json:"medicalSpecialty"`
 

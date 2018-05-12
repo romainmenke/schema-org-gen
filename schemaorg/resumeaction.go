@@ -5,9 +5,9 @@ import "encoding/json"
 // ResumeAction see : https://schema.org/ResumeAction
 type ResumeAction struct {
 
-typeContext
-
 ControlAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

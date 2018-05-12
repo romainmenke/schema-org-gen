@@ -5,9 +5,9 @@ import "encoding/json"
 // TVEpisode see : https://schema.org/TVEpisode
 type TVEpisode struct {
 
-typeContext
-
 Episode
+
+typeContext
 
 // CountryOfOrigin see : https://schema.org/countryOfOrigin
 // The country of the principal offices of the production company or individual responsible for the movie or program.

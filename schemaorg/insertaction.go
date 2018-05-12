@@ -5,9 +5,9 @@ import "encoding/json"
 // InsertAction see : https://schema.org/InsertAction
 type InsertAction struct {
 
-typeContext
-
 AddAction
+
+typeContext
 
 // ToLocation see : https://schema.org/toLocation
 // A sub property of location. The final location of the object or the agent after the action.

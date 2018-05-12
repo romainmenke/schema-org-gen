@@ -5,9 +5,9 @@ import "encoding/json"
 // PaintAction see : https://schema.org/PaintAction
 type PaintAction struct {
 
-typeContext
-
 CreateAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

@@ -5,9 +5,9 @@ import "encoding/json"
 // DiscoverAction see : https://schema.org/DiscoverAction
 type DiscoverAction struct {
 
-typeContext
-
 FindAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

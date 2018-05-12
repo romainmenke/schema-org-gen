@@ -5,9 +5,9 @@ import "encoding/json"
 // DigitalDocumentPermission see : https://schema.org/DigitalDocumentPermission
 type DigitalDocumentPermission struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // Grantee see : https://schema.org/grantee
 // The person, organization, contact point, or audience that has been granted this permission.

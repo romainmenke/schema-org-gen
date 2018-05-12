@@ -5,9 +5,9 @@ import "encoding/json"
 // CommentAction see : https://schema.org/CommentAction
 type CommentAction struct {
 
-typeContext
-
 CommunicateAction
+
+typeContext
 
 // ResultComment see : https://schema.org/resultComment
 // A sub property of result. The Comment created or sent as a result of this action.

@@ -5,9 +5,9 @@ import "encoding/json"
 // AddAction see : https://schema.org/AddAction
 type AddAction struct {
 
-typeContext
-
 UpdateAction
+
+typeContext
 
 // TargetCollection see : https://schema.org/targetCollection
 // A sub property of object. The collection target of the action. Supersedes collection (see: https://schema.org/collection).

@@ -5,9 +5,9 @@ import "encoding/json"
 // Review see : https://schema.org/Review
 type Review struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // ItemReviewed see : https://schema.org/itemReviewed
 // The item that is being reviewed/rated.

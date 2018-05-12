@@ -5,9 +5,9 @@ import "encoding/json"
 // ReturnAction see : https://schema.org/ReturnAction
 type ReturnAction struct {
 
-typeContext
-
 TransferAction
+
+typeContext
 
 // Recipient see : https://schema.org/recipient
 // A sub property of participant. The participant who is at the receiving end of the action.

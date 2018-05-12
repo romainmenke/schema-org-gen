@@ -5,9 +5,9 @@ import "encoding/json"
 // FilmAction see : https://schema.org/FilmAction
 type FilmAction struct {
 
-typeContext
-
 CreateAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

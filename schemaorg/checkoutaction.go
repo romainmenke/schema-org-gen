@@ -5,9 +5,9 @@ import "encoding/json"
 // CheckOutAction see : https://schema.org/CheckOutAction
 type CheckOutAction struct {
 
-typeContext
-
 CommunicateAction
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

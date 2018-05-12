@@ -5,9 +5,9 @@ import "encoding/json"
 // SportsEvent see : https://schema.org/SportsEvent
 type SportsEvent struct {
 
-typeContext
-
 Event
+
+typeContext
 
 // AwayTeam see : https://schema.org/awayTeam
 // The away team in a sports event.

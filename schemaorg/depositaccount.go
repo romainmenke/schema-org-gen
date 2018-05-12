@@ -5,9 +5,9 @@ import "encoding/json"
 // DepositAccount see : https://schema.org/DepositAccount
 type DepositAccount struct {
 
-typeContext
-
 InvestmentOrDeposit
+
+typeContext
 
 // Amount see : https://schema.org/amount
 // The amount of money.

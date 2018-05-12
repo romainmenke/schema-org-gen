@@ -5,9 +5,9 @@ import "encoding/json"
 // FoodService see : https://schema.org/FoodService
 type FoodService struct {
 
-typeContext
-
 Service
+
+typeContext
 
 // AggregateRating see : https://schema.org/aggregateRating
 // The overall rating, based on a collection of reviews or ratings, of the item.
@@ -85,7 +85,7 @@ ServiceOutput *Thing `json:"serviceOutput"`
 // The type of service being offered, e.g. veterans' benefits, emergency relief, etc.
 ServiceType string `json:"serviceType"`
 
-// TermsOfService see : https://schema.orghttp://pending.schema.org/termsOfService
+// TermsOfService see : http://pending.schema.org/termsOfService
 // Human-readable terms of service documentation.
 TermsOfService interface{} `json:"termsOfService"` // types : Text URL
 

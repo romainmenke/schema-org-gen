@@ -5,9 +5,9 @@ import "encoding/json"
 // ReplaceAction see : https://schema.org/ReplaceAction
 type ReplaceAction struct {
 
-typeContext
-
 UpdateAction
+
+typeContext
 
 // Replacee see : https://schema.org/replacee
 // A sub property of object. The object that is being replaced.

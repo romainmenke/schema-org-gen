@@ -5,11 +5,11 @@ import "encoding/json"
 // RejectAction see : https://schema.org/RejectAction
 type RejectAction struct {
 
-typeContext
-
 AllocateAction
 
-// Purpose see : https://schema.orghttp://health-lifesci.schema.org/purpose
+typeContext
+
+// Purpose see : http://health-lifesci.schema.org/purpose
 // A goal towards an action is taken. Can be concrete or abstract.
 Purpose interface{} `json:"purpose"` // types : MedicalDevicePurpose Thing
 

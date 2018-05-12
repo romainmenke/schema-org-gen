@@ -5,9 +5,9 @@ import "encoding/json"
 // PublicationIssue see : https://schema.org/PublicationIssue
 type PublicationIssue struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // IssueNumber see : https://schema.org/issueNumber
 // Identifies the issue of publication; for example, "iii" or "2".

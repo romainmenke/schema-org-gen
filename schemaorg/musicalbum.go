@@ -5,9 +5,9 @@ import "encoding/json"
 // MusicAlbum see : https://schema.org/MusicAlbum
 type MusicAlbum struct {
 
-typeContext
-
 MusicPlaylist
+
+typeContext
 
 // AlbumProductionType see : https://schema.org/albumProductionType
 // Classification of the album by it's type of content: soundtrack, live album, studio album, etc.

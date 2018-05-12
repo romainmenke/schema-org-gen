@@ -5,9 +5,9 @@ import "encoding/json"
 // SingleFamilyResidence see : https://schema.org/SingleFamilyResidence
 type SingleFamilyResidence struct {
 
-typeContext
-
 House
+
+typeContext
 
 // NumberOfRooms see : https://schema.org/numberOfRooms
 // The number of rooms (excluding bathrooms and closets) of the acccommodation or lodging business.

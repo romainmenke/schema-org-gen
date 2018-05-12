@@ -5,11 +5,11 @@ import "encoding/json"
 // Book see : https://schema.org/Book
 type Book struct {
 
-typeContext
-
 CreativeWork
 
-// Abridged see : https://schema.orghttp://bib.schema.org/abridged
+typeContext
+
+// Abridged see : http://bib.schema.org/abridged
 // Indicates whether the book is an abridged edition.
 Abridged bool `json:"abridged"`
 

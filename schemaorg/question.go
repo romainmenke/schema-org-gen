@@ -5,9 +5,9 @@ import "encoding/json"
 // Question see : https://schema.org/Question
 type Question struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // AcceptedAnswer see : https://schema.org/acceptedAnswer
 // The answer that has been accepted as best, typically on a Question/Answer site. Sites vary in their selection mechanisms, e.g. drawing on community opinion and/or the view of the Question author.

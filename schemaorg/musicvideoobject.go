@@ -5,9 +5,9 @@ import "encoding/json"
 // MusicVideoObject see : https://schema.org/MusicVideoObject
 type MusicVideoObject struct {
 
-typeContext
-
 MediaObject
+
+typeContext
 
 // AssociatedArticle see : https://schema.org/associatedArticle
 // A NewsArticle associated with the Media Object.

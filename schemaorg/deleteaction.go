@@ -5,9 +5,9 @@ import "encoding/json"
 // DeleteAction see : https://schema.org/DeleteAction
 type DeleteAction struct {
 
-typeContext
-
 UpdateAction
+
+typeContext
 
 // TargetCollection see : https://schema.org/targetCollection
 // A sub property of object. The collection target of the action. Supersedes collection (see: https://schema.org/collection).

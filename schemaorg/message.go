@@ -5,9 +5,9 @@ import "encoding/json"
 // Message see : https://schema.org/Message
 type Message struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // BccRecipient see : https://schema.org/bccRecipient
 // A sub property of recipient. The recipient blind copied on a message.

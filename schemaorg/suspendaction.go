@@ -5,9 +5,9 @@ import "encoding/json"
 // SuspendAction see : https://schema.org/SuspendAction
 type SuspendAction struct {
 
-typeContext
-
 ControlAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

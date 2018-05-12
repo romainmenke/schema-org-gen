@@ -5,9 +5,9 @@ import "encoding/json"
 // DeliveryEvent see : https://schema.org/DeliveryEvent
 type DeliveryEvent struct {
 
-typeContext
-
 Event
+
+typeContext
 
 // AccessCode see : https://schema.org/accessCode
 // Password, PIN, or access code needed for delivery (e.g. from a locker).

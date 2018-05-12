@@ -5,11 +5,11 @@ import "encoding/json"
 // ExerciseAction see : https://schema.org/ExerciseAction
 type ExerciseAction struct {
 
-typeContext
-
 PlayAction
 
-// Diet see : https://schema.orghttp://health-lifesci.schema.org/diet
+typeContext
+
+// Diet see : http://health-lifesci.schema.org/diet
 // A sub property of instrument. The diet used in this action.
 Diet interface{} `json:"diet"`
 
@@ -21,15 +21,15 @@ Distance *Distance `json:"distance"`
 // A sub property of location. The course where this action was taken. Supersedes course (see: https://schema.org/course).
 ExerciseCourse *Place `json:"exerciseCourse"`
 
-// ExercisePlan see : https://schema.orghttp://health-lifesci.schema.org/exercisePlan
+// ExercisePlan see : http://health-lifesci.schema.org/exercisePlan
 // A sub property of instrument. The exercise plan used on this action.
 ExercisePlan interface{} `json:"exercisePlan"`
 
-// ExerciseRelatedDiet see : https://schema.orghttp://health-lifesci.schema.org/exerciseRelatedDiet
+// ExerciseRelatedDiet see : http://health-lifesci.schema.org/exerciseRelatedDiet
 // A sub property of instrument. The diet used in this action.
 ExerciseRelatedDiet interface{} `json:"exerciseRelatedDiet"`
 
-// ExerciseType see : https://schema.orghttp://health-lifesci.schema.org/exerciseType
+// ExerciseType see : http://health-lifesci.schema.org/exerciseType
 // Type(s) of exercise or activity, such as strength training, flexibility training, aerobics, cardiac rehabilitation, etc.
 ExerciseType string `json:"exerciseType"`
 

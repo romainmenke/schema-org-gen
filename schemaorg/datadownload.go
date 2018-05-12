@@ -5,11 +5,11 @@ import "encoding/json"
 // DataDownload see : https://schema.org/DataDownload
 type DataDownload struct {
 
-typeContext
-
 MediaObject
 
-// MeasurementTechnique see : https://schema.orghttp://pending.schema.org/measurementTechnique
+typeContext
+
+// MeasurementTechnique see : http://pending.schema.org/measurementTechnique
 // A technique or technology used in a Dataset (see: https://schema.org/Dataset) (or DataDownload (see: https://schema.org/DataDownload), DataCatalog (see: https://schema.org/DataCatalog)),
 // corresponding to the method used for measuring the corresponding variable(s) (described using variableMeasured (see: https://schema.org/variableMeasured)). This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but rather as a high level summary for dataset discovery.
 // 

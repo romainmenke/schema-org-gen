@@ -5,9 +5,9 @@ import "encoding/json"
 // AchieveAction see : https://schema.org/AchieveAction
 type AchieveAction struct {
 
-typeContext
-
 Action
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

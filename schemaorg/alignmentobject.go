@@ -5,9 +5,9 @@ import "encoding/json"
 // AlignmentObject see : https://schema.org/AlignmentObject
 type AlignmentObject struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // AlignmentType see : https://schema.org/alignmentType
 // A category of alignment between the learning resource and the framework node. Recommended values include: 'assesses', 'teaches', 'requires', 'textComplexity', 'readingLevel', 'educationalSubject', and 'educationalLevel'.

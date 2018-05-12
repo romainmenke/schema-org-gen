@@ -5,11 +5,11 @@ import "encoding/json"
 // Vehicle see : https://schema.org/Vehicle
 type Vehicle struct {
 
-typeContext
-
 Product
 
-// AccelerationTime see : https://schema.orghttps://auto.schema.org/accelerationTime
+typeContext
+
+// AccelerationTime see : https://auto.schema.org/accelerationTime
 // The time needed to accelerate the vehicle from a given start velocity to a given target velocity.
 // 
 // Typical unit code(s): SEC for seconds
@@ -20,7 +20,7 @@ Product
 // 
 AccelerationTime *QuantitativeValue `json:"accelerationTime"`
 
-// BodyType see : https://schema.orghttps://auto.schema.org/bodyType
+// BodyType see : https://auto.schema.org/bodyType
 // Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).
 BodyType interface{} `json:"bodyType"` // types : QualitativeValue Text URL
 
@@ -40,11 +40,11 @@ DateVehicleFirstRegistered interface{} `json:"dateVehicleFirstRegistered"`
 // The drive wheel configuration, i.e. which roadwheels will receive torque from the vehicle's engine via the drivetrain.
 DriveWheelConfiguration interface{} `json:"driveWheelConfiguration"` // types : DriveWheelConfigurationValue Text
 
-// EmissionsCO2 see : https://schema.orghttps://auto.schema.org/emissionsCO2
+// EmissionsCO2 see : https://auto.schema.org/emissionsCO2
 // The CO2 emissions in g/km. When used in combination with a QuantitativeValue, put "g/km" into the unitText property of that value, since there is no UN/CEFACT Common Code for "g/km".
 EmissionsCO2 float64 `json:"emissionsCO2"`
 
-// FuelCapacity see : https://schema.orghttps://auto.schema.org/fuelCapacity
+// FuelCapacity see : https://auto.schema.org/fuelCapacity
 // The capacity of the fuel tank or in the case of electric cars, the battery. If there are multiple components for storage, this should indicate the total of all storage of the same type.
 // 
 // Typical unit code(s): LTR for liters, GLL of US gallons, GLI for UK / imperial gallons, AMH for ampere-hours (for electrical vehicles).
@@ -80,7 +80,7 @@ FuelType interface{} `json:"fuelType"` // types : QualitativeValue Text URL
 // A textual description of known damages, both repaired and unrepaired.
 KnownVehicleDamages string `json:"knownVehicleDamages"`
 
-// MeetsEmissionStandard see : https://schema.orghttps://auto.schema.org/meetsEmissionStandard
+// MeetsEmissionStandard see : https://auto.schema.org/meetsEmissionStandard
 // Indicates that the vehicle meets the respective emission standard.
 MeetsEmissionStandard interface{} `json:"meetsEmissionStandard"` // types : QualitativeValue Text URL
 
@@ -90,7 +90,7 @@ MeetsEmissionStandard interface{} `json:"meetsEmissionStandard"` // types : Qual
 // Typical unit code(s): KMT for kilometers, SMI for statute miles
 MileageFromOdometer *QuantitativeValue `json:"mileageFromOdometer"`
 
-// ModelDate see : https://schema.orghttps://auto.schema.org/modelDate
+// ModelDate see : https://auto.schema.org/modelDate
 // The release date of a vehicle model (often used to differentiate versions of the same make and model).
 ModelDate interface{} `json:"modelDate"`
 
@@ -122,7 +122,7 @@ NumberOfForwardGears interface{} `json:"numberOfForwardGears"` // types : Number
 // Typical unit code(s): C62
 NumberOfPreviousOwners interface{} `json:"numberOfPreviousOwners"` // types : Number QuantitativeValue
 
-// Payload see : https://schema.orghttps://auto.schema.org/payload
+// Payload see : https://auto.schema.org/payload
 // The permitted weight of passengers and cargo, EXCLUDING the weight of the empty vehicle.
 // 
 // Typical unit code(s): KGM for kilogram, LBR for pound
@@ -144,13 +144,13 @@ ProductionDate interface{} `json:"productionDate"`
 // The date the item e.g. vehicle was purchased by the current owner.
 PurchaseDate interface{} `json:"purchaseDate"`
 
-// SeatingCapacity see : https://schema.orghttps://auto.schema.org/seatingCapacity
+// SeatingCapacity see : https://auto.schema.org/seatingCapacity
 // The number of persons that can be seated (e.g. in a vehicle), both in terms of the physical space available, and in terms of limitations set by law.
 // 
 // Typical unit code(s): C62 for persons
 SeatingCapacity interface{} `json:"seatingCapacity"` // types : Number QuantitativeValue
 
-// Speed see : https://schema.orghttps://auto.schema.org/speed
+// Speed see : https://auto.schema.org/speed
 // The speed range of the vehicle. If the vehicle is powered by an engine, the upper limit of the speed range (indicated by maxValue (see: https://schema.org/maxValue) should be the maximum speed achievable under regular conditions.
 // 
 // Typical unit code(s): KMH for km/h, HM for mile per hour (0.447 04 m/s), KNT for knot
@@ -163,7 +163,7 @@ Speed *QuantitativeValue `json:"speed"`
 // The position of the steering wheel or similar device (mostly for cars).
 SteeringPosition *SteeringPositionValue `json:"steeringPosition"`
 
-// TongueWeight see : https://schema.orghttps://auto.schema.org/tongueWeight
+// TongueWeight see : https://auto.schema.org/tongueWeight
 // The permitted vertical load (TWR) of a trailer attached to the vehicle. Also referred to as Tongue Load Rating (TLR) or Vertical Load Rating (VLR)
 // 
 // Typical unit code(s): KGM for kilogram, LBR for pound
@@ -176,7 +176,7 @@ SteeringPosition *SteeringPositionValue `json:"steeringPosition"`
 // 
 TongueWeight *QuantitativeValue `json:"tongueWeight"`
 
-// TrailerWeight see : https://schema.orghttps://auto.schema.org/trailerWeight
+// TrailerWeight see : https://auto.schema.org/trailerWeight
 // The permitted weight of a trailer attached to the vehicle.
 // 
 // Typical unit code(s): KGM for kilogram, LBR for pound
@@ -215,7 +215,7 @@ VehicleModelDate interface{} `json:"vehicleModelDate"`
 // Typical unit code(s): C62 for persons.
 VehicleSeatingCapacity interface{} `json:"vehicleSeatingCapacity"` // types : Number QuantitativeValue
 
-// VehicleSpecialUsage see : https://schema.orghttps://auto.schema.org/vehicleSpecialUsage
+// VehicleSpecialUsage see : https://auto.schema.org/vehicleSpecialUsage
 // Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school, or as a taxi. The legislation in many countries requires this information to be revealed when offering a car for sale.
 VehicleSpecialUsage interface{} `json:"vehicleSpecialUsage"` // types : CarUsageType Text
 
@@ -223,7 +223,7 @@ VehicleSpecialUsage interface{} `json:"vehicleSpecialUsage"` // types : CarUsage
 // The type of component used for transmitting the power from a rotating power source to the wheels or other relevant component(s) ("gearbox" for cars).
 VehicleTransmission interface{} `json:"vehicleTransmission"` // types : QualitativeValue Text URL
 
-// WeightTotal see : https://schema.orghttps://auto.schema.org/weightTotal
+// WeightTotal see : https://auto.schema.org/weightTotal
 // The permitted total weight of the loaded vehicle, including passengers and cargo and the weight of the empty vehicle.
 // 
 // Typical unit code(s): KGM for kilogram, LBR for pound
@@ -236,7 +236,7 @@ VehicleTransmission interface{} `json:"vehicleTransmission"` // types : Qualitat
 // 
 WeightTotal *QuantitativeValue `json:"weightTotal"`
 
-// Wheelbase see : https://schema.orghttps://auto.schema.org/wheelbase
+// Wheelbase see : https://auto.schema.org/wheelbase
 // The distance between the centers of the front and rear wheels.
 // 
 // Typical unit code(s): CMT for centimeters, MTR for meters, INH for inches, FOT for foot/feet

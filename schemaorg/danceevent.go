@@ -5,9 +5,9 @@ import "encoding/json"
 // DanceEvent see : https://schema.org/DanceEvent
 type DanceEvent struct {
 
-typeContext
-
 Event
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

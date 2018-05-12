@@ -5,9 +5,9 @@ import "encoding/json"
 // ReservationPackage see : https://schema.org/ReservationPackage
 type ReservationPackage struct {
 
-typeContext
-
 Reservation
+
+typeContext
 
 // SubReservation see : https://schema.org/subReservation
 // The individual reservations included in the package. Typically a repeated property.

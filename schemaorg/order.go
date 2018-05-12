@@ -5,9 +5,9 @@ import "encoding/json"
 // Order see : https://schema.org/Order
 type Order struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // AcceptedOffer see : https://schema.org/acceptedOffer
 // The offer(s) -- e.g., product, quantity and price combinations -- included in the order.

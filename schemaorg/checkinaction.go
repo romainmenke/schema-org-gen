@@ -5,9 +5,9 @@ import "encoding/json"
 // CheckInAction see : https://schema.org/CheckInAction
 type CheckInAction struct {
 
-typeContext
-
 CommunicateAction
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

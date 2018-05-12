@@ -5,9 +5,9 @@ import "encoding/json"
 // MusicPlaylist see : https://schema.org/MusicPlaylist
 type MusicPlaylist struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // NumTracks see : https://schema.org/numTracks
 // The number of tracks in this album or playlist.

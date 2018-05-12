@@ -5,9 +5,9 @@ import "encoding/json"
 // GameServer see : https://schema.org/GameServer
 type GameServer struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // Game see : https://schema.org/game
 // Video game which is played on this server. Inverse property: gameServer (see: https://schema.org/gameServer).

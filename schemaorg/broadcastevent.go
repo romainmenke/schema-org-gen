@@ -5,9 +5,9 @@ import "encoding/json"
 // BroadcastEvent see : https://schema.org/BroadcastEvent
 type BroadcastEvent struct {
 
-typeContext
-
 PublicationEvent
+
+typeContext
 
 // BroadcastOfEvent see : https://schema.org/broadcastOfEvent
 // The event being broadcast such as a sporting event or awards ceremony.

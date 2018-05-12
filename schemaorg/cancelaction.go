@@ -5,9 +5,9 @@ import "encoding/json"
 // CancelAction see : https://schema.org/CancelAction
 type CancelAction struct {
 
-typeContext
-
 PlanAction
+
+typeContext
 
 // ScheduledTime see : https://schema.org/scheduledTime
 // The time the object is scheduled to.

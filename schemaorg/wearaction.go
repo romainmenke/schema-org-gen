@@ -5,9 +5,9 @@ import "encoding/json"
 // WearAction see : https://schema.org/WearAction
 type WearAction struct {
 
-typeContext
-
 UseAction
+
+typeContext
 
 // ExpectsAcceptanceOf see : https://schema.org/expectsAcceptanceOf
 // An Offer which must be accepted before the user can perform the Action. For example, the user may need to buy a movie before being able to watch it.

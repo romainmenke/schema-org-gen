@@ -5,9 +5,9 @@ import "encoding/json"
 // OrganizeAction see : https://schema.org/OrganizeAction
 type OrganizeAction struct {
 
-typeContext
-
 Action
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

@@ -5,9 +5,9 @@ import "encoding/json"
 // WinAction see : https://schema.org/WinAction
 type WinAction struct {
 
-typeContext
-
 AchieveAction
+
+typeContext
 
 // Loser see : https://schema.org/loser
 // A sub property of participant. The loser of the action.

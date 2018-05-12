@@ -5,9 +5,9 @@ import "encoding/json"
 // LikeAction see : https://schema.org/LikeAction
 type LikeAction struct {
 
-typeContext
-
 ReactAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

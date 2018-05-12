@@ -5,9 +5,9 @@ import "encoding/json"
 // SaleEvent see : https://schema.org/SaleEvent
 type SaleEvent struct {
 
-typeContext
-
 Event
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

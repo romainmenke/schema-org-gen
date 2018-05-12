@@ -5,9 +5,9 @@ import "encoding/json"
 // Suite see : https://schema.org/Suite
 type Suite struct {
 
-typeContext
-
 Accommodation
+
+typeContext
 
 // Bed see : https://schema.org/bed
 // The type of bed or beds included in the accommodation. For the single case of just one bed of a certain type, you use bed directly with a text.

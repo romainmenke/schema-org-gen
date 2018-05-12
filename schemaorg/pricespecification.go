@@ -5,9 +5,9 @@ import "encoding/json"
 // PriceSpecification see : https://schema.org/PriceSpecification
 type PriceSpecification struct {
 
-typeContext
-
 StructuredValue
+
+typeContext
 
 // EligibleQuantity see : https://schema.org/eligibleQuantity
 // The interval and unit of measurement of ordering quantities for which the offer or price specification is valid. This allows e.g. specifying that a certain freight charge is valid only for a certain quantity.

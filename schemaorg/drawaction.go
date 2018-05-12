@@ -5,9 +5,9 @@ import "encoding/json"
 // DrawAction see : https://schema.org/DrawAction
 type DrawAction struct {
 
-typeContext
-
 CreateAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

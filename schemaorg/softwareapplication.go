@@ -5,9 +5,9 @@ import "encoding/json"
 // SoftwareApplication see : https://schema.org/SoftwareApplication
 type SoftwareApplication struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // ApplicationCategory see : https://schema.org/applicationCategory
 // Type of software application, e.g. 'Game, Multimedia'.

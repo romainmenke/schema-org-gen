@@ -5,9 +5,9 @@ import "encoding/json"
 // MusicEvent see : https://schema.org/MusicEvent
 type MusicEvent struct {
 
-typeContext
-
 Event
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

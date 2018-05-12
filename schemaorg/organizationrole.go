@@ -5,9 +5,9 @@ import "encoding/json"
 // OrganizationRole see : https://schema.org/OrganizationRole
 type OrganizationRole struct {
 
-typeContext
-
 Role
+
+typeContext
 
 // NumberedPosition see : https://schema.org/numberedPosition
 // A number associated with a role in an organization, for example, the number on an athlete's jersey.

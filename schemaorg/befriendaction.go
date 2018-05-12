@@ -5,9 +5,9 @@ import "encoding/json"
 // BefriendAction see : https://schema.org/BefriendAction
 type BefriendAction struct {
 
-typeContext
-
 InteractAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

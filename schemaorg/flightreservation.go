@@ -5,9 +5,9 @@ import "encoding/json"
 // FlightReservation see : https://schema.org/FlightReservation
 type FlightReservation struct {
 
-typeContext
-
 Reservation
+
+typeContext
 
 // BoardingGroup see : https://schema.org/boardingGroup
 // The airline-specific indicator of boarding order / preference.

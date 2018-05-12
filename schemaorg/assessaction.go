@@ -5,9 +5,9 @@ import "encoding/json"
 // AssessAction see : https://schema.org/AssessAction
 type AssessAction struct {
 
-typeContext
-
 Action
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

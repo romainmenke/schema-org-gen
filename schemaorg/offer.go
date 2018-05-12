@@ -5,9 +5,9 @@ import "encoding/json"
 // Offer see : https://schema.org/Offer
 type Offer struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // AcceptedPaymentMethod see : https://schema.org/acceptedPaymentMethod
 // The payment method(s) accepted by seller for this offer.

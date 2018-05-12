@@ -5,9 +5,9 @@ import "encoding/json"
 // ProductModel see : https://schema.org/ProductModel
 type ProductModel struct {
 
-typeContext
-
 Product
+
+typeContext
 
 // IsVariantOf see : https://schema.org/isVariantOf
 // A pointer to a base product from which this product is a variant. It is safe to infer that the variant inherits all product features from the base model, unless defined locally. This is not transitive.

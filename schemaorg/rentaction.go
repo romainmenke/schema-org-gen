@@ -5,9 +5,9 @@ import "encoding/json"
 // RentAction see : https://schema.org/RentAction
 type RentAction struct {
 
-typeContext
-
 TradeAction
+
+typeContext
 
 // Landlord see : https://schema.org/landlord
 // A sub property of participant. The owner of the real estate property.

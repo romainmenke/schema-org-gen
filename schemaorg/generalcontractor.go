@@ -5,9 +5,9 @@ import "encoding/json"
 // GeneralContractor see : https://schema.org/GeneralContractor
 type GeneralContractor struct {
 
-typeContext
-
 HomeAndConstructionBusiness
+
+typeContext
 
 // CurrenciesAccepted see : https://schema.org/currenciesAccepted
 // The currency accepted (in ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217)).

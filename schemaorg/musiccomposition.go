@@ -5,9 +5,9 @@ import "encoding/json"
 // MusicComposition see : https://schema.org/MusicComposition
 type MusicComposition struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // Composer see : https://schema.org/composer
 // The person or organization who wrote a composition, or who is the composer of a work performed at some event.

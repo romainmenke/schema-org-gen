@@ -5,9 +5,9 @@ import "encoding/json"
 // DataFeedItem see : https://schema.org/DataFeedItem
 type DataFeedItem struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // DateCreated see : https://schema.org/dateCreated
 // The date on which the CreativeWork was created or the item was added to a DataFeed.

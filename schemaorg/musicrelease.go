@@ -5,9 +5,9 @@ import "encoding/json"
 // MusicRelease see : https://schema.org/MusicRelease
 type MusicRelease struct {
 
-typeContext
-
 MusicPlaylist
+
+typeContext
 
 // CatalogNumber see : https://schema.org/catalogNumber
 // The catalog number for the release.

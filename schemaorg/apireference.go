@@ -5,9 +5,9 @@ import "encoding/json"
 // APIReference see : https://schema.org/APIReference
 type APIReference struct {
 
-typeContext
-
 TechArticle
+
+typeContext
 
 // AssemblyVersion see : https://schema.org/assemblyVersion
 // Associated product/technology version. e.g., .NET Framework 4.5.

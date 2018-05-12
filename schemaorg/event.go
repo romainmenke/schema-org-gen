@@ -5,9 +5,9 @@ import "encoding/json"
 // Event see : https://schema.org/Event
 type Event struct {
 
-typeContext
-
 Thing
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

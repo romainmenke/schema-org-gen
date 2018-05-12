@@ -5,9 +5,9 @@ import "encoding/json"
 // Periodical see : https://schema.org/Periodical
 type Periodical struct {
 
-typeContext
-
 CreativeWorkSeries
+
+typeContext
 
 // EndDate see : https://schema.org/endDate
 // The end date and time of the item (in ISO 8601 date format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601)).

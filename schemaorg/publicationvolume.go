@@ -5,9 +5,9 @@ import "encoding/json"
 // PublicationVolume see : https://schema.org/PublicationVolume
 type PublicationVolume struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // PageEnd see : https://schema.org/pageEnd
 // The page on which the work ends; for example "138" or "xvi".

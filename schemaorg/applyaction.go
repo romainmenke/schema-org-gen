@@ -5,9 +5,9 @@ import "encoding/json"
 // ApplyAction see : https://schema.org/ApplyAction
 type ApplyAction struct {
 
-typeContext
-
 OrganizeAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

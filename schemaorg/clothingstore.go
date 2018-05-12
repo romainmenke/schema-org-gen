@@ -5,9 +5,9 @@ import "encoding/json"
 // ClothingStore see : https://schema.org/ClothingStore
 type ClothingStore struct {
 
-typeContext
-
 Store
+
+typeContext
 
 // CurrenciesAccepted see : https://schema.org/currenciesAccepted
 // The currency accepted (in ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217)).

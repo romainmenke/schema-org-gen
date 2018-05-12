@@ -5,9 +5,9 @@ import "encoding/json"
 // EducationEvent see : https://schema.org/EducationEvent
 type EducationEvent struct {
 
-typeContext
-
 Event
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

@@ -5,9 +5,9 @@ import "encoding/json"
 // ChildrensEvent see : https://schema.org/ChildrensEvent
 type ChildrensEvent struct {
 
-typeContext
-
 Event
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

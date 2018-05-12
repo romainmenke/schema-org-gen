@@ -5,9 +5,9 @@ import "encoding/json"
 // TieAction see : https://schema.org/TieAction
 type TieAction struct {
 
-typeContext
-
 AchieveAction
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

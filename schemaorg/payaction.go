@@ -5,11 +5,11 @@ import "encoding/json"
 // PayAction see : https://schema.org/PayAction
 type PayAction struct {
 
-typeContext
-
 TradeAction
 
-// Purpose see : https://schema.orghttp://health-lifesci.schema.org/purpose
+typeContext
+
+// Purpose see : http://health-lifesci.schema.org/purpose
 // A goal towards an action is taken. Can be concrete or abstract.
 Purpose interface{} `json:"purpose"` // types : MedicalDevicePurpose Thing
 

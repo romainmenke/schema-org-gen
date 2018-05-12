@@ -5,9 +5,9 @@ import "encoding/json"
 // LocationFeatureSpecification see : https://schema.org/LocationFeatureSpecification
 type LocationFeatureSpecification struct {
 
-typeContext
-
 PropertyValue
+
+typeContext
 
 // HoursAvailable see : https://schema.org/hoursAvailable
 // The hours during which this service or contact is available.

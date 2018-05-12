@@ -5,9 +5,9 @@ import "encoding/json"
 // EmailMessage see : https://schema.org/EmailMessage
 type EmailMessage struct {
 
-typeContext
-
 Message
+
+typeContext
 
 // BccRecipient see : https://schema.org/bccRecipient
 // A sub property of recipient. The recipient blind copied on a message.

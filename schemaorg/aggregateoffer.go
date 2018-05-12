@@ -5,9 +5,9 @@ import "encoding/json"
 // AggregateOffer see : https://schema.org/AggregateOffer
 type AggregateOffer struct {
 
-typeContext
-
 Offer
+
+typeContext
 
 // HighPrice see : https://schema.org/highPrice
 // The highest price of all offers available.

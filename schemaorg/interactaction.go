@@ -5,9 +5,9 @@ import "encoding/json"
 // InteractAction see : https://schema.org/InteractAction
 type InteractAction struct {
 
-typeContext
-
 Action
+
+typeContext
 
 // ActionStatus see : https://schema.org/actionStatus
 // Indicates the current disposition of the Action.

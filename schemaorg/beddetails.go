@@ -5,9 +5,9 @@ import "encoding/json"
 // BedDetails see : https://schema.org/BedDetails
 type BedDetails struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // NumberOfBeds see : https://schema.org/numberOfBeds
 // The quantity of the given bed type available in the HotelRoom, Suite, House, or Apartment.

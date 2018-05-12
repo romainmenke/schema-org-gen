@@ -5,9 +5,9 @@ import "encoding/json"
 // MusicGroup see : https://schema.org/MusicGroup
 type MusicGroup struct {
 
-typeContext
-
 PerformingGroup
+
+typeContext
 
 // Album see : https://schema.org/album
 // A music album. Supersedes albums (see: https://schema.org/albums).

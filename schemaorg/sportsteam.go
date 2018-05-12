@@ -5,9 +5,9 @@ import "encoding/json"
 // SportsTeam see : https://schema.org/SportsTeam
 type SportsTeam struct {
 
-typeContext
-
 SportsOrganization
+
+typeContext
 
 // Athlete see : https://schema.org/athlete
 // A person that acts as performing member of a sports team; a player as opposed to a coach.

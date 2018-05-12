@@ -5,9 +5,9 @@ import "encoding/json"
 // AggregateRating see : https://schema.org/AggregateRating
 type AggregateRating struct {
 
-typeContext
-
 Rating
+
+typeContext
 
 // ItemReviewed see : https://schema.org/itemReviewed
 // The item that is being reviewed/rated.

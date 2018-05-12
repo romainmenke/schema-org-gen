@@ -5,9 +5,9 @@ import "encoding/json"
 // DonateAction see : https://schema.org/DonateAction
 type DonateAction struct {
 
-typeContext
-
 TradeAction
+
+typeContext
 
 // Recipient see : https://schema.org/recipient
 // A sub property of participant. The participant who is at the receiving end of the action.

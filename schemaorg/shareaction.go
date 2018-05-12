@@ -5,9 +5,9 @@ import "encoding/json"
 // ShareAction see : https://schema.org/ShareAction
 type ShareAction struct {
 
-typeContext
-
 CommunicateAction
+
+typeContext
 
 // About see : https://schema.org/about
 // The subject matter of the content.

@@ -5,9 +5,9 @@ import "encoding/json"
 // ChooseAction see : https://schema.org/ChooseAction
 type ChooseAction struct {
 
-typeContext
-
 AssessAction
+
+typeContext
 
 // ActionOption see : https://schema.org/actionOption
 // A sub property of object. The options subject to this action. Supersedes option (see: https://schema.org/option).

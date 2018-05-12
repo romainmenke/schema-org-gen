@@ -5,9 +5,9 @@ import "encoding/json"
 // MobileApplication see : https://schema.org/MobileApplication
 type MobileApplication struct {
 
-typeContext
-
 SoftwareApplication
+
+typeContext
 
 // CarrierRequirements see : https://schema.org/carrierRequirements
 // Specifies specific carrier(s) requirements for the application (e.g. an application may only work on a specific carrier network).

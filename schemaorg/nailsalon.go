@@ -5,9 +5,9 @@ import "encoding/json"
 // NailSalon see : https://schema.org/NailSalon
 type NailSalon struct {
 
-typeContext
-
 HealthAndBeautyBusiness
+
+typeContext
 
 // CurrenciesAccepted see : https://schema.org/currenciesAccepted
 // The currency accepted (in ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217)).

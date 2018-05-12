@@ -5,15 +5,15 @@ import "encoding/json"
 // OnDemandEvent see : https://schema.org/OnDemandEvent
 type OnDemandEvent struct {
 
-typeContext
-
 PublicationEvent
+
+typeContext
 
 // IsAccessibleForFree see : https://schema.org/isAccessibleForFree
 // A flag to signal that the item, event, or place is accessible for free. Supersedes free (see: https://schema.org/free).
 IsAccessibleForFree bool `json:"isAccessibleForFree"`
 
-// PublishedBy see : https://schema.orghttp://bib.schema.org/publishedBy
+// PublishedBy see : http://bib.schema.org/publishedBy
 // An agent associated with the publication event.
 PublishedBy interface{} `json:"publishedBy"` // types : Organization Person
 

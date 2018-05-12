@@ -5,9 +5,9 @@ import "encoding/json"
 // Game see : https://schema.org/Game
 type Game struct {
 
-typeContext
-
 CreativeWork
+
+typeContext
 
 // CharacterAttribute see : https://schema.org/characterAttribute
 // A piece of data that represents a particular aspect of a fictional character (skill, power, character points, advantage, disadvantage).

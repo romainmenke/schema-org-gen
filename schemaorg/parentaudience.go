@@ -5,9 +5,9 @@ import "encoding/json"
 // ParentAudience see : https://schema.org/ParentAudience
 type ParentAudience struct {
 
-typeContext
-
 PeopleAudience
+
+typeContext
 
 // ChildMaxAge see : https://schema.org/childMaxAge
 // Maximal age of the child.

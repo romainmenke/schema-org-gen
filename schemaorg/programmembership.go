@@ -5,9 +5,9 @@ import "encoding/json"
 // ProgramMembership see : https://schema.org/ProgramMembership
 type ProgramMembership struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // HostingOrganization see : https://schema.org/hostingOrganization
 // The organization (airline, travelers' club, etc.) the membership is made with.

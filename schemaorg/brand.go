@@ -5,9 +5,9 @@ import "encoding/json"
 // Brand see : https://schema.org/Brand
 type Brand struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 }
 

@@ -5,9 +5,9 @@ import "encoding/json"
 // PaymentChargeSpecification see : https://schema.org/PaymentChargeSpecification
 type PaymentChargeSpecification struct {
 
-typeContext
-
 PriceSpecification
+
+typeContext
 
 // AppliesToDeliveryMethod see : https://schema.org/appliesToDeliveryMethod
 // The delivery method(s) to which the delivery charge or payment charge specification applies.

@@ -5,9 +5,9 @@ import "encoding/json"
 // Canal see : https://schema.org/Canal
 type Canal struct {
 
-typeContext
-
 BodyOfWater
+
+typeContext
 
 // AdditionalProperty see : https://schema.org/additionalProperty
 // A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.
@@ -53,43 +53,43 @@ FaxNumber string `json:"faxNumber"`
 // The geo coordinates of the place.
 Geo interface{} `json:"geo"` // types : GeoCoordinates GeoShape
 
-// GeospatiallyContains see : https://schema.orghttp://pending.schema.org/geospatiallyContains
+// GeospatiallyContains see : http://pending.schema.org/geospatiallyContains
 // Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry. "a contains b iff no points of b lie in the exterior of a, and at least one point of the interior of b lies in the interior of a". As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
 GeospatiallyContains interface{} `json:"geospatiallyContains"` // types : GeospatialGeometry Place
 
-// GeospatiallyCoveredBy see : https://schema.orghttp://pending.schema.org/geospatiallyCoveredBy
+// GeospatiallyCoveredBy see : http://pending.schema.org/geospatiallyCoveredBy
 // Represents a relationship between two geometries (or the places they represent), relating a geometry to another that covers it. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
 GeospatiallyCoveredBy interface{} `json:"geospatiallyCoveredBy"` // types : GeospatialGeometry Place
 
-// GeospatiallyCovers see : https://schema.orghttp://pending.schema.org/geospatiallyCovers
+// GeospatiallyCovers see : http://pending.schema.org/geospatiallyCovers
 // Represents a relationship between two geometries (or the places they represent), relating a covering geometry to a covered geometry. "Every point of b is a point of (the interior or boundary of) a". As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
 GeospatiallyCovers interface{} `json:"geospatiallyCovers"` // types : GeospatialGeometry Place
 
-// GeospatiallyCrosses see : https://schema.orghttp://pending.schema.org/geospatiallyCrosses
+// GeospatiallyCrosses see : http://pending.schema.org/geospatiallyCrosses
 // Represents a relationship between two geometries (or the places they represent), relating a geometry to another that crosses it: "a crosses b: they have some but not all interior points in common, and the dimension of the intersection is less than that of at least one of them". As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
 GeospatiallyCrosses interface{} `json:"geospatiallyCrosses"` // types : GeospatialGeometry Place
 
-// GeospatiallyDisjoint see : https://schema.orghttp://pending.schema.org/geospatiallyDisjoint
+// GeospatiallyDisjoint see : http://pending.schema.org/geospatiallyDisjoint
 // Represents spatial relations in which two geometries (or the places they represent) are topologically disjoint: they have no point in common. They form a set of disconnected geometries." (a symmetric relationship, as defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM))
 GeospatiallyDisjoint interface{} `json:"geospatiallyDisjoint"` // types : GeospatialGeometry Place
 
-// GeospatiallyEquals see : https://schema.orghttp://pending.schema.org/geospatiallyEquals
+// GeospatiallyEquals see : http://pending.schema.org/geospatiallyEquals
 // Represents spatial relations in which two geometries (or the places they represent) are topologically equal, as defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM). "Two geometries are topologically equal if their interiors intersect and no part of the interior or boundary of one geometry intersects the exterior of the other" (a symmetric relationship)
 GeospatiallyEquals interface{} `json:"geospatiallyEquals"` // types : GeospatialGeometry Place
 
-// GeospatiallyIntersects see : https://schema.orghttp://pending.schema.org/geospatiallyIntersects
+// GeospatiallyIntersects see : http://pending.schema.org/geospatiallyIntersects
 // Represents spatial relations in which two geometries (or the places they represent) have at least one point in common. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
 GeospatiallyIntersects interface{} `json:"geospatiallyIntersects"` // types : GeospatialGeometry Place
 
-// GeospatiallyOverlaps see : https://schema.orghttp://pending.schema.org/geospatiallyOverlaps
+// GeospatiallyOverlaps see : http://pending.schema.org/geospatiallyOverlaps
 // Represents a relationship between two geometries (or the places they represent), relating a geometry to another that geospatially overlaps it, i.e. they have some but not all points in common. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
 GeospatiallyOverlaps interface{} `json:"geospatiallyOverlaps"` // types : GeospatialGeometry Place
 
-// GeospatiallyTouches see : https://schema.orghttp://pending.schema.org/geospatiallyTouches
+// GeospatiallyTouches see : http://pending.schema.org/geospatiallyTouches
 // Represents spatial relations in which two geometries (or the places they represent) touch: they have at least one boundary point in common, but no interior points." (a symmetric relationship, as defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM) )
 GeospatiallyTouches interface{} `json:"geospatiallyTouches"` // types : GeospatialGeometry Place
 
-// GeospatiallyWithin see : https://schema.orghttp://pending.schema.org/geospatiallyWithin
+// GeospatiallyWithin see : http://pending.schema.org/geospatiallyWithin
 // Represents a relationship between two geometries (or the places they represent), relating a geometry to one that contains it, i.e. it is inside (i.e. within) its interior. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
 GeospatiallyWithin interface{} `json:"geospatiallyWithin"` // types : GeospatialGeometry Place
 

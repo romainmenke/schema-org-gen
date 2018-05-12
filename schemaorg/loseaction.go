@@ -5,9 +5,9 @@ import "encoding/json"
 // LoseAction see : https://schema.org/LoseAction
 type LoseAction struct {
 
-typeContext
-
 AchieveAction
+
+typeContext
 
 // Winner see : https://schema.org/winner
 // A sub property of participant. The winner of the action.

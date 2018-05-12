@@ -5,9 +5,9 @@ import "encoding/json"
 // PropertyValueSpecification see : https://schema.org/PropertyValueSpecification
 type PropertyValueSpecification struct {
 
-typeContext
-
 Intangible
+
+typeContext
 
 // DefaultValue see : https://schema.org/defaultValue
 // The default value of the input.  For properties that expect a literal, the default is a literal value, for properties that expect an object, it's an ID reference to one of the current values.

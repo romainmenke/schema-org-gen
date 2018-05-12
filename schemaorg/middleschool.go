@@ -5,9 +5,9 @@ import "encoding/json"
 // MiddleSchool see : https://schema.org/MiddleSchool
 type MiddleSchool struct {
 
-typeContext
-
 EducationalOrganization
+
+typeContext
 
 // Alumni see : https://schema.org/alumni
 // Alumni of an organization. Inverse property: alumniOf (see: https://schema.org/alumniOf).
