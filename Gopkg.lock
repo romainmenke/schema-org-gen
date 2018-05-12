@@ -3,6 +3,12 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/Pallinder/go-randomdata"
+  packages = ["."]
+  revision = "b073033ef5a7c42a3f188393575a0850919777a6"
+
+[[projects]]
+  branch = "master"
   name = "github.com/alecthomas/template"
   packages = [
     ".",
@@ -61,6 +67,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "808bd757757b0caae9575b9dfcea79db59030728430dd80a3521b2ad06eda239"
+  inputs-digest = "4c93561c5169955eb8ba0df35f84e40f3fbbb7ca1b5e9e9af5bd52a777ce6cc7"
   solver-name = "gps-cdcl"
   solver-version = 1
