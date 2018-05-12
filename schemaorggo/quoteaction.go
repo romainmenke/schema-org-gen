@@ -21,16 +21,27 @@ type QuoteAction struct {
 	// Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.
 	//
 	//
-	Price interface{} `json:"price"` // types : Number Text
+	Price interface{} `json:"price,omitempty"` // types : Number Text
 
 	// PriceSpecification see : https://schema.org/priceSpecification
 	// One or more detailed price specifications, indicating the unit price and delivery or payment charges.
-	PriceSpecification *PriceSpecification `json:"priceSpecification"`
+	PriceSpecification *PriceSpecification `json:"priceSpecification,omitempty"`
 }
 
-func (v *QuoteAction) MarshalJSON() ([]byte, error) {
+func (v QuoteAction) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "QuoteAction"
 
 	return json.Marshal(v)
+}
+
+func (v *QuoteAction) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "QuoteAction"
+
+	return json.Marshal(*v)
 }

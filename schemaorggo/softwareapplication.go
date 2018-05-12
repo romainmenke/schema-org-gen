@@ -10,96 +10,107 @@ type SoftwareApplication struct {
 
 	// ApplicationCategory see : https://schema.org/applicationCategory
 	// Type of software application, e.g. 'Game, Multimedia'.
-	ApplicationCategory interface{} `json:"applicationCategory"` // types : Text URL
+	ApplicationCategory interface{} `json:"applicationCategory,omitempty"` // types : Text URL
 
 	// ApplicationSubCategory see : https://schema.org/applicationSubCategory
 	// Subcategory of the application, e.g. 'Arcade Game'.
-	ApplicationSubCategory interface{} `json:"applicationSubCategory"` // types : Text URL
+	ApplicationSubCategory interface{} `json:"applicationSubCategory,omitempty"` // types : Text URL
 
 	// ApplicationSuite see : https://schema.org/applicationSuite
 	// The name of the application suite to which the application belongs (e.g. Excel belongs to Office).
-	ApplicationSuite string `json:"applicationSuite"`
+	ApplicationSuite string `json:"applicationSuite,omitempty"`
 
 	// AvailableOnDevice see : https://schema.org/availableOnDevice
 	// Device required to run the application. Used in cases where a specific make/model is required to run the application. Supersedes device (see: https://schema.org/device).
-	AvailableOnDevice string `json:"availableOnDevice"`
+	AvailableOnDevice string `json:"availableOnDevice,omitempty"`
 
 	// CountriesNotSupported see : https://schema.org/countriesNotSupported
 	// Countries for which the application is not supported. You can also provide the two-letter ISO 3166-1 alpha-2 country code.
-	CountriesNotSupported string `json:"countriesNotSupported"`
+	CountriesNotSupported string `json:"countriesNotSupported,omitempty"`
 
 	// CountriesSupported see : https://schema.org/countriesSupported
 	// Countries for which the application is supported. You can also provide the two-letter ISO 3166-1 alpha-2 country code.
-	CountriesSupported string `json:"countriesSupported"`
+	CountriesSupported string `json:"countriesSupported,omitempty"`
 
 	// DownloadUrl see : https://schema.org/downloadUrl
 	// If the file can be downloaded, URL to download the binary.
-	DownloadUrl string `json:"downloadUrl"`
+	DownloadUrl string `json:"downloadUrl,omitempty"`
 
 	// FeatureList see : https://schema.org/featureList
 	// Features or modules provided by this application (and possibly required by other applications).
-	FeatureList interface{} `json:"featureList"` // types : Text URL
+	FeatureList interface{} `json:"featureList,omitempty"` // types : Text URL
 
 	// FileSize see : https://schema.org/fileSize
 	// Size of the application / package (e.g. 18MB). In the absence of a unit (MB, KB etc.), KB will be assumed.
-	FileSize string `json:"fileSize"`
+	FileSize string `json:"fileSize,omitempty"`
 
 	// InstallUrl see : https://schema.org/installUrl
 	// URL at which the app may be installed, if different from the URL of the item.
-	InstallUrl string `json:"installUrl"`
+	InstallUrl string `json:"installUrl,omitempty"`
 
 	// MemoryRequirements see : https://schema.org/memoryRequirements
 	// Minimum memory requirements.
-	MemoryRequirements interface{} `json:"memoryRequirements"` // types : Text URL
+	MemoryRequirements interface{} `json:"memoryRequirements,omitempty"` // types : Text URL
 
 	// OperatingSystem see : https://schema.org/operatingSystem
 	// Operating systems supported (Windows 7, OSX 10.6, Android 1.6).
-	OperatingSystem string `json:"operatingSystem"`
+	OperatingSystem string `json:"operatingSystem,omitempty"`
 
 	// Permissions see : https://schema.org/permissions
 	// Permission(s) required to run the app (for example, a mobile app may require full internet access or may run only on wifi).
-	Permissions string `json:"permissions"`
+	Permissions string `json:"permissions,omitempty"`
 
 	// ProcessorRequirements see : https://schema.org/processorRequirements
 	// Processor architecture required to run the application (e.g. IA64).
-	ProcessorRequirements string `json:"processorRequirements"`
+	ProcessorRequirements string `json:"processorRequirements,omitempty"`
 
 	// ReleaseNotes see : https://schema.org/releaseNotes
 	// Description of what changed in this version.
-	ReleaseNotes interface{} `json:"releaseNotes"` // types : Text URL
+	ReleaseNotes interface{} `json:"releaseNotes,omitempty"` // types : Text URL
 
 	// Screenshot see : https://schema.org/screenshot
 	// A link to a screenshot image of the app.
-	Screenshot interface{} `json:"screenshot"` // types : ImageObject URL
+	Screenshot interface{} `json:"screenshot,omitempty"` // types : ImageObject URL
 
 	// SoftwareAddOn see : https://schema.org/softwareAddOn
 	// Additional content for a software application.
-	SoftwareAddOn *SoftwareApplication `json:"softwareAddOn"`
+	SoftwareAddOn *SoftwareApplication `json:"softwareAddOn,omitempty"`
 
 	// SoftwareHelp see : https://schema.org/softwareHelp
 	// Software application help.
-	SoftwareHelp *CreativeWork `json:"softwareHelp"`
+	SoftwareHelp *CreativeWork `json:"softwareHelp,omitempty"`
 
 	// SoftwareRequirements see : https://schema.org/softwareRequirements
 	// Component dependency requirements for application. This includes runtime environments and shared libraries that are not included in the application distribution package, but required to run the application (Examples: DirectX, Java or .NET runtime). Supersedes requirements (see: https://schema.org/requirements).
-	SoftwareRequirements interface{} `json:"softwareRequirements"` // types : Text URL
+	SoftwareRequirements interface{} `json:"softwareRequirements,omitempty"` // types : Text URL
 
 	// SoftwareVersion see : https://schema.org/softwareVersion
 	// Version of the software instance.
-	SoftwareVersion string `json:"softwareVersion"`
+	SoftwareVersion string `json:"softwareVersion,omitempty"`
 
 	// StorageRequirements see : https://schema.org/storageRequirements
 	// Storage requirements (free space required).
-	StorageRequirements interface{} `json:"storageRequirements"` // types : Text URL
+	StorageRequirements interface{} `json:"storageRequirements,omitempty"` // types : Text URL
 
 	// SupportingData see : https://schema.org/supportingData
 	// Supporting data for a SoftwareApplication.
-	SupportingData *DataFeed `json:"supportingData"`
+	SupportingData *DataFeed `json:"supportingData,omitempty"`
 }
 
-func (v *SoftwareApplication) MarshalJSON() ([]byte, error) {
+func (v SoftwareApplication) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "SoftwareApplication"
 
 	return json.Marshal(v)
+}
+
+func (v *SoftwareApplication) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "SoftwareApplication"
+
+	return json.Marshal(*v)
 }

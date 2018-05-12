@@ -10,20 +10,31 @@ type LiveBlogPosting struct {
 
 	// CoverageEndTime see : https://schema.org/coverageEndTime
 	// The time when the live blog will stop covering the Event. Note that coverage may continue after the Event concludes.
-	CoverageEndTime DateTime `json:"coverageEndTime"`
+	CoverageEndTime DateTime `json:"coverageEndTime,omitempty"`
 
 	// CoverageStartTime see : https://schema.org/coverageStartTime
 	// The time when the live blog will begin covering the Event. Note that coverage may begin before the Event's start time. The LiveBlogPosting may also be created before coverage begins.
-	CoverageStartTime DateTime `json:"coverageStartTime"`
+	CoverageStartTime DateTime `json:"coverageStartTime,omitempty"`
 
 	// LiveBlogUpdate see : https://schema.org/liveBlogUpdate
 	// An update to the LiveBlog.
-	LiveBlogUpdate *BlogPosting `json:"liveBlogUpdate"`
+	LiveBlogUpdate *BlogPosting `json:"liveBlogUpdate,omitempty"`
 }
 
-func (v *LiveBlogPosting) MarshalJSON() ([]byte, error) {
+func (v LiveBlogPosting) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "LiveBlogPosting"
 
 	return json.Marshal(v)
+}
+
+func (v *LiveBlogPosting) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "LiveBlogPosting"
+
+	return json.Marshal(*v)
 }

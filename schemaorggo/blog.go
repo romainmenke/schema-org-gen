@@ -10,16 +10,27 @@ type Blog struct {
 
 	// BlogPost see : https://schema.org/blogPost
 	// A posting that is part of this blog. Supersedes blogPosts (see: https://schema.org/blogPosts).
-	BlogPost *BlogPosting `json:"blogPost"`
+	BlogPost *BlogPosting `json:"blogPost,omitempty"`
 
 	// Issn see : https://schema.org/issn
 	// The International Standard Serial Number (ISSN) that identifies this serial publication. You can repeat this property to identify different formats of, or the linking ISSN (ISSN-L) for, this serial publication.
-	Issn string `json:"issn"`
+	Issn string `json:"issn,omitempty"`
 }
 
-func (v *Blog) MarshalJSON() ([]byte, error) {
+func (v Blog) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "Blog"
 
 	return json.Marshal(v)
+}
+
+func (v *Blog) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "Blog"
+
+	return json.Marshal(*v)
 }

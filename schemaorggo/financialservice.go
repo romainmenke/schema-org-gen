@@ -10,13 +10,24 @@ type FinancialService struct {
 
 	// FeesAndCommissionsSpecification see : https://schema.org/feesAndCommissionsSpecification
 	// Description of fees, commissions, and other terms applied either to a class of financial product, or by a financial service organization.
-	FeesAndCommissionsSpecification interface{} `json:"feesAndCommissionsSpecification"` // types : Text URL
+	FeesAndCommissionsSpecification interface{} `json:"feesAndCommissionsSpecification,omitempty"` // types : Text URL
 
 }
 
-func (v *FinancialService) MarshalJSON() ([]byte, error) {
+func (v FinancialService) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "FinancialService"
 
 	return json.Marshal(v)
+}
+
+func (v *FinancialService) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "FinancialService"
+
+	return json.Marshal(*v)
 }

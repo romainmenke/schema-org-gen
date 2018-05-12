@@ -10,12 +10,23 @@ type CancelAction struct {
 
 	// ScheduledTime see : https://schema.org/scheduledTime
 	// The time the object is scheduled to.
-	ScheduledTime DateTime `json:"scheduledTime"`
+	ScheduledTime DateTime `json:"scheduledTime,omitempty"`
 }
 
-func (v *CancelAction) MarshalJSON() ([]byte, error) {
+func (v CancelAction) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "CancelAction"
 
 	return json.Marshal(v)
+}
+
+func (v *CancelAction) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "CancelAction"
+
+	return json.Marshal(*v)
 }

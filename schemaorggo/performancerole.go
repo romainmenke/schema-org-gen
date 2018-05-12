@@ -10,12 +10,23 @@ type PerformanceRole struct {
 
 	// CharacterName see : https://schema.org/characterName
 	// The name of a character played in some acting or performing role, i.e. in a PerformanceRole.
-	CharacterName string `json:"characterName"`
+	CharacterName string `json:"characterName,omitempty"`
 }
 
-func (v *PerformanceRole) MarshalJSON() ([]byte, error) {
+func (v PerformanceRole) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "PerformanceRole"
 
 	return json.Marshal(v)
+}
+
+func (v *PerformanceRole) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "PerformanceRole"
+
+	return json.Marshal(*v)
 }

@@ -10,12 +10,23 @@ type PerformAction struct {
 
 	// EntertainmentBusiness see : https://schema.org/entertainmentBusiness
 	// A sub property of location. The entertainment business where the action occurred.
-	EntertainmentBusiness *EntertainmentBusiness `json:"entertainmentBusiness"`
+	EntertainmentBusiness *EntertainmentBusiness `json:"entertainmentBusiness,omitempty"`
 }
 
-func (v *PerformAction) MarshalJSON() ([]byte, error) {
+func (v PerformAction) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "PerformAction"
 
 	return json.Marshal(v)
+}
+
+func (v *PerformAction) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "PerformAction"
+
+	return json.Marshal(*v)
 }

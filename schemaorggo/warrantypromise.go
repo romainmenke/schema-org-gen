@@ -10,16 +10,27 @@ type WarrantyPromise struct {
 
 	// DurationOfWarranty see : https://schema.org/durationOfWarranty
 	// The duration of the warranty promise. Common unitCode values are ANN for year, MON for months, or DAY for days.
-	DurationOfWarranty *QuantitativeValue `json:"durationOfWarranty"`
+	DurationOfWarranty *QuantitativeValue `json:"durationOfWarranty,omitempty"`
 
 	// WarrantyScope see : https://schema.org/warrantyScope
 	// The scope of the warranty promise.
-	WarrantyScope *WarrantyScope `json:"warrantyScope"`
+	WarrantyScope *WarrantyScope `json:"warrantyScope,omitempty"`
 }
 
-func (v *WarrantyPromise) MarshalJSON() ([]byte, error) {
+func (v WarrantyPromise) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "WarrantyPromise"
 
 	return json.Marshal(v)
+}
+
+func (v *WarrantyPromise) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "WarrantyPromise"
+
+	return json.Marshal(*v)
 }

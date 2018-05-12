@@ -12,144 +12,155 @@ type Continent struct {
 	// A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.
 	//
 	// Note: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
-	AdditionalProperty *PropertyValue `json:"additionalProperty"`
+	AdditionalProperty *PropertyValue `json:"additionalProperty,omitempty"`
 
 	// Address see : https://schema.org/address
 	// Physical address of the item.
-	Address interface{} `json:"address"` // types : PostalAddress Text
+	Address interface{} `json:"address,omitempty"` // types : PostalAddress Text
 
 	// AggregateRating see : https://schema.org/aggregateRating
 	// The overall rating, based on a collection of reviews or ratings, of the item.
-	AggregateRating *AggregateRating `json:"aggregateRating"`
+	AggregateRating *AggregateRating `json:"aggregateRating,omitempty"`
 
 	// AmenityFeature see : https://schema.org/amenityFeature
 	// An amenity feature (e.g. a characteristic or service) of the Accommodation. This generic property does not make a statement about whether the feature is included in an offer for the main accommodation or available at extra costs.
-	AmenityFeature *LocationFeatureSpecification `json:"amenityFeature"`
+	AmenityFeature *LocationFeatureSpecification `json:"amenityFeature,omitempty"`
 
 	// BranchCode see : https://schema.org/branchCode
 	// A short textual code (also called "store code") that uniquely identifies a place of business. The code is typically assigned by the parentOrganization and used in structured URLs.
 	//
 	// For example, in the URL http://www.starbucks.co.uk/store-locator/etc/detail/3047 the code "3047" is a branchCode for a particular branch.
-	BranchCode string `json:"branchCode"`
+	BranchCode string `json:"branchCode,omitempty"`
 
 	// ContainedInPlace see : https://schema.org/containedInPlace
 	// The basic containment relation between a place and one that contains it. Supersedes containedIn (see: https://schema.org/containedIn). Inverse property: containsPlace (see: https://schema.org/containsPlace).
-	ContainedInPlace *Place `json:"containedInPlace"`
+	ContainedInPlace *Place `json:"containedInPlace,omitempty"`
 
 	// ContainsPlace see : https://schema.org/containsPlace
 	// The basic containment relation between a place and another that it contains. Inverse property: containedInPlace (see: https://schema.org/containedInPlace).
-	ContainsPlace *Place `json:"containsPlace"`
+	ContainsPlace *Place `json:"containsPlace,omitempty"`
 
 	// Event see : https://schema.org/event
 	// Upcoming or past event associated with this place, organization, or action. Supersedes events (see: https://schema.org/events).
-	Event *Event `json:"event"`
+	Event *Event `json:"event,omitempty"`
 
 	// FaxNumber see : https://schema.org/faxNumber
 	// The fax number.
-	FaxNumber string `json:"faxNumber"`
+	FaxNumber string `json:"faxNumber,omitempty"`
 
 	// Geo see : https://schema.org/geo
 	// The geo coordinates of the place.
-	Geo interface{} `json:"geo"` // types : GeoCoordinates GeoShape
+	Geo interface{} `json:"geo,omitempty"` // types : GeoCoordinates GeoShape
 
 	// GeospatiallyContains see : http://pending.schema.org/geospatiallyContains
 	// Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry. "a contains b iff no points of b lie in the exterior of a, and at least one point of the interior of b lies in the interior of a". As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
-	GeospatiallyContains interface{} `json:"geospatiallyContains"` // types : GeospatialGeometry Place
+	GeospatiallyContains interface{} `json:"geospatiallyContains,omitempty"` // types : GeospatialGeometry Place
 
 	// GeospatiallyCoveredBy see : http://pending.schema.org/geospatiallyCoveredBy
 	// Represents a relationship between two geometries (or the places they represent), relating a geometry to another that covers it. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
-	GeospatiallyCoveredBy interface{} `json:"geospatiallyCoveredBy"` // types : GeospatialGeometry Place
+	GeospatiallyCoveredBy interface{} `json:"geospatiallyCoveredBy,omitempty"` // types : GeospatialGeometry Place
 
 	// GeospatiallyCovers see : http://pending.schema.org/geospatiallyCovers
 	// Represents a relationship between two geometries (or the places they represent), relating a covering geometry to a covered geometry. "Every point of b is a point of (the interior or boundary of) a". As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
-	GeospatiallyCovers interface{} `json:"geospatiallyCovers"` // types : GeospatialGeometry Place
+	GeospatiallyCovers interface{} `json:"geospatiallyCovers,omitempty"` // types : GeospatialGeometry Place
 
 	// GeospatiallyCrosses see : http://pending.schema.org/geospatiallyCrosses
 	// Represents a relationship between two geometries (or the places they represent), relating a geometry to another that crosses it: "a crosses b: they have some but not all interior points in common, and the dimension of the intersection is less than that of at least one of them". As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
-	GeospatiallyCrosses interface{} `json:"geospatiallyCrosses"` // types : GeospatialGeometry Place
+	GeospatiallyCrosses interface{} `json:"geospatiallyCrosses,omitempty"` // types : GeospatialGeometry Place
 
 	// GeospatiallyDisjoint see : http://pending.schema.org/geospatiallyDisjoint
 	// Represents spatial relations in which two geometries (or the places they represent) are topologically disjoint: they have no point in common. They form a set of disconnected geometries." (a symmetric relationship, as defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM))
-	GeospatiallyDisjoint interface{} `json:"geospatiallyDisjoint"` // types : GeospatialGeometry Place
+	GeospatiallyDisjoint interface{} `json:"geospatiallyDisjoint,omitempty"` // types : GeospatialGeometry Place
 
 	// GeospatiallyEquals see : http://pending.schema.org/geospatiallyEquals
 	// Represents spatial relations in which two geometries (or the places they represent) are topologically equal, as defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM). "Two geometries are topologically equal if their interiors intersect and no part of the interior or boundary of one geometry intersects the exterior of the other" (a symmetric relationship)
-	GeospatiallyEquals interface{} `json:"geospatiallyEquals"` // types : GeospatialGeometry Place
+	GeospatiallyEquals interface{} `json:"geospatiallyEquals,omitempty"` // types : GeospatialGeometry Place
 
 	// GeospatiallyIntersects see : http://pending.schema.org/geospatiallyIntersects
 	// Represents spatial relations in which two geometries (or the places they represent) have at least one point in common. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
-	GeospatiallyIntersects interface{} `json:"geospatiallyIntersects"` // types : GeospatialGeometry Place
+	GeospatiallyIntersects interface{} `json:"geospatiallyIntersects,omitempty"` // types : GeospatialGeometry Place
 
 	// GeospatiallyOverlaps see : http://pending.schema.org/geospatiallyOverlaps
 	// Represents a relationship between two geometries (or the places they represent), relating a geometry to another that geospatially overlaps it, i.e. they have some but not all points in common. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
-	GeospatiallyOverlaps interface{} `json:"geospatiallyOverlaps"` // types : GeospatialGeometry Place
+	GeospatiallyOverlaps interface{} `json:"geospatiallyOverlaps,omitempty"` // types : GeospatialGeometry Place
 
 	// GeospatiallyTouches see : http://pending.schema.org/geospatiallyTouches
 	// Represents spatial relations in which two geometries (or the places they represent) touch: they have at least one boundary point in common, but no interior points." (a symmetric relationship, as defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM) )
-	GeospatiallyTouches interface{} `json:"geospatiallyTouches"` // types : GeospatialGeometry Place
+	GeospatiallyTouches interface{} `json:"geospatiallyTouches,omitempty"` // types : GeospatialGeometry Place
 
 	// GeospatiallyWithin see : http://pending.schema.org/geospatiallyWithin
 	// Represents a relationship between two geometries (or the places they represent), relating a geometry to one that contains it, i.e. it is inside (i.e. within) its interior. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
-	GeospatiallyWithin interface{} `json:"geospatiallyWithin"` // types : GeospatialGeometry Place
+	GeospatiallyWithin interface{} `json:"geospatiallyWithin,omitempty"` // types : GeospatialGeometry Place
 
 	// GlobalLocationNumber see : https://schema.org/globalLocationNumber
 	// The Global Location Number (see: https://schema.orghttp://www.gs1.org/gln) (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.
-	GlobalLocationNumber string `json:"globalLocationNumber"`
+	GlobalLocationNumber string `json:"globalLocationNumber,omitempty"`
 
 	// HasMap see : https://schema.org/hasMap
 	// A URL to a map of the place. Supersedes map (see: https://schema.org/map), maps (see: https://schema.org/maps).
-	HasMap interface{} `json:"hasMap"` // types : Map URL
+	HasMap interface{} `json:"hasMap,omitempty"` // types : Map URL
 
 	// IsAccessibleForFree see : https://schema.org/isAccessibleForFree
 	// A flag to signal that the item, event, or place is accessible for free. Supersedes free (see: https://schema.org/free).
-	IsAccessibleForFree bool `json:"isAccessibleForFree"`
+	IsAccessibleForFree bool `json:"isAccessibleForFree,omitempty"`
 
 	// IsicV4 see : https://schema.org/isicV4
 	// The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.
-	IsicV4 string `json:"isicV4"`
+	IsicV4 string `json:"isicV4,omitempty"`
 
 	// Logo see : https://schema.org/logo
 	// An associated logo.
-	Logo interface{} `json:"logo"` // types : ImageObject URL
+	Logo interface{} `json:"logo,omitempty"` // types : ImageObject URL
 
 	// MaximumAttendeeCapacity see : https://schema.org/maximumAttendeeCapacity
 	// The total number of individuals that may attend an event or venue.
-	MaximumAttendeeCapacity int `json:"maximumAttendeeCapacity"`
+	MaximumAttendeeCapacity int `json:"maximumAttendeeCapacity,omitempty"`
 
 	// OpeningHoursSpecification see : https://schema.org/openingHoursSpecification
 	// The opening hours of a certain place.
-	OpeningHoursSpecification *OpeningHoursSpecification `json:"openingHoursSpecification"`
+	OpeningHoursSpecification *OpeningHoursSpecification `json:"openingHoursSpecification,omitempty"`
 
 	// Photo see : https://schema.org/photo
 	// A photograph of this place. Supersedes photos (see: https://schema.org/photos).
-	Photo interface{} `json:"photo"` // types : ImageObject Photograph
+	Photo interface{} `json:"photo,omitempty"` // types : ImageObject Photograph
 
 	// PublicAccess see : https://schema.org/publicAccess
 	// A flag to signal that the Place (see: https://schema.org/Place) is open to public visitors.  If this property is omitted there is no assumed default boolean value
-	PublicAccess bool `json:"publicAccess"`
+	PublicAccess bool `json:"publicAccess,omitempty"`
 
 	// Review see : https://schema.org/review
 	// A review of the item. Supersedes reviews (see: https://schema.org/reviews).
-	Review *Review `json:"review"`
+	Review *Review `json:"review,omitempty"`
 
 	// SmokingAllowed see : https://schema.org/smokingAllowed
 	// Indicates whether it is allowed to smoke in the place, e.g. in the restaurant, hotel or hotel room.
-	SmokingAllowed bool `json:"smokingAllowed"`
+	SmokingAllowed bool `json:"smokingAllowed,omitempty"`
 
 	// SpecialOpeningHoursSpecification see : https://schema.org/specialOpeningHoursSpecification
 	// The special opening hours of a certain place.
 	//
 	// Use this to explicitly override general opening hours brought in scope by openingHoursSpecification (see: https://schema.org/openingHoursSpecification) or openingHours (see: https://schema.org/openingHours).
-	SpecialOpeningHoursSpecification *OpeningHoursSpecification `json:"specialOpeningHoursSpecification"`
+	SpecialOpeningHoursSpecification *OpeningHoursSpecification `json:"specialOpeningHoursSpecification,omitempty"`
 
 	// Telephone see : https://schema.org/telephone
 	// The telephone number.
-	Telephone string `json:"telephone"`
+	Telephone string `json:"telephone,omitempty"`
 }
 
-func (v *Continent) MarshalJSON() ([]byte, error) {
+func (v Continent) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "Continent"
 
 	return json.Marshal(v)
+}
+
+func (v *Continent) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "Continent"
+
+	return json.Marshal(*v)
 }

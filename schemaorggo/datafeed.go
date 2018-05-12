@@ -10,13 +10,24 @@ type DataFeed struct {
 
 	// DataFeedElement see : https://schema.org/dataFeedElement
 	// An item within in a data feed. Data feeds may have many elements.
-	DataFeedElement interface{} `json:"dataFeedElement"` // types : DataFeedItem Text Thing
+	DataFeedElement interface{} `json:"dataFeedElement,omitempty"` // types : DataFeedItem Text Thing
 
 }
 
-func (v *DataFeed) MarshalJSON() ([]byte, error) {
+func (v DataFeed) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "DataFeed"
 
 	return json.Marshal(v)
+}
+
+func (v *DataFeed) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "DataFeed"
+
+	return json.Marshal(*v)
 }

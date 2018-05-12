@@ -10,7 +10,7 @@ type DataCatalog struct {
 
 	// Dataset see : https://schema.org/dataset
 	// A dataset contained in this catalog. Inverse property: includedInDataCatalog (see: https://schema.org/includedInDataCatalog).
-	Dataset *Dataset `json:"dataset"`
+	Dataset *Dataset `json:"dataset,omitempty"`
 
 	// MeasurementTechnique see : http://pending.schema.org/measurementTechnique
 	// A technique or technology used in a Dataset (see: https://schema.org/Dataset) (or DataDownload (see: https://schema.org/DataDownload), DataCatalog (see: https://schema.org/DataCatalog)),
@@ -21,13 +21,24 @@ type DataCatalog struct {
 	// If the variableMeasured (see: https://schema.org/variableMeasured) is "depression rating", the measurementTechnique (see: https://schema.org/measurementTechnique) could be "Zung Scale" or "HAM-D" or "Beck Depression Inventory".
 	//
 	// If there are several variableMeasured (see: https://schema.org/variableMeasured) properties recorded for some given data object, use a PropertyValue (see: https://schema.org/PropertyValue) for each variableMeasured (see: https://schema.org/variableMeasured) and attach the corresponding measurementTechnique (see: https://schema.org/measurementTechnique).
-	MeasurementTechnique interface{} `json:"measurementTechnique"` // types : Text URL
+	MeasurementTechnique interface{} `json:"measurementTechnique,omitempty"` // types : Text URL
 
 }
 
-func (v *DataCatalog) MarshalJSON() ([]byte, error) {
+func (v DataCatalog) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "DataCatalog"
 
 	return json.Marshal(v)
+}
+
+func (v *DataCatalog) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "DataCatalog"
+
+	return json.Marshal(*v)
 }

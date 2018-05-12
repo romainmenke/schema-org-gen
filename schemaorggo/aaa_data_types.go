@@ -17,6 +17,10 @@ type typeContext struct {
 type Date time.Time
 
 func (v Date) MarshalJSON() ([]byte, error) {
+	if time.Time(v).IsZero() {
+		return []byte("null"), nil
+	}
+
 	jsonValue := fmt.Sprintf("\"%s\"", time.Time(v).Format("2006-01-02"))
 	return []byte(jsonValue), nil
 }

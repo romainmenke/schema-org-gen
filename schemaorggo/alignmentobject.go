@@ -10,28 +10,39 @@ type AlignmentObject struct {
 
 	// AlignmentType see : https://schema.org/alignmentType
 	// A category of alignment between the learning resource and the framework node. Recommended values include: 'assesses', 'teaches', 'requires', 'textComplexity', 'readingLevel', 'educationalSubject', and 'educationalLevel'.
-	AlignmentType string `json:"alignmentType"`
+	AlignmentType string `json:"alignmentType,omitempty"`
 
 	// EducationalFramework see : https://schema.org/educationalFramework
 	// The framework to which the resource being described is aligned.
-	EducationalFramework string `json:"educationalFramework"`
+	EducationalFramework string `json:"educationalFramework,omitempty"`
 
 	// TargetDescription see : https://schema.org/targetDescription
 	// The description of a node in an established educational framework.
-	TargetDescription string `json:"targetDescription"`
+	TargetDescription string `json:"targetDescription,omitempty"`
 
 	// TargetName see : https://schema.org/targetName
 	// The name of a node in an established educational framework.
-	TargetName string `json:"targetName"`
+	TargetName string `json:"targetName,omitempty"`
 
 	// TargetUrl see : https://schema.org/targetUrl
 	// The URL of a node in an established educational framework.
-	TargetUrl string `json:"targetUrl"`
+	TargetUrl string `json:"targetUrl,omitempty"`
 }
 
-func (v *AlignmentObject) MarshalJSON() ([]byte, error) {
+func (v AlignmentObject) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "AlignmentObject"
 
 	return json.Marshal(v)
+}
+
+func (v *AlignmentObject) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "AlignmentObject"
+
+	return json.Marshal(*v)
 }

@@ -10,24 +10,35 @@ type APIReference struct {
 
 	// AssemblyVersion see : https://schema.org/assemblyVersion
 	// Associated product/technology version. e.g., .NET Framework 4.5.
-	AssemblyVersion string `json:"assemblyVersion"`
+	AssemblyVersion string `json:"assemblyVersion,omitempty"`
 
 	// ExecutableLibraryName see : https://schema.org/executableLibraryName
 	// Library file name e.g., mscorlib.dll, system.web.dll. Supersedes assembly (see: https://schema.org/assembly).
-	ExecutableLibraryName string `json:"executableLibraryName"`
+	ExecutableLibraryName string `json:"executableLibraryName,omitempty"`
 
 	// ProgrammingModel see : https://schema.org/programmingModel
 	// Indicates whether API is managed or unmanaged.
-	ProgrammingModel string `json:"programmingModel"`
+	ProgrammingModel string `json:"programmingModel,omitempty"`
 
 	// TargetPlatform see : https://schema.org/targetPlatform
 	// Type of app development: phone, Metro style, desktop, XBox, etc.
-	TargetPlatform string `json:"targetPlatform"`
+	TargetPlatform string `json:"targetPlatform,omitempty"`
 }
 
-func (v *APIReference) MarshalJSON() ([]byte, error) {
+func (v APIReference) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "APIReference"
 
 	return json.Marshal(v)
+}
+
+func (v *APIReference) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "APIReference"
+
+	return json.Marshal(*v)
 }

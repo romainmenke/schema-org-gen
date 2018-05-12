@@ -20,6 +20,11 @@ func Generate(ctx context.Context, tm *typemap.TypeMap, dir string, packageName 
 		return err
 	}
 
+	err = writeMarshalJSON(ctx, dir, packageName)
+	if err != nil {
+		return err
+	}
+
 	goTypes := []string{}
 	err = tm.Walk(ctx, listGoTypes(&goTypes))
 	if err != nil {
@@ -27,6 +32,11 @@ func Generate(ctx context.Context, tm *typemap.TypeMap, dir string, packageName 
 	}
 
 	err = tm.Walk(ctx, goTypeFile(goTypes, dir, packageName))
+	if err != nil {
+		return err
+	}
+
+	err = writeExample(ctx, dir, packageName)
 	if err != nil {
 		return err
 	}

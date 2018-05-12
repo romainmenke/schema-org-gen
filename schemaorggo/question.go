@@ -10,28 +10,39 @@ type Question struct {
 
 	// AcceptedAnswer see : https://schema.org/acceptedAnswer
 	// The answer that has been accepted as best, typically on a Question/Answer site. Sites vary in their selection mechanisms, e.g. drawing on community opinion and/or the view of the Question author.
-	AcceptedAnswer *Answer `json:"acceptedAnswer"`
+	AcceptedAnswer *Answer `json:"acceptedAnswer,omitempty"`
 
 	// AnswerCount see : https://schema.org/answerCount
 	// The number of answers this question has received.
-	AnswerCount int `json:"answerCount"`
+	AnswerCount int `json:"answerCount,omitempty"`
 
 	// DownvoteCount see : https://schema.org/downvoteCount
 	// The number of downvotes this question, answer or comment has received from the community.
-	DownvoteCount int `json:"downvoteCount"`
+	DownvoteCount int `json:"downvoteCount,omitempty"`
 
 	// SuggestedAnswer see : https://schema.org/suggestedAnswer
 	// An answer (possibly one of several, possibly incorrect) to a Question, e.g. on a Question/Answer site.
-	SuggestedAnswer *Answer `json:"suggestedAnswer"`
+	SuggestedAnswer *Answer `json:"suggestedAnswer,omitempty"`
 
 	// UpvoteCount see : https://schema.org/upvoteCount
 	// The number of upvotes this question, answer or comment has received from the community.
-	UpvoteCount int `json:"upvoteCount"`
+	UpvoteCount int `json:"upvoteCount,omitempty"`
 }
 
-func (v *Question) MarshalJSON() ([]byte, error) {
+func (v Question) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "Question"
 
 	return json.Marshal(v)
+}
+
+func (v *Question) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "Question"
+
+	return json.Marshal(*v)
 }

@@ -10,13 +10,24 @@ type TipAction struct {
 
 	// Recipient see : https://schema.org/recipient
 	// A sub property of participant. The participant who is at the receiving end of the action.
-	Recipient interface{} `json:"recipient"` // types : Audience ContactPoint Organization Person
+	Recipient interface{} `json:"recipient,omitempty"` // types : Audience ContactPoint Organization Person
 
 }
 
-func (v *TipAction) MarshalJSON() ([]byte, error) {
+func (v TipAction) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "TipAction"
 
 	return json.Marshal(v)
+}
+
+func (v *TipAction) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "TipAction"
+
+	return json.Marshal(*v)
 }

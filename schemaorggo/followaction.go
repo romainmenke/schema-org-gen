@@ -10,13 +10,24 @@ type FollowAction struct {
 
 	// Followee see : https://schema.org/followee
 	// A sub property of object. The person or organization being followed.
-	Followee interface{} `json:"followee"` // types : Organization Person
+	Followee interface{} `json:"followee,omitempty"` // types : Organization Person
 
 }
 
-func (v *FollowAction) MarshalJSON() ([]byte, error) {
+func (v FollowAction) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "FollowAction"
 
 	return json.Marshal(v)
+}
+
+func (v *FollowAction) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "FollowAction"
+
+	return json.Marshal(*v)
 }

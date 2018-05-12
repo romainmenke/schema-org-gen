@@ -10,28 +10,39 @@ type OpeningHoursSpecification struct {
 
 	// Closes see : https://schema.org/closes
 	// The closing hour of the place or service on the given day(s) of the week.
-	Closes Time `json:"closes"`
+	Closes Time `json:"closes,omitempty"`
 
 	// DayOfWeek see : https://schema.org/dayOfWeek
 	// The day of the week for which these opening hours are valid.
-	DayOfWeek *DayOfWeek `json:"dayOfWeek"`
+	DayOfWeek *DayOfWeek `json:"dayOfWeek,omitempty"`
 
 	// Opens see : https://schema.org/opens
 	// The opening hour of the place or service on the given day(s) of the week.
-	Opens Time `json:"opens"`
+	Opens Time `json:"opens,omitempty"`
 
 	// ValidFrom see : https://schema.org/validFrom
 	// The date when the item becomes valid.
-	ValidFrom DateTime `json:"validFrom"`
+	ValidFrom DateTime `json:"validFrom,omitempty"`
 
 	// ValidThrough see : https://schema.org/validThrough
 	// The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
-	ValidThrough DateTime `json:"validThrough"`
+	ValidThrough DateTime `json:"validThrough,omitempty"`
 }
 
-func (v *OpeningHoursSpecification) MarshalJSON() ([]byte, error) {
+func (v OpeningHoursSpecification) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "OpeningHoursSpecification"
 
 	return json.Marshal(v)
+}
+
+func (v *OpeningHoursSpecification) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "OpeningHoursSpecification"
+
+	return json.Marshal(*v)
 }

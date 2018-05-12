@@ -10,16 +10,27 @@ type Airport struct {
 
 	// IataCode see : https://schema.org/iataCode
 	// IATA identifier for an airline or airport.
-	IataCode string `json:"iataCode"`
+	IataCode string `json:"iataCode,omitempty"`
 
 	// IcaoCode see : https://schema.org/icaoCode
 	// ICAO identifier for an airport.
-	IcaoCode string `json:"icaoCode"`
+	IcaoCode string `json:"icaoCode,omitempty"`
 }
 
-func (v *Airport) MarshalJSON() ([]byte, error) {
+func (v Airport) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "Airport"
 
 	return json.Marshal(v)
+}
+
+func (v *Airport) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "Airport"
+
+	return json.Marshal(*v)
 }

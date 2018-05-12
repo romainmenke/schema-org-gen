@@ -10,13 +10,24 @@ type InsuranceAgency struct {
 
 	// FeesAndCommissionsSpecification see : https://schema.org/feesAndCommissionsSpecification
 	// Description of fees, commissions, and other terms applied either to a class of financial product, or by a financial service organization.
-	FeesAndCommissionsSpecification interface{} `json:"feesAndCommissionsSpecification"` // types : Text URL
+	FeesAndCommissionsSpecification interface{} `json:"feesAndCommissionsSpecification,omitempty"` // types : Text URL
 
 }
 
-func (v *InsuranceAgency) MarshalJSON() ([]byte, error) {
+func (v InsuranceAgency) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "InsuranceAgency"
 
 	return json.Marshal(v)
+}
+
+func (v *InsuranceAgency) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "InsuranceAgency"
+
+	return json.Marshal(*v)
 }

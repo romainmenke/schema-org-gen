@@ -10,24 +10,35 @@ type DeliveryEvent struct {
 
 	// AccessCode see : https://schema.org/accessCode
 	// Password, PIN, or access code needed for delivery (e.g. from a locker).
-	AccessCode string `json:"accessCode"`
+	AccessCode string `json:"accessCode,omitempty"`
 
 	// AvailableFrom see : https://schema.org/availableFrom
 	// When the item is available for pickup from the store, locker, etc.
-	AvailableFrom DateTime `json:"availableFrom"`
+	AvailableFrom DateTime `json:"availableFrom,omitempty"`
 
 	// AvailableThrough see : https://schema.org/availableThrough
 	// After this date, the item will no longer be available for pickup.
-	AvailableThrough DateTime `json:"availableThrough"`
+	AvailableThrough DateTime `json:"availableThrough,omitempty"`
 
 	// HasDeliveryMethod see : https://schema.org/hasDeliveryMethod
 	// Method used for delivery or shipping.
-	HasDeliveryMethod *DeliveryMethod `json:"hasDeliveryMethod"`
+	HasDeliveryMethod *DeliveryMethod `json:"hasDeliveryMethod,omitempty"`
 }
 
-func (v *DeliveryEvent) MarshalJSON() ([]byte, error) {
+func (v DeliveryEvent) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "DeliveryEvent"
 
 	return json.Marshal(v)
+}
+
+func (v *DeliveryEvent) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "DeliveryEvent"
+
+	return json.Marshal(*v)
 }

@@ -18,12 +18,23 @@ type Museum struct {
 	// If a business is open 7 days a week, then it can be specified as <time itemprop="openingHours" datetime="Mo-Su">Monday through Sunday, all day</time>.
 	//
 	//
-	OpeningHours string `json:"openingHours"`
+	OpeningHours string `json:"openingHours,omitempty"`
 }
 
-func (v *Museum) MarshalJSON() ([]byte, error) {
+func (v Museum) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "Museum"
 
 	return json.Marshal(v)
+}
+
+func (v *Museum) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "Museum"
+
+	return json.Marshal(*v)
 }

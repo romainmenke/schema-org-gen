@@ -10,12 +10,23 @@ type OrderAction struct {
 
 	// DeliveryMethod see : https://schema.org/deliveryMethod
 	// A sub property of instrument. The method of delivery.
-	DeliveryMethod *DeliveryMethod `json:"deliveryMethod"`
+	DeliveryMethod *DeliveryMethod `json:"deliveryMethod,omitempty"`
 }
 
-func (v *OrderAction) MarshalJSON() ([]byte, error) {
+func (v OrderAction) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "OrderAction"
 
 	return json.Marshal(v)
+}
+
+func (v *OrderAction) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "OrderAction"
+
+	return json.Marshal(*v)
 }

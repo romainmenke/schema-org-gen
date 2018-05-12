@@ -10,12 +10,23 @@ type SellAction struct {
 
 	// Buyer see : https://schema.org/buyer
 	// A sub property of participant. The participant/person/organization that bought the object.
-	Buyer *Person `json:"buyer"`
+	Buyer *Person `json:"buyer,omitempty"`
 }
 
-func (v *SellAction) MarshalJSON() ([]byte, error) {
+func (v SellAction) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "SellAction"
 
 	return json.Marshal(v)
+}
+
+func (v *SellAction) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "SellAction"
+
+	return json.Marshal(*v)
 }

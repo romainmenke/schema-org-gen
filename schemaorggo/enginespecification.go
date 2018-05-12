@@ -14,7 +14,7 @@ type EngineSpecification struct {
 	// Typical unit code(s): CMQ for cubic centimeter, LTR for liters, INQ for cubic inches
 	// * Note 1: You can link to information about how the given value has been determined using the valueReference (see: https://schema.org/valueReference) property.
 	// * Note 2: You can use minValue (see: https://schema.org/minValue) and maxValue (see: https://schema.org/maxValue) to indicate ranges.
-	EngineDisplacement *QuantitativeValue `json:"engineDisplacement"`
+	EngineDisplacement *QuantitativeValue `json:"engineDisplacement,omitempty"`
 
 	// EnginePower see : http://auto.schema.org/enginePower
 	// The power of the vehicle's engine.
@@ -26,15 +26,15 @@ type EngineSpecification struct {
 	// Note 3: You can use minValue (see: https://schema.org/minValue) and maxValue (see: https://schema.org/maxValue) to indicate ranges.
 	//
 	//
-	EnginePower *QuantitativeValue `json:"enginePower"`
+	EnginePower *QuantitativeValue `json:"enginePower,omitempty"`
 
 	// EngineType see : http://auto.schema.org/engineType
 	// The type of engine or engines powering the vehicle.
-	EngineType interface{} `json:"engineType"` // types : QualitativeValue Text URL
+	EngineType interface{} `json:"engineType,omitempty"` // types : QualitativeValue Text URL
 
 	// FuelType see : https://schema.org/fuelType
 	// The type of fuel suitable for the engine or engines of the vehicle. If the vehicle has only one engine, this property can be attached directly to the vehicle.
-	FuelType interface{} `json:"fuelType"` // types : QualitativeValue Text URL
+	FuelType interface{} `json:"fuelType,omitempty"` // types : QualitativeValue Text URL
 
 	// Torque see : http://auto.schema.org/torque
 	// The torque (turning force) of the vehicle's engine.
@@ -46,12 +46,23 @@ type EngineSpecification struct {
 	// Note 2: You can use minValue (see: https://schema.org/minValue) and maxValue (see: https://schema.org/maxValue) to indicate ranges.
 	//
 	//
-	Torque *QuantitativeValue `json:"torque"`
+	Torque *QuantitativeValue `json:"torque,omitempty"`
 }
 
-func (v *EngineSpecification) MarshalJSON() ([]byte, error) {
+func (v EngineSpecification) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "EngineSpecification"
 
 	return json.Marshal(v)
+}
+
+func (v *EngineSpecification) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "EngineSpecification"
+
+	return json.Marshal(*v)
 }

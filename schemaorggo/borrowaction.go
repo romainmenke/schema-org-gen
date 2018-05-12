@@ -10,13 +10,24 @@ type BorrowAction struct {
 
 	// Lender see : https://schema.org/lender
 	// A sub property of participant. The person that lends the object being borrowed.
-	Lender interface{} `json:"lender"` // types : Organization Person
+	Lender interface{} `json:"lender,omitempty"` // types : Organization Person
 
 }
 
-func (v *BorrowAction) MarshalJSON() ([]byte, error) {
+func (v BorrowAction) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "BorrowAction"
 
 	return json.Marshal(v)
+}
+
+func (v *BorrowAction) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "BorrowAction"
+
+	return json.Marshal(*v)
 }

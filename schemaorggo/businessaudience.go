@@ -10,20 +10,31 @@ type BusinessAudience struct {
 
 	// NumberOfEmployees see : https://schema.org/numberOfEmployees
 	// The number of employees in an organization e.g. business.
-	NumberOfEmployees *QuantitativeValue `json:"numberOfEmployees"`
+	NumberOfEmployees *QuantitativeValue `json:"numberOfEmployees,omitempty"`
 
 	// YearlyRevenue see : https://schema.org/yearlyRevenue
 	// The size of the business in annual revenue.
-	YearlyRevenue *QuantitativeValue `json:"yearlyRevenue"`
+	YearlyRevenue *QuantitativeValue `json:"yearlyRevenue,omitempty"`
 
 	// YearsInOperation see : https://schema.org/yearsInOperation
 	// The age of the business.
-	YearsInOperation *QuantitativeValue `json:"yearsInOperation"`
+	YearsInOperation *QuantitativeValue `json:"yearsInOperation,omitempty"`
 }
 
-func (v *BusinessAudience) MarshalJSON() ([]byte, error) {
+func (v BusinessAudience) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "BusinessAudience"
 
 	return json.Marshal(v)
+}
+
+func (v *BusinessAudience) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "BusinessAudience"
+
+	return json.Marshal(*v)
 }

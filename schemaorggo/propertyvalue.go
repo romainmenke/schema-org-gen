@@ -10,7 +10,7 @@ type PropertyValue struct {
 
 	// MaxValue see : https://schema.org/maxValue
 	// The upper value of some characteristic or property.
-	MaxValue float64 `json:"maxValue"`
+	MaxValue float64 `json:"maxValue,omitempty"`
 
 	// MeasurementTechnique see : http://pending.schema.org/measurementTechnique
 	// A technique or technology used in a Dataset (see: https://schema.org/Dataset) (or DataDownload (see: https://schema.org/DataDownload), DataCatalog (see: https://schema.org/DataCatalog)),
@@ -21,27 +21,27 @@ type PropertyValue struct {
 	// If the variableMeasured (see: https://schema.org/variableMeasured) is "depression rating", the measurementTechnique (see: https://schema.org/measurementTechnique) could be "Zung Scale" or "HAM-D" or "Beck Depression Inventory".
 	//
 	// If there are several variableMeasured (see: https://schema.org/variableMeasured) properties recorded for some given data object, use a PropertyValue (see: https://schema.org/PropertyValue) for each variableMeasured (see: https://schema.org/variableMeasured) and attach the corresponding measurementTechnique (see: https://schema.org/measurementTechnique).
-	MeasurementTechnique interface{} `json:"measurementTechnique"` // types : Text URL
+	MeasurementTechnique interface{} `json:"measurementTechnique,omitempty"` // types : Text URL
 
 	// MinValue see : https://schema.org/minValue
 	// The lower value of some characteristic or property.
-	MinValue float64 `json:"minValue"`
+	MinValue float64 `json:"minValue,omitempty"`
 
 	// PropertyID see : https://schema.org/propertyID
 	// A commonly used identifier for the characteristic represented by the property, e.g. a manufacturer or a standard code for a property. propertyID can be
 	// (1) a prefixed string, mainly meant to be used with standards for product properties; (2) a site-specific, non-prefixed string (e.g. the primary key of the property or the vendor-specific id of the property), or (3)
 	// a URL indicating the type of the property, either pointing to an external vocabulary, or a Web resource that describes the property (e.g. a glossary entry).
 	// Standards bodies should promote a standard prefix for the identifiers of properties from their standards.
-	PropertyID interface{} `json:"propertyID"` // types : Text URL
+	PropertyID interface{} `json:"propertyID,omitempty"` // types : Text URL
 
 	// UnitCode see : https://schema.org/unitCode
 	// The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.
-	UnitCode interface{} `json:"unitCode"` // types : Text URL
+	UnitCode interface{} `json:"unitCode,omitempty"` // types : Text URL
 
 	// UnitText see : https://schema.org/unitText
 	// A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for
 	// unitCode (see: https://schema.orgunitCode).
-	UnitText string `json:"unitText"`
+	UnitText string `json:"unitText,omitempty"`
 
 	// Value see : https://schema.org/value
 	// The value of the quantitative value or property value node.
@@ -51,17 +51,28 @@ type PropertyValue struct {
 	// For PropertyValue (see: https://schema.org/PropertyValue), it can be 'Text;', 'Number', 'Boolean', or 'StructuredValue'.
 	//
 	//
-	Value interface{} `json:"value"` // types : Boolean Number StructuredValue Text
+	Value interface{} `json:"value,omitempty"` // types : Boolean Number StructuredValue Text
 
 	// ValueReference see : https://schema.org/valueReference
 	// A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature.
-	ValueReference interface{} `json:"valueReference"` // types : Enumeration PropertyValue QualitativeValue QuantitativeValue StructuredValue
+	ValueReference interface{} `json:"valueReference,omitempty"` // types : Enumeration PropertyValue QualitativeValue QuantitativeValue StructuredValue
 
 }
 
-func (v *PropertyValue) MarshalJSON() ([]byte, error) {
+func (v PropertyValue) MarshalJSONWithTypeContext() ([]byte, error) {
 	v.C = "http://schema.org"
 	v.T = "PropertyValue"
 
 	return json.Marshal(v)
+}
+
+func (v *PropertyValue) MarshalJSON() ([]byte, error) {
+	if v == nil {
+		return []byte("null"), nil
+	}
+
+	v.C = "http://schema.org"
+	v.T = "PropertyValue"
+
+	return json.Marshal(*v)
 }
