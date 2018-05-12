@@ -81,7 +81,11 @@ func goTypeFile(goTypes []string, dir string, packageName string) func(ctx conte
 		}
 
 		data["fields"] = dataFields
-		tmpls.Execute("/templates/structtypes.twig", f, data)
+
+		err = tmpls.Execute("/templates/structtypes.twig", f, data)
+		if err != nil {
+			return err
+		}
 
 		err = f.Close()
 		if err != nil {

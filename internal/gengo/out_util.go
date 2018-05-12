@@ -19,11 +19,14 @@ func writeMarshalJSON(ctx context.Context, dir string, packageName string) error
 		return errors.New("no template found")
 	}
 
-	tmpls.Execute("/templates/util.twig", f,
+	err = tmpls.Execute("/templates/util.twig", f,
 		map[string]stick.Value{
 			"package_name": packageName,
 		},
 	)
+	if err != nil {
+		return err
+	}
 
 	err = f.Close()
 	if err != nil {
