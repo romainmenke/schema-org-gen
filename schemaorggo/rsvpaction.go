@@ -24,12 +24,12 @@ type RsvpAction struct {
 	RsvpResponse []*RsvpResponseType `json:"rsvpResponse,omitempty"`
 }
 
-func (v RsvpAction) IntoMap(intop *map[string]interface{}) error {
+func (v RsvpAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.InformAction.IntoMap(intop)
+	v.InformAction.intoMap(intop)
 
 	into := *intop
 
@@ -86,9 +86,9 @@ func (v RsvpAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v RsvpAction) AsMap() (map[string]interface{}, error) {
+func (v RsvpAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +100,7 @@ func (v RsvpAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v RsvpAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

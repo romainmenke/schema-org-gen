@@ -22,12 +22,12 @@ type Mosque struct {
 	OpeningHours []string `json:"openingHours,omitempty"`
 }
 
-func (v Mosque) IntoMap(intop *map[string]interface{}) error {
+func (v Mosque) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.PlaceOfWorship.IntoMap(intop)
+	v.PlaceOfWorship.intoMap(intop)
 
 	into := *intop
 
@@ -52,9 +52,9 @@ func (v Mosque) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Mosque) AsMap() (map[string]interface{}, error) {
+func (v Mosque) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +66,7 @@ func (v Mosque) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Mosque) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

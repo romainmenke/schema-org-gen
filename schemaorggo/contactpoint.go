@@ -54,12 +54,12 @@ type ContactPoint struct {
 	Telephone []string `json:"telephone,omitempty"`
 }
 
-func (v ContactPoint) IntoMap(intop *map[string]interface{}) error {
+func (v ContactPoint) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.StructuredValue.IntoMap(intop)
+	v.StructuredValue.intoMap(intop)
 
 	into := *intop
 
@@ -212,9 +212,9 @@ func (v ContactPoint) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v ContactPoint) AsMap() (map[string]interface{}, error) {
+func (v ContactPoint) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -226,7 +226,7 @@ func (v ContactPoint) AsMap() (map[string]interface{}, error) {
 }
 
 func (v ContactPoint) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

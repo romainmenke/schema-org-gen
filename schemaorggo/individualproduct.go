@@ -14,12 +14,12 @@ type IndividualProduct struct {
 	SerialNumber []string `json:"serialNumber,omitempty"`
 }
 
-func (v IndividualProduct) IntoMap(intop *map[string]interface{}) error {
+func (v IndividualProduct) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Product.IntoMap(intop)
+	v.Product.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v IndividualProduct) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v IndividualProduct) AsMap() (map[string]interface{}, error) {
+func (v IndividualProduct) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v IndividualProduct) AsMap() (map[string]interface{}, error) {
 }
 
 func (v IndividualProduct) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

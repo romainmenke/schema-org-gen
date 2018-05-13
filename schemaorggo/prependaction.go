@@ -14,12 +14,12 @@ type PrependAction struct {
 	ToLocation []*Place `json:"toLocation,omitempty"`
 }
 
-func (v PrependAction) IntoMap(intop *map[string]interface{}) error {
+func (v PrependAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.InsertAction.IntoMap(intop)
+	v.InsertAction.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v PrependAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v PrependAction) AsMap() (map[string]interface{}, error) {
+func (v PrependAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v PrependAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v PrependAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -109,12 +109,12 @@ type JobPosting struct {
 	WorkHours []string `json:"workHours,omitempty"`
 }
 
-func (v JobPosting) IntoMap(intop *map[string]interface{}) error {
+func (v JobPosting) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Intangible.IntoMap(intop)
+	v.Intangible.intoMap(intop)
 
 	into := *intop
 
@@ -443,9 +443,9 @@ func (v JobPosting) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v JobPosting) AsMap() (map[string]interface{}, error) {
+func (v JobPosting) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -457,7 +457,7 @@ func (v JobPosting) AsMap() (map[string]interface{}, error) {
 }
 
 func (v JobPosting) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

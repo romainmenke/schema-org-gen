@@ -65,12 +65,12 @@ type VideoGallery struct {
 	Specialty []*Specialty `json:"specialty,omitempty"`
 }
 
-func (v VideoGallery) IntoMap(intop *map[string]interface{}) error {
+func (v VideoGallery) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CollectionPage.IntoMap(intop)
+	v.CollectionPage.intoMap(intop)
 
 	into := *intop
 
@@ -223,9 +223,9 @@ func (v VideoGallery) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v VideoGallery) AsMap() (map[string]interface{}, error) {
+func (v VideoGallery) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -237,7 +237,7 @@ func (v VideoGallery) AsMap() (map[string]interface{}, error) {
 }
 
 func (v VideoGallery) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

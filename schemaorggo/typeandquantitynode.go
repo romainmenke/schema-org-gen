@@ -35,12 +35,12 @@ type TypeAndQuantityNode struct {
 	UnitText []string `json:"unitText,omitempty"`
 }
 
-func (v TypeAndQuantityNode) IntoMap(intop *map[string]interface{}) error {
+func (v TypeAndQuantityNode) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.StructuredValue.IntoMap(intop)
+	v.StructuredValue.intoMap(intop)
 
 	into := *intop
 
@@ -129,9 +129,9 @@ func (v TypeAndQuantityNode) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v TypeAndQuantityNode) AsMap() (map[string]interface{}, error) {
+func (v TypeAndQuantityNode) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -143,7 +143,7 @@ func (v TypeAndQuantityNode) AsMap() (map[string]interface{}, error) {
 }
 
 func (v TypeAndQuantityNode) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

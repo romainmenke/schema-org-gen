@@ -24,12 +24,12 @@ type LiveBlogPosting struct {
 	LiveBlogUpdate []*BlogPosting `json:"liveBlogUpdate,omitempty"`
 }
 
-func (v LiveBlogPosting) IntoMap(intop *map[string]interface{}) error {
+func (v LiveBlogPosting) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.BlogPosting.IntoMap(intop)
+	v.BlogPosting.intoMap(intop)
 
 	into := *intop
 
@@ -86,9 +86,9 @@ func (v LiveBlogPosting) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v LiveBlogPosting) AsMap() (map[string]interface{}, error) {
+func (v LiveBlogPosting) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +100,7 @@ func (v LiveBlogPosting) AsMap() (map[string]interface{}, error) {
 }
 
 func (v LiveBlogPosting) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

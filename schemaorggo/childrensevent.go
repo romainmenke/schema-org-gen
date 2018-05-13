@@ -170,12 +170,12 @@ type ChildrensEvent struct {
 	WorkPerformed []*CreativeWork `json:"workPerformed,omitempty"`
 }
 
-func (v ChildrensEvent) IntoMap(intop *map[string]interface{}) error {
+func (v ChildrensEvent) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Event.IntoMap(intop)
+	v.Event.intoMap(intop)
 
 	into := *intop
 
@@ -696,9 +696,9 @@ func (v ChildrensEvent) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v ChildrensEvent) AsMap() (map[string]interface{}, error) {
+func (v ChildrensEvent) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -710,7 +710,7 @@ func (v ChildrensEvent) AsMap() (map[string]interface{}, error) {
 }
 
 func (v ChildrensEvent) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

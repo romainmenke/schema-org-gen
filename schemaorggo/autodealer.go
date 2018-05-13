@@ -37,12 +37,12 @@ type AutoDealer struct {
 	PriceRange []string `json:"priceRange,omitempty"`
 }
 
-func (v AutoDealer) IntoMap(intop *map[string]interface{}) error {
+func (v AutoDealer) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.AutomotiveBusiness.IntoMap(intop)
+	v.AutomotiveBusiness.intoMap(intop)
 
 	into := *intop
 
@@ -115,9 +115,9 @@ func (v AutoDealer) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v AutoDealer) AsMap() (map[string]interface{}, error) {
+func (v AutoDealer) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +129,7 @@ func (v AutoDealer) AsMap() (map[string]interface{}, error) {
 }
 
 func (v AutoDealer) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -34,12 +34,12 @@ type Game struct {
 	Quest []*Thing `json:"quest,omitempty"`
 }
 
-func (v Game) IntoMap(intop *map[string]interface{}) error {
+func (v Game) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CreativeWork.IntoMap(intop)
+	v.CreativeWork.intoMap(intop)
 
 	into := *intop
 
@@ -128,9 +128,9 @@ func (v Game) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Game) AsMap() (map[string]interface{}, error) {
+func (v Game) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -142,7 +142,7 @@ func (v Game) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Game) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

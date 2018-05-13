@@ -68,12 +68,12 @@ type DeactivateAction struct {
 	Target []*EntryPoint `json:"target,omitempty"`
 }
 
-func (v DeactivateAction) IntoMap(intop *map[string]interface{}) error {
+func (v DeactivateAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.ControlAction.IntoMap(intop)
+	v.ControlAction.intoMap(intop)
 
 	into := *intop
 
@@ -258,9 +258,9 @@ func (v DeactivateAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v DeactivateAction) AsMap() (map[string]interface{}, error) {
+func (v DeactivateAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -272,7 +272,7 @@ func (v DeactivateAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v DeactivateAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

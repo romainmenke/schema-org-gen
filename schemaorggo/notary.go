@@ -37,12 +37,12 @@ type Notary struct {
 	PriceRange []string `json:"priceRange,omitempty"`
 }
 
-func (v Notary) IntoMap(intop *map[string]interface{}) error {
+func (v Notary) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.LegalService.IntoMap(intop)
+	v.LegalService.intoMap(intop)
 
 	into := *intop
 
@@ -115,9 +115,9 @@ func (v Notary) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Notary) AsMap() (map[string]interface{}, error) {
+func (v Notary) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +129,7 @@ func (v Notary) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Notary) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

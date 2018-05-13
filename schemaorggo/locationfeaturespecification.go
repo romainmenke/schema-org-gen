@@ -24,12 +24,12 @@ type LocationFeatureSpecification struct {
 	ValidThrough []DateTime `json:"validThrough,omitempty"`
 }
 
-func (v LocationFeatureSpecification) IntoMap(intop *map[string]interface{}) error {
+func (v LocationFeatureSpecification) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.PropertyValue.IntoMap(intop)
+	v.PropertyValue.intoMap(intop)
 
 	into := *intop
 
@@ -86,9 +86,9 @@ func (v LocationFeatureSpecification) IntoMap(intop *map[string]interface{}) err
 	return nil
 }
 
-func (v LocationFeatureSpecification) AsMap() (map[string]interface{}, error) {
+func (v LocationFeatureSpecification) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +100,7 @@ func (v LocationFeatureSpecification) AsMap() (map[string]interface{}, error) {
 }
 
 func (v LocationFeatureSpecification) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

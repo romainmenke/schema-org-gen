@@ -41,12 +41,12 @@ type Dataset struct {
 	VariableMeasured []interface{} `json:"variableMeasured,omitempty"`
 }
 
-func (v Dataset) IntoMap(intop *map[string]interface{}) error {
+func (v Dataset) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CreativeWork.IntoMap(intop)
+	v.CreativeWork.intoMap(intop)
 
 	into := *intop
 
@@ -135,9 +135,9 @@ func (v Dataset) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Dataset) AsMap() (map[string]interface{}, error) {
+func (v Dataset) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -149,7 +149,7 @@ func (v Dataset) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Dataset) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

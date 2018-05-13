@@ -24,12 +24,12 @@ type Answer struct {
 	UpvoteCount []float64 `json:"upvoteCount,omitempty"`
 }
 
-func (v Answer) IntoMap(intop *map[string]interface{}) error {
+func (v Answer) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Comment.IntoMap(intop)
+	v.Comment.intoMap(intop)
 
 	into := *intop
 
@@ -86,9 +86,9 @@ func (v Answer) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Answer) AsMap() (map[string]interface{}, error) {
+func (v Answer) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +100,7 @@ func (v Answer) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Answer) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

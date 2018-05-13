@@ -37,12 +37,12 @@ type Florist struct {
 	PriceRange []string `json:"priceRange,omitempty"`
 }
 
-func (v Florist) IntoMap(intop *map[string]interface{}) error {
+func (v Florist) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Store.IntoMap(intop)
+	v.Store.intoMap(intop)
 
 	into := *intop
 
@@ -115,9 +115,9 @@ func (v Florist) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Florist) AsMap() (map[string]interface{}, error) {
+func (v Florist) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +129,7 @@ func (v Florist) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Florist) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

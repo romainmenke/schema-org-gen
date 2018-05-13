@@ -59,12 +59,12 @@ type RadioSeason struct {
 	Trailer []*VideoObject `json:"trailer,omitempty"`
 }
 
-func (v RadioSeason) IntoMap(intop *map[string]interface{}) error {
+func (v RadioSeason) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CreativeWorkSeason.IntoMap(intop)
+	v.CreativeWorkSeason.intoMap(intop)
 
 	into := *intop
 
@@ -233,9 +233,9 @@ func (v RadioSeason) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v RadioSeason) AsMap() (map[string]interface{}, error) {
+func (v RadioSeason) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -247,7 +247,7 @@ func (v RadioSeason) AsMap() (map[string]interface{}, error) {
 }
 
 func (v RadioSeason) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

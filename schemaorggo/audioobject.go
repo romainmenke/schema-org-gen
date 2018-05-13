@@ -14,12 +14,12 @@ type AudioObject struct {
 	Transcript []string `json:"transcript,omitempty"`
 }
 
-func (v AudioObject) IntoMap(intop *map[string]interface{}) error {
+func (v AudioObject) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.MediaObject.IntoMap(intop)
+	v.MediaObject.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v AudioObject) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v AudioObject) AsMap() (map[string]interface{}, error) {
+func (v AudioObject) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v AudioObject) AsMap() (map[string]interface{}, error) {
 }
 
 func (v AudioObject) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

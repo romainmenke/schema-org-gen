@@ -69,12 +69,12 @@ type ExerciseAction struct {
 	ToLocation []*Place `json:"toLocation,omitempty"`
 }
 
-func (v ExerciseAction) IntoMap(intop *map[string]interface{}) error {
+func (v ExerciseAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.PlayAction.IntoMap(intop)
+	v.PlayAction.intoMap(intop)
 
 	into := *intop
 
@@ -275,9 +275,9 @@ func (v ExerciseAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v ExerciseAction) AsMap() (map[string]interface{}, error) {
+func (v ExerciseAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -289,7 +289,7 @@ func (v ExerciseAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v ExerciseAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

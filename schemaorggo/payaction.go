@@ -19,12 +19,12 @@ type PayAction struct {
 	Recipient []interface{} `json:"recipient,omitempty"`
 }
 
-func (v PayAction) IntoMap(intop *map[string]interface{}) error {
+func (v PayAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.TradeAction.IntoMap(intop)
+	v.TradeAction.intoMap(intop)
 
 	into := *intop
 
@@ -65,9 +65,9 @@ func (v PayAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v PayAction) AsMap() (map[string]interface{}, error) {
+func (v PayAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +79,7 @@ func (v PayAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v PayAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

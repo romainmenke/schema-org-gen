@@ -29,12 +29,12 @@ type FlightReservation struct {
 	SecurityScreening []string `json:"securityScreening,omitempty"`
 }
 
-func (v FlightReservation) IntoMap(intop *map[string]interface{}) error {
+func (v FlightReservation) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Reservation.IntoMap(intop)
+	v.Reservation.intoMap(intop)
 
 	into := *intop
 
@@ -107,9 +107,9 @@ func (v FlightReservation) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v FlightReservation) AsMap() (map[string]interface{}, error) {
+func (v FlightReservation) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -121,7 +121,7 @@ func (v FlightReservation) AsMap() (map[string]interface{}, error) {
 }
 
 func (v FlightReservation) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

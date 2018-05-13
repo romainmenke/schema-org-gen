@@ -19,12 +19,12 @@ type DepartAction struct {
 	ToLocation []*Place `json:"toLocation,omitempty"`
 }
 
-func (v DepartAction) IntoMap(intop *map[string]interface{}) error {
+func (v DepartAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.MoveAction.IntoMap(intop)
+	v.MoveAction.intoMap(intop)
 
 	into := *intop
 
@@ -65,9 +65,9 @@ func (v DepartAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v DepartAction) AsMap() (map[string]interface{}, error) {
+func (v DepartAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +79,7 @@ func (v DepartAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v DepartAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

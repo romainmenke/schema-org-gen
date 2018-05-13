@@ -24,12 +24,12 @@ type ProductModel struct {
 	SuccessorOf []*ProductModel `json:"successorOf,omitempty"`
 }
 
-func (v ProductModel) IntoMap(intop *map[string]interface{}) error {
+func (v ProductModel) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Product.IntoMap(intop)
+	v.Product.intoMap(intop)
 
 	into := *intop
 
@@ -86,9 +86,9 @@ func (v ProductModel) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v ProductModel) AsMap() (map[string]interface{}, error) {
+func (v ProductModel) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +100,7 @@ func (v ProductModel) AsMap() (map[string]interface{}, error) {
 }
 
 func (v ProductModel) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

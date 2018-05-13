@@ -14,12 +14,12 @@ type Report struct {
 	ReportNumber []string `json:"reportNumber,omitempty"`
 }
 
-func (v Report) IntoMap(intop *map[string]interface{}) error {
+func (v Report) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Article.IntoMap(intop)
+	v.Article.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v Report) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Report) AsMap() (map[string]interface{}, error) {
+func (v Report) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v Report) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Report) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

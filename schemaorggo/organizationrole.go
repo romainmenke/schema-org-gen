@@ -14,12 +14,12 @@ type OrganizationRole struct {
 	NumberedPosition []float64 `json:"numberedPosition,omitempty"`
 }
 
-func (v OrganizationRole) IntoMap(intop *map[string]interface{}) error {
+func (v OrganizationRole) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Role.IntoMap(intop)
+	v.Role.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v OrganizationRole) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v OrganizationRole) AsMap() (map[string]interface{}, error) {
+func (v OrganizationRole) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v OrganizationRole) AsMap() (map[string]interface{}, error) {
 }
 
 func (v OrganizationRole) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -14,12 +14,12 @@ type HowToTool struct {
 	RequiredQuantity []interface{} `json:"requiredQuantity,omitempty"`
 }
 
-func (v HowToTool) IntoMap(intop *map[string]interface{}) error {
+func (v HowToTool) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.HowToItem.IntoMap(intop)
+	v.HowToItem.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v HowToTool) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v HowToTool) AsMap() (map[string]interface{}, error) {
+func (v HowToTool) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v HowToTool) AsMap() (map[string]interface{}, error) {
 }
 
 func (v HowToTool) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

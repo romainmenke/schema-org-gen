@@ -54,12 +54,12 @@ type Message struct {
 	ToRecipient []interface{} `json:"toRecipient,omitempty"`
 }
 
-func (v Message) IntoMap(intop *map[string]interface{}) error {
+func (v Message) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CreativeWork.IntoMap(intop)
+	v.CreativeWork.intoMap(intop)
 
 	into := *intop
 
@@ -212,9 +212,9 @@ func (v Message) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Message) AsMap() (map[string]interface{}, error) {
+func (v Message) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -226,7 +226,7 @@ func (v Message) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Message) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

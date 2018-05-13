@@ -241,12 +241,12 @@ type NGO struct {
 	VatID []string `json:"vatID,omitempty"`
 }
 
-func (v NGO) IntoMap(intop *map[string]interface{}) error {
+func (v NGO) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Organization.IntoMap(intop)
+	v.Organization.intoMap(intop)
 
 	into := *intop
 
@@ -991,9 +991,9 @@ func (v NGO) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v NGO) AsMap() (map[string]interface{}, error) {
+func (v NGO) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -1005,7 +1005,7 @@ func (v NGO) AsMap() (map[string]interface{}, error) {
 }
 
 func (v NGO) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

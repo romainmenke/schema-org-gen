@@ -14,12 +14,12 @@ type AssignAction struct {
 	Purpose []interface{} `json:"purpose,omitempty"`
 }
 
-func (v AssignAction) IntoMap(intop *map[string]interface{}) error {
+func (v AssignAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.AllocateAction.IntoMap(intop)
+	v.AllocateAction.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v AssignAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v AssignAction) AsMap() (map[string]interface{}, error) {
+func (v AssignAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v AssignAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v AssignAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

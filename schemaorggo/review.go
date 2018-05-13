@@ -24,12 +24,12 @@ type Review struct {
 	ReviewRating []*Rating `json:"reviewRating,omitempty"`
 }
 
-func (v Review) IntoMap(intop *map[string]interface{}) error {
+func (v Review) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CreativeWork.IntoMap(intop)
+	v.CreativeWork.intoMap(intop)
 
 	into := *intop
 
@@ -86,9 +86,9 @@ func (v Review) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Review) AsMap() (map[string]interface{}, error) {
+func (v Review) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +100,7 @@ func (v Review) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Review) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

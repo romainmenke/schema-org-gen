@@ -14,12 +14,12 @@ type HowToSupply struct {
 	EstimatedCost []interface{} `json:"estimatedCost,omitempty"`
 }
 
-func (v HowToSupply) IntoMap(intop *map[string]interface{}) error {
+func (v HowToSupply) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.HowToItem.IntoMap(intop)
+	v.HowToItem.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v HowToSupply) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v HowToSupply) AsMap() (map[string]interface{}, error) {
+func (v HowToSupply) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v HowToSupply) AsMap() (map[string]interface{}, error) {
 }
 
 func (v HowToSupply) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

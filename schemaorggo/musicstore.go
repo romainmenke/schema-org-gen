@@ -37,12 +37,12 @@ type MusicStore struct {
 	PriceRange []string `json:"priceRange,omitempty"`
 }
 
-func (v MusicStore) IntoMap(intop *map[string]interface{}) error {
+func (v MusicStore) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Store.IntoMap(intop)
+	v.Store.intoMap(intop)
 
 	into := *intop
 
@@ -115,9 +115,9 @@ func (v MusicStore) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v MusicStore) AsMap() (map[string]interface{}, error) {
+func (v MusicStore) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +129,7 @@ func (v MusicStore) AsMap() (map[string]interface{}, error) {
 }
 
 func (v MusicStore) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

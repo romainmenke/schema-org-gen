@@ -30,12 +30,12 @@ type QuoteAction struct {
 	PriceSpecification []*PriceSpecification `json:"priceSpecification,omitempty"`
 }
 
-func (v QuoteAction) IntoMap(intop *map[string]interface{}) error {
+func (v QuoteAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.TradeAction.IntoMap(intop)
+	v.TradeAction.intoMap(intop)
 
 	into := *intop
 
@@ -76,9 +76,9 @@ func (v QuoteAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v QuoteAction) AsMap() (map[string]interface{}, error) {
+func (v QuoteAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +90,7 @@ func (v QuoteAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v QuoteAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

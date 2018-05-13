@@ -14,12 +14,12 @@ type EducationalAudience struct {
 	EducationalRole []string `json:"educationalRole,omitempty"`
 }
 
-func (v EducationalAudience) IntoMap(intop *map[string]interface{}) error {
+func (v EducationalAudience) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Audience.IntoMap(intop)
+	v.Audience.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v EducationalAudience) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v EducationalAudience) AsMap() (map[string]interface{}, error) {
+func (v EducationalAudience) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v EducationalAudience) AsMap() (map[string]interface{}, error) {
 }
 
 func (v EducationalAudience) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

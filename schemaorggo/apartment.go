@@ -21,12 +21,12 @@ type Apartment struct {
 	Occupancy []*QuantitativeValue `json:"occupancy,omitempty"`
 }
 
-func (v Apartment) IntoMap(intop *map[string]interface{}) error {
+func (v Apartment) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Accommodation.IntoMap(intop)
+	v.Accommodation.intoMap(intop)
 
 	into := *intop
 
@@ -67,9 +67,9 @@ func (v Apartment) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Apartment) AsMap() (map[string]interface{}, error) {
+func (v Apartment) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +81,7 @@ func (v Apartment) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Apartment) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

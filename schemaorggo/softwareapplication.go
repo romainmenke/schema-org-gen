@@ -119,12 +119,12 @@ type SoftwareApplication struct {
 	SupportingData []*DataFeed `json:"supportingData,omitempty"`
 }
 
-func (v SoftwareApplication) IntoMap(intop *map[string]interface{}) error {
+func (v SoftwareApplication) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CreativeWork.IntoMap(intop)
+	v.CreativeWork.intoMap(intop)
 
 	into := *intop
 
@@ -485,9 +485,9 @@ func (v SoftwareApplication) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v SoftwareApplication) AsMap() (map[string]interface{}, error) {
+func (v SoftwareApplication) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -499,7 +499,7 @@ func (v SoftwareApplication) AsMap() (map[string]interface{}, error) {
 }
 
 func (v SoftwareApplication) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

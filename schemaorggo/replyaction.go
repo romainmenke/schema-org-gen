@@ -14,12 +14,12 @@ type ReplyAction struct {
 	ResultComment []*Comment `json:"resultComment,omitempty"`
 }
 
-func (v ReplyAction) IntoMap(intop *map[string]interface{}) error {
+func (v ReplyAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CommunicateAction.IntoMap(intop)
+	v.CommunicateAction.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v ReplyAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v ReplyAction) AsMap() (map[string]interface{}, error) {
+func (v ReplyAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v ReplyAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v ReplyAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

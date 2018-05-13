@@ -19,12 +19,12 @@ type TouristAttraction struct {
 	TouristType []interface{} `json:"touristType,omitempty"`
 }
 
-func (v TouristAttraction) IntoMap(intop *map[string]interface{}) error {
+func (v TouristAttraction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Place.IntoMap(intop)
+	v.Place.intoMap(intop)
 
 	into := *intop
 
@@ -65,9 +65,9 @@ func (v TouristAttraction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v TouristAttraction) AsMap() (map[string]interface{}, error) {
+func (v TouristAttraction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +79,7 @@ func (v TouristAttraction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v TouristAttraction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

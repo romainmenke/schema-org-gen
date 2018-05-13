@@ -49,12 +49,12 @@ type RadioEpisode struct {
 	Trailer []*VideoObject `json:"trailer,omitempty"`
 }
 
-func (v RadioEpisode) IntoMap(intop *map[string]interface{}) error {
+func (v RadioEpisode) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Episode.IntoMap(intop)
+	v.Episode.intoMap(intop)
 
 	into := *intop
 
@@ -191,9 +191,9 @@ func (v RadioEpisode) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v RadioEpisode) AsMap() (map[string]interface{}, error) {
+func (v RadioEpisode) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -205,7 +205,7 @@ func (v RadioEpisode) AsMap() (map[string]interface{}, error) {
 }
 
 func (v RadioEpisode) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

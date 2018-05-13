@@ -84,12 +84,12 @@ type MusicVideoObject struct {
 	Width []interface{} `json:"width,omitempty"`
 }
 
-func (v MusicVideoObject) IntoMap(intop *map[string]interface{}) error {
+func (v MusicVideoObject) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.MediaObject.IntoMap(intop)
+	v.MediaObject.intoMap(intop)
 
 	into := *intop
 
@@ -338,9 +338,9 @@ func (v MusicVideoObject) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v MusicVideoObject) AsMap() (map[string]interface{}, error) {
+func (v MusicVideoObject) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -352,7 +352,7 @@ func (v MusicVideoObject) AsMap() (map[string]interface{}, error) {
 }
 
 func (v MusicVideoObject) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

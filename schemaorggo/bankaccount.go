@@ -24,12 +24,12 @@ type BankAccount struct {
 	BankAccountType []string `json:"bankAccountType,omitempty"`
 }
 
-func (v BankAccount) IntoMap(intop *map[string]interface{}) error {
+func (v BankAccount) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.FinancialProduct.IntoMap(intop)
+	v.FinancialProduct.intoMap(intop)
 
 	into := *intop
 
@@ -86,9 +86,9 @@ func (v BankAccount) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v BankAccount) AsMap() (map[string]interface{}, error) {
+func (v BankAccount) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +100,7 @@ func (v BankAccount) AsMap() (map[string]interface{}, error) {
 }
 
 func (v BankAccount) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

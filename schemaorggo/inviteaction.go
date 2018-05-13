@@ -14,12 +14,12 @@ type InviteAction struct {
 	Event []*Event `json:"event,omitempty"`
 }
 
-func (v InviteAction) IntoMap(intop *map[string]interface{}) error {
+func (v InviteAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CommunicateAction.IntoMap(intop)
+	v.CommunicateAction.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v InviteAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v InviteAction) AsMap() (map[string]interface{}, error) {
+func (v InviteAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v InviteAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v InviteAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

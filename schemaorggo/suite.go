@@ -27,12 +27,12 @@ type Suite struct {
 	Occupancy []*QuantitativeValue `json:"occupancy,omitempty"`
 }
 
-func (v Suite) IntoMap(intop *map[string]interface{}) error {
+func (v Suite) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Accommodation.IntoMap(intop)
+	v.Accommodation.intoMap(intop)
 
 	into := *intop
 
@@ -89,9 +89,9 @@ func (v Suite) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Suite) AsMap() (map[string]interface{}, error) {
+func (v Suite) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -103,7 +103,7 @@ func (v Suite) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Suite) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -37,12 +37,12 @@ type NailSalon struct {
 	PriceRange []string `json:"priceRange,omitempty"`
 }
 
-func (v NailSalon) IntoMap(intop *map[string]interface{}) error {
+func (v NailSalon) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.HealthAndBeautyBusiness.IntoMap(intop)
+	v.HealthAndBeautyBusiness.intoMap(intop)
 
 	into := *intop
 
@@ -115,9 +115,9 @@ func (v NailSalon) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v NailSalon) AsMap() (map[string]interface{}, error) {
+func (v NailSalon) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +129,7 @@ func (v NailSalon) AsMap() (map[string]interface{}, error) {
 }
 
 func (v NailSalon) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

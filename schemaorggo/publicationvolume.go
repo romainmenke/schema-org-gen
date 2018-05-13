@@ -29,12 +29,12 @@ type PublicationVolume struct {
 	VolumeNumber []interface{} `json:"volumeNumber,omitempty"`
 }
 
-func (v PublicationVolume) IntoMap(intop *map[string]interface{}) error {
+func (v PublicationVolume) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CreativeWork.IntoMap(intop)
+	v.CreativeWork.intoMap(intop)
 
 	into := *intop
 
@@ -107,9 +107,9 @@ func (v PublicationVolume) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v PublicationVolume) AsMap() (map[string]interface{}, error) {
+func (v PublicationVolume) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -121,7 +121,7 @@ func (v PublicationVolume) AsMap() (map[string]interface{}, error) {
 }
 
 func (v PublicationVolume) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -84,12 +84,12 @@ type Invoice struct {
 	TotalPaymentDue []interface{} `json:"totalPaymentDue,omitempty"`
 }
 
-func (v Invoice) IntoMap(intop *map[string]interface{}) error {
+func (v Invoice) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Intangible.IntoMap(intop)
+	v.Intangible.intoMap(intop)
 
 	into := *intop
 
@@ -338,9 +338,9 @@ func (v Invoice) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Invoice) AsMap() (map[string]interface{}, error) {
+func (v Invoice) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -352,7 +352,7 @@ func (v Invoice) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Invoice) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

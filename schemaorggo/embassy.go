@@ -22,12 +22,12 @@ type Embassy struct {
 	OpeningHours []string `json:"openingHours,omitempty"`
 }
 
-func (v Embassy) IntoMap(intop *map[string]interface{}) error {
+func (v Embassy) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.GovernmentBuilding.IntoMap(intop)
+	v.GovernmentBuilding.intoMap(intop)
 
 	into := *intop
 
@@ -52,9 +52,9 @@ func (v Embassy) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Embassy) AsMap() (map[string]interface{}, error) {
+func (v Embassy) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +66,7 @@ func (v Embassy) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Embassy) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

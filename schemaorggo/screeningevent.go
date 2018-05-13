@@ -24,12 +24,12 @@ type ScreeningEvent struct {
 	WorkPresented []*Movie `json:"workPresented,omitempty"`
 }
 
-func (v ScreeningEvent) IntoMap(intop *map[string]interface{}) error {
+func (v ScreeningEvent) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Event.IntoMap(intop)
+	v.Event.intoMap(intop)
 
 	into := *intop
 
@@ -86,9 +86,9 @@ func (v ScreeningEvent) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v ScreeningEvent) AsMap() (map[string]interface{}, error) {
+func (v ScreeningEvent) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +100,7 @@ func (v ScreeningEvent) AsMap() (map[string]interface{}, error) {
 }
 
 func (v ScreeningEvent) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

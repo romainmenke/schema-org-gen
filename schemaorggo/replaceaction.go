@@ -19,12 +19,12 @@ type ReplaceAction struct {
 	Replacer []*Thing `json:"replacer,omitempty"`
 }
 
-func (v ReplaceAction) IntoMap(intop *map[string]interface{}) error {
+func (v ReplaceAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.UpdateAction.IntoMap(intop)
+	v.UpdateAction.intoMap(intop)
 
 	into := *intop
 
@@ -65,9 +65,9 @@ func (v ReplaceAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v ReplaceAction) AsMap() (map[string]interface{}, error) {
+func (v ReplaceAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +79,7 @@ func (v ReplaceAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v ReplaceAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

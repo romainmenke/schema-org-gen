@@ -33,12 +33,12 @@ type DeliveryChargeSpecification struct {
 	IneligibleRegion []interface{} `json:"ineligibleRegion,omitempty"`
 }
 
-func (v DeliveryChargeSpecification) IntoMap(intop *map[string]interface{}) error {
+func (v DeliveryChargeSpecification) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.PriceSpecification.IntoMap(intop)
+	v.PriceSpecification.intoMap(intop)
 
 	into := *intop
 
@@ -111,9 +111,9 @@ func (v DeliveryChargeSpecification) IntoMap(intop *map[string]interface{}) erro
 	return nil
 }
 
-func (v DeliveryChargeSpecification) AsMap() (map[string]interface{}, error) {
+func (v DeliveryChargeSpecification) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -125,7 +125,7 @@ func (v DeliveryChargeSpecification) AsMap() (map[string]interface{}, error) {
 }
 
 func (v DeliveryChargeSpecification) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

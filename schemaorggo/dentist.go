@@ -37,12 +37,12 @@ type Dentist struct {
 	PriceRange []string `json:"priceRange,omitempty"`
 }
 
-func (v Dentist) IntoMap(intop *map[string]interface{}) error {
+func (v Dentist) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.MedicalOrganization.IntoMap(intop)
+	v.MedicalOrganization.intoMap(intop)
 
 	into := *intop
 
@@ -115,9 +115,9 @@ func (v Dentist) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Dentist) AsMap() (map[string]interface{}, error) {
+func (v Dentist) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +129,7 @@ func (v Dentist) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Dentist) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -37,12 +37,12 @@ type Casino struct {
 	PriceRange []string `json:"priceRange,omitempty"`
 }
 
-func (v Casino) IntoMap(intop *map[string]interface{}) error {
+func (v Casino) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.EntertainmentBusiness.IntoMap(intop)
+	v.EntertainmentBusiness.intoMap(intop)
 
 	into := *intop
 
@@ -115,9 +115,9 @@ func (v Casino) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Casino) AsMap() (map[string]interface{}, error) {
+func (v Casino) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +129,7 @@ func (v Casino) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Casino) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

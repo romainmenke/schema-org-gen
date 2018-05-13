@@ -180,12 +180,12 @@ type Waterfall struct {
 	Telephone []string `json:"telephone,omitempty"`
 }
 
-func (v Waterfall) IntoMap(intop *map[string]interface{}) error {
+func (v Waterfall) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.BodyOfWater.IntoMap(intop)
+	v.BodyOfWater.intoMap(intop)
 
 	into := *intop
 
@@ -722,9 +722,9 @@ func (v Waterfall) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Waterfall) AsMap() (map[string]interface{}, error) {
+func (v Waterfall) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -736,7 +736,7 @@ func (v Waterfall) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Waterfall) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -54,12 +54,12 @@ type Recipe struct {
 	SuitableForDiet []*RestrictedDiet `json:"suitableForDiet,omitempty"`
 }
 
-func (v Recipe) IntoMap(intop *map[string]interface{}) error {
+func (v Recipe) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.HowTo.IntoMap(intop)
+	v.HowTo.intoMap(intop)
 
 	into := *intop
 
@@ -212,9 +212,9 @@ func (v Recipe) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Recipe) AsMap() (map[string]interface{}, error) {
+func (v Recipe) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -226,7 +226,7 @@ func (v Recipe) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Recipe) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

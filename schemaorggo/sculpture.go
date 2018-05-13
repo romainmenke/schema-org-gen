@@ -425,12 +425,12 @@ type Sculpture struct {
 	WorkTranslation []*CreativeWork `json:"workTranslation,omitempty"`
 }
 
-func (v Sculpture) IntoMap(intop *map[string]interface{}) error {
+func (v Sculpture) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CreativeWork.IntoMap(intop)
+	v.CreativeWork.intoMap(intop)
 
 	into := *intop
 
@@ -1751,9 +1751,9 @@ func (v Sculpture) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Sculpture) AsMap() (map[string]interface{}, error) {
+func (v Sculpture) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -1765,7 +1765,7 @@ func (v Sculpture) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Sculpture) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

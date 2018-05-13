@@ -24,12 +24,12 @@ type AggregateRating struct {
 	ReviewCount []float64 `json:"reviewCount,omitempty"`
 }
 
-func (v AggregateRating) IntoMap(intop *map[string]interface{}) error {
+func (v AggregateRating) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Rating.IntoMap(intop)
+	v.Rating.intoMap(intop)
 
 	into := *intop
 
@@ -86,9 +86,9 @@ func (v AggregateRating) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v AggregateRating) AsMap() (map[string]interface{}, error) {
+func (v AggregateRating) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +100,7 @@ func (v AggregateRating) AsMap() (map[string]interface{}, error) {
 }
 
 func (v AggregateRating) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

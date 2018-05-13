@@ -24,12 +24,12 @@ type PaymentCard struct {
 	FloorLimit []*MonetaryAmount `json:"floorLimit,omitempty"`
 }
 
-func (v PaymentCard) IntoMap(intop *map[string]interface{}) error {
+func (v PaymentCard) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.FinancialProduct.IntoMap(intop)
+	v.FinancialProduct.intoMap(intop)
 
 	into := *intop
 
@@ -86,9 +86,9 @@ func (v PaymentCard) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v PaymentCard) AsMap() (map[string]interface{}, error) {
+func (v PaymentCard) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +100,7 @@ func (v PaymentCard) AsMap() (map[string]interface{}, error) {
 }
 
 func (v PaymentCard) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -180,12 +180,12 @@ type Reservoir struct {
 	Telephone []string `json:"telephone,omitempty"`
 }
 
-func (v Reservoir) IntoMap(intop *map[string]interface{}) error {
+func (v Reservoir) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.BodyOfWater.IntoMap(intop)
+	v.BodyOfWater.intoMap(intop)
 
 	into := *intop
 
@@ -722,9 +722,9 @@ func (v Reservoir) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Reservoir) AsMap() (map[string]interface{}, error) {
+func (v Reservoir) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -736,7 +736,7 @@ func (v Reservoir) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Reservoir) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

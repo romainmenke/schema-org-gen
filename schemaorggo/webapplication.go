@@ -14,12 +14,12 @@ type WebApplication struct {
 	BrowserRequirements []string `json:"browserRequirements,omitempty"`
 }
 
-func (v WebApplication) IntoMap(intop *map[string]interface{}) error {
+func (v WebApplication) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.SoftwareApplication.IntoMap(intop)
+	v.SoftwareApplication.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v WebApplication) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v WebApplication) AsMap() (map[string]interface{}, error) {
+func (v WebApplication) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v WebApplication) AsMap() (map[string]interface{}, error) {
 }
 
 func (v WebApplication) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

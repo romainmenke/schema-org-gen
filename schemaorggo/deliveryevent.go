@@ -29,12 +29,12 @@ type DeliveryEvent struct {
 	HasDeliveryMethod []*DeliveryMethod `json:"hasDeliveryMethod,omitempty"`
 }
 
-func (v DeliveryEvent) IntoMap(intop *map[string]interface{}) error {
+func (v DeliveryEvent) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Event.IntoMap(intop)
+	v.Event.intoMap(intop)
 
 	into := *intop
 
@@ -107,9 +107,9 @@ func (v DeliveryEvent) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v DeliveryEvent) AsMap() (map[string]interface{}, error) {
+func (v DeliveryEvent) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -121,7 +121,7 @@ func (v DeliveryEvent) AsMap() (map[string]interface{}, error) {
 }
 
 func (v DeliveryEvent) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

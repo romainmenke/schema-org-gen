@@ -37,12 +37,12 @@ type MobilePhoneStore struct {
 	PriceRange []string `json:"priceRange,omitempty"`
 }
 
-func (v MobilePhoneStore) IntoMap(intop *map[string]interface{}) error {
+func (v MobilePhoneStore) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Store.IntoMap(intop)
+	v.Store.intoMap(intop)
 
 	into := *intop
 
@@ -115,9 +115,9 @@ func (v MobilePhoneStore) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v MobilePhoneStore) AsMap() (map[string]interface{}, error) {
+func (v MobilePhoneStore) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +129,7 @@ func (v MobilePhoneStore) AsMap() (map[string]interface{}, error) {
 }
 
 func (v MobilePhoneStore) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

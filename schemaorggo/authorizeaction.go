@@ -14,12 +14,12 @@ type AuthorizeAction struct {
 	Recipient []interface{} `json:"recipient,omitempty"`
 }
 
-func (v AuthorizeAction) IntoMap(intop *map[string]interface{}) error {
+func (v AuthorizeAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.AllocateAction.IntoMap(intop)
+	v.AllocateAction.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v AuthorizeAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v AuthorizeAction) AsMap() (map[string]interface{}, error) {
+func (v AuthorizeAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v AuthorizeAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v AuthorizeAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

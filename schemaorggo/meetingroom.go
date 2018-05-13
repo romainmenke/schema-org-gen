@@ -36,12 +36,12 @@ type MeetingRoom struct {
 	PetsAllowed []interface{} `json:"petsAllowed,omitempty"`
 }
 
-func (v MeetingRoom) IntoMap(intop *map[string]interface{}) error {
+func (v MeetingRoom) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Room.IntoMap(intop)
+	v.Room.intoMap(intop)
 
 	into := *intop
 
@@ -130,9 +130,9 @@ func (v MeetingRoom) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v MeetingRoom) AsMap() (map[string]interface{}, error) {
+func (v MeetingRoom) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -144,7 +144,7 @@ func (v MeetingRoom) AsMap() (map[string]interface{}, error) {
 }
 
 func (v MeetingRoom) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

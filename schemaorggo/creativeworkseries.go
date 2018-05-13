@@ -24,12 +24,12 @@ type CreativeWorkSeries struct {
 	StartDate []interface{} `json:"startDate,omitempty"`
 }
 
-func (v CreativeWorkSeries) IntoMap(intop *map[string]interface{}) error {
+func (v CreativeWorkSeries) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CreativeWork.IntoMap(intop)
+	v.CreativeWork.intoMap(intop)
 
 	into := *intop
 
@@ -86,9 +86,9 @@ func (v CreativeWorkSeries) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v CreativeWorkSeries) AsMap() (map[string]interface{}, error) {
+func (v CreativeWorkSeries) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +100,7 @@ func (v CreativeWorkSeries) AsMap() (map[string]interface{}, error) {
 }
 
 func (v CreativeWorkSeries) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

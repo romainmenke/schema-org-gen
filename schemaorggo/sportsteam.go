@@ -19,12 +19,12 @@ type SportsTeam struct {
 	Coach []*Person `json:"coach,omitempty"`
 }
 
-func (v SportsTeam) IntoMap(intop *map[string]interface{}) error {
+func (v SportsTeam) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.SportsOrganization.IntoMap(intop)
+	v.SportsOrganization.intoMap(intop)
 
 	into := *intop
 
@@ -65,9 +65,9 @@ func (v SportsTeam) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v SportsTeam) AsMap() (map[string]interface{}, error) {
+func (v SportsTeam) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +79,7 @@ func (v SportsTeam) AsMap() (map[string]interface{}, error) {
 }
 
 func (v SportsTeam) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

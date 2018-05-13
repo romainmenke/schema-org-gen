@@ -29,12 +29,12 @@ type ImageObject struct {
 	Thumbnail []*ImageObject `json:"thumbnail,omitempty"`
 }
 
-func (v ImageObject) IntoMap(intop *map[string]interface{}) error {
+func (v ImageObject) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.MediaObject.IntoMap(intop)
+	v.MediaObject.intoMap(intop)
 
 	into := *intop
 
@@ -107,9 +107,9 @@ func (v ImageObject) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v ImageObject) AsMap() (map[string]interface{}, error) {
+func (v ImageObject) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -121,7 +121,7 @@ func (v ImageObject) AsMap() (map[string]interface{}, error) {
 }
 
 func (v ImageObject) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

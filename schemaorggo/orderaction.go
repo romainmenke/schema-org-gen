@@ -14,12 +14,12 @@ type OrderAction struct {
 	DeliveryMethod []*DeliveryMethod `json:"deliveryMethod,omitempty"`
 }
 
-func (v OrderAction) IntoMap(intop *map[string]interface{}) error {
+func (v OrderAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.TradeAction.IntoMap(intop)
+	v.TradeAction.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v OrderAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v OrderAction) AsMap() (map[string]interface{}, error) {
+func (v OrderAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v OrderAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v OrderAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -170,12 +170,12 @@ type Event struct {
 	WorkPerformed []*CreativeWork `json:"workPerformed,omitempty"`
 }
 
-func (v Event) IntoMap(intop *map[string]interface{}) error {
+func (v Event) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Thing.IntoMap(intop)
+	v.Thing.intoMap(intop)
 
 	into := *intop
 
@@ -696,9 +696,9 @@ func (v Event) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Event) AsMap() (map[string]interface{}, error) {
+func (v Event) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -710,7 +710,7 @@ func (v Event) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Event) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

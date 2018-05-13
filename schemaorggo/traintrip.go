@@ -54,12 +54,12 @@ type TrainTrip struct {
 	TrainNumber []string `json:"trainNumber,omitempty"`
 }
 
-func (v TrainTrip) IntoMap(intop *map[string]interface{}) error {
+func (v TrainTrip) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Intangible.IntoMap(intop)
+	v.Intangible.intoMap(intop)
 
 	into := *intop
 
@@ -212,9 +212,9 @@ func (v TrainTrip) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v TrainTrip) AsMap() (map[string]interface{}, error) {
+func (v TrainTrip) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -226,7 +226,7 @@ func (v TrainTrip) AsMap() (map[string]interface{}, error) {
 }
 
 func (v TrainTrip) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

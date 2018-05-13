@@ -14,12 +14,12 @@ type CompoundPriceSpecification struct {
 	PriceComponent []*UnitPriceSpecification `json:"priceComponent,omitempty"`
 }
 
-func (v CompoundPriceSpecification) IntoMap(intop *map[string]interface{}) error {
+func (v CompoundPriceSpecification) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.PriceSpecification.IntoMap(intop)
+	v.PriceSpecification.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v CompoundPriceSpecification) IntoMap(intop *map[string]interface{}) error
 	return nil
 }
 
-func (v CompoundPriceSpecification) AsMap() (map[string]interface{}, error) {
+func (v CompoundPriceSpecification) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v CompoundPriceSpecification) AsMap() (map[string]interface{}, error) {
 }
 
 func (v CompoundPriceSpecification) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

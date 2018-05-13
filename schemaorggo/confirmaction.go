@@ -14,12 +14,12 @@ type ConfirmAction struct {
 	Event []*Event `json:"event,omitempty"`
 }
 
-func (v ConfirmAction) IntoMap(intop *map[string]interface{}) error {
+func (v ConfirmAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.InformAction.IntoMap(intop)
+	v.InformAction.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v ConfirmAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v ConfirmAction) AsMap() (map[string]interface{}, error) {
+func (v ConfirmAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v ConfirmAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v ConfirmAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

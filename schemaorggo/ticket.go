@@ -49,12 +49,12 @@ type Ticket struct {
 	UnderName []interface{} `json:"underName,omitempty"`
 }
 
-func (v Ticket) IntoMap(intop *map[string]interface{}) error {
+func (v Ticket) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Intangible.IntoMap(intop)
+	v.Intangible.intoMap(intop)
 
 	into := *intop
 
@@ -191,9 +191,9 @@ func (v Ticket) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Ticket) AsMap() (map[string]interface{}, error) {
+func (v Ticket) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -205,7 +205,7 @@ func (v Ticket) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Ticket) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -425,12 +425,12 @@ type CreativeWork struct {
 	WorkTranslation []*CreativeWork `json:"workTranslation,omitempty"`
 }
 
-func (v CreativeWork) IntoMap(intop *map[string]interface{}) error {
+func (v CreativeWork) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Thing.IntoMap(intop)
+	v.Thing.intoMap(intop)
 
 	into := *intop
 
@@ -1751,9 +1751,9 @@ func (v CreativeWork) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v CreativeWork) AsMap() (map[string]interface{}, error) {
+func (v CreativeWork) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -1765,7 +1765,7 @@ func (v CreativeWork) AsMap() (map[string]interface{}, error) {
 }
 
 func (v CreativeWork) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

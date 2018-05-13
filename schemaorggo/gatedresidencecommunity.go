@@ -180,12 +180,12 @@ type GatedResidenceCommunity struct {
 	Telephone []string `json:"telephone,omitempty"`
 }
 
-func (v GatedResidenceCommunity) IntoMap(intop *map[string]interface{}) error {
+func (v GatedResidenceCommunity) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Residence.IntoMap(intop)
+	v.Residence.intoMap(intop)
 
 	into := *intop
 
@@ -722,9 +722,9 @@ func (v GatedResidenceCommunity) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v GatedResidenceCommunity) AsMap() (map[string]interface{}, error) {
+func (v GatedResidenceCommunity) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -736,7 +736,7 @@ func (v GatedResidenceCommunity) AsMap() (map[string]interface{}, error) {
 }
 
 func (v GatedResidenceCommunity) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

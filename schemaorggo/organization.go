@@ -241,12 +241,12 @@ type Organization struct {
 	VatID []string `json:"vatID,omitempty"`
 }
 
-func (v Organization) IntoMap(intop *map[string]interface{}) error {
+func (v Organization) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Thing.IntoMap(intop)
+	v.Thing.intoMap(intop)
 
 	into := *intop
 
@@ -991,9 +991,9 @@ func (v Organization) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Organization) AsMap() (map[string]interface{}, error) {
+func (v Organization) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -1005,7 +1005,7 @@ func (v Organization) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Organization) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

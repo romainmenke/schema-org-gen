@@ -14,12 +14,12 @@ type SearchAction struct {
 	Query []string `json:"query,omitempty"`
 }
 
-func (v SearchAction) IntoMap(intop *map[string]interface{}) error {
+func (v SearchAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Action.IntoMap(intop)
+	v.Action.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v SearchAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v SearchAction) AsMap() (map[string]interface{}, error) {
+func (v SearchAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v SearchAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v SearchAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -224,12 +224,12 @@ type Offer struct {
 	Warranty []*WarrantyPromise `json:"warranty,omitempty"`
 }
 
-func (v Offer) IntoMap(intop *map[string]interface{}) error {
+func (v Offer) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Intangible.IntoMap(intop)
+	v.Intangible.intoMap(intop)
 
 	into := *intop
 
@@ -878,9 +878,9 @@ func (v Offer) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Offer) AsMap() (map[string]interface{}, error) {
+func (v Offer) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -892,7 +892,7 @@ func (v Offer) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Offer) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

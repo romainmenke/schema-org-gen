@@ -24,12 +24,12 @@ type CommunicateAction struct {
 	Recipient []interface{} `json:"recipient,omitempty"`
 }
 
-func (v CommunicateAction) IntoMap(intop *map[string]interface{}) error {
+func (v CommunicateAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.InteractAction.IntoMap(intop)
+	v.InteractAction.intoMap(intop)
 
 	into := *intop
 
@@ -86,9 +86,9 @@ func (v CommunicateAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v CommunicateAction) AsMap() (map[string]interface{}, error) {
+func (v CommunicateAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +100,7 @@ func (v CommunicateAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v CommunicateAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

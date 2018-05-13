@@ -34,12 +34,12 @@ type OrderItem struct {
 	OrderedItem []interface{} `json:"orderedItem,omitempty"`
 }
 
-func (v OrderItem) IntoMap(intop *map[string]interface{}) error {
+func (v OrderItem) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Intangible.IntoMap(intop)
+	v.Intangible.intoMap(intop)
 
 	into := *intop
 
@@ -128,9 +128,9 @@ func (v OrderItem) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v OrderItem) AsMap() (map[string]interface{}, error) {
+func (v OrderItem) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -142,7 +142,7 @@ func (v OrderItem) AsMap() (map[string]interface{}, error) {
 }
 
 func (v OrderItem) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

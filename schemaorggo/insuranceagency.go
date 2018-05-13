@@ -14,12 +14,12 @@ type InsuranceAgency struct {
 	FeesAndCommissionsSpecification []string `json:"feesAndCommissionsSpecification,omitempty"`
 }
 
-func (v InsuranceAgency) IntoMap(intop *map[string]interface{}) error {
+func (v InsuranceAgency) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.FinancialService.IntoMap(intop)
+	v.FinancialService.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v InsuranceAgency) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v InsuranceAgency) AsMap() (map[string]interface{}, error) {
+func (v InsuranceAgency) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v InsuranceAgency) AsMap() (map[string]interface{}, error) {
 }
 
 func (v InsuranceAgency) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

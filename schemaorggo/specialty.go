@@ -14,12 +14,12 @@ type Specialty struct {
 	SupersededBy []interface{} `json:"supersededBy,omitempty"`
 }
 
-func (v Specialty) IntoMap(intop *map[string]interface{}) error {
+func (v Specialty) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Enumeration.IntoMap(intop)
+	v.Enumeration.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v Specialty) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Specialty) AsMap() (map[string]interface{}, error) {
+func (v Specialty) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v Specialty) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Specialty) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

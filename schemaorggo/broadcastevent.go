@@ -24,12 +24,12 @@ type BroadcastEvent struct {
 	VideoFormat []string `json:"videoFormat,omitempty"`
 }
 
-func (v BroadcastEvent) IntoMap(intop *map[string]interface{}) error {
+func (v BroadcastEvent) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.PublicationEvent.IntoMap(intop)
+	v.PublicationEvent.intoMap(intop)
 
 	into := *intop
 
@@ -86,9 +86,9 @@ func (v BroadcastEvent) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v BroadcastEvent) AsMap() (map[string]interface{}, error) {
+func (v BroadcastEvent) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +100,7 @@ func (v BroadcastEvent) AsMap() (map[string]interface{}, error) {
 }
 
 func (v BroadcastEvent) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

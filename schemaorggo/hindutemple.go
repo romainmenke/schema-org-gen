@@ -22,12 +22,12 @@ type HinduTemple struct {
 	OpeningHours []string `json:"openingHours,omitempty"`
 }
 
-func (v HinduTemple) IntoMap(intop *map[string]interface{}) error {
+func (v HinduTemple) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.PlaceOfWorship.IntoMap(intop)
+	v.PlaceOfWorship.intoMap(intop)
 
 	into := *intop
 
@@ -52,9 +52,9 @@ func (v HinduTemple) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v HinduTemple) AsMap() (map[string]interface{}, error) {
+func (v HinduTemple) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +66,7 @@ func (v HinduTemple) AsMap() (map[string]interface{}, error) {
 }
 
 func (v HinduTemple) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

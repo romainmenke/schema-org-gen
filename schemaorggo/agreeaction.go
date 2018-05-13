@@ -68,12 +68,12 @@ type AgreeAction struct {
 	Target []*EntryPoint `json:"target,omitempty"`
 }
 
-func (v AgreeAction) IntoMap(intop *map[string]interface{}) error {
+func (v AgreeAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.ReactAction.IntoMap(intop)
+	v.ReactAction.intoMap(intop)
 
 	into := *intop
 
@@ -258,9 +258,9 @@ func (v AgreeAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v AgreeAction) AsMap() (map[string]interface{}, error) {
+func (v AgreeAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -272,7 +272,7 @@ func (v AgreeAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v AgreeAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

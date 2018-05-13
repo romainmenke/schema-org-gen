@@ -64,12 +64,12 @@ type Duration struct {
 	Url []string `json:"url,omitempty"`
 }
 
-func (v Duration) IntoMap(intop *map[string]interface{}) error {
+func (v Duration) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Quantity.IntoMap(intop)
+	v.Quantity.intoMap(intop)
 
 	into := *intop
 
@@ -254,9 +254,9 @@ func (v Duration) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Duration) AsMap() (map[string]interface{}, error) {
+func (v Duration) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -268,7 +268,7 @@ func (v Duration) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Duration) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

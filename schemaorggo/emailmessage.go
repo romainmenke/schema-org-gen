@@ -54,12 +54,12 @@ type EmailMessage struct {
 	ToRecipient []interface{} `json:"toRecipient,omitempty"`
 }
 
-func (v EmailMessage) IntoMap(intop *map[string]interface{}) error {
+func (v EmailMessage) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Message.IntoMap(intop)
+	v.Message.intoMap(intop)
 
 	into := *intop
 
@@ -212,9 +212,9 @@ func (v EmailMessage) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v EmailMessage) AsMap() (map[string]interface{}, error) {
+func (v EmailMessage) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -226,7 +226,7 @@ func (v EmailMessage) AsMap() (map[string]interface{}, error) {
 }
 
 func (v EmailMessage) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

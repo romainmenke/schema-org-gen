@@ -65,12 +65,12 @@ type ItemPage struct {
 	Specialty []*Specialty `json:"specialty,omitempty"`
 }
 
-func (v ItemPage) IntoMap(intop *map[string]interface{}) error {
+func (v ItemPage) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.WebPage.IntoMap(intop)
+	v.WebPage.intoMap(intop)
 
 	into := *intop
 
@@ -223,9 +223,9 @@ func (v ItemPage) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v ItemPage) AsMap() (map[string]interface{}, error) {
+func (v ItemPage) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -237,7 +237,7 @@ func (v ItemPage) AsMap() (map[string]interface{}, error) {
 }
 
 func (v ItemPage) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

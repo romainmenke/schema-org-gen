@@ -54,12 +54,12 @@ type LoanOrCredit struct {
 	RequiredCollateral []interface{} `json:"requiredCollateral,omitempty"`
 }
 
-func (v LoanOrCredit) IntoMap(intop *map[string]interface{}) error {
+func (v LoanOrCredit) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.FinancialProduct.IntoMap(intop)
+	v.FinancialProduct.intoMap(intop)
 
 	into := *intop
 
@@ -212,9 +212,9 @@ func (v LoanOrCredit) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v LoanOrCredit) AsMap() (map[string]interface{}, error) {
+func (v LoanOrCredit) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -226,7 +226,7 @@ func (v LoanOrCredit) AsMap() (map[string]interface{}, error) {
 }
 
 func (v LoanOrCredit) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

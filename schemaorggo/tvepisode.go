@@ -19,12 +19,12 @@ type TVEpisode struct {
 	SubtitleLanguage []interface{} `json:"subtitleLanguage,omitempty"`
 }
 
-func (v TVEpisode) IntoMap(intop *map[string]interface{}) error {
+func (v TVEpisode) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Episode.IntoMap(intop)
+	v.Episode.intoMap(intop)
 
 	into := *intop
 
@@ -65,9 +65,9 @@ func (v TVEpisode) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v TVEpisode) AsMap() (map[string]interface{}, error) {
+func (v TVEpisode) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +79,7 @@ func (v TVEpisode) AsMap() (map[string]interface{}, error) {
 }
 
 func (v TVEpisode) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

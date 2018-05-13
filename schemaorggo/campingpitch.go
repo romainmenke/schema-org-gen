@@ -36,12 +36,12 @@ type CampingPitch struct {
 	PetsAllowed []interface{} `json:"petsAllowed,omitempty"`
 }
 
-func (v CampingPitch) IntoMap(intop *map[string]interface{}) error {
+func (v CampingPitch) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Accommodation.IntoMap(intop)
+	v.Accommodation.intoMap(intop)
 
 	into := *intop
 
@@ -130,9 +130,9 @@ func (v CampingPitch) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v CampingPitch) AsMap() (map[string]interface{}, error) {
+func (v CampingPitch) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -144,7 +144,7 @@ func (v CampingPitch) AsMap() (map[string]interface{}, error) {
 }
 
 func (v CampingPitch) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -14,12 +14,12 @@ type WearAction struct {
 	ExpectsAcceptanceOf []*Offer `json:"expectsAcceptanceOf,omitempty"`
 }
 
-func (v WearAction) IntoMap(intop *map[string]interface{}) error {
+func (v WearAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.UseAction.IntoMap(intop)
+	v.UseAction.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v WearAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v WearAction) AsMap() (map[string]interface{}, error) {
+func (v WearAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v WearAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v WearAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

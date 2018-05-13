@@ -37,12 +37,12 @@ type ChildCare struct {
 	PriceRange []string `json:"priceRange,omitempty"`
 }
 
-func (v ChildCare) IntoMap(intop *map[string]interface{}) error {
+func (v ChildCare) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.LocalBusiness.IntoMap(intop)
+	v.LocalBusiness.intoMap(intop)
 
 	into := *intop
 
@@ -115,9 +115,9 @@ func (v ChildCare) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v ChildCare) AsMap() (map[string]interface{}, error) {
+func (v ChildCare) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +129,7 @@ func (v ChildCare) AsMap() (map[string]interface{}, error) {
 }
 
 func (v ChildCare) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

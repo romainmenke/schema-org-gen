@@ -44,12 +44,12 @@ type Hotel struct {
 	StarRating []*Rating `json:"starRating,omitempty"`
 }
 
-func (v Hotel) IntoMap(intop *map[string]interface{}) error {
+func (v Hotel) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.LodgingBusiness.IntoMap(intop)
+	v.LodgingBusiness.intoMap(intop)
 
 	into := *intop
 
@@ -170,9 +170,9 @@ func (v Hotel) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Hotel) AsMap() (map[string]interface{}, error) {
+func (v Hotel) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -184,7 +184,7 @@ func (v Hotel) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Hotel) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

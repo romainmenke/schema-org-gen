@@ -37,12 +37,12 @@ type NightClub struct {
 	PriceRange []string `json:"priceRange,omitempty"`
 }
 
-func (v NightClub) IntoMap(intop *map[string]interface{}) error {
+func (v NightClub) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.EntertainmentBusiness.IntoMap(intop)
+	v.EntertainmentBusiness.intoMap(intop)
 
 	into := *intop
 
@@ -115,9 +115,9 @@ func (v NightClub) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v NightClub) AsMap() (map[string]interface{}, error) {
+func (v NightClub) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +129,7 @@ func (v NightClub) AsMap() (map[string]interface{}, error) {
 }
 
 func (v NightClub) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

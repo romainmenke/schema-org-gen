@@ -37,12 +37,12 @@ type HVACBusiness struct {
 	PriceRange []string `json:"priceRange,omitempty"`
 }
 
-func (v HVACBusiness) IntoMap(intop *map[string]interface{}) error {
+func (v HVACBusiness) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.HomeAndConstructionBusiness.IntoMap(intop)
+	v.HomeAndConstructionBusiness.intoMap(intop)
 
 	into := *intop
 
@@ -115,9 +115,9 @@ func (v HVACBusiness) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v HVACBusiness) AsMap() (map[string]interface{}, error) {
+func (v HVACBusiness) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +129,7 @@ func (v HVACBusiness) AsMap() (map[string]interface{}, error) {
 }
 
 func (v HVACBusiness) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

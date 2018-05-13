@@ -24,12 +24,12 @@ type OnDemandEvent struct {
 	PublishedOn []*BroadcastService `json:"publishedOn,omitempty"`
 }
 
-func (v OnDemandEvent) IntoMap(intop *map[string]interface{}) error {
+func (v OnDemandEvent) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.PublicationEvent.IntoMap(intop)
+	v.PublicationEvent.intoMap(intop)
 
 	into := *intop
 
@@ -86,9 +86,9 @@ func (v OnDemandEvent) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v OnDemandEvent) AsMap() (map[string]interface{}, error) {
+func (v OnDemandEvent) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +100,7 @@ func (v OnDemandEvent) AsMap() (map[string]interface{}, error) {
 }
 
 func (v OnDemandEvent) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

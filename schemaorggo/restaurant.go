@@ -29,12 +29,12 @@ type Restaurant struct {
 	StarRating []*Rating `json:"starRating,omitempty"`
 }
 
-func (v Restaurant) IntoMap(intop *map[string]interface{}) error {
+func (v Restaurant) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.FoodEstablishment.IntoMap(intop)
+	v.FoodEstablishment.intoMap(intop)
 
 	into := *intop
 
@@ -107,9 +107,9 @@ func (v Restaurant) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Restaurant) AsMap() (map[string]interface{}, error) {
+func (v Restaurant) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -121,7 +121,7 @@ func (v Restaurant) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Restaurant) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

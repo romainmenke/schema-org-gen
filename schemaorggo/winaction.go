@@ -14,12 +14,12 @@ type WinAction struct {
 	Loser []*Person `json:"loser,omitempty"`
 }
 
-func (v WinAction) IntoMap(intop *map[string]interface{}) error {
+func (v WinAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.AchieveAction.IntoMap(intop)
+	v.AchieveAction.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v WinAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v WinAction) AsMap() (map[string]interface{}, error) {
+func (v WinAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v WinAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v WinAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

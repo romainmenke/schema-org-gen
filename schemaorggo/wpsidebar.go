@@ -425,12 +425,12 @@ type WPSideBar struct {
 	WorkTranslation []*CreativeWork `json:"workTranslation,omitempty"`
 }
 
-func (v WPSideBar) IntoMap(intop *map[string]interface{}) error {
+func (v WPSideBar) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.WebPageElement.IntoMap(intop)
+	v.WebPageElement.intoMap(intop)
 
 	into := *intop
 
@@ -1751,9 +1751,9 @@ func (v WPSideBar) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v WPSideBar) AsMap() (map[string]interface{}, error) {
+func (v WPSideBar) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -1765,7 +1765,7 @@ func (v WPSideBar) AsMap() (map[string]interface{}, error) {
 }
 
 func (v WPSideBar) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -24,12 +24,12 @@ type Pharmacy struct {
 	MedicalSpecialty []interface{} `json:"medicalSpecialty,omitempty"`
 }
 
-func (v Pharmacy) IntoMap(intop *map[string]interface{}) error {
+func (v Pharmacy) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.MedicalOrganization.IntoMap(intop)
+	v.MedicalOrganization.intoMap(intop)
 
 	into := *intop
 
@@ -86,9 +86,9 @@ func (v Pharmacy) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Pharmacy) AsMap() (map[string]interface{}, error) {
+func (v Pharmacy) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +100,7 @@ func (v Pharmacy) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Pharmacy) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

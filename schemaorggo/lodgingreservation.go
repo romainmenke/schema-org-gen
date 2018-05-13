@@ -39,12 +39,12 @@ type LodgingReservation struct {
 	NumChildren []interface{} `json:"numChildren,omitempty"`
 }
 
-func (v LodgingReservation) IntoMap(intop *map[string]interface{}) error {
+func (v LodgingReservation) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Reservation.IntoMap(intop)
+	v.Reservation.intoMap(intop)
 
 	into := *intop
 
@@ -149,9 +149,9 @@ func (v LodgingReservation) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v LodgingReservation) AsMap() (map[string]interface{}, error) {
+func (v LodgingReservation) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -163,7 +163,7 @@ func (v LodgingReservation) AsMap() (map[string]interface{}, error) {
 }
 
 func (v LodgingReservation) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

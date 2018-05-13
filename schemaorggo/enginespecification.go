@@ -54,12 +54,12 @@ type EngineSpecification struct {
 	Torque []*QuantitativeValue `json:"torque,omitempty"`
 }
 
-func (v EngineSpecification) IntoMap(intop *map[string]interface{}) error {
+func (v EngineSpecification) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.StructuredValue.IntoMap(intop)
+	v.StructuredValue.intoMap(intop)
 
 	into := *intop
 
@@ -148,9 +148,9 @@ func (v EngineSpecification) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v EngineSpecification) AsMap() (map[string]interface{}, error) {
+func (v EngineSpecification) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -162,7 +162,7 @@ func (v EngineSpecification) AsMap() (map[string]interface{}, error) {
 }
 
 func (v EngineSpecification) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

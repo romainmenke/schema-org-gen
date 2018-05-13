@@ -14,12 +14,12 @@ type VoteAction struct {
 	Candidate []*Person `json:"candidate,omitempty"`
 }
 
-func (v VoteAction) IntoMap(intop *map[string]interface{}) error {
+func (v VoteAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.ChooseAction.IntoMap(intop)
+	v.ChooseAction.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v VoteAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v VoteAction) AsMap() (map[string]interface{}, error) {
+func (v VoteAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v VoteAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v VoteAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -14,12 +14,12 @@ type WatchAction struct {
 	ExpectsAcceptanceOf []*Offer `json:"expectsAcceptanceOf,omitempty"`
 }
 
-func (v WatchAction) IntoMap(intop *map[string]interface{}) error {
+func (v WatchAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.ConsumeAction.IntoMap(intop)
+	v.ConsumeAction.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v WatchAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v WatchAction) AsMap() (map[string]interface{}, error) {
+func (v WatchAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v WatchAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v WatchAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

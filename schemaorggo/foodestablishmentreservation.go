@@ -28,12 +28,12 @@ type FoodEstablishmentReservation struct {
 	StartTime []DateTime `json:"startTime,omitempty"`
 }
 
-func (v FoodEstablishmentReservation) IntoMap(intop *map[string]interface{}) error {
+func (v FoodEstablishmentReservation) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Reservation.IntoMap(intop)
+	v.Reservation.intoMap(intop)
 
 	into := *intop
 
@@ -90,9 +90,9 @@ func (v FoodEstablishmentReservation) IntoMap(intop *map[string]interface{}) err
 	return nil
 }
 
-func (v FoodEstablishmentReservation) AsMap() (map[string]interface{}, error) {
+func (v FoodEstablishmentReservation) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +104,7 @@ func (v FoodEstablishmentReservation) AsMap() (map[string]interface{}, error) {
 }
 
 func (v FoodEstablishmentReservation) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

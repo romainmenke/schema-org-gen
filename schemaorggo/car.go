@@ -28,12 +28,12 @@ type Car struct {
 	RoofLoad []*QuantitativeValue `json:"roofLoad,omitempty"`
 }
 
-func (v Car) IntoMap(intop *map[string]interface{}) error {
+func (v Car) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Vehicle.IntoMap(intop)
+	v.Vehicle.intoMap(intop)
 
 	into := *intop
 
@@ -74,9 +74,9 @@ func (v Car) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Car) AsMap() (map[string]interface{}, error) {
+func (v Car) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -88,7 +88,7 @@ func (v Car) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Car) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

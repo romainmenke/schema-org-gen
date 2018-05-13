@@ -14,12 +14,12 @@ type LendAction struct {
 	Borrower []*Person `json:"borrower,omitempty"`
 }
 
-func (v LendAction) IntoMap(intop *map[string]interface{}) error {
+func (v LendAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.TransferAction.IntoMap(intop)
+	v.TransferAction.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v LendAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v LendAction) AsMap() (map[string]interface{}, error) {
+func (v LendAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v LendAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v LendAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

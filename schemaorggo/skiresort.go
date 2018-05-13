@@ -37,12 +37,12 @@ type SkiResort struct {
 	PriceRange []string `json:"priceRange,omitempty"`
 }
 
-func (v SkiResort) IntoMap(intop *map[string]interface{}) error {
+func (v SkiResort) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.SportsActivityLocation.IntoMap(intop)
+	v.SportsActivityLocation.intoMap(intop)
 
 	into := *intop
 
@@ -115,9 +115,9 @@ func (v SkiResort) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v SkiResort) AsMap() (map[string]interface{}, error) {
+func (v SkiResort) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +129,7 @@ func (v SkiResort) AsMap() (map[string]interface{}, error) {
 }
 
 func (v SkiResort) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

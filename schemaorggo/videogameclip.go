@@ -44,12 +44,12 @@ type VideoGameClip struct {
 	PartOfSeries []*CreativeWorkSeries `json:"partOfSeries,omitempty"`
 }
 
-func (v VideoGameClip) IntoMap(intop *map[string]interface{}) error {
+func (v VideoGameClip) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Clip.IntoMap(intop)
+	v.Clip.intoMap(intop)
 
 	into := *intop
 
@@ -170,9 +170,9 @@ func (v VideoGameClip) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v VideoGameClip) AsMap() (map[string]interface{}, error) {
+func (v VideoGameClip) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -184,7 +184,7 @@ func (v VideoGameClip) AsMap() (map[string]interface{}, error) {
 }
 
 func (v VideoGameClip) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

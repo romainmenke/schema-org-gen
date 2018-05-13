@@ -64,12 +64,12 @@ type Distance struct {
 	Url []string `json:"url,omitempty"`
 }
 
-func (v Distance) IntoMap(intop *map[string]interface{}) error {
+func (v Distance) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Quantity.IntoMap(intop)
+	v.Quantity.intoMap(intop)
 
 	into := *intop
 
@@ -254,9 +254,9 @@ func (v Distance) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Distance) AsMap() (map[string]interface{}, error) {
+func (v Distance) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -268,7 +268,7 @@ func (v Distance) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Distance) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

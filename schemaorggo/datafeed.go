@@ -14,12 +14,12 @@ type DataFeed struct {
 	DataFeedElement []interface{} `json:"dataFeedElement,omitempty"`
 }
 
-func (v DataFeed) IntoMap(intop *map[string]interface{}) error {
+func (v DataFeed) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Dataset.IntoMap(intop)
+	v.Dataset.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v DataFeed) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v DataFeed) AsMap() (map[string]interface{}, error) {
+func (v DataFeed) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v DataFeed) AsMap() (map[string]interface{}, error) {
 }
 
 func (v DataFeed) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

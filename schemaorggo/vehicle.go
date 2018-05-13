@@ -280,12 +280,12 @@ type Vehicle struct {
 	Wheelbase []*QuantitativeValue `json:"wheelbase,omitempty"`
 }
 
-func (v Vehicle) IntoMap(intop *map[string]interface{}) error {
+func (v Vehicle) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Product.IntoMap(intop)
+	v.Product.intoMap(intop)
 
 	into := *intop
 
@@ -902,9 +902,9 @@ func (v Vehicle) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Vehicle) AsMap() (map[string]interface{}, error) {
+func (v Vehicle) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -916,7 +916,7 @@ func (v Vehicle) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Vehicle) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

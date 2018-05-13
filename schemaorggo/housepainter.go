@@ -37,12 +37,12 @@ type HousePainter struct {
 	PriceRange []string `json:"priceRange,omitempty"`
 }
 
-func (v HousePainter) IntoMap(intop *map[string]interface{}) error {
+func (v HousePainter) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.HomeAndConstructionBusiness.IntoMap(intop)
+	v.HomeAndConstructionBusiness.intoMap(intop)
 
 	into := *intop
 
@@ -115,9 +115,9 @@ func (v HousePainter) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v HousePainter) AsMap() (map[string]interface{}, error) {
+func (v HousePainter) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +129,7 @@ func (v HousePainter) AsMap() (map[string]interface{}, error) {
 }
 
 func (v HousePainter) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

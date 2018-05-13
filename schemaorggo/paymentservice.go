@@ -24,12 +24,12 @@ type PaymentService struct {
 	InterestRate []interface{} `json:"interestRate,omitempty"`
 }
 
-func (v PaymentService) IntoMap(intop *map[string]interface{}) error {
+func (v PaymentService) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.FinancialProduct.IntoMap(intop)
+	v.FinancialProduct.intoMap(intop)
 
 	into := *intop
 
@@ -86,9 +86,9 @@ func (v PaymentService) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v PaymentService) AsMap() (map[string]interface{}, error) {
+func (v PaymentService) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +100,7 @@ func (v PaymentService) AsMap() (map[string]interface{}, error) {
 }
 
 func (v PaymentService) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

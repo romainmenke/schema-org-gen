@@ -19,12 +19,12 @@ type DownloadAction struct {
 	ToLocation []*Place `json:"toLocation,omitempty"`
 }
 
-func (v DownloadAction) IntoMap(intop *map[string]interface{}) error {
+func (v DownloadAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.TransferAction.IntoMap(intop)
+	v.TransferAction.intoMap(intop)
 
 	into := *intop
 
@@ -65,9 +65,9 @@ func (v DownloadAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v DownloadAction) AsMap() (map[string]interface{}, error) {
+func (v DownloadAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +79,7 @@ func (v DownloadAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v DownloadAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

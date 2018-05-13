@@ -14,12 +14,12 @@ type JoinAction struct {
 	Event []*Event `json:"event,omitempty"`
 }
 
-func (v JoinAction) IntoMap(intop *map[string]interface{}) error {
+func (v JoinAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.InteractAction.IntoMap(intop)
+	v.InteractAction.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v JoinAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v JoinAction) AsMap() (map[string]interface{}, error) {
+func (v JoinAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v JoinAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v JoinAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -22,12 +22,12 @@ type Cemetery struct {
 	OpeningHours []string `json:"openingHours,omitempty"`
 }
 
-func (v Cemetery) IntoMap(intop *map[string]interface{}) error {
+func (v Cemetery) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CivicStructure.IntoMap(intop)
+	v.CivicStructure.intoMap(intop)
 
 	into := *intop
 
@@ -52,9 +52,9 @@ func (v Cemetery) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Cemetery) AsMap() (map[string]interface{}, error) {
+func (v Cemetery) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +66,7 @@ func (v Cemetery) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Cemetery) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

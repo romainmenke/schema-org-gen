@@ -14,12 +14,12 @@ type TravelAction struct {
 	Distance []*Distance `json:"distance,omitempty"`
 }
 
-func (v TravelAction) IntoMap(intop *map[string]interface{}) error {
+func (v TravelAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.MoveAction.IntoMap(intop)
+	v.MoveAction.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v TravelAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v TravelAction) AsMap() (map[string]interface{}, error) {
+func (v TravelAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v TravelAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v TravelAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

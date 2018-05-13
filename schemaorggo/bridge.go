@@ -22,12 +22,12 @@ type Bridge struct {
 	OpeningHours []string `json:"openingHours,omitempty"`
 }
 
-func (v Bridge) IntoMap(intop *map[string]interface{}) error {
+func (v Bridge) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CivicStructure.IntoMap(intop)
+	v.CivicStructure.intoMap(intop)
 
 	into := *intop
 
@@ -52,9 +52,9 @@ func (v Bridge) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Bridge) AsMap() (map[string]interface{}, error) {
+func (v Bridge) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +66,7 @@ func (v Bridge) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Bridge) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -44,12 +44,12 @@ type Campground struct {
 	StarRating []*Rating `json:"starRating,omitempty"`
 }
 
-func (v Campground) IntoMap(intop *map[string]interface{}) error {
+func (v Campground) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CivicStructure.IntoMap(intop)
+	v.CivicStructure.intoMap(intop)
 
 	into := *intop
 
@@ -170,9 +170,9 @@ func (v Campground) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Campground) AsMap() (map[string]interface{}, error) {
+func (v Campground) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -184,7 +184,7 @@ func (v Campground) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Campground) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

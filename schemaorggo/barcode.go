@@ -29,12 +29,12 @@ type Barcode struct {
 	Thumbnail []*ImageObject `json:"thumbnail,omitempty"`
 }
 
-func (v Barcode) IntoMap(intop *map[string]interface{}) error {
+func (v Barcode) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.ImageObject.IntoMap(intop)
+	v.ImageObject.intoMap(intop)
 
 	into := *intop
 
@@ -107,9 +107,9 @@ func (v Barcode) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Barcode) AsMap() (map[string]interface{}, error) {
+func (v Barcode) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -121,7 +121,7 @@ func (v Barcode) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Barcode) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

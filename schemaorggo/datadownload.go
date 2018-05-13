@@ -21,12 +21,12 @@ type DataDownload struct {
 	MeasurementTechnique []string `json:"measurementTechnique,omitempty"`
 }
 
-func (v DataDownload) IntoMap(intop *map[string]interface{}) error {
+func (v DataDownload) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.MediaObject.IntoMap(intop)
+	v.MediaObject.intoMap(intop)
 
 	into := *intop
 
@@ -51,9 +51,9 @@ func (v DataDownload) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v DataDownload) AsMap() (map[string]interface{}, error) {
+func (v DataDownload) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -65,7 +65,7 @@ func (v DataDownload) AsMap() (map[string]interface{}, error) {
 }
 
 func (v DataDownload) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -14,12 +14,12 @@ type MovieTheater struct {
 	ScreenCount []float64 `json:"screenCount,omitempty"`
 }
 
-func (v MovieTheater) IntoMap(intop *map[string]interface{}) error {
+func (v MovieTheater) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CivicStructure.IntoMap(intop)
+	v.CivicStructure.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v MovieTheater) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v MovieTheater) AsMap() (map[string]interface{}, error) {
+func (v MovieTheater) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v MovieTheater) AsMap() (map[string]interface{}, error) {
 }
 
 func (v MovieTheater) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -14,12 +14,12 @@ type ChooseAction struct {
 	ActionOption []interface{} `json:"actionOption,omitempty"`
 }
 
-func (v ChooseAction) IntoMap(intop *map[string]interface{}) error {
+func (v ChooseAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.AssessAction.IntoMap(intop)
+	v.AssessAction.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v ChooseAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v ChooseAction) AsMap() (map[string]interface{}, error) {
+func (v ChooseAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v ChooseAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v ChooseAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

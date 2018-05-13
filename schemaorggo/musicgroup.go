@@ -24,12 +24,12 @@ type MusicGroup struct {
 	Track []interface{} `json:"track,omitempty"`
 }
 
-func (v MusicGroup) IntoMap(intop *map[string]interface{}) error {
+func (v MusicGroup) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.PerformingGroup.IntoMap(intop)
+	v.PerformingGroup.intoMap(intop)
 
 	into := *intop
 
@@ -86,9 +86,9 @@ func (v MusicGroup) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v MusicGroup) AsMap() (map[string]interface{}, error) {
+func (v MusicGroup) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +100,7 @@ func (v MusicGroup) AsMap() (map[string]interface{}, error) {
 }
 
 func (v MusicGroup) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

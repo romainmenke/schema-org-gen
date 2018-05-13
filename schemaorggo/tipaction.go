@@ -14,12 +14,12 @@ type TipAction struct {
 	Recipient []interface{} `json:"recipient,omitempty"`
 }
 
-func (v TipAction) IntoMap(intop *map[string]interface{}) error {
+func (v TipAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.TradeAction.IntoMap(intop)
+	v.TradeAction.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v TipAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v TipAction) AsMap() (map[string]interface{}, error) {
+func (v TipAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v TipAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v TipAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

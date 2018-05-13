@@ -425,12 +425,12 @@ type WPHeader struct {
 	WorkTranslation []*CreativeWork `json:"workTranslation,omitempty"`
 }
 
-func (v WPHeader) IntoMap(intop *map[string]interface{}) error {
+func (v WPHeader) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.WebPageElement.IntoMap(intop)
+	v.WebPageElement.intoMap(intop)
 
 	into := *intop
 
@@ -1751,9 +1751,9 @@ func (v WPHeader) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v WPHeader) AsMap() (map[string]interface{}, error) {
+func (v WPHeader) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -1765,7 +1765,7 @@ func (v WPHeader) AsMap() (map[string]interface{}, error) {
 }
 
 func (v WPHeader) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -29,12 +29,12 @@ type HowToTip struct {
 	PreviousItem []*ListItem `json:"previousItem,omitempty"`
 }
 
-func (v HowToTip) IntoMap(intop *map[string]interface{}) error {
+func (v HowToTip) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.ListItem.IntoMap(intop)
+	v.ListItem.intoMap(intop)
 
 	into := *intop
 
@@ -107,9 +107,9 @@ func (v HowToTip) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v HowToTip) AsMap() (map[string]interface{}, error) {
+func (v HowToTip) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -121,7 +121,7 @@ func (v HowToTip) AsMap() (map[string]interface{}, error) {
 }
 
 func (v HowToTip) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

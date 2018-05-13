@@ -24,12 +24,12 @@ type BusinessAudience struct {
 	YearsInOperation []*QuantitativeValue `json:"yearsInOperation,omitempty"`
 }
 
-func (v BusinessAudience) IntoMap(intop *map[string]interface{}) error {
+func (v BusinessAudience) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Audience.IntoMap(intop)
+	v.Audience.intoMap(intop)
 
 	into := *intop
 
@@ -86,9 +86,9 @@ func (v BusinessAudience) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v BusinessAudience) AsMap() (map[string]interface{}, error) {
+func (v BusinessAudience) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -100,7 +100,7 @@ func (v BusinessAudience) AsMap() (map[string]interface{}, error) {
 }
 
 func (v BusinessAudience) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -68,12 +68,12 @@ type FilmAction struct {
 	Target []*EntryPoint `json:"target,omitempty"`
 }
 
-func (v FilmAction) IntoMap(intop *map[string]interface{}) error {
+func (v FilmAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CreateAction.IntoMap(intop)
+	v.CreateAction.intoMap(intop)
 
 	into := *intop
 
@@ -258,9 +258,9 @@ func (v FilmAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v FilmAction) AsMap() (map[string]interface{}, error) {
+func (v FilmAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -272,7 +272,7 @@ func (v FilmAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v FilmAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

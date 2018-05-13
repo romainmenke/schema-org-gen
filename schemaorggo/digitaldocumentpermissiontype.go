@@ -14,12 +14,12 @@ type DigitalDocumentPermissionType struct {
 	SupersededBy []interface{} `json:"supersededBy,omitempty"`
 }
 
-func (v DigitalDocumentPermissionType) IntoMap(intop *map[string]interface{}) error {
+func (v DigitalDocumentPermissionType) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Enumeration.IntoMap(intop)
+	v.Enumeration.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v DigitalDocumentPermissionType) IntoMap(intop *map[string]interface{}) er
 	return nil
 }
 
-func (v DigitalDocumentPermissionType) AsMap() (map[string]interface{}, error) {
+func (v DigitalDocumentPermissionType) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v DigitalDocumentPermissionType) AsMap() (map[string]interface{}, error) {
 }
 
 func (v DigitalDocumentPermissionType) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

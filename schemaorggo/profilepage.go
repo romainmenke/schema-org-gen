@@ -65,12 +65,12 @@ type ProfilePage struct {
 	Specialty []*Specialty `json:"specialty,omitempty"`
 }
 
-func (v ProfilePage) IntoMap(intop *map[string]interface{}) error {
+func (v ProfilePage) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.WebPage.IntoMap(intop)
+	v.WebPage.intoMap(intop)
 
 	into := *intop
 
@@ -223,9 +223,9 @@ func (v ProfilePage) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v ProfilePage) AsMap() (map[string]interface{}, error) {
+func (v ProfilePage) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -237,7 +237,7 @@ func (v ProfilePage) AsMap() (map[string]interface{}, error) {
 }
 
 func (v ProfilePage) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

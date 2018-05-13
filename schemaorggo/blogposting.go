@@ -14,12 +14,12 @@ type BlogPosting struct {
 	SharedContent []*CreativeWork `json:"sharedContent,omitempty"`
 }
 
-func (v BlogPosting) IntoMap(intop *map[string]interface{}) error {
+func (v BlogPosting) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.SocialMediaPosting.IntoMap(intop)
+	v.SocialMediaPosting.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v BlogPosting) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v BlogPosting) AsMap() (map[string]interface{}, error) {
+func (v BlogPosting) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v BlogPosting) AsMap() (map[string]interface{}, error) {
 }
 
 func (v BlogPosting) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

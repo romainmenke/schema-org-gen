@@ -241,12 +241,12 @@ type DanceGroup struct {
 	VatID []string `json:"vatID,omitempty"`
 }
 
-func (v DanceGroup) IntoMap(intop *map[string]interface{}) error {
+func (v DanceGroup) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.PerformingGroup.IntoMap(intop)
+	v.PerformingGroup.intoMap(intop)
 
 	into := *intop
 
@@ -991,9 +991,9 @@ func (v DanceGroup) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v DanceGroup) AsMap() (map[string]interface{}, error) {
+func (v DanceGroup) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -1005,7 +1005,7 @@ func (v DanceGroup) AsMap() (map[string]interface{}, error) {
 }
 
 func (v DanceGroup) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

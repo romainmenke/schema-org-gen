@@ -44,12 +44,12 @@ type GovernmentPermit struct {
 	ValidUntil []Date `json:"validUntil,omitempty"`
 }
 
-func (v GovernmentPermit) IntoMap(intop *map[string]interface{}) error {
+func (v GovernmentPermit) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Permit.IntoMap(intop)
+	v.Permit.intoMap(intop)
 
 	into := *intop
 
@@ -170,9 +170,9 @@ func (v GovernmentPermit) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v GovernmentPermit) AsMap() (map[string]interface{}, error) {
+func (v GovernmentPermit) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -184,7 +184,7 @@ func (v GovernmentPermit) AsMap() (map[string]interface{}, error) {
 }
 
 func (v GovernmentPermit) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

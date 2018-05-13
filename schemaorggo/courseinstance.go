@@ -19,12 +19,12 @@ type CourseInstance struct {
 	Instructor []*Person `json:"instructor,omitempty"`
 }
 
-func (v CourseInstance) IntoMap(intop *map[string]interface{}) error {
+func (v CourseInstance) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Event.IntoMap(intop)
+	v.Event.intoMap(intop)
 
 	into := *intop
 
@@ -65,9 +65,9 @@ func (v CourseInstance) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v CourseInstance) AsMap() (map[string]interface{}, error) {
+func (v CourseInstance) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +79,7 @@ func (v CourseInstance) AsMap() (map[string]interface{}, error) {
 }
 
 func (v CourseInstance) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

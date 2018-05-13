@@ -14,12 +14,12 @@ type MobileApplication struct {
 	CarrierRequirements []string `json:"carrierRequirements,omitempty"`
 }
 
-func (v MobileApplication) IntoMap(intop *map[string]interface{}) error {
+func (v MobileApplication) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.SoftwareApplication.IntoMap(intop)
+	v.SoftwareApplication.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v MobileApplication) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v MobileApplication) AsMap() (map[string]interface{}, error) {
+func (v MobileApplication) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v MobileApplication) AsMap() (map[string]interface{}, error) {
 }
 
 func (v MobileApplication) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

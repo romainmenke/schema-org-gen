@@ -65,12 +65,12 @@ type PriceSpecification struct {
 	ValueAddedTaxIncluded []bool `json:"valueAddedTaxIncluded,omitempty"`
 }
 
-func (v PriceSpecification) IntoMap(intop *map[string]interface{}) error {
+func (v PriceSpecification) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.StructuredValue.IntoMap(intop)
+	v.StructuredValue.intoMap(intop)
 
 	into := *intop
 
@@ -223,9 +223,9 @@ func (v PriceSpecification) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v PriceSpecification) AsMap() (map[string]interface{}, error) {
+func (v PriceSpecification) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -237,7 +237,7 @@ func (v PriceSpecification) AsMap() (map[string]interface{}, error) {
 }
 
 func (v PriceSpecification) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

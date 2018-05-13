@@ -28,12 +28,12 @@ type BreadcrumbList struct {
 	NumberOfItems []float64 `json:"numberOfItems,omitempty"`
 }
 
-func (v BreadcrumbList) IntoMap(intop *map[string]interface{}) error {
+func (v BreadcrumbList) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.ItemList.IntoMap(intop)
+	v.ItemList.intoMap(intop)
 
 	into := *intop
 
@@ -90,9 +90,9 @@ func (v BreadcrumbList) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v BreadcrumbList) AsMap() (map[string]interface{}, error) {
+func (v BreadcrumbList) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +104,7 @@ func (v BreadcrumbList) AsMap() (map[string]interface{}, error) {
 }
 
 func (v BreadcrumbList) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

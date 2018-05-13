@@ -109,12 +109,12 @@ type CableOrSatelliteService struct {
 	TermsOfService []string `json:"termsOfService,omitempty"`
 }
 
-func (v CableOrSatelliteService) IntoMap(intop *map[string]interface{}) error {
+func (v CableOrSatelliteService) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Service.IntoMap(intop)
+	v.Service.intoMap(intop)
 
 	into := *intop
 
@@ -443,9 +443,9 @@ func (v CableOrSatelliteService) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v CableOrSatelliteService) AsMap() (map[string]interface{}, error) {
+func (v CableOrSatelliteService) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -457,7 +457,7 @@ func (v CableOrSatelliteService) AsMap() (map[string]interface{}, error) {
 }
 
 func (v CableOrSatelliteService) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

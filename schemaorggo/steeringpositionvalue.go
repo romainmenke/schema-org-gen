@@ -51,12 +51,12 @@ type SteeringPositionValue struct {
 	ValueReference []interface{} `json:"valueReference,omitempty"`
 }
 
-func (v SteeringPositionValue) IntoMap(intop *map[string]interface{}) error {
+func (v SteeringPositionValue) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.QualitativeValue.IntoMap(intop)
+	v.QualitativeValue.intoMap(intop)
 
 	into := *intop
 
@@ -193,9 +193,9 @@ func (v SteeringPositionValue) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v SteeringPositionValue) AsMap() (map[string]interface{}, error) {
+func (v SteeringPositionValue) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -207,7 +207,7 @@ func (v SteeringPositionValue) AsMap() (map[string]interface{}, error) {
 }
 
 func (v SteeringPositionValue) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

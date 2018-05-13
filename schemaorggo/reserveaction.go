@@ -14,12 +14,12 @@ type ReserveAction struct {
 	ScheduledTime []DateTime `json:"scheduledTime,omitempty"`
 }
 
-func (v ReserveAction) IntoMap(intop *map[string]interface{}) error {
+func (v ReserveAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.PlanAction.IntoMap(intop)
+	v.PlanAction.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v ReserveAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v ReserveAction) AsMap() (map[string]interface{}, error) {
+func (v ReserveAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v ReserveAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v ReserveAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

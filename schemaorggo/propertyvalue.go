@@ -66,12 +66,12 @@ type PropertyValue struct {
 	ValueReference []interface{} `json:"valueReference,omitempty"`
 }
 
-func (v PropertyValue) IntoMap(intop *map[string]interface{}) error {
+func (v PropertyValue) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.StructuredValue.IntoMap(intop)
+	v.StructuredValue.intoMap(intop)
 
 	into := *intop
 
@@ -208,9 +208,9 @@ func (v PropertyValue) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v PropertyValue) AsMap() (map[string]interface{}, error) {
+func (v PropertyValue) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -222,7 +222,7 @@ func (v PropertyValue) AsMap() (map[string]interface{}, error) {
 }
 
 func (v PropertyValue) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

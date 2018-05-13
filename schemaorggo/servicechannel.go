@@ -49,12 +49,12 @@ type ServiceChannel struct {
 	ServiceUrl []string `json:"serviceUrl,omitempty"`
 }
 
-func (v ServiceChannel) IntoMap(intop *map[string]interface{}) error {
+func (v ServiceChannel) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Intangible.IntoMap(intop)
+	v.Intangible.intoMap(intop)
 
 	into := *intop
 
@@ -191,9 +191,9 @@ func (v ServiceChannel) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v ServiceChannel) AsMap() (map[string]interface{}, error) {
+func (v ServiceChannel) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -205,7 +205,7 @@ func (v ServiceChannel) AsMap() (map[string]interface{}, error) {
 }
 
 func (v ServiceChannel) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

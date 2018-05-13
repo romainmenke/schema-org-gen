@@ -14,12 +14,12 @@ type SomeProducts struct {
 	InventoryLevel []*QuantitativeValue `json:"inventoryLevel,omitempty"`
 }
 
-func (v SomeProducts) IntoMap(intop *map[string]interface{}) error {
+func (v SomeProducts) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Product.IntoMap(intop)
+	v.Product.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v SomeProducts) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v SomeProducts) AsMap() (map[string]interface{}, error) {
+func (v SomeProducts) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v SomeProducts) AsMap() (map[string]interface{}, error) {
 }
 
 func (v SomeProducts) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

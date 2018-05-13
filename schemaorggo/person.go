@@ -266,12 +266,12 @@ type Person struct {
 	WorksFor []*Organization `json:"worksFor,omitempty"`
 }
 
-func (v Person) IntoMap(intop *map[string]interface{}) error {
+func (v Person) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Thing.IntoMap(intop)
+	v.Thing.intoMap(intop)
 
 	into := *intop
 
@@ -1096,9 +1096,9 @@ func (v Person) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Person) AsMap() (map[string]interface{}, error) {
+func (v Person) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -1110,7 +1110,7 @@ func (v Person) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Person) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -37,12 +37,12 @@ type FireStation struct {
 	PriceRange []string `json:"priceRange,omitempty"`
 }
 
-func (v FireStation) IntoMap(intop *map[string]interface{}) error {
+func (v FireStation) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CivicStructure.IntoMap(intop)
+	v.CivicStructure.intoMap(intop)
 
 	into := *intop
 
@@ -115,9 +115,9 @@ func (v FireStation) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v FireStation) AsMap() (map[string]interface{}, error) {
+func (v FireStation) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -129,7 +129,7 @@ func (v FireStation) AsMap() (map[string]interface{}, error) {
 }
 
 func (v FireStation) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

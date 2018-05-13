@@ -109,12 +109,12 @@ type Service struct {
 	TermsOfService []string `json:"termsOfService,omitempty"`
 }
 
-func (v Service) IntoMap(intop *map[string]interface{}) error {
+func (v Service) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Intangible.IntoMap(intop)
+	v.Intangible.intoMap(intop)
 
 	into := *intop
 
@@ -443,9 +443,9 @@ func (v Service) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v Service) AsMap() (map[string]interface{}, error) {
+func (v Service) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -457,7 +457,7 @@ func (v Service) AsMap() (map[string]interface{}, error) {
 }
 
 func (v Service) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

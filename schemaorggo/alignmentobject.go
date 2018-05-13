@@ -34,12 +34,12 @@ type AlignmentObject struct {
 	TargetUrl []string `json:"targetUrl,omitempty"`
 }
 
-func (v AlignmentObject) IntoMap(intop *map[string]interface{}) error {
+func (v AlignmentObject) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Intangible.IntoMap(intop)
+	v.Intangible.intoMap(intop)
 
 	into := *intop
 
@@ -128,9 +128,9 @@ func (v AlignmentObject) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v AlignmentObject) AsMap() (map[string]interface{}, error) {
+func (v AlignmentObject) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -142,7 +142,7 @@ func (v AlignmentObject) AsMap() (map[string]interface{}, error) {
 }
 
 func (v AlignmentObject) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

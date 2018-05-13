@@ -14,12 +14,12 @@ type ParcelService struct {
 	SupersededBy []interface{} `json:"supersededBy,omitempty"`
 }
 
-func (v ParcelService) IntoMap(intop *map[string]interface{}) error {
+func (v ParcelService) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.DeliveryMethod.IntoMap(intop)
+	v.DeliveryMethod.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v ParcelService) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v ParcelService) AsMap() (map[string]interface{}, error) {
+func (v ParcelService) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v ParcelService) AsMap() (map[string]interface{}, error) {
 }
 
 func (v ParcelService) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

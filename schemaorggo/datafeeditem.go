@@ -29,12 +29,12 @@ type DataFeedItem struct {
 	Item []*Thing `json:"item,omitempty"`
 }
 
-func (v DataFeedItem) IntoMap(intop *map[string]interface{}) error {
+func (v DataFeedItem) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Intangible.IntoMap(intop)
+	v.Intangible.intoMap(intop)
 
 	into := *intop
 
@@ -107,9 +107,9 @@ func (v DataFeedItem) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v DataFeedItem) AsMap() (map[string]interface{}, error) {
+func (v DataFeedItem) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -121,7 +121,7 @@ func (v DataFeedItem) AsMap() (map[string]interface{}, error) {
 }
 
 func (v DataFeedItem) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

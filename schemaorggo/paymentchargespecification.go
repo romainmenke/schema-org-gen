@@ -19,12 +19,12 @@ type PaymentChargeSpecification struct {
 	AppliesToPaymentMethod []*PaymentMethod `json:"appliesToPaymentMethod,omitempty"`
 }
 
-func (v PaymentChargeSpecification) IntoMap(intop *map[string]interface{}) error {
+func (v PaymentChargeSpecification) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.PriceSpecification.IntoMap(intop)
+	v.PriceSpecification.intoMap(intop)
 
 	into := *intop
 
@@ -65,9 +65,9 @@ func (v PaymentChargeSpecification) IntoMap(intop *map[string]interface{}) error
 	return nil
 }
 
-func (v PaymentChargeSpecification) AsMap() (map[string]interface{}, error) {
+func (v PaymentChargeSpecification) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +79,7 @@ func (v PaymentChargeSpecification) AsMap() (map[string]interface{}, error) {
 }
 
 func (v PaymentChargeSpecification) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

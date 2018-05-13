@@ -21,12 +21,12 @@ type HotelRoom struct {
 	Occupancy []*QuantitativeValue `json:"occupancy,omitempty"`
 }
 
-func (v HotelRoom) IntoMap(intop *map[string]interface{}) error {
+func (v HotelRoom) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Room.IntoMap(intop)
+	v.Room.intoMap(intop)
 
 	into := *intop
 
@@ -67,9 +67,9 @@ func (v HotelRoom) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v HotelRoom) AsMap() (map[string]interface{}, error) {
+func (v HotelRoom) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +81,7 @@ func (v HotelRoom) AsMap() (map[string]interface{}, error) {
 }
 
 func (v HotelRoom) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

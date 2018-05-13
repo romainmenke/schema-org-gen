@@ -49,12 +49,12 @@ type VideoObject struct {
 	VideoQuality []string `json:"videoQuality,omitempty"`
 }
 
-func (v VideoObject) IntoMap(intop *map[string]interface{}) error {
+func (v VideoObject) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.MediaObject.IntoMap(intop)
+	v.MediaObject.intoMap(intop)
 
 	into := *intop
 
@@ -191,9 +191,9 @@ func (v VideoObject) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v VideoObject) AsMap() (map[string]interface{}, error) {
+func (v VideoObject) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -205,7 +205,7 @@ func (v VideoObject) AsMap() (map[string]interface{}, error) {
 }
 
 func (v VideoObject) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

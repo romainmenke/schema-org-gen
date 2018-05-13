@@ -14,12 +14,12 @@ type BankOrCreditUnion struct {
 	FeesAndCommissionsSpecification []string `json:"feesAndCommissionsSpecification,omitempty"`
 }
 
-func (v BankOrCreditUnion) IntoMap(intop *map[string]interface{}) error {
+func (v BankOrCreditUnion) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.FinancialService.IntoMap(intop)
+	v.FinancialService.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v BankOrCreditUnion) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v BankOrCreditUnion) AsMap() (map[string]interface{}, error) {
+func (v BankOrCreditUnion) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v BankOrCreditUnion) AsMap() (map[string]interface{}, error) {
 }
 
 func (v BankOrCreditUnion) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

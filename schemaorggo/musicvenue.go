@@ -22,12 +22,12 @@ type MusicVenue struct {
 	OpeningHours []string `json:"openingHours,omitempty"`
 }
 
-func (v MusicVenue) IntoMap(intop *map[string]interface{}) error {
+func (v MusicVenue) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CivicStructure.IntoMap(intop)
+	v.CivicStructure.intoMap(intop)
 
 	into := *intop
 
@@ -52,9 +52,9 @@ func (v MusicVenue) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v MusicVenue) AsMap() (map[string]interface{}, error) {
+func (v MusicVenue) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +66,7 @@ func (v MusicVenue) AsMap() (map[string]interface{}, error) {
 }
 
 func (v MusicVenue) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

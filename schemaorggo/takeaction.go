@@ -19,12 +19,12 @@ type TakeAction struct {
 	ToLocation []*Place `json:"toLocation,omitempty"`
 }
 
-func (v TakeAction) IntoMap(intop *map[string]interface{}) error {
+func (v TakeAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.TransferAction.IntoMap(intop)
+	v.TransferAction.intoMap(intop)
 
 	into := *intop
 
@@ -65,9 +65,9 @@ func (v TakeAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v TakeAction) AsMap() (map[string]interface{}, error) {
+func (v TakeAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +79,7 @@ func (v TakeAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v TakeAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

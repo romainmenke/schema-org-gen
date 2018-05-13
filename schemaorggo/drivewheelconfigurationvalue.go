@@ -51,12 +51,12 @@ type DriveWheelConfigurationValue struct {
 	ValueReference []interface{} `json:"valueReference,omitempty"`
 }
 
-func (v DriveWheelConfigurationValue) IntoMap(intop *map[string]interface{}) error {
+func (v DriveWheelConfigurationValue) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.QualitativeValue.IntoMap(intop)
+	v.QualitativeValue.intoMap(intop)
 
 	into := *intop
 
@@ -193,9 +193,9 @@ func (v DriveWheelConfigurationValue) IntoMap(intop *map[string]interface{}) err
 	return nil
 }
 
-func (v DriveWheelConfigurationValue) AsMap() (map[string]interface{}, error) {
+func (v DriveWheelConfigurationValue) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -207,7 +207,7 @@ func (v DriveWheelConfigurationValue) AsMap() (map[string]interface{}, error) {
 }
 
 func (v DriveWheelConfigurationValue) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

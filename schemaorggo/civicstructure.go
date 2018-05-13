@@ -22,12 +22,12 @@ type CivicStructure struct {
 	OpeningHours []string `json:"openingHours,omitempty"`
 }
 
-func (v CivicStructure) IntoMap(intop *map[string]interface{}) error {
+func (v CivicStructure) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.Place.IntoMap(intop)
+	v.Place.intoMap(intop)
 
 	into := *intop
 
@@ -52,9 +52,9 @@ func (v CivicStructure) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v CivicStructure) AsMap() (map[string]interface{}, error) {
+func (v CivicStructure) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -66,7 +66,7 @@ func (v CivicStructure) AsMap() (map[string]interface{}, error) {
 }
 
 func (v CivicStructure) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

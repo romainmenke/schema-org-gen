@@ -14,12 +14,12 @@ type PerformAction struct {
 	EntertainmentBusiness []*EntertainmentBusiness `json:"entertainmentBusiness,omitempty"`
 }
 
-func (v PerformAction) IntoMap(intop *map[string]interface{}) error {
+func (v PerformAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.PlayAction.IntoMap(intop)
+	v.PlayAction.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v PerformAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v PerformAction) AsMap() (map[string]interface{}, error) {
+func (v PerformAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v PerformAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v PerformAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

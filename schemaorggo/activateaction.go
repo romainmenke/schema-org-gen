@@ -68,12 +68,12 @@ type ActivateAction struct {
 	Target []*EntryPoint `json:"target,omitempty"`
 }
 
-func (v ActivateAction) IntoMap(intop *map[string]interface{}) error {
+func (v ActivateAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.ControlAction.IntoMap(intop)
+	v.ControlAction.intoMap(intop)
 
 	into := *intop
 
@@ -258,9 +258,9 @@ func (v ActivateAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v ActivateAction) AsMap() (map[string]interface{}, error) {
+func (v ActivateAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -272,7 +272,7 @@ func (v ActivateAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v ActivateAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

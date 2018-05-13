@@ -68,12 +68,12 @@ type BefriendAction struct {
 	Target []*EntryPoint `json:"target,omitempty"`
 }
 
-func (v BefriendAction) IntoMap(intop *map[string]interface{}) error {
+func (v BefriendAction) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.InteractAction.IntoMap(intop)
+	v.InteractAction.intoMap(intop)
 
 	into := *intop
 
@@ -258,9 +258,9 @@ func (v BefriendAction) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v BefriendAction) AsMap() (map[string]interface{}, error) {
+func (v BefriendAction) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -272,7 +272,7 @@ func (v BefriendAction) AsMap() (map[string]interface{}, error) {
 }
 
 func (v BefriendAction) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

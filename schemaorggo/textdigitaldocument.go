@@ -14,12 +14,12 @@ type TextDigitalDocument struct {
 	HasDigitalDocumentPermission []*DigitalDocumentPermission `json:"hasDigitalDocumentPermission,omitempty"`
 }
 
-func (v TextDigitalDocument) IntoMap(intop *map[string]interface{}) error {
+func (v TextDigitalDocument) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.DigitalDocument.IntoMap(intop)
+	v.DigitalDocument.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v TextDigitalDocument) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v TextDigitalDocument) AsMap() (map[string]interface{}, error) {
+func (v TextDigitalDocument) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v TextDigitalDocument) AsMap() (map[string]interface{}, error) {
 }
 
 func (v TextDigitalDocument) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

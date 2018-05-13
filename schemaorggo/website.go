@@ -14,12 +14,12 @@ type WebSite struct {
 	Issn []string `json:"issn,omitempty"`
 }
 
-func (v WebSite) IntoMap(intop *map[string]interface{}) error {
+func (v WebSite) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.CreativeWork.IntoMap(intop)
+	v.CreativeWork.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v WebSite) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v WebSite) AsMap() (map[string]interface{}, error) {
+func (v WebSite) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v WebSite) AsMap() (map[string]interface{}, error) {
 }
 
 func (v WebSite) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

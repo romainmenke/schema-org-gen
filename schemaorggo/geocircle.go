@@ -19,12 +19,12 @@ type GeoCircle struct {
 	GeoRadius []interface{} `json:"geoRadius,omitempty"`
 }
 
-func (v GeoCircle) IntoMap(intop *map[string]interface{}) error {
+func (v GeoCircle) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.GeoShape.IntoMap(intop)
+	v.GeoShape.intoMap(intop)
 
 	into := *intop
 
@@ -65,9 +65,9 @@ func (v GeoCircle) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v GeoCircle) AsMap() (map[string]interface{}, error) {
+func (v GeoCircle) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -79,7 +79,7 @@ func (v GeoCircle) AsMap() (map[string]interface{}, error) {
 }
 
 func (v GeoCircle) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

@@ -14,12 +14,12 @@ type DiscussionForumPosting struct {
 	SharedContent []*CreativeWork `json:"sharedContent,omitempty"`
 }
 
-func (v DiscussionForumPosting) IntoMap(intop *map[string]interface{}) error {
+func (v DiscussionForumPosting) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.SocialMediaPosting.IntoMap(intop)
+	v.SocialMediaPosting.intoMap(intop)
 
 	into := *intop
 
@@ -44,9 +44,9 @@ func (v DiscussionForumPosting) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v DiscussionForumPosting) AsMap() (map[string]interface{}, error) {
+func (v DiscussionForumPosting) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -58,7 +58,7 @@ func (v DiscussionForumPosting) AsMap() (map[string]interface{}, error) {
 }
 
 func (v DiscussionForumPosting) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

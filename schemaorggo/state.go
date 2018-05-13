@@ -180,12 +180,12 @@ type State struct {
 	Telephone []string `json:"telephone,omitempty"`
 }
 
-func (v State) IntoMap(intop *map[string]interface{}) error {
+func (v State) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.AdministrativeArea.IntoMap(intop)
+	v.AdministrativeArea.intoMap(intop)
 
 	into := *intop
 
@@ -722,9 +722,9 @@ func (v State) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v State) AsMap() (map[string]interface{}, error) {
+func (v State) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -736,7 +736,7 @@ func (v State) AsMap() (map[string]interface{}, error) {
 }
 
 func (v State) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}

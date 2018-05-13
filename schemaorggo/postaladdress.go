@@ -39,12 +39,12 @@ type PostalAddress struct {
 	StreetAddress []string `json:"streetAddress,omitempty"`
 }
 
-func (v PostalAddress) IntoMap(intop *map[string]interface{}) error {
+func (v PostalAddress) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
 
-	v.ContactPoint.IntoMap(intop)
+	v.ContactPoint.intoMap(intop)
 
 	into := *intop
 
@@ -149,9 +149,9 @@ func (v PostalAddress) IntoMap(intop *map[string]interface{}) error {
 	return nil
 }
 
-func (v PostalAddress) AsMap() (map[string]interface{}, error) {
+func (v PostalAddress) asMap() (map[string]interface{}, error) {
 	data := map[string]interface{}{}
-	err := v.IntoMap(&data)
+	err := v.intoMap(&data)
 	if err != nil {
 		return nil, err
 	}
@@ -163,7 +163,7 @@ func (v PostalAddress) AsMap() (map[string]interface{}, error) {
 }
 
 func (v PostalAddress) MarshalJSON() ([]byte, error) {
-	data, err := v.AsMap()
+	data, err := v.asMap()
 	if err != nil {
 		return nil, err
 	}
