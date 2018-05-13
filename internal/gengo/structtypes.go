@@ -72,7 +72,7 @@ func goTypeFile(goTypes []string, dir string, packageName string) func(ctx conte
 			dataField["types_comment"] = fmt.Sprintf("// types :%s", fieldTypesComment)
 
 			if len(fieldTypes) > 1 {
-				dataField["go_type"] = "interface{}"
+				dataField["go_type"] = "[]interface{}"
 			} else {
 				dataField["go_type"] = goTypeForSchemaDataType(goTypes, fieldTypes[0].Type)
 			}

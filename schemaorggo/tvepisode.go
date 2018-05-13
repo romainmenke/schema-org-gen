@@ -11,28 +11,78 @@ type TVEpisode struct {
 	// CountryOfOrigin see : https://schema.org/countryOfOrigin
 	// The country of the principal offices of the production company or individual responsible for the movie or program.
 	// types : Country
-	CountryOfOrigin *Country `json:"countryOfOrigin,omitempty"`
+	CountryOfOrigin []*Country `json:"countryOfOrigin,omitempty"`
 
 	// SubtitleLanguage see : https://schema.org/subtitleLanguage
 	// Languages in which subtitles/captions are available, in IETF BCP 47 standard format (see: https://schema.orghttp://tools.ietf.org/html/bcp47).
 	// types : Language Text
-	SubtitleLanguage interface{} `json:"subtitleLanguage,omitempty"`
+	SubtitleLanguage []interface{} `json:"subtitleLanguage,omitempty"`
 }
 
-func (v TVEpisode) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "TVEpisode"
-
-	return json.Marshal(v)
-}
-
-func (v *TVEpisode) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v TVEpisode) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "TVEpisode"
+	v.Episode.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.CountryOfOrigin
+		if len(v.CountryOfOrigin) == 1 {
+			value = v.CountryOfOrigin[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["countryOfOrigin"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.SubtitleLanguage
+		if len(v.SubtitleLanguage) == 1 {
+			value = v.SubtitleLanguage[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["subtitleLanguage"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v TVEpisode) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "TVEpisode"
+
+	return data, nil
+}
+
+func (v TVEpisode) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

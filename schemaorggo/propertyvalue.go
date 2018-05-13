@@ -11,7 +11,7 @@ type PropertyValue struct {
 	// MaxValue see : https://schema.org/maxValue
 	// The upper value of some characteristic or property.
 	// types : Number
-	MaxValue float64 `json:"maxValue,omitempty"`
+	MaxValue []float64 `json:"maxValue,omitempty"`
 
 	// MeasurementTechnique see : http://pending.schema.org/measurementTechnique
 	// A technique or technology used in a Dataset (see: https://schema.org/Dataset) (or DataDownload (see: https://schema.org/DataDownload), DataCatalog (see: https://schema.org/DataCatalog)),
@@ -23,12 +23,12 @@ type PropertyValue struct {
 	//
 	// If there are several variableMeasured (see: https://schema.org/variableMeasured) properties recorded for some given data object, use a PropertyValue (see: https://schema.org/PropertyValue) for each variableMeasured (see: https://schema.org/variableMeasured) and attach the corresponding measurementTechnique (see: https://schema.org/measurementTechnique).
 	// types : Text URL
-	MeasurementTechnique string `json:"measurementTechnique,omitempty"`
+	MeasurementTechnique []string `json:"measurementTechnique,omitempty"`
 
 	// MinValue see : https://schema.org/minValue
 	// The lower value of some characteristic or property.
 	// types : Number
-	MinValue float64 `json:"minValue,omitempty"`
+	MinValue []float64 `json:"minValue,omitempty"`
 
 	// PropertyID see : https://schema.org/propertyID
 	// A commonly used identifier for the characteristic represented by the property, e.g. a manufacturer or a standard code for a property. propertyID can be
@@ -36,18 +36,18 @@ type PropertyValue struct {
 	// a URL indicating the type of the property, either pointing to an external vocabulary, or a Web resource that describes the property (e.g. a glossary entry).
 	// Standards bodies should promote a standard prefix for the identifiers of properties from their standards.
 	// types : Text URL
-	PropertyID string `json:"propertyID,omitempty"`
+	PropertyID []string `json:"propertyID,omitempty"`
 
 	// UnitCode see : https://schema.org/unitCode
 	// The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.
 	// types : Text URL
-	UnitCode string `json:"unitCode,omitempty"`
+	UnitCode []string `json:"unitCode,omitempty"`
 
 	// UnitText see : https://schema.org/unitText
 	// A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for
 	// unitCode (see: https://schema.orgunitCode).
 	// types : Text
-	UnitText string `json:"unitText,omitempty"`
+	UnitText []string `json:"unitText,omitempty"`
 
 	// Value see : https://schema.org/value
 	// The value of the quantitative value or property value node.
@@ -58,28 +58,174 @@ type PropertyValue struct {
 	//
 	//
 	// types : Boolean Number StructuredValue Text
-	Value interface{} `json:"value,omitempty"`
+	Value []interface{} `json:"value,omitempty"`
 
 	// ValueReference see : https://schema.org/valueReference
 	// A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature.
 	// types : Enumeration PropertyValue QualitativeValue QuantitativeValue StructuredValue
-	ValueReference interface{} `json:"valueReference,omitempty"`
+	ValueReference []interface{} `json:"valueReference,omitempty"`
 }
 
-func (v PropertyValue) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "PropertyValue"
-
-	return json.Marshal(v)
-}
-
-func (v *PropertyValue) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v PropertyValue) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "PropertyValue"
+	v.StructuredValue.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.MaxValue
+		if len(v.MaxValue) == 1 {
+			value = v.MaxValue[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["maxValue"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.MeasurementTechnique
+		if len(v.MeasurementTechnique) == 1 {
+			value = v.MeasurementTechnique[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["measurementTechnique"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.MinValue
+		if len(v.MinValue) == 1 {
+			value = v.MinValue[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["minValue"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.PropertyID
+		if len(v.PropertyID) == 1 {
+			value = v.PropertyID[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["propertyID"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.UnitCode
+		if len(v.UnitCode) == 1 {
+			value = v.UnitCode[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["unitCode"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.UnitText
+		if len(v.UnitText) == 1 {
+			value = v.UnitText[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["unitText"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Value
+		if len(v.Value) == 1 {
+			value = v.Value[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["value"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.ValueReference
+		if len(v.ValueReference) == 1 {
+			value = v.ValueReference[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["valueReference"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v PropertyValue) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "PropertyValue"
+
+	return data, nil
+}
+
+func (v PropertyValue) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

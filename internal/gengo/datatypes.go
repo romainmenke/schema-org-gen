@@ -35,29 +35,29 @@ func writeGoDataTypes(ctx context.Context, dir string, packageName string) error
 func goTypeForSchemaDataType(goTypes []string, schemaDataType string) string {
 	switch schemaDataType {
 	case "Boolean":
-		return "bool"
+		return "[]bool"
 	case "Number":
-		return "float64"
+		return "[]float64"
 	case "Float":
-		return "float64"
+		return "[]float64"
 	case "Integer":
-		return "int"
+		return "[]int"
 	case "Text":
-		return "string"
+		return "[]string"
 	case "URL":
-		return "string"
+		return "[]string"
 	case "Date":
-		return "Date"
+		return "[]Date"
 	case "DateTime":
-		return "DateTime"
+		return "[]DateTime"
 	case "Time":
-		return "Time"
+		return "[]Time"
 	default:
 		for _, goType := range goTypes {
 			if goType == schemaDataType {
-				return "*" + schemaDataType
+				return "[]*" + schemaDataType
 			}
 		}
-		return "interface{}"
+		return "[]interface{}"
 	}
 }

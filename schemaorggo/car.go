@@ -11,7 +11,7 @@ type Car struct {
 	// AcrissCode see : https://schema.org/acrissCode
 	// The ACRISS Car Classification Code is a code used by many car rental companies, for classifying vehicles. ACRISS stands for Association of Car Rental Industry Systems and Standards.
 	// types : Text
-	AcrissCode string `json:"acrissCode,omitempty"`
+	AcrissCode []string `json:"acrissCode,omitempty"`
 
 	// RoofLoad see : https://schema.org/roofLoad
 	// The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.
@@ -25,23 +25,73 @@ type Car struct {
 	//
 	//
 	// types : QuantitativeValue
-	RoofLoad *QuantitativeValue `json:"roofLoad,omitempty"`
+	RoofLoad []*QuantitativeValue `json:"roofLoad,omitempty"`
 }
 
-func (v Car) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "Car"
-
-	return json.Marshal(v)
-}
-
-func (v *Car) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v Car) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "Car"
+	v.Vehicle.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.AcrissCode
+		if len(v.AcrissCode) == 1 {
+			value = v.AcrissCode[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["acrissCode"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.RoofLoad
+		if len(v.RoofLoad) == 1 {
+			value = v.RoofLoad[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["roofLoad"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v Car) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "Car"
+
+	return data, nil
+}
+
+func (v Car) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

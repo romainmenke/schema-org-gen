@@ -11,33 +11,99 @@ type MusicGroup struct {
 	// Album see : https://schema.org/album
 	// A music album. Supersedes albums (see: https://schema.org/albums).
 	// types : MusicAlbum
-	Album *MusicAlbum `json:"album,omitempty"`
+	Album []*MusicAlbum `json:"album,omitempty"`
 
 	// Genre see : https://schema.org/genre
 	// Genre of the creative work, broadcast channel or group.
 	// types : Text URL
-	Genre string `json:"genre,omitempty"`
+	Genre []string `json:"genre,omitempty"`
 
 	// Track see : https://schema.org/track
 	// A music recording (track)—usually a single song. If an ItemList is given, the list should contain items of type MusicRecording. Supersedes tracks (see: https://schema.org/tracks).
 	// types : ItemList MusicRecording
-	Track interface{} `json:"track,omitempty"`
+	Track []interface{} `json:"track,omitempty"`
 }
 
-func (v MusicGroup) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "MusicGroup"
-
-	return json.Marshal(v)
-}
-
-func (v *MusicGroup) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v MusicGroup) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "MusicGroup"
+	v.PerformingGroup.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.Album
+		if len(v.Album) == 1 {
+			value = v.Album[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["album"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Genre
+		if len(v.Genre) == 1 {
+			value = v.Genre[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["genre"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Track
+		if len(v.Track) == 1 {
+			value = v.Track[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["track"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v MusicGroup) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "MusicGroup"
+
+	return data, nil
+}
+
+func (v MusicGroup) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

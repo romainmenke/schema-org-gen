@@ -11,28 +11,78 @@ type MenuSection struct {
 	// HasMenuItem see : https://schema.org/hasMenuItem
 	// A food or drink item contained in a menu or menu section.
 	// types : MenuItem
-	HasMenuItem *MenuItem `json:"hasMenuItem,omitempty"`
+	HasMenuItem []*MenuItem `json:"hasMenuItem,omitempty"`
 
 	// HasMenuSection see : https://schema.org/hasMenuSection
 	// A subgrouping of the menu (by dishes, course, serving time period, etc.).
 	// types : MenuSection
-	HasMenuSection *MenuSection `json:"hasMenuSection,omitempty"`
+	HasMenuSection []*MenuSection `json:"hasMenuSection,omitempty"`
 }
 
-func (v MenuSection) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "MenuSection"
-
-	return json.Marshal(v)
-}
-
-func (v *MenuSection) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v MenuSection) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "MenuSection"
+	v.CreativeWork.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.HasMenuItem
+		if len(v.HasMenuItem) == 1 {
+			value = v.HasMenuItem[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["hasMenuItem"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.HasMenuSection
+		if len(v.HasMenuSection) == 1 {
+			value = v.HasMenuSection[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["hasMenuSection"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v MenuSection) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "MenuSection"
+
+	return data, nil
+}
+
+func (v MenuSection) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

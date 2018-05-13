@@ -11,23 +11,57 @@ type FollowAction struct {
 	// Followee see : https://schema.org/followee
 	// A sub property of object. The person or organization being followed.
 	// types : Organization Person
-	Followee interface{} `json:"followee,omitempty"`
+	Followee []interface{} `json:"followee,omitempty"`
 }
 
-func (v FollowAction) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "FollowAction"
-
-	return json.Marshal(v)
-}
-
-func (v *FollowAction) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v FollowAction) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "FollowAction"
+	v.InteractAction.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.Followee
+		if len(v.Followee) == 1 {
+			value = v.Followee[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["followee"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v FollowAction) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "FollowAction"
+
+	return data, nil
+}
+
+func (v FollowAction) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

@@ -11,23 +11,57 @@ type OrganizationRole struct {
 	// NumberedPosition see : https://schema.org/numberedPosition
 	// A number associated with a role in an organization, for example, the number on an athlete&#39;s jersey.
 	// types : Number
-	NumberedPosition float64 `json:"numberedPosition,omitempty"`
+	NumberedPosition []float64 `json:"numberedPosition,omitempty"`
 }
 
-func (v OrganizationRole) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "OrganizationRole"
-
-	return json.Marshal(v)
-}
-
-func (v *OrganizationRole) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v OrganizationRole) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "OrganizationRole"
+	v.Role.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.NumberedPosition
+		if len(v.NumberedPosition) == 1 {
+			value = v.NumberedPosition[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["numberedPosition"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v OrganizationRole) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "OrganizationRole"
+
+	return data, nil
+}
+
+func (v OrganizationRole) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

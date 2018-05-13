@@ -15,33 +15,99 @@ type OfferCatalog struct {
 	//
 	// Note: The order of elements in your mark-up is not sufficient for indicating the order or elements.  Use ListItem with a &#39;position&#39; property in such cases.
 	// types : ListItem Text Thing
-	ItemListElement interface{} `json:"itemListElement,omitempty"`
+	ItemListElement []interface{} `json:"itemListElement,omitempty"`
 
 	// ItemListOrder see : https://schema.org/itemListOrder
 	// Type of ordering (e.g. Ascending, Descending, Unordered).
 	// types : ItemListOrderType Text
-	ItemListOrder interface{} `json:"itemListOrder,omitempty"`
+	ItemListOrder []interface{} `json:"itemListOrder,omitempty"`
 
 	// NumberOfItems see : https://schema.org/numberOfItems
 	// The number of items in an ItemList. Note that some descriptions might not fully describe all items in a list (e.g., multi-page pagination); in such cases, the numberOfItems would be for the entire list.
 	// types : Integer
-	NumberOfItems float64 `json:"numberOfItems,omitempty"`
+	NumberOfItems []float64 `json:"numberOfItems,omitempty"`
 }
 
-func (v OfferCatalog) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "OfferCatalog"
-
-	return json.Marshal(v)
-}
-
-func (v *OfferCatalog) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v OfferCatalog) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "OfferCatalog"
+	v.ItemList.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.ItemListElement
+		if len(v.ItemListElement) == 1 {
+			value = v.ItemListElement[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["itemListElement"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.ItemListOrder
+		if len(v.ItemListOrder) == 1 {
+			value = v.ItemListOrder[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["itemListOrder"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.NumberOfItems
+		if len(v.NumberOfItems) == 1 {
+			value = v.NumberOfItems[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["numberOfItems"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v OfferCatalog) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "OfferCatalog"
+
+	return data, nil
+}
+
+func (v OfferCatalog) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

@@ -7,12 +7,6 @@ import (
 
 // Data Types see : https://schema.org/DataType
 
-// typeContext is used for fixed values
-type typeContext struct {
-	C string `json:"@context"`
-	T string `json:"@type"`
-}
-
 // Date https://en.wikipedia.org/wiki/ISO_8601
 type Date time.Time
 

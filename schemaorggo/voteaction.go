@@ -11,23 +11,57 @@ type VoteAction struct {
 	// Candidate see : https://schema.org/candidate
 	// A sub property of object. The candidate subject of this action.
 	// types : Person
-	Candidate *Person `json:"candidate,omitempty"`
+	Candidate []*Person `json:"candidate,omitempty"`
 }
 
-func (v VoteAction) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "VoteAction"
-
-	return json.Marshal(v)
-}
-
-func (v *VoteAction) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v VoteAction) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "VoteAction"
+	v.ChooseAction.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.Candidate
+		if len(v.Candidate) == 1 {
+			value = v.Candidate[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["candidate"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v VoteAction) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "VoteAction"
+
+	return data, nil
+}
+
+func (v VoteAction) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

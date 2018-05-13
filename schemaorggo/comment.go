@@ -11,33 +11,99 @@ type Comment struct {
 	// DownvoteCount see : https://schema.org/downvoteCount
 	// The number of downvotes this question, answer or comment has received from the community.
 	// types : Integer
-	DownvoteCount float64 `json:"downvoteCount,omitempty"`
+	DownvoteCount []float64 `json:"downvoteCount,omitempty"`
 
 	// ParentItem see : https://schema.org/parentItem
 	// The parent of a question, answer or item in general.
 	// types : Question
-	ParentItem *Question `json:"parentItem,omitempty"`
+	ParentItem []*Question `json:"parentItem,omitempty"`
 
 	// UpvoteCount see : https://schema.org/upvoteCount
 	// The number of upvotes this question, answer or comment has received from the community.
 	// types : Integer
-	UpvoteCount float64 `json:"upvoteCount,omitempty"`
+	UpvoteCount []float64 `json:"upvoteCount,omitempty"`
 }
 
-func (v Comment) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "Comment"
-
-	return json.Marshal(v)
-}
-
-func (v *Comment) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v Comment) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "Comment"
+	v.CreativeWork.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.DownvoteCount
+		if len(v.DownvoteCount) == 1 {
+			value = v.DownvoteCount[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["downvoteCount"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.ParentItem
+		if len(v.ParentItem) == 1 {
+			value = v.ParentItem[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["parentItem"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.UpvoteCount
+		if len(v.UpvoteCount) == 1 {
+			value = v.UpvoteCount[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["upvoteCount"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v Comment) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "Comment"
+
+	return data, nil
+}
+
+func (v Comment) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

@@ -11,118 +11,456 @@ type FoodService struct {
 	// AggregateRating see : https://schema.org/aggregateRating
 	// The overall rating, based on a collection of reviews or ratings, of the item.
 	// types : AggregateRating
-	AggregateRating *AggregateRating `json:"aggregateRating,omitempty"`
+	AggregateRating []*AggregateRating `json:"aggregateRating,omitempty"`
 
 	// AreaServed see : https://schema.org/areaServed
 	// The geographic area where a service or offered item is provided. Supersedes serviceArea (see: https://schema.org/serviceArea).
 	// types : AdministrativeArea GeoShape Place Text
-	AreaServed interface{} `json:"areaServed,omitempty"`
+	AreaServed []interface{} `json:"areaServed,omitempty"`
 
 	// Audience see : https://schema.org/audience
 	// An intended audience, i.e. a group for whom something was created. Supersedes serviceAudience (see: https://schema.org/serviceAudience).
 	// types : Audience
-	Audience *Audience `json:"audience,omitempty"`
+	Audience []*Audience `json:"audience,omitempty"`
 
 	// AvailableChannel see : https://schema.org/availableChannel
 	// A means of accessing the service (e.g. a phone bank, a web site, a location, etc.).
 	// types : ServiceChannel
-	AvailableChannel *ServiceChannel `json:"availableChannel,omitempty"`
+	AvailableChannel []*ServiceChannel `json:"availableChannel,omitempty"`
 
 	// Award see : https://schema.org/award
 	// An award won by or for this item. Supersedes awards (see: https://schema.org/awards).
 	// types : Text
-	Award string `json:"award,omitempty"`
+	Award []string `json:"award,omitempty"`
 
 	// Brand see : https://schema.org/brand
 	// The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
 	// types : Brand Organization
-	Brand interface{} `json:"brand,omitempty"`
+	Brand []interface{} `json:"brand,omitempty"`
 
 	// Broker see : https://schema.org/broker
 	// An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred. Supersedes bookingAgent (see: https://schema.org/bookingAgent).
 	// types : Organization Person
-	Broker interface{} `json:"broker,omitempty"`
+	Broker []interface{} `json:"broker,omitempty"`
 
 	// Category see : https://schema.org/category
 	// A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
 	// types : PhysicalActivityCategory Text Thing
-	Category interface{} `json:"category,omitempty"`
+	Category []interface{} `json:"category,omitempty"`
 
 	// HasOfferCatalog see : https://schema.org/hasOfferCatalog
 	// Indicates an OfferCatalog listing for this Organization, Person, or Service.
 	// types : OfferCatalog
-	HasOfferCatalog *OfferCatalog `json:"hasOfferCatalog,omitempty"`
+	HasOfferCatalog []*OfferCatalog `json:"hasOfferCatalog,omitempty"`
 
 	// HoursAvailable see : https://schema.org/hoursAvailable
 	// The hours during which this service or contact is available.
 	// types : OpeningHoursSpecification
-	HoursAvailable *OpeningHoursSpecification `json:"hoursAvailable,omitempty"`
+	HoursAvailable []*OpeningHoursSpecification `json:"hoursAvailable,omitempty"`
 
 	// IsRelatedTo see : https://schema.org/isRelatedTo
 	// A pointer to another, somehow related product (or multiple products).
 	// types : Product Service
-	IsRelatedTo interface{} `json:"isRelatedTo,omitempty"`
+	IsRelatedTo []interface{} `json:"isRelatedTo,omitempty"`
 
 	// IsSimilarTo see : https://schema.org/isSimilarTo
 	// A pointer to another, functionally similar product (or multiple products).
 	// types : Product Service
-	IsSimilarTo interface{} `json:"isSimilarTo,omitempty"`
+	IsSimilarTo []interface{} `json:"isSimilarTo,omitempty"`
 
 	// Logo see : https://schema.org/logo
 	// An associated logo.
 	// types : ImageObject URL
-	Logo interface{} `json:"logo,omitempty"`
+	Logo []interface{} `json:"logo,omitempty"`
 
 	// Offers see : https://schema.org/offers
 	// An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event.
 	// types : Offer
-	Offers *Offer `json:"offers,omitempty"`
+	Offers []*Offer `json:"offers,omitempty"`
 
 	// Provider see : https://schema.org/provider
 	// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier (see: https://schema.org/carrier).
 	// types : Organization Person
-	Provider interface{} `json:"provider,omitempty"`
+	Provider []interface{} `json:"provider,omitempty"`
 
 	// ProviderMobility see : https://schema.org/providerMobility
 	// Indicates the mobility of a provided service (e.g. &#39;static&#39;, &#39;dynamic&#39;).
 	// types : Text
-	ProviderMobility string `json:"providerMobility,omitempty"`
+	ProviderMobility []string `json:"providerMobility,omitempty"`
 
 	// Review see : https://schema.org/review
 	// A review of the item. Supersedes reviews (see: https://schema.org/reviews).
 	// types : Review
-	Review *Review `json:"review,omitempty"`
+	Review []*Review `json:"review,omitempty"`
 
 	// ServiceOutput see : https://schema.org/serviceOutput
 	// The tangible thing generated by the service, e.g. a passport, permit, etc. Supersedes produces (see: https://schema.org/produces).
 	// types : Thing
-	ServiceOutput *Thing `json:"serviceOutput,omitempty"`
+	ServiceOutput []*Thing `json:"serviceOutput,omitempty"`
 
 	// ServiceType see : https://schema.org/serviceType
 	// The type of service being offered, e.g. veterans&#39; benefits, emergency relief, etc.
 	// types : Text
-	ServiceType string `json:"serviceType,omitempty"`
+	ServiceType []string `json:"serviceType,omitempty"`
 
 	// TermsOfService see : http://pending.schema.org/termsOfService
 	// Human-readable terms of service documentation.
 	// types : Text URL
-	TermsOfService string `json:"termsOfService,omitempty"`
+	TermsOfService []string `json:"termsOfService,omitempty"`
 }
 
-func (v FoodService) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "FoodService"
-
-	return json.Marshal(v)
-}
-
-func (v *FoodService) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v FoodService) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "FoodService"
+	v.Service.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.AggregateRating
+		if len(v.AggregateRating) == 1 {
+			value = v.AggregateRating[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["aggregateRating"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.AreaServed
+		if len(v.AreaServed) == 1 {
+			value = v.AreaServed[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["areaServed"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Audience
+		if len(v.Audience) == 1 {
+			value = v.Audience[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["audience"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.AvailableChannel
+		if len(v.AvailableChannel) == 1 {
+			value = v.AvailableChannel[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["availableChannel"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Award
+		if len(v.Award) == 1 {
+			value = v.Award[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["award"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Brand
+		if len(v.Brand) == 1 {
+			value = v.Brand[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["brand"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Broker
+		if len(v.Broker) == 1 {
+			value = v.Broker[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["broker"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Category
+		if len(v.Category) == 1 {
+			value = v.Category[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["category"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.HasOfferCatalog
+		if len(v.HasOfferCatalog) == 1 {
+			value = v.HasOfferCatalog[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["hasOfferCatalog"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.HoursAvailable
+		if len(v.HoursAvailable) == 1 {
+			value = v.HoursAvailable[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["hoursAvailable"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.IsRelatedTo
+		if len(v.IsRelatedTo) == 1 {
+			value = v.IsRelatedTo[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["isRelatedTo"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.IsSimilarTo
+		if len(v.IsSimilarTo) == 1 {
+			value = v.IsSimilarTo[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["isSimilarTo"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Logo
+		if len(v.Logo) == 1 {
+			value = v.Logo[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["logo"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Offers
+		if len(v.Offers) == 1 {
+			value = v.Offers[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["offers"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Provider
+		if len(v.Provider) == 1 {
+			value = v.Provider[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["provider"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.ProviderMobility
+		if len(v.ProviderMobility) == 1 {
+			value = v.ProviderMobility[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["providerMobility"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Review
+		if len(v.Review) == 1 {
+			value = v.Review[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["review"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.ServiceOutput
+		if len(v.ServiceOutput) == 1 {
+			value = v.ServiceOutput[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["serviceOutput"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.ServiceType
+		if len(v.ServiceType) == 1 {
+			value = v.ServiceType[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["serviceType"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.TermsOfService
+		if len(v.TermsOfService) == 1 {
+			value = v.TermsOfService[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["termsOfService"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v FoodService) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "FoodService"
+
+	return data, nil
+}
+
+func (v FoodService) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

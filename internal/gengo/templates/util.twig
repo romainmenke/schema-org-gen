@@ -1,10 +1,7 @@
 package {{ package_name }}
 
-type Marshaler interface {
-	MarshalJSONWithTypeContext() ([]byte, error)
-}
-
-// Alternative to "json.Marshal", this ensures "@type" and "@context" are set correctly.
-func MarshalJSON(v Marshaler) ([]byte, error) {
-	return v.MarshalJSONWithTypeContext()
+// typeContext is used for fixed values
+type typeContext struct {
+	C string `json:"@context,omitempty"`
+	T string `json:"@type"`
 }

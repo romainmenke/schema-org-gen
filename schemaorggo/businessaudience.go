@@ -11,33 +11,99 @@ type BusinessAudience struct {
 	// NumberOfEmployees see : https://schema.org/numberOfEmployees
 	// The number of employees in an organization e.g. business.
 	// types : QuantitativeValue
-	NumberOfEmployees *QuantitativeValue `json:"numberOfEmployees,omitempty"`
+	NumberOfEmployees []*QuantitativeValue `json:"numberOfEmployees,omitempty"`
 
 	// YearlyRevenue see : https://schema.org/yearlyRevenue
 	// The size of the business in annual revenue.
 	// types : QuantitativeValue
-	YearlyRevenue *QuantitativeValue `json:"yearlyRevenue,omitempty"`
+	YearlyRevenue []*QuantitativeValue `json:"yearlyRevenue,omitempty"`
 
 	// YearsInOperation see : https://schema.org/yearsInOperation
 	// The age of the business.
 	// types : QuantitativeValue
-	YearsInOperation *QuantitativeValue `json:"yearsInOperation,omitempty"`
+	YearsInOperation []*QuantitativeValue `json:"yearsInOperation,omitempty"`
 }
 
-func (v BusinessAudience) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "BusinessAudience"
-
-	return json.Marshal(v)
-}
-
-func (v *BusinessAudience) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v BusinessAudience) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "BusinessAudience"
+	v.Audience.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.NumberOfEmployees
+		if len(v.NumberOfEmployees) == 1 {
+			value = v.NumberOfEmployees[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["numberOfEmployees"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.YearlyRevenue
+		if len(v.YearlyRevenue) == 1 {
+			value = v.YearlyRevenue[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["yearlyRevenue"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.YearsInOperation
+		if len(v.YearsInOperation) == 1 {
+			value = v.YearsInOperation[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["yearsInOperation"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v BusinessAudience) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "BusinessAudience"
+
+	return data, nil
+}
+
+func (v BusinessAudience) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

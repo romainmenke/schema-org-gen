@@ -11,23 +11,57 @@ type InvestmentOrDeposit struct {
 	// Amount see : https://schema.org/amount
 	// The amount of money.
 	// types : MonetaryAmount Number
-	Amount interface{} `json:"amount,omitempty"`
+	Amount []interface{} `json:"amount,omitempty"`
 }
 
-func (v InvestmentOrDeposit) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "InvestmentOrDeposit"
-
-	return json.Marshal(v)
-}
-
-func (v *InvestmentOrDeposit) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v InvestmentOrDeposit) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "InvestmentOrDeposit"
+	v.FinancialProduct.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.Amount
+		if len(v.Amount) == 1 {
+			value = v.Amount[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["amount"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v InvestmentOrDeposit) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "InvestmentOrDeposit"
+
+	return data, nil
+}
+
+func (v InvestmentOrDeposit) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

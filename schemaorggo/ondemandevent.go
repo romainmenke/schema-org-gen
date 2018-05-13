@@ -11,33 +11,99 @@ type OnDemandEvent struct {
 	// IsAccessibleForFree see : https://schema.org/isAccessibleForFree
 	// A flag to signal that the item, event, or place is accessible for free. Supersedes free (see: https://schema.org/free).
 	// types : Boolean
-	IsAccessibleForFree bool `json:"isAccessibleForFree,omitempty"`
+	IsAccessibleForFree []bool `json:"isAccessibleForFree,omitempty"`
 
 	// PublishedBy see : http://bib.schema.org/publishedBy
 	// An agent associated with the publication event.
 	// types : Organization Person
-	PublishedBy interface{} `json:"publishedBy,omitempty"`
+	PublishedBy []interface{} `json:"publishedBy,omitempty"`
 
 	// PublishedOn see : https://schema.org/publishedOn
 	// A broadcast service associated with the publication event.
 	// types : BroadcastService
-	PublishedOn *BroadcastService `json:"publishedOn,omitempty"`
+	PublishedOn []*BroadcastService `json:"publishedOn,omitempty"`
 }
 
-func (v OnDemandEvent) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "OnDemandEvent"
-
-	return json.Marshal(v)
-}
-
-func (v *OnDemandEvent) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v OnDemandEvent) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "OnDemandEvent"
+	v.PublicationEvent.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.IsAccessibleForFree
+		if len(v.IsAccessibleForFree) == 1 {
+			value = v.IsAccessibleForFree[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["isAccessibleForFree"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.PublishedBy
+		if len(v.PublishedBy) == 1 {
+			value = v.PublishedBy[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["publishedBy"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.PublishedOn
+		if len(v.PublishedOn) == 1 {
+			value = v.PublishedOn[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["publishedOn"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v OnDemandEvent) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "OnDemandEvent"
+
+	return data, nil
+}
+
+func (v OnDemandEvent) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

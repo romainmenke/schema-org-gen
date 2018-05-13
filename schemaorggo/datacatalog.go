@@ -11,7 +11,7 @@ type DataCatalog struct {
 	// Dataset see : https://schema.org/dataset
 	// A dataset contained in this catalog. Inverse property: includedInDataCatalog (see: https://schema.org/includedInDataCatalog).
 	// types : Dataset
-	Dataset *Dataset `json:"dataset,omitempty"`
+	Dataset []*Dataset `json:"dataset,omitempty"`
 
 	// MeasurementTechnique see : http://pending.schema.org/measurementTechnique
 	// A technique or technology used in a Dataset (see: https://schema.org/Dataset) (or DataDownload (see: https://schema.org/DataDownload), DataCatalog (see: https://schema.org/DataCatalog)),
@@ -23,23 +23,73 @@ type DataCatalog struct {
 	//
 	// If there are several variableMeasured (see: https://schema.org/variableMeasured) properties recorded for some given data object, use a PropertyValue (see: https://schema.org/PropertyValue) for each variableMeasured (see: https://schema.org/variableMeasured) and attach the corresponding measurementTechnique (see: https://schema.org/measurementTechnique).
 	// types : Text URL
-	MeasurementTechnique string `json:"measurementTechnique,omitempty"`
+	MeasurementTechnique []string `json:"measurementTechnique,omitempty"`
 }
 
-func (v DataCatalog) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "DataCatalog"
-
-	return json.Marshal(v)
-}
-
-func (v *DataCatalog) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v DataCatalog) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "DataCatalog"
+	v.CreativeWork.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.Dataset
+		if len(v.Dataset) == 1 {
+			value = v.Dataset[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["dataset"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.MeasurementTechnique
+		if len(v.MeasurementTechnique) == 1 {
+			value = v.MeasurementTechnique[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["measurementTechnique"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v DataCatalog) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "DataCatalog"
+
+	return data, nil
+}
+
+func (v DataCatalog) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

@@ -11,7 +11,7 @@ type Electrician struct {
 	// CurrenciesAccepted see : https://schema.org/currenciesAccepted
 	// The currency accepted (in ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217)).
 	// types : Text
-	CurrenciesAccepted string `json:"currenciesAccepted,omitempty"`
+	CurrenciesAccepted []string `json:"currenciesAccepted,omitempty"`
 
 	// OpeningHours see : https://schema.org/openingHours
 	// The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas &#39;,&#39; separating each day. Day or time ranges are specified using a hyphen &#39;-&#39;.
@@ -24,33 +24,115 @@ type Electrician struct {
 	//
 	//
 	// types : Text
-	OpeningHours string `json:"openingHours,omitempty"`
+	OpeningHours []string `json:"openingHours,omitempty"`
 
 	// PaymentAccepted see : https://schema.org/paymentAccepted
 	// Cash, credit card, etc.
 	// types : Text
-	PaymentAccepted string `json:"paymentAccepted,omitempty"`
+	PaymentAccepted []string `json:"paymentAccepted,omitempty"`
 
 	// PriceRange see : https://schema.org/priceRange
 	// The price range of the business, for example $$$.
 	// types : Text
-	PriceRange string `json:"priceRange,omitempty"`
+	PriceRange []string `json:"priceRange,omitempty"`
 }
 
-func (v Electrician) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "Electrician"
-
-	return json.Marshal(v)
-}
-
-func (v *Electrician) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v Electrician) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "Electrician"
+	v.HomeAndConstructionBusiness.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.CurrenciesAccepted
+		if len(v.CurrenciesAccepted) == 1 {
+			value = v.CurrenciesAccepted[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["currenciesAccepted"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.OpeningHours
+		if len(v.OpeningHours) == 1 {
+			value = v.OpeningHours[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["openingHours"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.PaymentAccepted
+		if len(v.PaymentAccepted) == 1 {
+			value = v.PaymentAccepted[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["paymentAccepted"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.PriceRange
+		if len(v.PriceRange) == 1 {
+			value = v.PriceRange[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["priceRange"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v Electrician) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "Electrician"
+
+	return data, nil
+}
+
+func (v Electrician) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

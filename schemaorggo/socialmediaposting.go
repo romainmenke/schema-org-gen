@@ -11,23 +11,57 @@ type SocialMediaPosting struct {
 	// SharedContent see : https://schema.org/sharedContent
 	// A CreativeWork such as an image, video, or audio clip shared as part of this posting.
 	// types : CreativeWork
-	SharedContent *CreativeWork `json:"sharedContent,omitempty"`
+	SharedContent []*CreativeWork `json:"sharedContent,omitempty"`
 }
 
-func (v SocialMediaPosting) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "SocialMediaPosting"
-
-	return json.Marshal(v)
-}
-
-func (v *SocialMediaPosting) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v SocialMediaPosting) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "SocialMediaPosting"
+	v.Article.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.SharedContent
+		if len(v.SharedContent) == 1 {
+			value = v.SharedContent[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["sharedContent"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v SocialMediaPosting) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "SocialMediaPosting"
+
+	return data, nil
+}
+
+func (v SocialMediaPosting) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

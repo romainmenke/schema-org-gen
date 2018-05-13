@@ -11,23 +11,57 @@ type PaymentStatusType struct {
 	// SupersededBy see : http://meta.schema.org/supersededBy
 	// Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
 	// types : Class Enumeration Property
-	SupersededBy interface{} `json:"supersededBy,omitempty"`
+	SupersededBy []interface{} `json:"supersededBy,omitempty"`
 }
 
-func (v PaymentStatusType) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "PaymentStatusType"
-
-	return json.Marshal(v)
-}
-
-func (v *PaymentStatusType) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v PaymentStatusType) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "PaymentStatusType"
+	v.Enumeration.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.SupersededBy
+		if len(v.SupersededBy) == 1 {
+			value = v.SupersededBy[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["supersededBy"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v PaymentStatusType) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "PaymentStatusType"
+
+	return data, nil
+}
+
+func (v PaymentStatusType) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

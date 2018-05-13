@@ -11,23 +11,57 @@ type CompoundPriceSpecification struct {
 	// PriceComponent see : https://schema.org/priceComponent
 	// This property links to all UnitPriceSpecification (see: https://schema.org/UnitPriceSpecification) nodes that apply in parallel for the CompoundPriceSpecification (see: https://schema.org/CompoundPriceSpecification) node.
 	// types : UnitPriceSpecification
-	PriceComponent *UnitPriceSpecification `json:"priceComponent,omitempty"`
+	PriceComponent []*UnitPriceSpecification `json:"priceComponent,omitempty"`
 }
 
-func (v CompoundPriceSpecification) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "CompoundPriceSpecification"
-
-	return json.Marshal(v)
-}
-
-func (v *CompoundPriceSpecification) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v CompoundPriceSpecification) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "CompoundPriceSpecification"
+	v.PriceSpecification.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.PriceComponent
+		if len(v.PriceComponent) == 1 {
+			value = v.PriceComponent[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["priceComponent"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v CompoundPriceSpecification) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "CompoundPriceSpecification"
+
+	return data, nil
+}
+
+func (v CompoundPriceSpecification) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

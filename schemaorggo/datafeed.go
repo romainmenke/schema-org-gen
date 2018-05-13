@@ -11,23 +11,57 @@ type DataFeed struct {
 	// DataFeedElement see : https://schema.org/dataFeedElement
 	// An item within in a data feed. Data feeds may have many elements.
 	// types : DataFeedItem Text Thing
-	DataFeedElement interface{} `json:"dataFeedElement,omitempty"`
+	DataFeedElement []interface{} `json:"dataFeedElement,omitempty"`
 }
 
-func (v DataFeed) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "DataFeed"
-
-	return json.Marshal(v)
-}
-
-func (v *DataFeed) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v DataFeed) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "DataFeed"
+	v.Dataset.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.DataFeedElement
+		if len(v.DataFeedElement) == 1 {
+			value = v.DataFeedElement[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["dataFeedElement"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v DataFeed) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "DataFeed"
+
+	return data, nil
+}
+
+func (v DataFeed) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

@@ -11,38 +11,120 @@ type PublicationIssue struct {
 	// IssueNumber see : https://schema.org/issueNumber
 	// Identifies the issue of publication; for example, &quot;iii&quot; or &quot;2&quot;.
 	// types : Integer Text
-	IssueNumber interface{} `json:"issueNumber,omitempty"`
+	IssueNumber []interface{} `json:"issueNumber,omitempty"`
 
 	// PageEnd see : https://schema.org/pageEnd
 	// The page on which the work ends; for example &quot;138&quot; or &quot;xvi&quot;.
 	// types : Integer Text
-	PageEnd interface{} `json:"pageEnd,omitempty"`
+	PageEnd []interface{} `json:"pageEnd,omitempty"`
 
 	// PageStart see : https://schema.org/pageStart
 	// The page on which the work starts; for example &quot;135&quot; or &quot;xiii&quot;.
 	// types : Integer Text
-	PageStart interface{} `json:"pageStart,omitempty"`
+	PageStart []interface{} `json:"pageStart,omitempty"`
 
 	// Pagination see : https://schema.org/pagination
 	// Any description of pages that is not separated into pageStart and pageEnd; for example, &quot;1-6, 9, 55&quot; or &quot;10-12, 46-49&quot;.
 	// types : Text
-	Pagination string `json:"pagination,omitempty"`
+	Pagination []string `json:"pagination,omitempty"`
 }
 
-func (v PublicationIssue) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "PublicationIssue"
-
-	return json.Marshal(v)
-}
-
-func (v *PublicationIssue) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v PublicationIssue) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "PublicationIssue"
+	v.CreativeWork.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.IssueNumber
+		if len(v.IssueNumber) == 1 {
+			value = v.IssueNumber[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["issueNumber"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.PageEnd
+		if len(v.PageEnd) == 1 {
+			value = v.PageEnd[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["pageEnd"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.PageStart
+		if len(v.PageStart) == 1 {
+			value = v.PageStart[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["pageStart"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Pagination
+		if len(v.Pagination) == 1 {
+			value = v.Pagination[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["pagination"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v PublicationIssue) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "PublicationIssue"
+
+	return data, nil
+}
+
+func (v PublicationIssue) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

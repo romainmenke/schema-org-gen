@@ -11,28 +11,78 @@ type MoveAction struct {
 	// FromLocation see : https://schema.org/fromLocation
 	// A sub property of location. The original location of the object or the agent before the action.
 	// types : Place
-	FromLocation *Place `json:"fromLocation,omitempty"`
+	FromLocation []*Place `json:"fromLocation,omitempty"`
 
 	// ToLocation see : https://schema.org/toLocation
 	// A sub property of location. The final location of the object or the agent after the action.
 	// types : Place
-	ToLocation *Place `json:"toLocation,omitempty"`
+	ToLocation []*Place `json:"toLocation,omitempty"`
 }
 
-func (v MoveAction) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "MoveAction"
-
-	return json.Marshal(v)
-}
-
-func (v *MoveAction) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v MoveAction) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "MoveAction"
+	v.Action.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.FromLocation
+		if len(v.FromLocation) == 1 {
+			value = v.FromLocation[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["fromLocation"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.ToLocation
+		if len(v.ToLocation) == 1 {
+			value = v.ToLocation[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["toLocation"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v MoveAction) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "MoveAction"
+
+	return data, nil
+}
+
+func (v MoveAction) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

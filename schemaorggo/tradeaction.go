@@ -22,28 +22,78 @@ type TradeAction struct {
 	//
 	//
 	// types : Number Text
-	Price interface{} `json:"price,omitempty"`
+	Price []interface{} `json:"price,omitempty"`
 
 	// PriceSpecification see : https://schema.org/priceSpecification
 	// One or more detailed price specifications, indicating the unit price and delivery or payment charges.
 	// types : PriceSpecification
-	PriceSpecification *PriceSpecification `json:"priceSpecification,omitempty"`
+	PriceSpecification []*PriceSpecification `json:"priceSpecification,omitempty"`
 }
 
-func (v TradeAction) MarshalJSONWithTypeContext() ([]byte, error) {
-	v.C = "http://schema.org"
-	v.T = "TradeAction"
-
-	return json.Marshal(v)
-}
-
-func (v *TradeAction) MarshalJSON() ([]byte, error) {
-	if v == nil {
-		return []byte("null"), nil
+func (v TradeAction) IntoMap(intop *map[string]interface{}) error {
+	if intop == nil {
+		return nil
 	}
 
-	v.C = "http://schema.org"
-	v.T = "TradeAction"
+	v.Action.IntoMap(intop)
 
-	return json.Marshal(*v)
+	into := *intop
+
+	{
+		var value interface{} = v.Price
+		if len(v.Price) == 1 {
+			value = v.Price[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["price"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.PriceSpecification
+		if len(v.PriceSpecification) == 1 {
+			value = v.PriceSpecification[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["priceSpecification"] = json.RawMessage(b)
+		}
+	}
+
+	*intop = into
+
+	return nil
+}
+
+func (v TradeAction) AsMap() (map[string]interface{}, error) {
+	data := map[string]interface{}{}
+	err := v.IntoMap(&data)
+	if err != nil {
+		return nil, err
+	}
+
+	data["@context"] = "http://schema.org"
+	data["@type"] = "TradeAction"
+
+	return data, nil
+}
+
+func (v TradeAction) MarshalJSON() ([]byte, error) {
+	data, err := v.AsMap()
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(data)
 }

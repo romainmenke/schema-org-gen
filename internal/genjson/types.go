@@ -106,8 +106,7 @@ func jsonValueForSchemaDataType(types []*ast.Object, schemaDataType string, nest
 		for _, t := range types {
 			if schemaDataType == t.Name {
 				return setFields(types, map[string]interface{}{
-					"@context": "http://schema.org",
-					"@type":    t.Name,
+					"@type": t.Name,
 				}, t, true)
 			}
 		}
