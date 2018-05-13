@@ -3,7 +3,8 @@ package gengo
 import (
 	"os"
 	"path"
-	"strings"
+
+	"github.com/iancoleman/strcase"
 )
 
 func newObjectFile(dir string, typeName string) (*os.File, error) {
@@ -12,9 +13,9 @@ func newObjectFile(dir string, typeName string) (*os.File, error) {
 		return nil, err
 	}
 
-	os.Remove(path.Join(dir, strings.ToLower(typeName+".go")))
+	os.Remove(path.Join(dir, strcase.ToSnake(typeName+".go")))
 
-	f, err := os.Create(path.Join(dir, strings.ToLower(typeName+".go")))
+	f, err := os.Create(path.Join(dir, strcase.ToSnake(typeName+".go")))
 	if err != nil {
 		return nil, err
 	}

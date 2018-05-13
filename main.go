@@ -13,6 +13,7 @@ import (
 	"github.com/romainmenke/schema-org-gen/internal/fetch"
 	"github.com/romainmenke/schema-org-gen/internal/gengo"
 	"github.com/romainmenke/schema-org-gen/internal/genjson"
+	"github.com/romainmenke/schema-org-gen/internal/genphp"
 	"github.com/romainmenke/schema-org-gen/internal/typemap"
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 )
@@ -24,6 +25,7 @@ func main() {
 		clean = app.Flag("clean", "Fetch the typemap from schema.org before generating.").Bool()
 
 		goCmd   = app.Command("go", "Generate for Go")
+		phpCmd  = app.Command("php", "Generate for php")
 		jsonCmd = app.Command("json", "Generate JSON examples")
 
 		tm  *typemap.TypeMap
@@ -80,6 +82,12 @@ func main() {
 
 	case jsonCmd.FullCommand():
 		err = genjson.Generate(ctx, tm, "./schemaorgjson")
+		if err != nil {
+			log.Fatal(err)
+		}
+
+	case phpCmd.FullCommand():
+		err = genphp.Generate(ctx, tm, "./schemaorgphp", "schemaorgphp")
 		if err != nil {
 			log.Fatal(err)
 		}

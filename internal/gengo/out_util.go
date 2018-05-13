@@ -7,7 +7,7 @@ import (
 	"github.com/tyler-sommer/stick"
 )
 
-func writeMarshalJSON(ctx context.Context, dir string, packageName string) error {
+func writeUtil(ctx context.Context, dir string, packageName string) error {
 	f, err := newObjectFile(dir, "aaa_util")
 	if err != nil {
 		return err

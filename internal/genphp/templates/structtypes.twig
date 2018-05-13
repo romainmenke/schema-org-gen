@@ -1,0 +1,26 @@
+<?php
+
+class {{ type_name }}{% if parent_type_name %} extends {{ parent_type_name }}{% endif %} implements JsonSerializable {
+
+	public static $context = 'http://schema.org';
+	public static $type = '{{ type_name }}';
+	{% for field in fields %}
+	/**{% for comment_line in field.comment_lines %}
+	 * {{ comment_line }}{% endfor %}
+	 */
+	public var ${{ field.name }};
+	{% endfor %}
+	public function jsonSerialize() {
+		$out = array(
+			'@context' => 'http://schema.org',
+			'@type' => '{{ type_name }}'
+		);
+		{% for field in fields %}
+		$serialized = so_json_serialize( $this->{{ field.name }} );
+		if ( ! empty( $serialized ) ) {
+			$out['{{ field.json_name }}'] = $serialized;
+		}
+		{% endfor %}
+		return $out;
+	}
+}

@@ -27,7 +27,7 @@ func Generate(ctx context.Context, tm *typemap.TypeMap, dir string, packageName 
 		return err
 	}
 
-	err = writeMarshalJSON(ctx, dir, packageName)
+	err = writeUtil(ctx, dir, packageName)
 	if err != nil {
 		return err
 	}
