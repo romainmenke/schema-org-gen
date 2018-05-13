@@ -54,7 +54,7 @@ func main() {
 	airline := schemaorggo.Airline{}
 
 	// Set some properties
-	airline.Name = "Super Sonic"
+	airline.Name = []string{"Super Sonic"}
 
 	foundingDate, err := time.Parse("2006-01-02", "2001-01-01")
 	if err != nil {
@@ -66,23 +66,26 @@ func main() {
 	}
 
 	// Some types need to be cast to "schemaorggo" variants
-	airline.FoundingDate = schemaorggo.Date(foundingDate)
-	airline.DissolutionDate = schemaorggo.Date(dissolutionDate)
+	airline.FoundingDate = []schemaorggo.Date{
+		schemaorggo.Date(foundingDate),
+	}
+	airline.DissolutionDate = []schemaorggo.Date{
+		schemaorggo.Date(dissolutionDate),
+	}
 
 	// Define a nested object
 	founder := &schemaorggo.Person{}
-	founder.Name = "John"
-	airline.Founder = founder
+	founder.Name = []string{"John"}
+	airline.Founder = []*schemaorggo.Person{
+		founder,
+	}
 
-	// Use "schemaorggo.MarshalJSON" instead of "json.Marshal"
-	// this ensures "@type" and "@context" are set correctly
-	b, err := schemaorggo.MarshalJSON(&airline)
+	b, err := json.Marshal(airline)
 	if err != nil {
 		panic(err)
 	}
 
 	fmt.Println(string(b))
-	// Output: {"name":"Super Sonic","dissolutionDate":"2002-02-02","founder":{"name":"John","@context":"http://schema.org","@type":"Person","birthDate":null,"deathDate":null},"foundingDate":"2001-01-01","@context":"http://schema.org","@type":"Airline"}
-
+	// Output: {"@context":"http://schema.org","@type":"Airline","dissolutionDate":"2002-02-02","founder":{"@context":"http://schema.org","@type":"Person","name":"John"},"foundingDate":"2001-01-01","name":"Super Sonic"}
 }
 ```
