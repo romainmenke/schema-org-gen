@@ -89,3 +89,11 @@ func main() {
 	// Output: {"@context":"http://schema.org","@type":"Airline","dissolutionDate":"2002-02-02","founder":{"@context":"http://schema.org","@type":"Person","name":"John"},"foundingDate":"2001-01-01","name":"Super Sonic"}
 }
 ```
+
+### JSON
+
+* Choose a json from the `schemaorgjson` directory and copy it.
+* Go to [Googles structured data testing tool](https://search.google.com/structured-data/testing-tool)
+* Use the testing tool to get an idea of how Google will see the data.
+
+The JSON generator does not create valid values as it uses a random value generator and it only it goes 2 levels deep. It does give you a starting point to work with as neither Google not schema.org provide very elaborate `json` examples.

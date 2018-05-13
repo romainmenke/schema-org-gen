@@ -41,11 +41,11 @@ func typeFile(types []*ast.Object, dir string) func(ctx context.Context, o *type
 
 		parentObject := object.ParentObject
 		for parentObject != nil {
-			setFields(types, data, parentObject, false)
+			setFields(types, data, parentObject, 0)
 			parentObject = parentObject.ParentObject
 		}
 
-		data = setFields(types, data, object, false)
+		data = setFields(types, data, object, 0)
 
 		err = enc.Encode(data)
 		if err != nil {
@@ -61,7 +61,7 @@ func typeFile(types []*ast.Object, dir string) func(ctx context.Context, o *type
 	}
 }
 
-func setFields(types []*ast.Object, data map[string]interface{}, object *ast.Object, nested bool) map[string]interface{} {
+func setFields(types []*ast.Object, data map[string]interface{}, object *ast.Object, nestingLevel int) map[string]interface{} {
 	for _, field := range object.Fields {
 		if field.Name == "" {
 			continue
@@ -73,13 +73,13 @@ func setFields(types []*ast.Object, data map[string]interface{}, object *ast.Obj
 		fieldTypes := normalizeTypes(field.Types)
 		fieldType := fieldTypes[0].Type
 
-		data[field.Name] = jsonValueForSchemaDataType(types, fieldType, nested)
+		data[field.Name] = jsonValueForSchemaDataType(types, fieldType, nestingLevel)
 	}
 
 	return data
 }
 
-func jsonValueForSchemaDataType(types []*ast.Object, schemaDataType string, nested bool) interface{} {
+func jsonValueForSchemaDataType(types []*ast.Object, schemaDataType string, nestingLevel int) interface{} {
 	switch schemaDataType {
 	case "Boolean":
 		return randomdata.Boolean()
@@ -100,14 +100,14 @@ func jsonValueForSchemaDataType(types []*ast.Object, schemaDataType string, nest
 	case "Time":
 		return randomDate().Format("2006-01-02T15:04")
 	default:
-		if nested {
+		if nestingLevel > 0 {
 			return nil
 		}
 		for _, t := range types {
 			if schemaDataType == t.Name {
 				return setFields(types, map[string]interface{}{
 					"@type": t.Name,
-				}, t, true)
+				}, t, nestingLevel+1)
 			}
 		}
 	}
