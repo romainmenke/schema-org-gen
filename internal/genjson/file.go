@@ -13,9 +13,9 @@ func newObjectFile(dir string, typeName string) (*os.File, error) {
 		return nil, err
 	}
 
-	os.Remove(path.Join(dir, strcase.ToSnake(typeName+".go")))
+	os.Remove(path.Join(dir, strcase.ToSnake(typeName+".json")))
 
-	f, err := os.Create(path.Join(dir, strcase.ToSnake(typeName+".go")))
+	f, err := os.Create(path.Join(dir, strcase.ToSnake(typeName+".json")))
 	if err != nil {
 		return nil, err
 	}
