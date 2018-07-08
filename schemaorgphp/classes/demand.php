@@ -35,14 +35,14 @@ class Demand extends Intangible implements JsonSerializable {
 	
 	/**
 	 * The end of the availability of the product or service included in the offer.
-	 * see : https://schema.org/availabilityEnds
+	 * see : https://pending.schema.org/availabilityEnds
 	 * @var string|string[]
 	 */
 	public var $availability_ends;
 	
 	/**
 	 * The beginning of the availability of the product or service included in the offer.
-	 * see : https://schema.org/availabilityStarts
+	 * see : https://pending.schema.org/availabilityStarts
 	 * @var string|string[]
 	 */
 	public var $availability_starts;
@@ -100,7 +100,7 @@ class Demand extends Intangible implements JsonSerializable {
 	 * The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.
 	 * 
 	 * See also ineligibleRegion (see: https://schema.org/ineligibleRegion).
-	 * see : https://schema.org/eligibleRegion
+	 * see : https://pending.schema.org/eligibleRegion
 	 * @var \GeoShape|\GeoShape[]|\Place|\Place[]|string|string[]
 	 */
 	public var $eligible_region;
@@ -113,21 +113,21 @@ class Demand extends Intangible implements JsonSerializable {
 	public var $eligible_transaction_volume;
 	
 	/**
-	 * The GTIN-12 (see: https://schema.orghttp://apps.gs1.org/GDD/glossary/Pages/GTIN-12.aspx) code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	 * The GTIN-12 code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
 	 * see : https://schema.org/gtin12
 	 * @var string|string[]
 	 */
 	public var $gtin_12;
 	
 	/**
-	 * The GTIN-13 (see: https://schema.orghttp://apps.gs1.org/GDD/glossary/Pages/GTIN-13.aspx) code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	 * The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
 	 * see : https://schema.org/gtin13
 	 * @var string|string[]
 	 */
 	public var $gtin_13;
 	
 	/**
-	 * The GTIN-14 (see: https://schema.orghttp://apps.gs1.org/GDD/glossary/Pages/GTIN-14.aspx) code of the product, or the product to which the offer refers. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	 * The GTIN-14 code of the product, or the product to which the offer refers. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
 	 * see : https://schema.org/gtin14
 	 * @var string|string[]
 	 */

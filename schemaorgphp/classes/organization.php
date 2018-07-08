@@ -90,6 +90,13 @@ class Organization extends Thing implements JsonSerializable {
 	public var $diversity_policy;
 	
 	/**
+	 * For an Organization (see: https://schema.org/Organization) (often but not necessarily a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization)), a report on staffing diversity issues. In a news context this might be for example ASNE or RTDNA (US) reports, or self-reported.
+	 * see : https://pending.schema.org/diversityStaffingReport
+	 * @var \Article|\Article[]|string|string[]
+	 */
+	public var $diversity_staffing_report;
+	
+	/**
 	 * The Dun &amp; Bradstreet DUNS number for identifying an organization or business person.
 	 * see : https://schema.org/duns
 	 * @var string|string[]
@@ -188,6 +195,20 @@ class Organization extends Thing implements JsonSerializable {
 	public var $isic_v_4;
 	
 	/**
+	 * Of a Person (see: https://schema.org/Person), and less typically of an Organization (see: https://schema.org/Organization), to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or yet relate this to educational content, events, objectives or JobPosting (see: https://schema.org/JobPosting) descriptions.
+	 * see : https://pending.schema.org/knowsAbout
+	 * @var string|string[]|\Thing|\Thing[]|string|string[]
+	 */
+	public var $knows_about;
+	
+	/**
+	 * Of a Person (see: https://schema.org/Person), and less typically of an Organization (see: https://schema.org/Organization), to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the IETF BCP 47 standard (see: https://schema.orghttp://tools.ietf.org/html/bcp47).
+	 * see : https://pending.schema.org/knowsLanguage
+	 * @var \Language|\Language[]|string|string[]
+	 */
+	public var $knows_language;
+	
+	/**
 	 * The official name of the organization, e.g. the registered company name.
 	 * see : https://schema.org/legalName
 	 * @var string|string[]
@@ -249,6 +270,13 @@ class Organization extends Thing implements JsonSerializable {
 	 * @var \QuantitativeValue|\QuantitativeValue[]
 	 */
 	public var $number_of_employees;
+	
+	/**
+	 * For an Organization (see: https://schema.org/Organization) (often but not necessarily a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization)), a description of organizational ownership structure; funding and grants. In a news/media setting, this is with particular reference to editorial independence.   Note that the funder (see: https://schema.org/funder) is also available and can be used to make basic funder information machine-readable.
+	 * see : https://pending.schema.org/ownershipFundingInfo
+	 * @var \AboutPage|\AboutPage[]|\CreativeWork|\CreativeWork[]|string|string[]|string|string[]
+	 */
+	public var $ownership_funding_info;
 	
 	/**
 	 * Products owned by the organization or person.
@@ -395,6 +423,11 @@ class Organization extends Thing implements JsonSerializable {
 			$out['diversityPolicy'] = $serialized;
 		}
 		
+		$serialized = so_json_serialize( $this->diversity_staffing_report );
+		if ( ! empty( $serialized ) ) {
+			$out['diversityStaffingReport'] = $serialized;
+		}
+		
 		$serialized = so_json_serialize( $this->duns );
 		if ( ! empty( $serialized ) ) {
 			$out['duns'] = $serialized;
@@ -465,6 +498,16 @@ class Organization extends Thing implements JsonSerializable {
 			$out['isicV4'] = $serialized;
 		}
 		
+		$serialized = so_json_serialize( $this->knows_about );
+		if ( ! empty( $serialized ) ) {
+			$out['knowsAbout'] = $serialized;
+		}
+		
+		$serialized = so_json_serialize( $this->knows_language );
+		if ( ! empty( $serialized ) ) {
+			$out['knowsLanguage'] = $serialized;
+		}
+		
 		$serialized = so_json_serialize( $this->legal_name );
 		if ( ! empty( $serialized ) ) {
 			$out['legalName'] = $serialized;
@@ -508,6 +551,11 @@ class Organization extends Thing implements JsonSerializable {
 		$serialized = so_json_serialize( $this->number_of_employees );
 		if ( ! empty( $serialized ) ) {
 			$out['numberOfEmployees'] = $serialized;
+		}
+		
+		$serialized = so_json_serialize( $this->ownership_funding_info );
+		if ( ! empty( $serialized ) ) {
+			$out['ownershipFundingInfo'] = $serialized;
 		}
 		
 		$serialized = so_json_serialize( $this->owns );

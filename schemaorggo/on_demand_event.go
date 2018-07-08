@@ -13,7 +13,7 @@ type OnDemandEvent struct {
 	// types : Boolean
 	IsAccessibleForFree []bool `json:"isAccessibleForFree,omitempty"`
 
-	// PublishedBy see : http://bib.schema.org/publishedBy
+	// PublishedBy see : https://bib.schema.org/publishedBy
 	// An agent associated with the publication event.
 	// types : Organization Person
 	PublishedBy []interface{} `json:"publishedBy,omitempty"`

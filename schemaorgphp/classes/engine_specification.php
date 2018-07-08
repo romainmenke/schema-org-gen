@@ -11,7 +11,7 @@ class EngineSpecification extends StructuredValue implements JsonSerializable {
 	 * Typical unit code(s): CMQ for cubic centimeter, LTR for liters, INQ for cubic inches
 	 * * Note 1: You can link to information about how the given value has been determined using the valueReference (see: https://schema.org/valueReference) property.
 	 * * Note 2: You can use minValue (see: https://schema.org/minValue) and maxValue (see: https://schema.org/maxValue) to indicate ranges.
-	 * see : http://auto.schema.org/engineDisplacement
+	 * see : https://auto.schema.org/engineDisplacement
 	 * @var \QuantitativeValue|\QuantitativeValue[]
 	 */
 	public var $engine_displacement;
@@ -26,14 +26,14 @@ class EngineSpecification extends StructuredValue implements JsonSerializable {
 	 * Note 3: You can use minValue (see: https://schema.org/minValue) and maxValue (see: https://schema.org/maxValue) to indicate ranges.
 	 * 
 	 * 
-	 * see : http://auto.schema.org/enginePower
+	 * see : https://auto.schema.org/enginePower
 	 * @var \QuantitativeValue|\QuantitativeValue[]
 	 */
 	public var $engine_power;
 	
 	/**
 	 * The type of engine or engines powering the vehicle.
-	 * see : http://auto.schema.org/engineType
+	 * see : https://auto.schema.org/engineType
 	 * @var \QualitativeValue|\QualitativeValue[]|string|string[]|string|string[]
 	 */
 	public var $engine_type;
@@ -55,7 +55,7 @@ class EngineSpecification extends StructuredValue implements JsonSerializable {
 	 * Note 2: You can use minValue (see: https://schema.org/minValue) and maxValue (see: https://schema.org/maxValue) to indicate ranges.
 	 * 
 	 * 
-	 * see : http://auto.schema.org/torque
+	 * see : https://auto.schema.org/torque
 	 * @var \QuantitativeValue|\QuantitativeValue[]
 	 */
 	public var $torque;

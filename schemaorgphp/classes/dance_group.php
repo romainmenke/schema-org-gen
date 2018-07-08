@@ -7,7 +7,7 @@ class DanceGroup extends PerformingGroup implements JsonSerializable {
 	
 	/**
 	 * For a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization) or other news-related Organization (see: https://schema.org/Organization), a statement about public engagement activities (for news media, the newsroom’s), including involving the public - digitally or otherwise -- in coverage decisions, reporting and activities after publication.
-	 * see : http://pending.schema.org/actionableFeedbackPolicy
+	 * see : https://pending.schema.org/actionableFeedbackPolicy
 	 * @var \CreativeWork|\CreativeWork[]|string|string[]
 	 */
 	public var $actionable_feedback_policy;
@@ -63,7 +63,7 @@ class DanceGroup extends PerformingGroup implements JsonSerializable {
 	
 	/**
 	 * For an Organization (see: https://schema.org/Organization) (e.g. NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization)), a statement describing (in news media, the newsroom’s) disclosure and correction policy for errors.
-	 * see : http://pending.schema.org/correctionsPolicy
+	 * see : https://pending.schema.org/correctionsPolicy
 	 * @var \CreativeWork|\CreativeWork[]|string|string[]
 	 */
 	public var $corrections_policy;
@@ -84,10 +84,17 @@ class DanceGroup extends PerformingGroup implements JsonSerializable {
 	
 	/**
 	 * Statement on diversity policy by an Organization (see: https://schema.org/Organization) e.g. a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization). For a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization), a statement describing the newsroom’s diversity policy on both staffing and sources, typically providing staffing data.
-	 * see : http://pending.schema.org/diversityPolicy
+	 * see : https://pending.schema.org/diversityPolicy
 	 * @var \CreativeWork|\CreativeWork[]|string|string[]
 	 */
 	public var $diversity_policy;
+	
+	/**
+	 * For an Organization (see: https://schema.org/Organization) (often but not necessarily a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization)), a report on staffing diversity issues. In a news context this might be for example ASNE or RTDNA (US) reports, or self-reported.
+	 * see : https://pending.schema.org/diversityStaffingReport
+	 * @var \Article|\Article[]|string|string[]
+	 */
+	public var $diversity_staffing_report;
 	
 	/**
 	 * The Dun &amp; Bradstreet DUNS number for identifying an organization or business person.
@@ -112,7 +119,7 @@ class DanceGroup extends PerformingGroup implements JsonSerializable {
 	
 	/**
 	 * Statement about ethics policy, e.g. of a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization) regarding journalistic and publishing practices, or of a Restaurant (see: https://schema.org/Restaurant), a page describing food source policies. In the case of a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization), an ethicsPolicy is typically a statement describing the personal, organizational, and corporate standards of behavior expected by the organization.
-	 * see : http://pending.schema.org/ethicsPolicy
+	 * see : https://pending.schema.org/ethicsPolicy
 	 * @var \CreativeWork|\CreativeWork[]|string|string[]
 	 */
 	public var $ethics_policy;
@@ -188,6 +195,20 @@ class DanceGroup extends PerformingGroup implements JsonSerializable {
 	public var $isic_v_4;
 	
 	/**
+	 * Of a Person (see: https://schema.org/Person), and less typically of an Organization (see: https://schema.org/Organization), to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or yet relate this to educational content, events, objectives or JobPosting (see: https://schema.org/JobPosting) descriptions.
+	 * see : https://pending.schema.org/knowsAbout
+	 * @var string|string[]|\Thing|\Thing[]|string|string[]
+	 */
+	public var $knows_about;
+	
+	/**
+	 * Of a Person (see: https://schema.org/Person), and less typically of an Organization (see: https://schema.org/Organization), to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the IETF BCP 47 standard (see: https://schema.orghttp://tools.ietf.org/html/bcp47).
+	 * see : https://pending.schema.org/knowsLanguage
+	 * @var \Language|\Language[]|string|string[]
+	 */
+	public var $knows_language;
+	
+	/**
 	 * The official name of the organization, e.g. the registered company name.
 	 * see : https://schema.org/legalName
 	 * @var string|string[]
@@ -249,6 +270,13 @@ class DanceGroup extends PerformingGroup implements JsonSerializable {
 	 * @var \QuantitativeValue|\QuantitativeValue[]
 	 */
 	public var $number_of_employees;
+	
+	/**
+	 * For an Organization (see: https://schema.org/Organization) (often but not necessarily a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization)), a description of organizational ownership structure; funding and grants. In a news/media setting, this is with particular reference to editorial independence.   Note that the funder (see: https://schema.org/funder) is also available and can be used to make basic funder information machine-readable.
+	 * see : https://pending.schema.org/ownershipFundingInfo
+	 * @var \AboutPage|\AboutPage[]|\CreativeWork|\CreativeWork[]|string|string[]|string|string[]
+	 */
+	public var $ownership_funding_info;
 	
 	/**
 	 * Products owned by the organization or person.
@@ -317,7 +345,7 @@ class DanceGroup extends PerformingGroup implements JsonSerializable {
 	
 	/**
 	 * For an Organization (see: https://schema.org/Organization) (typically a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization)), a statement about policy on use of unnamed sources and the decision process required.
-	 * see : http://pending.schema.org/unnamedSourcesPolicy
+	 * see : https://pending.schema.org/unnamedSourcesPolicy
 	 * @var \CreativeWork|\CreativeWork[]|string|string[]
 	 */
 	public var $unnamed_sources_policy;
@@ -395,6 +423,11 @@ class DanceGroup extends PerformingGroup implements JsonSerializable {
 			$out['diversityPolicy'] = $serialized;
 		}
 		
+		$serialized = so_json_serialize( $this->diversity_staffing_report );
+		if ( ! empty( $serialized ) ) {
+			$out['diversityStaffingReport'] = $serialized;
+		}
+		
 		$serialized = so_json_serialize( $this->duns );
 		if ( ! empty( $serialized ) ) {
 			$out['duns'] = $serialized;
@@ -465,6 +498,16 @@ class DanceGroup extends PerformingGroup implements JsonSerializable {
 			$out['isicV4'] = $serialized;
 		}
 		
+		$serialized = so_json_serialize( $this->knows_about );
+		if ( ! empty( $serialized ) ) {
+			$out['knowsAbout'] = $serialized;
+		}
+		
+		$serialized = so_json_serialize( $this->knows_language );
+		if ( ! empty( $serialized ) ) {
+			$out['knowsLanguage'] = $serialized;
+		}
+		
 		$serialized = so_json_serialize( $this->legal_name );
 		if ( ! empty( $serialized ) ) {
 			$out['legalName'] = $serialized;
@@ -508,6 +551,11 @@ class DanceGroup extends PerformingGroup implements JsonSerializable {
 		$serialized = so_json_serialize( $this->number_of_employees );
 		if ( ! empty( $serialized ) ) {
 			$out['numberOfEmployees'] = $serialized;
+		}
+		
+		$serialized = so_json_serialize( $this->ownership_funding_info );
+		if ( ! empty( $serialized ) ) {
+			$out['ownershipFundingInfo'] = $serialized;
 		}
 		
 		$serialized = so_json_serialize( $this->owns );

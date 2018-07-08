@@ -1,6 +1,6 @@
 <?php
 
-class Flight extends Intangible implements JsonSerializable {
+class Flight extends Trip implements JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'Flight';
@@ -34,13 +34,6 @@ class Flight extends Intangible implements JsonSerializable {
 	public var $arrival_terminal;
 	
 	/**
-	 * The expected arrival time.
-	 * see : https://schema.org/arrivalTime
-	 * @var string|string[]
-	 */
-	public var $arrival_time;
-	
-	/**
 	 * The type of boarding policy used by the airline (e.g. zone-based or group-based).
 	 * see : https://schema.org/boardingPolicy
 	 * @var \BoardingPolicyType|\BoardingPolicyType[]
@@ -69,13 +62,6 @@ class Flight extends Intangible implements JsonSerializable {
 	public var $departure_terminal;
 	
 	/**
-	 * The expected departure time.
-	 * see : https://schema.org/departureTime
-	 * @var string|string[]
-	 */
-	public var $departure_time;
-	
-	/**
 	 * The estimated time the flight will take.
 	 * see : https://schema.org/estimatedFlightDuration
 	 * @var \Duration|\Duration[]|string|string[]
@@ -102,13 +88,6 @@ class Flight extends Intangible implements JsonSerializable {
 	 * @var string|string[]
 	 */
 	public var $meal_service;
-	
-	/**
-	 * The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier (see: https://schema.org/carrier).
-	 * see : https://schema.org/provider
-	 * @var \Organization|\Organization[]|\Person|\Person[]
-	 */
-	public var $provider;
 	
 	/**
 	 * An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider. Supersedes merchant (see: https://schema.org/merchant), vendor (see: https://schema.org/vendor).
@@ -150,11 +129,6 @@ class Flight extends Intangible implements JsonSerializable {
 			$out['arrivalTerminal'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->arrival_time );
-		if ( ! empty( $serialized ) ) {
-			$out['arrivalTime'] = $serialized;
-		}
-		
 		$serialized = so_json_serialize( $this->boarding_policy );
 		if ( ! empty( $serialized ) ) {
 			$out['boardingPolicy'] = $serialized;
@@ -175,11 +149,6 @@ class Flight extends Intangible implements JsonSerializable {
 			$out['departureTerminal'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->departure_time );
-		if ( ! empty( $serialized ) ) {
-			$out['departureTime'] = $serialized;
-		}
-		
 		$serialized = so_json_serialize( $this->estimated_flight_duration );
 		if ( ! empty( $serialized ) ) {
 			$out['estimatedFlightDuration'] = $serialized;
@@ -198,11 +167,6 @@ class Flight extends Intangible implements JsonSerializable {
 		$serialized = so_json_serialize( $this->meal_service );
 		if ( ! empty( $serialized ) ) {
 			$out['mealService'] = $serialized;
-		}
-		
-		$serialized = so_json_serialize( $this->provider );
-		if ( ! empty( $serialized ) ) {
-			$out['provider'] = $serialized;
 		}
 		
 		$serialized = so_json_serialize( $this->seller );

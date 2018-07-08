@@ -56,7 +56,7 @@ class Service extends Intangible implements JsonSerializable {
 	
 	/**
 	 * A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
-	 * see : https://schema.org/category
+	 * see : https://pending.schema.org/category
 	 * @var \PhysicalActivityCategory|\PhysicalActivityCategory[]|string|string[]|\Thing|\Thing[]
 	 */
 	public var $category;
@@ -140,7 +140,7 @@ class Service extends Intangible implements JsonSerializable {
 	
 	/**
 	 * Human-readable terms of service documentation.
-	 * see : http://pending.schema.org/termsOfService
+	 * see : https://pending.schema.org/termsOfService
 	 * @var string|string[]|string|string[]
 	 */
 	public var $terms_of_service;

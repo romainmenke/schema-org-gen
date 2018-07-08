@@ -160,6 +160,13 @@ class Person extends Thing implements JsonSerializable {
 	public var $global_location_number;
 	
 	/**
+	 * The Person&#39;s occupation. For past professions, use Role for expressing dates.
+	 * see : https://pending.schema.org/hasOccupation
+	 * @var \Occupation|\Occupation[]
+	 */
+	public var $has_occupation;
+	
+	/**
 	 * Indicates an OfferCatalog listing for this Organization, Person, or Service.
 	 * see : https://schema.org/hasOfferCatalog
 	 * @var \OfferCatalog|\OfferCatalog[]
@@ -221,6 +228,20 @@ class Person extends Thing implements JsonSerializable {
 	 * @var \Person|\Person[]
 	 */
 	public var $knows;
+	
+	/**
+	 * Of a Person (see: https://schema.org/Person), and less typically of an Organization (see: https://schema.org/Organization), to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or yet relate this to educational content, events, objectives or JobPosting (see: https://schema.org/JobPosting) descriptions.
+	 * see : https://pending.schema.org/knowsAbout
+	 * @var string|string[]|\Thing|\Thing[]|string|string[]
+	 */
+	public var $knows_about;
+	
+	/**
+	 * Of a Person (see: https://schema.org/Person), and less typically of an Organization (see: https://schema.org/Organization), to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the IETF BCP 47 standard (see: https://schema.orghttp://tools.ietf.org/html/bcp47).
+	 * see : https://pending.schema.org/knowsLanguage
+	 * @var \Language|\Language[]|string|string[]
+	 */
+	public var $knows_language;
 	
 	/**
 	 * A pointer to products or services offered by the organization or person. Inverse property: offeredBy (see: https://schema.org/offeredBy).
@@ -480,6 +501,11 @@ class Person extends Thing implements JsonSerializable {
 			$out['globalLocationNumber'] = $serialized;
 		}
 		
+		$serialized = so_json_serialize( $this->has_occupation );
+		if ( ! empty( $serialized ) ) {
+			$out['hasOccupation'] = $serialized;
+		}
+		
 		$serialized = so_json_serialize( $this->has_offer_catalog );
 		if ( ! empty( $serialized ) ) {
 			$out['hasOfferCatalog'] = $serialized;
@@ -523,6 +549,16 @@ class Person extends Thing implements JsonSerializable {
 		$serialized = so_json_serialize( $this->knows );
 		if ( ! empty( $serialized ) ) {
 			$out['knows'] = $serialized;
+		}
+		
+		$serialized = so_json_serialize( $this->knows_about );
+		if ( ! empty( $serialized ) ) {
+			$out['knowsAbout'] = $serialized;
+		}
+		
+		$serialized = so_json_serialize( $this->knows_language );
+		if ( ! empty( $serialized ) ) {
+			$out['knowsLanguage'] = $serialized;
 		}
 		
 		$serialized = so_json_serialize( $this->makes_offer );

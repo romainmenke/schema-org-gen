@@ -20,8 +20,8 @@ class JobPosting extends Intangible implements JsonSerializable {
 	public var $date_posted;
 	
 	/**
-	 * Educational background needed for the position.
-	 * see : https://schema.org/educationRequirements
+	 * Educational background needed for the position or Occupation.
+	 * see : https://pending.schema.org/educationRequirements
 	 * @var string|string[]
 	 */
 	public var $education_requirements;
@@ -35,14 +35,14 @@ class JobPosting extends Intangible implements JsonSerializable {
 	
 	/**
 	 * A property describing the estimated salary for a job posting based on a variety of variables including, but not limited to industry, job title, and location. The estimated salary is usually computed by outside organizations and therefore the hiring organization is not bound to this estimated salary.
-	 * see : https://schema.org/estimatedSalary
-	 * @var \MonetaryAmount|\MonetaryAmount[]|float|float[]|\PriceSpecification|\PriceSpecification[]
+	 * see : https://pending.schema.org/estimatedSalary
+	 * @var \MonetaryAmount|\MonetaryAmount[]|\MonetaryAmountDistribution|\MonetaryAmountDistribution[]|float|float[]|\PriceSpecification|\PriceSpecification[]
 	 */
 	public var $estimated_salary;
 	
 	/**
-	 * Description of skills and experience needed for the position.
-	 * see : https://schema.org/experienceRequirements
+	 * Description of skills and experience needed for the position or Occupation.
+	 * see : https://pending.schema.org/experienceRequirements
 	 * @var string|string[]
 	 */
 	public var $experience_requirements;
@@ -84,21 +84,28 @@ class JobPosting extends Intangible implements JsonSerializable {
 	
 	/**
 	 * Category or categories describing the job. Use BLS O*NET-SOC taxonomy: http://www.onetcenter.org/taxonomy.html. Ideally includes textual label and formal code, with the property repeated for each applicable value.
-	 * see : https://schema.org/occupationalCategory
+	 * see : https://pending.schema.org/occupationalCategory
 	 * @var string|string[]
 	 */
 	public var $occupational_category;
 	
 	/**
-	 * Specific qualifications required for this role.
-	 * see : https://schema.org/qualifications
+	 * Specific qualifications required for this role or Occupation.
+	 * see : https://pending.schema.org/qualifications
 	 * @var string|string[]
 	 */
 	public var $qualifications;
 	
 	/**
-	 * Responsibilities associated with this role.
-	 * see : https://schema.org/responsibilities
+	 * The Occupation for the JobPosting.
+	 * see : https://pending.schema.org/relevantOccupation
+	 * @var \Occupation|\Occupation[]
+	 */
+	public var $relevant_occupation;
+	
+	/**
+	 * Responsibilities associated with this role or Occupation.
+	 * see : https://pending.schema.org/responsibilities
 	 * @var string|string[]
 	 */
 	public var $responsibilities;
@@ -112,7 +119,7 @@ class JobPosting extends Intangible implements JsonSerializable {
 	
 	/**
 	 * Skills required to fulfill this role.
-	 * see : https://schema.org/skills
+	 * see : https://pending.schema.org/skills
 	 * @var string|string[]
 	 */
 	public var $skills;
@@ -214,6 +221,11 @@ class JobPosting extends Intangible implements JsonSerializable {
 		$serialized = so_json_serialize( $this->qualifications );
 		if ( ! empty( $serialized ) ) {
 			$out['qualifications'] = $serialized;
+		}
+		
+		$serialized = so_json_serialize( $this->relevant_occupation );
+		if ( ! empty( $serialized ) ) {
+			$out['relevantOccupation'] = $serialized;
 		}
 		
 		$serialized = so_json_serialize( $this->responsibilities );

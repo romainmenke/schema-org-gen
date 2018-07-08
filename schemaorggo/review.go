@@ -13,6 +13,11 @@ type Review struct {
 	// types : Thing
 	ItemReviewed []*Thing `json:"itemReviewed,omitempty"`
 
+	// ReviewAspect see : https://pending.schema.org/reviewAspect
+	// This Review or Rating is relevant to this part or facet of the itemReviewed.
+	// types : Text
+	ReviewAspect []string `json:"reviewAspect,omitempty"`
+
 	// ReviewBody see : https://schema.org/reviewBody
 	// The actual body of the review.
 	// types : Text
@@ -46,6 +51,22 @@ func (v Review) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["itemReviewed"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.ReviewAspect
+		if len(v.ReviewAspect) == 1 {
+			value = v.ReviewAspect[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["reviewAspect"] = json.RawMessage(b)
 		}
 	}
 

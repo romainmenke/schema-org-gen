@@ -8,7 +8,7 @@ type Book struct {
 
 	typeContext
 
-	// Abridged see : http://bib.schema.org/abridged
+	// Abridged see : https://bib.schema.org/abridged
 	// Indicates whether the book is an abridged edition.
 	// types : Boolean
 	Abridged []bool `json:"abridged,omitempty"`

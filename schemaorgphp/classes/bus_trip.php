@@ -1,6 +1,6 @@
 <?php
 
-class BusTrip extends Intangible implements JsonSerializable {
+class BusTrip extends Trip implements JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'BusTrip';
@@ -11,13 +11,6 @@ class BusTrip extends Intangible implements JsonSerializable {
 	 * @var \BusStation|\BusStation[]|\BusStop|\BusStop[]
 	 */
 	public var $arrival_bus_stop;
-	
-	/**
-	 * The expected arrival time.
-	 * see : https://schema.org/arrivalTime
-	 * @var string|string[]
-	 */
-	public var $arrival_time;
 	
 	/**
 	 * The name of the bus (e.g. Bolt Express).
@@ -40,20 +33,6 @@ class BusTrip extends Intangible implements JsonSerializable {
 	 */
 	public var $departure_bus_stop;
 	
-	/**
-	 * The expected departure time.
-	 * see : https://schema.org/departureTime
-	 * @var string|string[]
-	 */
-	public var $departure_time;
-	
-	/**
-	 * The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier (see: https://schema.org/carrier).
-	 * see : https://schema.org/provider
-	 * @var \Organization|\Organization[]|\Person|\Person[]
-	 */
-	public var $provider;
-	
 	public function jsonSerialize() {
 		$out = array(
 			'@context' => 'http://schema.org',
@@ -63,11 +42,6 @@ class BusTrip extends Intangible implements JsonSerializable {
 		$serialized = so_json_serialize( $this->arrival_bus_stop );
 		if ( ! empty( $serialized ) ) {
 			$out['arrivalBusStop'] = $serialized;
-		}
-		
-		$serialized = so_json_serialize( $this->arrival_time );
-		if ( ! empty( $serialized ) ) {
-			$out['arrivalTime'] = $serialized;
 		}
 		
 		$serialized = so_json_serialize( $this->bus_name );
@@ -83,16 +57,6 @@ class BusTrip extends Intangible implements JsonSerializable {
 		$serialized = so_json_serialize( $this->departure_bus_stop );
 		if ( ! empty( $serialized ) ) {
 			$out['departureBusStop'] = $serialized;
-		}
-		
-		$serialized = so_json_serialize( $this->departure_time );
-		if ( ! empty( $serialized ) ) {
-			$out['departureTime'] = $serialized;
-		}
-		
-		$serialized = so_json_serialize( $this->provider );
-		if ( ! empty( $serialized ) ) {
-			$out['provider'] = $serialized;
 		}
 		
 		return $out;

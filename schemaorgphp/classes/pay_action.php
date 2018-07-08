@@ -7,7 +7,7 @@ class PayAction extends TradeAction implements JsonSerializable {
 	
 	/**
 	 * A goal towards an action is taken. Can be concrete or abstract.
-	 * see : http://health-lifesci.schema.org/purpose
+	 * see : https://health-lifesci.schema.org/purpose
 	 * @var \MedicalDevicePurpose|\MedicalDevicePurpose[]|\Thing|\Thing[]
 	 */
 	public var $purpose;

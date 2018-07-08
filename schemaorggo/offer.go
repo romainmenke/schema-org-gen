@@ -38,12 +38,12 @@ type Offer struct {
 	// types : ItemAvailability
 	Availability []*ItemAvailability `json:"availability,omitempty"`
 
-	// AvailabilityEnds see : https://schema.org/availabilityEnds
+	// AvailabilityEnds see : https://pending.schema.org/availabilityEnds
 	// The end of the availability of the product or service included in the offer.
 	// types : DateTime
 	AvailabilityEnds []DateTime `json:"availabilityEnds,omitempty"`
 
-	// AvailabilityStarts see : https://schema.org/availabilityStarts
+	// AvailabilityStarts see : https://pending.schema.org/availabilityStarts
 	// The beginning of the availability of the product or service included in the offer.
 	// types : DateTime
 	AvailabilityStarts []DateTime `json:"availabilityStarts,omitempty"`
@@ -63,7 +63,7 @@ type Offer struct {
 	// types : BusinessFunction
 	BusinessFunction []*BusinessFunction `json:"businessFunction,omitempty"`
 
-	// Category see : https://schema.org/category
+	// Category see : https://pending.schema.org/category
 	// A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
 	// types : PhysicalActivityCategory Text Thing
 	Category []interface{} `json:"category,omitempty"`
@@ -88,7 +88,7 @@ type Offer struct {
 	// types : QuantitativeValue
 	EligibleQuantity []*QuantitativeValue `json:"eligibleQuantity,omitempty"`
 
-	// EligibleRegion see : https://schema.org/eligibleRegion
+	// EligibleRegion see : https://pending.schema.org/eligibleRegion
 	// The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.
 	//
 	// See also ineligibleRegion (see: https://schema.org/ineligibleRegion).
@@ -101,17 +101,17 @@ type Offer struct {
 	EligibleTransactionVolume []*PriceSpecification `json:"eligibleTransactionVolume,omitempty"`
 
 	// Gtin12 see : https://schema.org/gtin12
-	// The GTIN-12 (see: https://schema.orghttp://apps.gs1.org/GDD/glossary/Pages/GTIN-12.aspx) code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	// The GTIN-12 code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
 	// types : Text
 	Gtin12 []string `json:"gtin12,omitempty"`
 
 	// Gtin13 see : https://schema.org/gtin13
-	// The GTIN-13 (see: https://schema.orghttp://apps.gs1.org/GDD/glossary/Pages/GTIN-13.aspx) code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	// The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
 	// types : Text
 	Gtin13 []string `json:"gtin13,omitempty"`
 
 	// Gtin14 see : https://schema.org/gtin14
-	// The GTIN-14 (see: https://schema.orghttp://apps.gs1.org/GDD/glossary/Pages/GTIN-14.aspx) code of the product, or the product to which the offer refers. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	// The GTIN-14 code of the product, or the product to which the offer refers. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
 	// types : Text
 	Gtin14 []string `json:"gtin14,omitempty"`
 
@@ -163,8 +163,7 @@ type Offer struct {
 	// Usage guidelines:
 	//
 	//
-	// Use the priceCurrency (see: https://schema.org/priceCurrency) property (with ISO 4217 codes (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217#Active_codes) e.g. &quot;USD&quot;) instead of
-	//   including ambiguous symbols (see: https://schema.orghttp://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as &#39;$&#39; in the value.
+	// Use the priceCurrency (see: https://schema.org/priceCurrency) property (with standard formats: ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217) e.g. &quot;USD&quot;; Ticker symbol (see: https://schema.orghttps://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. &quot;BTC&quot;; well known names for Local Exchange Tradings Systems (see: https://schema.orghttps://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. &quot;Ithaca HOUR&quot;) instead of including ambiguous symbols (see: https://schema.orghttp://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign) such as &#39;$&#39; in the value.
 	// Use &#39;.&#39; (Unicode &#39;FULL STOP&#39; (U+002E)) rather than &#39;,&#39; to indicate a decimal point. Avoid using these symbols as a readability separator.
 	// Note that both RDFa (see: https://schema.orghttp://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute) and Microdata syntax allow the use of a &quot;content=&quot; attribute for publishing simple machine-readable values alongside more human-friendly formatting.
 	// Use values from 0123456789 (Unicode &#39;DIGIT ZERO&#39; (U+0030) to &#39;DIGIT NINE&#39; (U+0039)) rather than superficially similiar Unicode symbols.
@@ -174,7 +173,9 @@ type Offer struct {
 	Price []interface{} `json:"price,omitempty"`
 
 	// PriceCurrency see : https://schema.org/priceCurrency
-	// The currency (in 3-letter ISO 4217 format) of the price or a price component, when attached to PriceSpecification (see: https://schema.org/PriceSpecification) and its subtypes.
+	// The currency of the price, or a price component when attached to PriceSpecification (see: https://schema.org/PriceSpecification) and its subtypes.
+	//
+	// Use standard formats: ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217) e.g. &quot;USD&quot;; Ticker symbol (see: https://schema.orghttps://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. &quot;BTC&quot;; well known names for Local Exchange Tradings Systems (see: https://schema.orghttps://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. &quot;Ithaca HOUR&quot;.
 	// types : Text
 	PriceCurrency []string `json:"priceCurrency,omitempty"`
 

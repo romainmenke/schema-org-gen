@@ -28,12 +28,12 @@ type Demand struct {
 	// types : ItemAvailability
 	Availability []*ItemAvailability `json:"availability,omitempty"`
 
-	// AvailabilityEnds see : https://schema.org/availabilityEnds
+	// AvailabilityEnds see : https://pending.schema.org/availabilityEnds
 	// The end of the availability of the product or service included in the offer.
 	// types : DateTime
 	AvailabilityEnds []DateTime `json:"availabilityEnds,omitempty"`
 
-	// AvailabilityStarts see : https://schema.org/availabilityStarts
+	// AvailabilityStarts see : https://pending.schema.org/availabilityStarts
 	// The beginning of the availability of the product or service included in the offer.
 	// types : DateTime
 	AvailabilityStarts []DateTime `json:"availabilityStarts,omitempty"`
@@ -73,7 +73,7 @@ type Demand struct {
 	// types : QuantitativeValue
 	EligibleQuantity []*QuantitativeValue `json:"eligibleQuantity,omitempty"`
 
-	// EligibleRegion see : https://schema.org/eligibleRegion
+	// EligibleRegion see : https://pending.schema.org/eligibleRegion
 	// The ISO 3166-1 (ISO 3166-1 alpha-2) or ISO 3166-2 code, the place, or the GeoShape for the geo-political region(s) for which the offer or delivery charge specification is valid.
 	//
 	// See also ineligibleRegion (see: https://schema.org/ineligibleRegion).
@@ -86,17 +86,17 @@ type Demand struct {
 	EligibleTransactionVolume []*PriceSpecification `json:"eligibleTransactionVolume,omitempty"`
 
 	// Gtin12 see : https://schema.org/gtin12
-	// The GTIN-12 (see: https://schema.orghttp://apps.gs1.org/GDD/glossary/Pages/GTIN-12.aspx) code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	// The GTIN-12 code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
 	// types : Text
 	Gtin12 []string `json:"gtin12,omitempty"`
 
 	// Gtin13 see : https://schema.org/gtin13
-	// The GTIN-13 (see: https://schema.orghttp://apps.gs1.org/GDD/glossary/Pages/GTIN-13.aspx) code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	// The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
 	// types : Text
 	Gtin13 []string `json:"gtin13,omitempty"`
 
 	// Gtin14 see : https://schema.org/gtin14
-	// The GTIN-14 (see: https://schema.orghttp://apps.gs1.org/GDD/glossary/Pages/GTIN-14.aspx) code of the product, or the product to which the offer refers. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	// The GTIN-14 code of the product, or the product to which the offer refers. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
 	// types : Text
 	Gtin14 []string `json:"gtin14,omitempty"`
 

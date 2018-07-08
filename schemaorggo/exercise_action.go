@@ -8,7 +8,7 @@ type ExerciseAction struct {
 
 	typeContext
 
-	// Diet see : http://health-lifesci.schema.org/diet
+	// Diet see : https://health-lifesci.schema.org/diet
 	// A sub property of instrument. The diet used in this action.
 	// types : Diet
 	Diet []interface{} `json:"diet,omitempty"`
@@ -23,17 +23,17 @@ type ExerciseAction struct {
 	// types : Place
 	ExerciseCourse []*Place `json:"exerciseCourse,omitempty"`
 
-	// ExercisePlan see : http://health-lifesci.schema.org/exercisePlan
+	// ExercisePlan see : https://health-lifesci.schema.org/exercisePlan
 	// A sub property of instrument. The exercise plan used on this action.
 	// types : ExercisePlan
 	ExercisePlan []interface{} `json:"exercisePlan,omitempty"`
 
-	// ExerciseRelatedDiet see : http://health-lifesci.schema.org/exerciseRelatedDiet
+	// ExerciseRelatedDiet see : https://health-lifesci.schema.org/exerciseRelatedDiet
 	// A sub property of instrument. The diet used in this action.
 	// types : Diet
 	ExerciseRelatedDiet []interface{} `json:"exerciseRelatedDiet,omitempty"`
 
-	// ExerciseType see : http://health-lifesci.schema.org/exerciseType
+	// ExerciseType see : https://health-lifesci.schema.org/exerciseType
 	// Type(s) of exercise or activity, such as strength training, flexibility training, aerobics, cardiac rehabilitation, etc.
 	// types : Text
 	ExerciseType []string `json:"exerciseType,omitempty"`

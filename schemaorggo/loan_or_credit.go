@@ -13,17 +13,19 @@ type LoanOrCredit struct {
 	// types : MonetaryAmount Number
 	Amount []interface{} `json:"amount,omitempty"`
 
-	// Currency see : https://schema.org/currency
-	// The currency in which the monetary amount is expressed (in 3-letter ISO 4217 (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217) format).
+	// Currency see : https://pending.schema.org/currency
+	// The currency in which the monetary amount is expressed.
+	//
+	// Use standard formats: ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217) e.g. &quot;USD&quot;; Ticker symbol (see: https://schema.orghttps://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. &quot;BTC&quot;; well known names for Local Exchange Tradings Systems (see: https://schema.orghttps://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. &quot;Ithaca HOUR&quot;.
 	// types : Text
 	Currency []string `json:"currency,omitempty"`
 
-	// GracePeriod see : http://pending.schema.org/gracePeriod
+	// GracePeriod see : https://pending.schema.org/gracePeriod
 	// The period of time after any due date that the borrower has to fulfil its obligations before a default (failure to pay) is deemed to have occurred.
 	// types : Duration
 	GracePeriod []*Duration `json:"gracePeriod,omitempty"`
 
-	// LoanRepaymentForm see : http://pending.schema.org/loanRepaymentForm
+	// LoanRepaymentForm see : https://pending.schema.org/loanRepaymentForm
 	// A form of paying back money previously borrowed from a lender. Repayment usually takes the form of periodic payments that normally include part principal plus interest in each payment.
 	// types : RepaymentSpecification
 	LoanRepaymentForm []interface{} `json:"loanRepaymentForm,omitempty"`
@@ -33,17 +35,17 @@ type LoanOrCredit struct {
 	// types : QuantitativeValue
 	LoanTerm []*QuantitativeValue `json:"loanTerm,omitempty"`
 
-	// LoanType see : http://pending.schema.org/loanType
+	// LoanType see : https://pending.schema.org/loanType
 	// The type of a loan or credit.
 	// types : Text URL
 	LoanType []string `json:"loanType,omitempty"`
 
-	// RecourseLoan see : http://pending.schema.org/recourseLoan
+	// RecourseLoan see : https://pending.schema.org/recourseLoan
 	// The only way you get the money back in the event of default is the security. Recourse is where you still have the opportunity to go back to the borrower for the rest of the money.
 	// types : Boolean
 	RecourseLoan []bool `json:"recourseLoan,omitempty"`
 
-	// RenegotiableLoan see : http://pending.schema.org/renegotiableLoan
+	// RenegotiableLoan see : https://pending.schema.org/renegotiableLoan
 	// Whether the terms for payment of interest can be renegotiated during the life of the loan.
 	// types : Boolean
 	RenegotiableLoan []bool `json:"renegotiableLoan,omitempty"`

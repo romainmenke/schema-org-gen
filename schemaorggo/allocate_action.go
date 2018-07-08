@@ -8,7 +8,7 @@ type AllocateAction struct {
 
 	typeContext
 
-	// Purpose see : https://schema.org/purpose
+	// Purpose see : https://health-lifesci.schema.org/purpose
 	// A goal towards an action is taken. Can be concrete or abstract.
 	// types : MedicalDevicePurpose Thing
 	Purpose []interface{} `json:"purpose,omitempty"`

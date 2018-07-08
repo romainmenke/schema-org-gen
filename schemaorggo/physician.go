@@ -8,17 +8,17 @@ type Physician struct {
 
 	typeContext
 
-	// AvailableService see : http://health-lifesci.schema.org/availableService
+	// AvailableService see : https://health-lifesci.schema.org/availableService
 	// A medical service available from this provider.
 	// types : MedicalProcedure MedicalTest MedicalTherapy
 	AvailableService []interface{} `json:"availableService,omitempty"`
 
-	// HospitalAffiliation see : http://health-lifesci.schema.org/hospitalAffiliation
+	// HospitalAffiliation see : https://health-lifesci.schema.org/hospitalAffiliation
 	// A hospital with which the physician or office is affiliated.
 	// types : Hospital
 	HospitalAffiliation []*Hospital `json:"hospitalAffiliation,omitempty"`
 
-	// MedicalSpecialty see : http://health-lifesci.schema.org/medicalSpecialty
+	// MedicalSpecialty see : https://health-lifesci.schema.org/medicalSpecialty
 	// A medical specialty of the provider.
 	// types : MedicalSpecialty
 	MedicalSpecialty []interface{} `json:"medicalSpecialty,omitempty"`

@@ -8,21 +8,21 @@ class HowToDirection extends ListItem implements JsonSerializable {
 	/**
 	 * A media object representing the circumstances after performing this direction.
 	 * see : https://schema.org/afterMedia
-	 * @var \MediaObject|\MediaObject[]
+	 * @var \MediaObject|\MediaObject[]|string|string[]
 	 */
 	public var $after_media;
 	
 	/**
 	 * A media object representing the circumstances before performing this direction.
 	 * see : https://schema.org/beforeMedia
-	 * @var \MediaObject|\MediaObject[]
+	 * @var \MediaObject|\MediaObject[]|string|string[]
 	 */
 	public var $before_media;
 	
 	/**
 	 * A media object representing the circumstances while performing this direction.
 	 * see : https://schema.org/duringMedia
-	 * @var \MediaObject|\MediaObject[]
+	 * @var \MediaObject|\MediaObject[]|string|string[]
 	 */
 	public var $during_media;
 	

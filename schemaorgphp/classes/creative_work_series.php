@@ -1,6 +1,6 @@
 <?php
 
-class CreativeWorkSeries extends CreativeWork implements JsonSerializable {
+class CreativeWorkSeries extends Series implements JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'CreativeWorkSeries';

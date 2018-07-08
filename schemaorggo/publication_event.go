@@ -13,7 +13,7 @@ type PublicationEvent struct {
 	// types : Boolean
 	IsAccessibleForFree []bool `json:"isAccessibleForFree,omitempty"`
 
-	// PublishedBy see : http://bib.schema.org/publishedBy
+	// PublishedBy see : https://schema.org/publishedBy
 	// An agent associated with the publication event.
 	// types : Organization Person
 	PublishedBy []interface{} `json:"publishedBy,omitempty"`

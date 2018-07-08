@@ -62,52 +62,52 @@ type LandmarksOrHistoricalBuildings struct {
 	// types : GeoCoordinates GeoShape
 	Geo []interface{} `json:"geo,omitempty"`
 
-	// GeospatiallyContains see : http://pending.schema.org/geospatiallyContains
+	// GeospatiallyContains see : https://pending.schema.org/geospatiallyContains
 	// Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry. &quot;a contains b iff no points of b lie in the exterior of a, and at least one point of the interior of b lies in the interior of a&quot;. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
 	// types : GeospatialGeometry Place
 	GeospatiallyContains []interface{} `json:"geospatiallyContains,omitempty"`
 
-	// GeospatiallyCoveredBy see : http://pending.schema.org/geospatiallyCoveredBy
+	// GeospatiallyCoveredBy see : https://pending.schema.org/geospatiallyCoveredBy
 	// Represents a relationship between two geometries (or the places they represent), relating a geometry to another that covers it. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
 	// types : GeospatialGeometry Place
 	GeospatiallyCoveredBy []interface{} `json:"geospatiallyCoveredBy,omitempty"`
 
-	// GeospatiallyCovers see : http://pending.schema.org/geospatiallyCovers
+	// GeospatiallyCovers see : https://pending.schema.org/geospatiallyCovers
 	// Represents a relationship between two geometries (or the places they represent), relating a covering geometry to a covered geometry. &quot;Every point of b is a point of (the interior or boundary of) a&quot;. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
 	// types : GeospatialGeometry Place
 	GeospatiallyCovers []interface{} `json:"geospatiallyCovers,omitempty"`
 
-	// GeospatiallyCrosses see : http://pending.schema.org/geospatiallyCrosses
+	// GeospatiallyCrosses see : https://pending.schema.org/geospatiallyCrosses
 	// Represents a relationship between two geometries (or the places they represent), relating a geometry to another that crosses it: &quot;a crosses b: they have some but not all interior points in common, and the dimension of the intersection is less than that of at least one of them&quot;. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
 	// types : GeospatialGeometry Place
 	GeospatiallyCrosses []interface{} `json:"geospatiallyCrosses,omitempty"`
 
-	// GeospatiallyDisjoint see : http://pending.schema.org/geospatiallyDisjoint
+	// GeospatiallyDisjoint see : https://pending.schema.org/geospatiallyDisjoint
 	// Represents spatial relations in which two geometries (or the places they represent) are topologically disjoint: they have no point in common. They form a set of disconnected geometries.&quot; (a symmetric relationship, as defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM))
 	// types : GeospatialGeometry Place
 	GeospatiallyDisjoint []interface{} `json:"geospatiallyDisjoint,omitempty"`
 
-	// GeospatiallyEquals see : http://pending.schema.org/geospatiallyEquals
+	// GeospatiallyEquals see : https://pending.schema.org/geospatiallyEquals
 	// Represents spatial relations in which two geometries (or the places they represent) are topologically equal, as defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM). &quot;Two geometries are topologically equal if their interiors intersect and no part of the interior or boundary of one geometry intersects the exterior of the other&quot; (a symmetric relationship)
 	// types : GeospatialGeometry Place
 	GeospatiallyEquals []interface{} `json:"geospatiallyEquals,omitempty"`
 
-	// GeospatiallyIntersects see : http://pending.schema.org/geospatiallyIntersects
+	// GeospatiallyIntersects see : https://pending.schema.org/geospatiallyIntersects
 	// Represents spatial relations in which two geometries (or the places they represent) have at least one point in common. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
 	// types : GeospatialGeometry Place
 	GeospatiallyIntersects []interface{} `json:"geospatiallyIntersects,omitempty"`
 
-	// GeospatiallyOverlaps see : http://pending.schema.org/geospatiallyOverlaps
+	// GeospatiallyOverlaps see : https://pending.schema.org/geospatiallyOverlaps
 	// Represents a relationship between two geometries (or the places they represent), relating a geometry to another that geospatially overlaps it, i.e. they have some but not all points in common. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
 	// types : GeospatialGeometry Place
 	GeospatiallyOverlaps []interface{} `json:"geospatiallyOverlaps,omitempty"`
 
-	// GeospatiallyTouches see : http://pending.schema.org/geospatiallyTouches
+	// GeospatiallyTouches see : https://pending.schema.org/geospatiallyTouches
 	// Represents spatial relations in which two geometries (or the places they represent) touch: they have at least one boundary point in common, but no interior points.&quot; (a symmetric relationship, as defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM) )
 	// types : GeospatialGeometry Place
 	GeospatiallyTouches []interface{} `json:"geospatiallyTouches,omitempty"`
 
-	// GeospatiallyWithin see : http://pending.schema.org/geospatiallyWithin
+	// GeospatiallyWithin see : https://pending.schema.org/geospatiallyWithin
 	// Represents a relationship between two geometries (or the places they represent), relating a geometry to one that contains it, i.e. it is inside (i.e. within) its interior. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
 	// types : GeospatialGeometry Place
 	GeospatiallyWithin []interface{} `json:"geospatiallyWithin,omitempty"`

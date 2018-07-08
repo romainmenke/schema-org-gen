@@ -8,17 +8,17 @@ type Pharmacy struct {
 
 	typeContext
 
-	// HealthPlanNetworkId see : http://pending.schema.org/healthPlanNetworkId
+	// HealthPlanNetworkId see : https://pending.schema.org/healthPlanNetworkId
 	// Name or unique ID of network. (Networks are often reused across different insurance plans).
 	// types : Text
 	HealthPlanNetworkId []string `json:"healthPlanNetworkId,omitempty"`
 
-	// IsAcceptingNewPatients see : http://pending.schema.org/isAcceptingNewPatients
+	// IsAcceptingNewPatients see : https://pending.schema.org/isAcceptingNewPatients
 	// Whether the provider is accepting new patients.
 	// types : Boolean
 	IsAcceptingNewPatients []bool `json:"isAcceptingNewPatients,omitempty"`
 
-	// MedicalSpecialty see : http://health-lifesci.schema.org/medicalSpecialty
+	// MedicalSpecialty see : https://health-lifesci.schema.org/medicalSpecialty
 	// A medical specialty of the provider.
 	// types : MedicalSpecialty
 	MedicalSpecialty []interface{} `json:"medicalSpecialty,omitempty"`

@@ -7,7 +7,7 @@ class AllocateAction extends OrganizeAction implements JsonSerializable {
 	
 	/**
 	 * A goal towards an action is taken. Can be concrete or abstract.
-	 * see : https://schema.org/purpose
+	 * see : https://health-lifesci.schema.org/purpose
 	 * @var \MedicalDevicePurpose|\MedicalDevicePurpose[]|\Thing|\Thing[]
 	 */
 	public var $purpose;

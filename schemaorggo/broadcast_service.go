@@ -18,7 +18,7 @@ type BroadcastService struct {
 	// types : Text
 	BroadcastDisplayName []string `json:"broadcastDisplayName,omitempty"`
 
-	// BroadcastFrequency see : http://pending.schema.org/broadcastFrequency
+	// BroadcastFrequency see : https://pending.schema.org/broadcastFrequency
 	// The frequency used for over-the-air broadcasts. Numeric values or simple ranges e.g. 87-99. In addition a shortcut idiom is supported for frequences of AM and FM radio channels, e.g. &quot;87 FM&quot;.
 	// types : BroadcastFrequencySpecification Text
 	BroadcastFrequency []interface{} `json:"broadcastFrequency,omitempty"`
@@ -33,7 +33,7 @@ type BroadcastService struct {
 	// types : Organization
 	Broadcaster []*Organization `json:"broadcaster,omitempty"`
 
-	// HasBroadcastChannel see : http://pending.schema.org/hasBroadcastChannel
+	// HasBroadcastChannel see : https://pending.schema.org/hasBroadcastChannel
 	// A broadcast channel of a broadcast service. Inverse property: providesBroadcastService (see: https://schema.org/providesBroadcastService).
 	// types : BroadcastChannel
 	HasBroadcastChannel []*BroadcastChannel `json:"hasBroadcastChannel,omitempty"`

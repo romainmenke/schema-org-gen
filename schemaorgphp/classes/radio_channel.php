@@ -14,7 +14,7 @@ class RadioChannel extends BroadcastChannel implements JsonSerializable {
 	
 	/**
 	 * The frequency used for over-the-air broadcasts. Numeric values or simple ranges e.g. 87-99. In addition a shortcut idiom is supported for frequences of AM and FM radio channels, e.g. &quot;87 FM&quot;.
-	 * see : http://pending.schema.org/broadcastFrequency
+	 * see : https://pending.schema.org/broadcastFrequency
 	 * @var \BroadcastFrequencySpecification|\BroadcastFrequencySpecification[]|string|string[]
 	 */
 	public var $broadcast_frequency;
@@ -41,7 +41,7 @@ class RadioChannel extends BroadcastChannel implements JsonSerializable {
 	public var $in_broadcast_lineup;
 	
 	/**
-	 * The BroadcastService offered on this channel. Inverse property: hasBroadcastChannel (see: https://schema.orghttp://pending.schema.org/hasBroadcastChannel).
+	 * The BroadcastService offered on this channel. Inverse property: hasBroadcastChannel (see: https://schema.orghttps://pending.schema.org/hasBroadcastChannel).
 	 * see : https://schema.org/providesBroadcastService
 	 * @var \BroadcastService|\BroadcastService[]
 	 */

@@ -7,7 +7,7 @@ class ExerciseAction extends PlayAction implements JsonSerializable {
 	
 	/**
 	 * A sub property of instrument. The diet used in this action.
-	 * see : http://health-lifesci.schema.org/diet
+	 * see : https://health-lifesci.schema.org/diet
 	 * @var \Diet|\Diet[]
 	 */
 	public var $diet;
@@ -28,21 +28,21 @@ class ExerciseAction extends PlayAction implements JsonSerializable {
 	
 	/**
 	 * A sub property of instrument. The exercise plan used on this action.
-	 * see : http://health-lifesci.schema.org/exercisePlan
+	 * see : https://health-lifesci.schema.org/exercisePlan
 	 * @var \ExercisePlan|\ExercisePlan[]
 	 */
 	public var $exercise_plan;
 	
 	/**
 	 * A sub property of instrument. The diet used in this action.
-	 * see : http://health-lifesci.schema.org/exerciseRelatedDiet
+	 * see : https://health-lifesci.schema.org/exerciseRelatedDiet
 	 * @var \Diet|\Diet[]
 	 */
 	public var $exercise_related_diet;
 	
 	/**
 	 * Type(s) of exercise or activity, such as strength training, flexibility training, aerobics, cardiac rehabilitation, etc.
-	 * see : http://health-lifesci.schema.org/exerciseType
+	 * see : https://health-lifesci.schema.org/exerciseType
 	 * @var string|string[]
 	 */
 	public var $exercise_type;

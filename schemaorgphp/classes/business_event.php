@@ -6,7 +6,7 @@ class BusinessEvent extends Event implements JsonSerializable {
 	public static $type = 'BusinessEvent';
 	
 	/**
-	 * The subject matter of the content.
+	 * The subject matter of the content. Inverse property: subjectOf (see: https://schema.orghttps://pending.schema.org/subjectOf).
 	 * see : https://schema.org/about
 	 * @var \Thing|\Thing[]
 	 */
@@ -70,7 +70,7 @@ class BusinessEvent extends Event implements JsonSerializable {
 	
 	/**
 	 * The duration of the item (movie, audio recording, event, etc.) in ISO 8601 date format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601).
-	 * see : https://schema.org/duration
+	 * see : https://pending.schema.org/duration
 	 * @var \Duration|\Duration[]
 	 */
 	public var $duration;

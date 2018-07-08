@@ -9,9 +9,9 @@ type Question struct {
 	typeContext
 
 	// AcceptedAnswer see : https://schema.org/acceptedAnswer
-	// The answer that has been accepted as best, typically on a Question/Answer site. Sites vary in their selection mechanisms, e.g. drawing on community opinion and/or the view of the Question author.
-	// types : Answer
-	AcceptedAnswer []*Answer `json:"acceptedAnswer,omitempty"`
+	// The answer(s) that has been accepted as best, typically on a Question/Answer site. Sites vary in their selection mechanisms, e.g. drawing on community opinion and/or the view of the Question author.
+	// types : Answer ItemList
+	AcceptedAnswer []interface{} `json:"acceptedAnswer,omitempty"`
 
 	// AnswerCount see : https://schema.org/answerCount
 	// The number of answers this question has received.
@@ -25,8 +25,8 @@ type Question struct {
 
 	// SuggestedAnswer see : https://schema.org/suggestedAnswer
 	// An answer (possibly one of several, possibly incorrect) to a Question, e.g. on a Question/Answer site.
-	// types : Answer
-	SuggestedAnswer []*Answer `json:"suggestedAnswer,omitempty"`
+	// types : Answer ItemList
+	SuggestedAnswer []interface{} `json:"suggestedAnswer,omitempty"`
 
 	// UpvoteCount see : https://schema.org/upvoteCount
 	// The number of upvotes this question, answer or comment has received from the community.

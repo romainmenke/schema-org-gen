@@ -18,7 +18,7 @@ type Course struct {
 	// types : AlignmentObject Course Text
 	CoursePrerequisites []interface{} `json:"coursePrerequisites,omitempty"`
 
-	// EducationalCredentialAwarded see : http://pending.schema.org/educationalCredentialAwarded
+	// EducationalCredentialAwarded see : https://pending.schema.org/educationalCredentialAwarded
 	// A description of the qualification, award, certificate, diploma or other educational credential awarded as a consequence of successful completion of this course.
 	// types : Text URL
 	EducationalCredentialAwarded []string `json:"educationalCredentialAwarded,omitempty"`

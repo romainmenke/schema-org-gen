@@ -7,6 +7,10 @@ class NewsArticle extends Article implements JsonSerializable {
 	
 	/**
 	 * A dateline (see: https://schema.orghttps://en.wikipedia.org/wiki/Dateline) is a brief piece of text included in news articles that describes where and when the story was written or filed though the date is often omitted. Sometimes only a placename is provided.
+	 * 
+	 * Structured representations of dateline-related information can also be expressed more explicitly using locationCreated (see: https://schema.org/locationCreated) (which represents where a work was created e.g. where a news report was written).  For location depicted or described in the content, use contentLocation (see: https://schema.org/contentLocation).
+	 * 
+	 * Dateline summaries are oriented more towards human readers than towards automated processing, and can vary substantially. Some examples: &quot;BEIRUT, Lebanon, June 2.&quot;, &quot;Paris, France&quot;, &quot;December 19, 2017 11:43AM Reporting from Washington&quot;, &quot;Beijing/Moscow&quot;, &quot;QUEZON CITY, Philippines&quot;.
 	 * see : https://schema.org/dateline
 	 * @var string|string[]
 	 */

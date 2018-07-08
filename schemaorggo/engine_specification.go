@@ -8,7 +8,7 @@ type EngineSpecification struct {
 
 	typeContext
 
-	// EngineDisplacement see : http://auto.schema.org/engineDisplacement
+	// EngineDisplacement see : https://auto.schema.org/engineDisplacement
 	// The volume swept by all of the pistons inside the cylinders of an internal combustion engine in a single movement.
 	//
 	// Typical unit code(s): CMQ for cubic centimeter, LTR for liters, INQ for cubic inches
@@ -17,7 +17,7 @@ type EngineSpecification struct {
 	// types : QuantitativeValue
 	EngineDisplacement []*QuantitativeValue `json:"engineDisplacement,omitempty"`
 
-	// EnginePower see : http://auto.schema.org/enginePower
+	// EnginePower see : https://auto.schema.org/enginePower
 	// The power of the vehicle&#39;s engine.
 	//     Typical unit code(s): KWT for kilowatt, BHP for brake horsepower, N12 for metric horsepower (PS, with 1 PS = 735,49875 W)
 	//
@@ -30,7 +30,7 @@ type EngineSpecification struct {
 	// types : QuantitativeValue
 	EnginePower []*QuantitativeValue `json:"enginePower,omitempty"`
 
-	// EngineType see : http://auto.schema.org/engineType
+	// EngineType see : https://auto.schema.org/engineType
 	// The type of engine or engines powering the vehicle.
 	// types : QualitativeValue Text URL
 	EngineType []interface{} `json:"engineType,omitempty"`
@@ -40,7 +40,7 @@ type EngineSpecification struct {
 	// types : QualitativeValue Text URL
 	FuelType []interface{} `json:"fuelType,omitempty"`
 
-	// Torque see : http://auto.schema.org/torque
+	// Torque see : https://auto.schema.org/torque
 	// The torque (turning force) of the vehicle&#39;s engine.
 	//
 	// Typical unit code(s): NU for newton metre (N m), F17 for pound-force per foot, or F48 for pound-force per inch

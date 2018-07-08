@@ -27,11 +27,11 @@ class HowTo extends CreativeWork implements JsonSerializable {
 	public var $prep_time;
 	
 	/**
-	 * The steps in the form of a single item (text, document, video, etc.) or an ordered list with HowToStep and/or HowToSection items.
-	 * see : https://schema.org/steps
-	 * @var \CreativeWork|\CreativeWork[]|\ItemList|\ItemList[]|string|string[]
+	 * A single step item (as HowToStep, text, document, video, etc.) or a HowToSection. Supersedes steps (see: https://schema.org/steps).
+	 * see : https://schema.org/step
+	 * @var \CreativeWork|\CreativeWork[]|\HowToSection|\HowToSection[]|\HowToStep|\HowToStep[]|string|string[]
 	 */
-	public var $steps;
+	public var $step;
 	
 	/**
 	 * A sub-property of instrument. A supply consumed when performing instructions or a direction.
@@ -82,9 +82,9 @@ class HowTo extends CreativeWork implements JsonSerializable {
 			$out['prepTime'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->steps );
+		$serialized = so_json_serialize( $this->step );
 		if ( ! empty( $serialized ) ) {
-			$out['steps'] = $serialized;
+			$out['step'] = $serialized;
 		}
 		
 		$serialized = so_json_serialize( $this->supply );

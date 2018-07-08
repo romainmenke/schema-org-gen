@@ -4,7 +4,7 @@ import "encoding/json"
 
 // Flight see : https://schema.org/Flight
 type Flight struct {
-	Intangible
+	Trip
 
 	typeContext
 
@@ -28,11 +28,6 @@ type Flight struct {
 	// types : Text
 	ArrivalTerminal []string `json:"arrivalTerminal,omitempty"`
 
-	// ArrivalTime see : https://schema.org/arrivalTime
-	// The expected arrival time.
-	// types : DateTime
-	ArrivalTime []DateTime `json:"arrivalTime,omitempty"`
-
 	// BoardingPolicy see : https://schema.org/boardingPolicy
 	// The type of boarding policy used by the airline (e.g. zone-based or group-based).
 	// types : BoardingPolicyType
@@ -52,11 +47,6 @@ type Flight struct {
 	// Identifier of the flight&#39;s departure terminal.
 	// types : Text
 	DepartureTerminal []string `json:"departureTerminal,omitempty"`
-
-	// DepartureTime see : https://schema.org/departureTime
-	// The expected departure time.
-	// types : DateTime
-	DepartureTime []DateTime `json:"departureTime,omitempty"`
 
 	// EstimatedFlightDuration see : https://schema.org/estimatedFlightDuration
 	// The estimated time the flight will take.
@@ -78,11 +68,6 @@ type Flight struct {
 	// types : Text
 	MealService []string `json:"mealService,omitempty"`
 
-	// Provider see : https://schema.org/provider
-	// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier (see: https://schema.org/carrier).
-	// types : Organization Person
-	Provider []interface{} `json:"provider,omitempty"`
-
 	// Seller see : https://schema.org/seller
 	// An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider. Supersedes merchant (see: https://schema.org/merchant), vendor (see: https://schema.org/vendor).
 	// types : Organization Person
@@ -99,7 +84,7 @@ func (v Flight) intoMap(intop *map[string]interface{}) error {
 		return nil
 	}
 
-	v.Intangible.intoMap(intop)
+	v.Trip.intoMap(intop)
 
 	into := *intop
 
@@ -168,22 +153,6 @@ func (v Flight) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
-		var value interface{} = v.ArrivalTime
-		if len(v.ArrivalTime) == 1 {
-			value = v.ArrivalTime[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["arrivalTime"] = json.RawMessage(b)
-		}
-	}
-
-	{
 		var value interface{} = v.BoardingPolicy
 		if len(v.BoardingPolicy) == 1 {
 			value = v.BoardingPolicy[0]
@@ -248,22 +217,6 @@ func (v Flight) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
-		var value interface{} = v.DepartureTime
-		if len(v.DepartureTime) == 1 {
-			value = v.DepartureTime[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["departureTime"] = json.RawMessage(b)
-		}
-	}
-
-	{
 		var value interface{} = v.EstimatedFlightDuration
 		if len(v.EstimatedFlightDuration) == 1 {
 			value = v.EstimatedFlightDuration[0]
@@ -324,22 +277,6 @@ func (v Flight) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["mealService"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Provider
-		if len(v.Provider) == 1 {
-			value = v.Provider[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["provider"] = json.RawMessage(b)
 		}
 	}
 

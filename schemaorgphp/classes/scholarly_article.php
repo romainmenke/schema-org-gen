@@ -20,6 +20,13 @@ class ScholarlyArticle extends Article implements JsonSerializable {
 	public var $article_section;
 	
 	/**
+	 * For an Article (see: https://schema.org/Article), typically a NewsArticle (see: https://schema.org/NewsArticle), the backstory property provides a textual summary giving a brief explanation of why and how an article was created. In a journalistic setting this could include information about reporting process, methods, interviews, data sources, etc.
+	 * see : https://pending.schema.org/backstory
+	 * @var \CreativeWork|\CreativeWork[]|string|string[]
+	 */
+	public var $backstory;
+	
+	/**
 	 * The page on which the work ends; for example &quot;138&quot; or &quot;xvi&quot;.
 	 * see : https://schema.org/pageEnd
 	 * @var integer|integer[]|string|string[]
@@ -53,7 +60,7 @@ class ScholarlyArticle extends Article implements JsonSerializable {
 	 * 
 	 * For more sophisticated markup of speakable sections beyond simple ID references, either CSS selectors or XPath expressions to pick out document section(s) as speakable. For this
 	 * we define a supporting type, SpeakableSpecification (see: https://schema.org/SpeakableSpecification)  which is defined to be a possible value of the speakable property.
-	 * see : http://pending.schema.org/speakable
+	 * see : https://pending.schema.org/speakable
 	 * @var \SpeakableSpecification|\SpeakableSpecification[]|string|string[]
 	 */
 	public var $speakable;
@@ -79,6 +86,11 @@ class ScholarlyArticle extends Article implements JsonSerializable {
 		$serialized = so_json_serialize( $this->article_section );
 		if ( ! empty( $serialized ) ) {
 			$out['articleSection'] = $serialized;
+		}
+		
+		$serialized = so_json_serialize( $this->backstory );
+		if ( ! empty( $serialized ) ) {
+			$out['backstory'] = $serialized;
 		}
 		
 		$serialized = so_json_serialize( $this->page_end );

@@ -13,6 +13,13 @@ class Review extends CreativeWork implements JsonSerializable {
 	public var $item_reviewed;
 	
 	/**
+	 * This Review or Rating is relevant to this part or facet of the itemReviewed.
+	 * see : https://pending.schema.org/reviewAspect
+	 * @var string|string[]
+	 */
+	public var $review_aspect;
+	
+	/**
 	 * The actual body of the review.
 	 * see : https://schema.org/reviewBody
 	 * @var string|string[]
@@ -35,6 +42,11 @@ class Review extends CreativeWork implements JsonSerializable {
 		$serialized = so_json_serialize( $this->item_reviewed );
 		if ( ! empty( $serialized ) ) {
 			$out['itemReviewed'] = $serialized;
+		}
+		
+		$serialized = so_json_serialize( $this->review_aspect );
+		if ( ! empty( $serialized ) ) {
+			$out['reviewAspect'] = $serialized;
 		}
 		
 		$serialized = so_json_serialize( $this->review_body );

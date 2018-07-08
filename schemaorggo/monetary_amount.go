@@ -8,8 +8,10 @@ type MonetaryAmount struct {
 
 	typeContext
 
-	// Currency see : https://schema.org/currency
-	// The currency in which the monetary amount is expressed (in 3-letter ISO 4217 (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217) format).
+	// Currency see : https://pending.schema.org/currency
+	// The currency in which the monetary amount is expressed.
+	//
+	// Use standard formats: ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217) e.g. &quot;USD&quot;; Ticker symbol (see: https://schema.orghttps://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. &quot;BTC&quot;; well known names for Local Exchange Tradings Systems (see: https://schema.orghttps://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. &quot;Ithaca HOUR&quot;.
 	// types : Text
 	Currency []string `json:"currency,omitempty"`
 

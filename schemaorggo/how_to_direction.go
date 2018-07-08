@@ -10,18 +10,18 @@ type HowToDirection struct {
 
 	// AfterMedia see : https://schema.org/afterMedia
 	// A media object representing the circumstances after performing this direction.
-	// types : MediaObject
-	AfterMedia []*MediaObject `json:"afterMedia,omitempty"`
+	// types : MediaObject URL
+	AfterMedia []interface{} `json:"afterMedia,omitempty"`
 
 	// BeforeMedia see : https://schema.org/beforeMedia
 	// A media object representing the circumstances before performing this direction.
-	// types : MediaObject
-	BeforeMedia []*MediaObject `json:"beforeMedia,omitempty"`
+	// types : MediaObject URL
+	BeforeMedia []interface{} `json:"beforeMedia,omitempty"`
 
 	// DuringMedia see : https://schema.org/duringMedia
 	// A media object representing the circumstances while performing this direction.
-	// types : MediaObject
-	DuringMedia []*MediaObject `json:"duringMedia,omitempty"`
+	// types : MediaObject URL
+	DuringMedia []interface{} `json:"duringMedia,omitempty"`
 
 	// PerformTime see : https://schema.org/performTime
 	// The length of time it takes to perform instructions or a direction (not including time to prepare the supplies), in ISO 8601 duration format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601).

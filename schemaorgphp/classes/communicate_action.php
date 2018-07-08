@@ -6,7 +6,7 @@ class CommunicateAction extends InteractAction implements JsonSerializable {
 	public static $type = 'CommunicateAction';
 	
 	/**
-	 * The subject matter of the content.
+	 * The subject matter of the content. Inverse property: subjectOf (see: https://schema.orghttps://pending.schema.org/subjectOf).
 	 * see : https://schema.org/about
 	 * @var \Thing|\Thing[]
 	 */

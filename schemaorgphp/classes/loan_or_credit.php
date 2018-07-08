@@ -13,22 +13,24 @@ class LoanOrCredit extends FinancialProduct implements JsonSerializable {
 	public var $amount;
 	
 	/**
-	 * The currency in which the monetary amount is expressed (in 3-letter ISO 4217 (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217) format).
-	 * see : https://schema.org/currency
+	 * The currency in which the monetary amount is expressed.
+	 * 
+	 * Use standard formats: ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217) e.g. &quot;USD&quot;; Ticker symbol (see: https://schema.orghttps://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. &quot;BTC&quot;; well known names for Local Exchange Tradings Systems (see: https://schema.orghttps://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. &quot;Ithaca HOUR&quot;.
+	 * see : https://pending.schema.org/currency
 	 * @var string|string[]
 	 */
 	public var $currency;
 	
 	/**
 	 * The period of time after any due date that the borrower has to fulfil its obligations before a default (failure to pay) is deemed to have occurred.
-	 * see : http://pending.schema.org/gracePeriod
+	 * see : https://pending.schema.org/gracePeriod
 	 * @var \Duration|\Duration[]
 	 */
 	public var $grace_period;
 	
 	/**
 	 * A form of paying back money previously borrowed from a lender. Repayment usually takes the form of periodic payments that normally include part principal plus interest in each payment.
-	 * see : http://pending.schema.org/loanRepaymentForm
+	 * see : https://pending.schema.org/loanRepaymentForm
 	 * @var \RepaymentSpecification|\RepaymentSpecification[]
 	 */
 	public var $loan_repayment_form;
@@ -42,21 +44,21 @@ class LoanOrCredit extends FinancialProduct implements JsonSerializable {
 	
 	/**
 	 * The type of a loan or credit.
-	 * see : http://pending.schema.org/loanType
+	 * see : https://pending.schema.org/loanType
 	 * @var string|string[]|string|string[]
 	 */
 	public var $loan_type;
 	
 	/**
 	 * The only way you get the money back in the event of default is the security. Recourse is where you still have the opportunity to go back to the borrower for the rest of the money.
-	 * see : http://pending.schema.org/recourseLoan
+	 * see : https://pending.schema.org/recourseLoan
 	 * @var boolean|boolean[]
 	 */
 	public var $recourse_loan;
 	
 	/**
 	 * Whether the terms for payment of interest can be renegotiated during the life of the loan.
-	 * see : http://pending.schema.org/renegotiableLoan
+	 * see : https://pending.schema.org/renegotiableLoan
 	 * @var boolean|boolean[]
 	 */
 	public var $renegotiable_loan;

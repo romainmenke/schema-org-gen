@@ -35,7 +35,7 @@ class MusicVideoObject extends MediaObject implements JsonSerializable {
 	
 	/**
 	 * The duration of the item (movie, audio recording, event, etc.) in ISO 8601 date format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601).
-	 * see : https://schema.org/duration
+	 * see : https://pending.schema.org/duration
 	 * @var \Duration|\Duration[]
 	 */
 	public var $duration;
@@ -55,9 +55,13 @@ class MusicVideoObject extends MediaObject implements JsonSerializable {
 	public var $encodes_creative_work;
 	
 	/**
-	 * mp3, mpeg4, etc.
+	 * Media type typically expressed using a MIME format (see IANA site (see: https://schema.orghttp://www.iana.org/assignments/media-types/media-types.xhtml) and MDN reference (see: https://schema.orghttps://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types)) e.g. application/zip for a SoftwareApplication binary, audio/mpeg for .mp3 etc.).
+	 * 
+	 * In cases where a CreativeWork (see: https://schema.org/CreativeWork) has several media type representations, encoding (see: https://schema.org/encoding) can be used to indicate each MediaObject (see: https://schema.org/MediaObject) alongside particular encodingFormat (see: https://schema.org/encodingFormat) information.
+	 * 
+	 * Unregistered or niche encoding and file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia/Wikidata entry. Supersedes fileFormat (see: https://schema.org/fileFormat).
 	 * see : https://schema.org/encodingFormat
-	 * @var string|string[]
+	 * @var string|string[]|string|string[]
 	 */
 	public var $encoding_format;
 	
@@ -91,8 +95,8 @@ class MusicVideoObject extends MediaObject implements JsonSerializable {
 	
 	/**
 	 * Indicates if use of the media require a subscription  (either paid or free). Allowed values are true or false (note that an earlier version had &#39;yes&#39;, &#39;no&#39;).
-	 * see : https://schema.org/requiresSubscription
-	 * @var boolean|boolean[]
+	 * see : https://pending.schema.org/requiresSubscription
+	 * @var boolean|boolean[]|\MediaSubscription|\MediaSubscription[]
 	 */
 	public var $requires_subscription;
 	

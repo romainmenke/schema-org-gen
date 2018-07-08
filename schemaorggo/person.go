@@ -118,6 +118,11 @@ type Person struct {
 	// types : Text
 	GlobalLocationNumber []string `json:"globalLocationNumber,omitempty"`
 
+	// HasOccupation see : https://pending.schema.org/hasOccupation
+	// The Person&#39;s occupation. For past professions, use Role for expressing dates.
+	// types : Occupation
+	HasOccupation []interface{} `json:"hasOccupation,omitempty"`
+
 	// HasOfferCatalog see : https://schema.org/hasOfferCatalog
 	// Indicates an OfferCatalog listing for this Organization, Person, or Service.
 	// types : OfferCatalog
@@ -162,6 +167,16 @@ type Person struct {
 	// The most generic bi-directional social/work relation.
 	// types : Person
 	Knows []*Person `json:"knows,omitempty"`
+
+	// KnowsAbout see : https://pending.schema.org/knowsAbout
+	// Of a Person (see: https://schema.org/Person), and less typically of an Organization (see: https://schema.org/Organization), to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or yet relate this to educational content, events, objectives or JobPosting (see: https://schema.org/JobPosting) descriptions.
+	// types : Text Thing URL
+	KnowsAbout []interface{} `json:"knowsAbout,omitempty"`
+
+	// KnowsLanguage see : https://pending.schema.org/knowsLanguage
+	// Of a Person (see: https://schema.org/Person), and less typically of an Organization (see: https://schema.org/Organization), to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the IETF BCP 47 standard (see: https://schema.orghttp://tools.ietf.org/html/bcp47).
+	// types : Language Text
+	KnowsLanguage []interface{} `json:"knowsLanguage,omitempty"`
 
 	// MakesOffer see : https://schema.org/makesOffer
 	// A pointer to products or services offered by the organization or person. Inverse property: offeredBy (see: https://schema.org/offeredBy).
@@ -628,6 +643,22 @@ func (v Person) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
+		var value interface{} = v.HasOccupation
+		if len(v.HasOccupation) == 1 {
+			value = v.HasOccupation[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["hasOccupation"] = json.RawMessage(b)
+		}
+	}
+
+	{
 		var value interface{} = v.HasOfferCatalog
 		if len(v.HasOfferCatalog) == 1 {
 			value = v.HasOfferCatalog[0]
@@ -768,6 +799,38 @@ func (v Person) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["knows"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.KnowsAbout
+		if len(v.KnowsAbout) == 1 {
+			value = v.KnowsAbout[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["knowsAbout"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.KnowsLanguage
+		if len(v.KnowsLanguage) == 1 {
+			value = v.KnowsLanguage[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["knowsLanguage"] = json.RawMessage(b)
 		}
 	}
 

@@ -30,7 +30,7 @@ class VisualArtwork extends CreativeWork implements JsonSerializable {
 	 * The primary artist for a work
 	 *     in a medium other than pencils or digital line art--for example, if the
 	 *     primary artwork is done in watercolors or digital paints.
-	 * see : http://bib.schema.org/artist
+	 * see : https://bib.schema.org/artist
 	 * @var \Person|\Person[]
 	 */
 	public var $artist;
@@ -44,7 +44,7 @@ class VisualArtwork extends CreativeWork implements JsonSerializable {
 	
 	/**
 	 * The individual who adds color to inked drawings.
-	 * see : http://bib.schema.org/colorist
+	 * see : https://bib.schema.org/colorist
 	 * @var \Person|\Person[]
 	 */
 	public var $colorist;
@@ -65,21 +65,21 @@ class VisualArtwork extends CreativeWork implements JsonSerializable {
 	
 	/**
 	 * The individual who traces over the pencil drawings in ink after pencils are complete.
-	 * see : http://bib.schema.org/inker
+	 * see : https://bib.schema.org/inker
 	 * @var \Person|\Person[]
 	 */
 	public var $inker;
 	
 	/**
 	 * The individual who adds lettering, including speech balloons and sound effects, to artwork.
-	 * see : http://bib.schema.org/letterer
+	 * see : https://bib.schema.org/letterer
 	 * @var \Person|\Person[]
 	 */
 	public var $letterer;
 	
 	/**
 	 * The individual who draws the primary narrative artwork.
-	 * see : http://bib.schema.org/penciler
+	 * see : https://bib.schema.org/penciler
 	 * @var \Person|\Person[]
 	 */
 	public var $penciler;

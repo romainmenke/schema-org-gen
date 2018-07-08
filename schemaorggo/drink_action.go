@@ -8,7 +8,12 @@ type DrinkAction struct {
 
 	typeContext
 
-	// ExpectsAcceptanceOf see : https://schema.org/expectsAcceptanceOf
+	// ActionAccessibilityRequirement see : https://pending.schema.org/actionAccessibilityRequirement
+	// A set of requirements that a must be fulfilled in order to perform an Action. If more than one value is specied, fulfilling one set of requirements will allow the Action to be performed.
+	// types : ActionAccessSpecification
+	ActionAccessibilityRequirement []interface{} `json:"actionAccessibilityRequirement,omitempty"`
+
+	// ExpectsAcceptanceOf see : https://pending.schema.org/expectsAcceptanceOf
 	// An Offer which must be accepted before the user can perform the Action. For example, the user may need to buy a movie before being able to watch it.
 	// types : Offer
 	ExpectsAcceptanceOf []*Offer `json:"expectsAcceptanceOf,omitempty"`
@@ -22,6 +27,22 @@ func (v DrinkAction) intoMap(intop *map[string]interface{}) error {
 	v.ConsumeAction.intoMap(intop)
 
 	into := *intop
+
+	{
+		var value interface{} = v.ActionAccessibilityRequirement
+		if len(v.ActionAccessibilityRequirement) == 1 {
+			value = v.ActionAccessibilityRequirement[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["actionAccessibilityRequirement"] = json.RawMessage(b)
+		}
+	}
 
 	{
 		var value interface{} = v.ExpectsAcceptanceOf

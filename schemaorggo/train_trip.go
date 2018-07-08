@@ -4,7 +4,7 @@ import "encoding/json"
 
 // TrainTrip see : https://schema.org/TrainTrip
 type TrainTrip struct {
-	Intangible
+	Trip
 
 	typeContext
 
@@ -18,11 +18,6 @@ type TrainTrip struct {
 	// types : TrainStation
 	ArrivalStation []*TrainStation `json:"arrivalStation,omitempty"`
 
-	// ArrivalTime see : https://schema.org/arrivalTime
-	// The expected arrival time.
-	// types : DateTime
-	ArrivalTime []DateTime `json:"arrivalTime,omitempty"`
-
 	// DeparturePlatform see : https://schema.org/departurePlatform
 	// The platform from which the train departs.
 	// types : Text
@@ -32,16 +27,6 @@ type TrainTrip struct {
 	// The station from which the train departs.
 	// types : TrainStation
 	DepartureStation []*TrainStation `json:"departureStation,omitempty"`
-
-	// DepartureTime see : https://schema.org/departureTime
-	// The expected departure time.
-	// types : DateTime
-	DepartureTime []DateTime `json:"departureTime,omitempty"`
-
-	// Provider see : https://schema.org/provider
-	// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier (see: https://schema.org/carrier).
-	// types : Organization Person
-	Provider []interface{} `json:"provider,omitempty"`
 
 	// TrainName see : https://schema.org/trainName
 	// The name of the train (e.g. The Orient Express).
@@ -59,7 +44,7 @@ func (v TrainTrip) intoMap(intop *map[string]interface{}) error {
 		return nil
 	}
 
-	v.Intangible.intoMap(intop)
+	v.Trip.intoMap(intop)
 
 	into := *intop
 
@@ -96,22 +81,6 @@ func (v TrainTrip) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
-		var value interface{} = v.ArrivalTime
-		if len(v.ArrivalTime) == 1 {
-			value = v.ArrivalTime[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["arrivalTime"] = json.RawMessage(b)
-		}
-	}
-
-	{
 		var value interface{} = v.DeparturePlatform
 		if len(v.DeparturePlatform) == 1 {
 			value = v.DeparturePlatform[0]
@@ -140,38 +109,6 @@ func (v TrainTrip) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["departureStation"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.DepartureTime
-		if len(v.DepartureTime) == 1 {
-			value = v.DepartureTime[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["departureTime"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Provider
-		if len(v.Provider) == 1 {
-			value = v.Provider[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["provider"] = json.RawMessage(b)
 		}
 	}
 

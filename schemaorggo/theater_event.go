@@ -9,7 +9,7 @@ type TheaterEvent struct {
 	typeContext
 
 	// About see : https://schema.org/about
-	// The subject matter of the content.
+	// The subject matter of the content. Inverse property: subjectOf (see: https://schema.orghttps://pending.schema.org/subjectOf).
 	// types : Thing
 	About []*Thing `json:"about,omitempty"`
 
@@ -53,7 +53,7 @@ type TheaterEvent struct {
 	// types : DateTime
 	DoorTime []DateTime `json:"doorTime,omitempty"`
 
-	// Duration see : https://schema.org/duration
+	// Duration see : https://pending.schema.org/duration
 	// The duration of the item (movie, audio recording, event, etc.) in ISO 8601 date format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_8601).
 	// types : Duration
 	Duration []*Duration `json:"duration,omitempty"`

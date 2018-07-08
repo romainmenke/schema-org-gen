@@ -9,7 +9,7 @@ type Conversation struct {
 	typeContext
 
 	// About see : https://schema.org/about
-	// The subject matter of the content.
+	// The subject matter of the content. Inverse property: subjectOf (see: https://schema.orghttps://pending.schema.org/subjectOf).
 	// types : Thing
 	About []*Thing `json:"about,omitempty"`
 
@@ -115,10 +115,10 @@ type Conversation struct {
 
 	// ContentRating see : https://schema.org/contentRating
 	// Official rating of a piece of content—for example,&#39;MPAA PG-13&#39;.
-	// types : Text
-	ContentRating []string `json:"contentRating,omitempty"`
+	// types : Rating Text
+	ContentRating []interface{} `json:"contentRating,omitempty"`
 
-	// ContentReferenceTime see : http://pending.schema.org/contentReferenceTime
+	// ContentReferenceTime see : https://pending.schema.org/contentReferenceTime
 	// The specific time described by a creative work, for works (e.g. articles, video objects etc.) that emphasise a particular moment within an Event.
 	// types : DateTime
 	ContentReferenceTime []DateTime `json:"contentReferenceTime,omitempty"`
@@ -137,6 +137,11 @@ type Conversation struct {
 	// The year during which the claimed copyright for the CreativeWork was first asserted.
 	// types : Number
 	CopyrightYear []float64 `json:"copyrightYear,omitempty"`
+
+	// Correction see : https://pending.schema.org/correction
+	// Indicates a correction to a CreativeWork (see: https://schema.org/CreativeWork), either via a CorrectionComment (see: https://schema.org/CorrectionComment), textually or in another document.
+	// types : CorrectionComment Text URL
+	Correction []interface{} `json:"correction,omitempty"`
 
 	// Creator see : https://schema.org/creator
 	// The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.
@@ -183,6 +188,15 @@ type Conversation struct {
 	// types : MediaObject
 	Encoding []*MediaObject `json:"encoding,omitempty"`
 
+	// EncodingFormat see : https://schema.org/encodingFormat
+	// Media type typically expressed using a MIME format (see IANA site (see: https://schema.orghttp://www.iana.org/assignments/media-types/media-types.xhtml) and MDN reference (see: https://schema.orghttps://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types)) e.g. application/zip for a SoftwareApplication binary, audio/mpeg for .mp3 etc.).
+	//
+	// In cases where a CreativeWork (see: https://schema.org/CreativeWork) has several media type representations, encoding (see: https://schema.org/encoding) can be used to indicate each MediaObject (see: https://schema.org/MediaObject) alongside particular encodingFormat (see: https://schema.org/encodingFormat) information.
+	//
+	// Unregistered or niche encoding and file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia/Wikidata entry. Supersedes fileFormat (see: https://schema.org/fileFormat).
+	// types : Text URL
+	EncodingFormat []string `json:"encodingFormat,omitempty"`
+
 	// ExampleOfWork see : https://schema.org/exampleOfWork
 	// A creative work that this work is an example/instance/realization/derivation of. Inverse property: workExample (see: https://schema.org/workExample).
 	// types : CreativeWork
@@ -192,11 +206,6 @@ type Conversation struct {
 	// Date the content expires and is no longer useful or available. For example a VideoObject (see: https://schema.org/VideoObject) or NewsArticle (see: https://schema.org/NewsArticle) whose availability or relevance is time-limited, or a ClaimReview (see: https://schema.org/ClaimReview) fact check whose publisher wants to indicate that it may no longer be relevant (or helpful to highlight) after some date.
 	// types : Date
 	Expires []Date `json:"expires,omitempty"`
-
-	// FileFormat see : https://schema.org/fileFormat
-	// Media type, typically MIME format (see IANA site (see: https://schema.orghttp://www.iana.org/assignments/media-types/media-types.xhtml)) of the content e.g. application/zip of a SoftwareApplication binary. In cases where a CreativeWork has several media type representations, &#39;encoding&#39; can be used to indicate each MediaObject alongside particular fileFormat information. Unregistered or niche file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia entry.
-	// types : Text URL
-	FileFormat []string `json:"fileFormat,omitempty"`
 
 	// Funder see : https://schema.org/funder
 	// A person or organization that supports (sponsors) something through some kind of financial contribution.
@@ -209,9 +218,9 @@ type Conversation struct {
 	Genre []string `json:"genre,omitempty"`
 
 	// HasPart see : https://schema.org/hasPart
-	// Indicates a CreativeWork that is (in some sense) a part of this CreativeWork. Inverse property: isPartOf (see: https://schema.org/isPartOf).
-	// types : CreativeWork
-	HasPart []*CreativeWork `json:"hasPart,omitempty"`
+	// Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense). Inverse property: isPartOf (see: https://schema.org/isPartOf).
+	// types : CreativeWork Trip
+	HasPart []interface{} `json:"hasPart,omitempty"`
 
 	// Headline see : https://schema.org/headline
 	// Headline of the article.
@@ -249,9 +258,9 @@ type Conversation struct {
 	IsFamilyFriendly []bool `json:"isFamilyFriendly,omitempty"`
 
 	// IsPartOf see : https://schema.org/isPartOf
-	// Indicates a CreativeWork that this CreativeWork is (in some sense) part of. Inverse property: hasPart (see: https://schema.org/hasPart).
-	// types : CreativeWork
-	IsPartOf []*CreativeWork `json:"isPartOf,omitempty"`
+	// Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of. Inverse property: hasPart (see: https://schema.org/hasPart).
+	// types : CreativeWork Trip
+	IsPartOf []interface{} `json:"isPartOf,omitempty"`
 
 	// Keywords see : https://schema.org/keywords
 	// Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.
@@ -318,7 +327,7 @@ type Conversation struct {
 	// types : Organization Person
 	Publisher []interface{} `json:"publisher,omitempty"`
 
-	// PublisherImprint see : http://bib.schema.org/publisherImprint
+	// PublisherImprint see : https://bib.schema.org/publisherImprint
 	// The publishing division which published the comic.
 	// types : Organization
 	PublisherImprint []*Organization `json:"publisherImprint,omitempty"`
@@ -349,6 +358,22 @@ type Conversation struct {
 	// Indicates (by URL or string) a particular version of a schema used in some CreativeWork. For example, a document could declare a schemaVersion using an URL such as http://schema.org/version/2.0/ if precise indication of schema version was required by some application.
 	// types : Text URL
 	SchemaVersion []string `json:"schemaVersion,omitempty"`
+
+	// SdDatePublished see : https://pending.schema.org/sdDatePublished
+	// Indicates the date on which the current structured data was generated / published. Typically used alongside sdPublisher (see: https://schema.org/sdPublisher)
+	// types : Date
+	SdDatePublished []Date `json:"sdDatePublished,omitempty"`
+
+	// SdLicense see : https://pending.schema.org/sdLicense
+	// A license document that applies to this structured data, typically indicated by URL.
+	// types : CreativeWork URL
+	SdLicense []interface{} `json:"sdLicense,omitempty"`
+
+	// SdPublisher see : https://pending.schema.org/sdPublisher
+	// Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The
+	// sdPublisher (see: https://schema.org/sdPublisher) property helps make such practices more explicit.
+	// types : Organization Person
+	SdPublisher []interface{} `json:"sdPublisher,omitempty"`
 
 	// SourceOrganization see : https://schema.org/sourceOrganization
 	// The Organization on whose behalf the creator was working.
@@ -389,8 +414,8 @@ type Conversation struct {
 	// types : Duration
 	TimeRequired []*Duration `json:"timeRequired,omitempty"`
 
-	// TranslationOfWork see : http://bib.schema.org/translationOfWork
-	// The work that this work has been translated from. e.g. 物种起源 is a translationOf “On the Origin of Species” Inverse property: workTranslation (see: https://schema.orghttp://bib.schema.org/workTranslation).
+	// TranslationOfWork see : https://bib.schema.org/translationOfWork
+	// The work that this work has been translated from. e.g. 物种起源 is a translationOf “On the Origin of Species” Inverse property: workTranslation (see: https://schema.orghttps://bib.schema.org/workTranslation).
 	// types : CreativeWork
 	TranslationOfWork []*CreativeWork `json:"translationOfWork,omitempty"`
 
@@ -419,8 +444,8 @@ type Conversation struct {
 	// types : CreativeWork
 	WorkExample []*CreativeWork `json:"workExample,omitempty"`
 
-	// WorkTranslation see : http://bib.schema.org/workTranslation
-	// A work that is a translation of the content of this work. e.g. 西遊記 has an English workTranslation “Journey to the West”,a German workTranslation “Monkeys Pilgerfahrt” and a Vietnamese  translation Tây du ký bình khảo. Inverse property: translationOfWork (see: https://schema.orghttp://bib.schema.org/translationOfWork).
+	// WorkTranslation see : https://bib.schema.org/workTranslation
+	// A work that is a translation of the content of this work. e.g. 西遊記 has an English workTranslation “Journey to the West”,a German workTranslation “Monkeys Pilgerfahrt” and a Vietnamese  translation Tây du ký bình khảo. Inverse property: translationOfWork (see: https://schema.orghttps://bib.schema.org/translationOfWork).
 	// types : CreativeWork
 	WorkTranslation []*CreativeWork `json:"workTranslation,omitempty"`
 }
@@ -851,6 +876,22 @@ func (v Conversation) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
+		var value interface{} = v.Correction
+		if len(v.Correction) == 1 {
+			value = v.Correction[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["correction"] = json.RawMessage(b)
+		}
+	}
+
+	{
 		var value interface{} = v.Creator
 		if len(v.Creator) == 1 {
 			value = v.Creator[0]
@@ -995,6 +1036,22 @@ func (v Conversation) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
+		var value interface{} = v.EncodingFormat
+		if len(v.EncodingFormat) == 1 {
+			value = v.EncodingFormat[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["encodingFormat"] = json.RawMessage(b)
+		}
+	}
+
+	{
 		var value interface{} = v.ExampleOfWork
 		if len(v.ExampleOfWork) == 1 {
 			value = v.ExampleOfWork[0]
@@ -1023,22 +1080,6 @@ func (v Conversation) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["expires"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.FileFormat
-		if len(v.FileFormat) == 1 {
-			value = v.FileFormat[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["fileFormat"] = json.RawMessage(b)
 		}
 	}
 
@@ -1519,6 +1560,54 @@ func (v Conversation) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["schemaVersion"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.SdDatePublished
+		if len(v.SdDatePublished) == 1 {
+			value = v.SdDatePublished[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["sdDatePublished"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.SdLicense
+		if len(v.SdLicense) == 1 {
+			value = v.SdLicense[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["sdLicense"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.SdPublisher
+		if len(v.SdPublisher) == 1 {
+			value = v.SdPublisher[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["sdPublisher"] = json.RawMessage(b)
 		}
 	}
 

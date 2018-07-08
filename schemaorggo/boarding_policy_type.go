@@ -8,7 +8,7 @@ type BoardingPolicyType struct {
 
 	typeContext
 
-	// SupersededBy see : http://meta.schema.org/supersededBy
+	// SupersededBy see : https://meta.schema.org/supersededBy
 	// Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
 	// types : Class Enumeration Property
 	SupersededBy []interface{} `json:"supersededBy,omitempty"`

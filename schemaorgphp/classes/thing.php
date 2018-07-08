@@ -76,6 +76,13 @@ class Thing implements JsonSerializable {
 	public var $same_as;
 	
 	/**
+	 * A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
+	 * see : https://pending.schema.org/subjectOf
+	 * @var \CreativeWork|\CreativeWork[]|\Event|\Event[]
+	 */
+	public var $subject_of;
+	
+	/**
 	 * URL of the item.
 	 * see : https://schema.org/url
 	 * @var string|string[]
@@ -136,6 +143,11 @@ class Thing implements JsonSerializable {
 		$serialized = so_json_serialize( $this->same_as );
 		if ( ! empty( $serialized ) ) {
 			$out['sameAs'] = $serialized;
+		}
+		
+		$serialized = so_json_serialize( $this->subject_of );
+		if ( ! empty( $serialized ) ) {
+			$out['subjectOf'] = $serialized;
 		}
 		
 		$serialized = so_json_serialize( $this->url );

@@ -21,7 +21,7 @@ class BroadcastService extends Service implements JsonSerializable {
 	
 	/**
 	 * The frequency used for over-the-air broadcasts. Numeric values or simple ranges e.g. 87-99. In addition a shortcut idiom is supported for frequences of AM and FM radio channels, e.g. &quot;87 FM&quot;.
-	 * see : http://pending.schema.org/broadcastFrequency
+	 * see : https://pending.schema.org/broadcastFrequency
 	 * @var \BroadcastFrequencySpecification|\BroadcastFrequencySpecification[]|string|string[]
 	 */
 	public var $broadcast_frequency;
@@ -42,7 +42,7 @@ class BroadcastService extends Service implements JsonSerializable {
 	
 	/**
 	 * A broadcast channel of a broadcast service. Inverse property: providesBroadcastService (see: https://schema.org/providesBroadcastService).
-	 * see : http://pending.schema.org/hasBroadcastChannel
+	 * see : https://pending.schema.org/hasBroadcastChannel
 	 * @var \BroadcastChannel|\BroadcastChannel[]
 	 */
 	public var $has_broadcast_channel;

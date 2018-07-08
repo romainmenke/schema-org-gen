@@ -14,7 +14,7 @@ class OnDemandEvent extends PublicationEvent implements JsonSerializable {
 	
 	/**
 	 * An agent associated with the publication event.
-	 * see : http://bib.schema.org/publishedBy
+	 * see : https://bib.schema.org/publishedBy
 	 * @var \Organization|\Organization[]|\Person|\Person[]
 	 */
 	public var $published_by;

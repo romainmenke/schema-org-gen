@@ -20,7 +20,7 @@ class ImageGallery extends CollectionPage implements JsonSerializable {
 	public var $last_reviewed;
 	
 	/**
-	 * Indicates if this web page element is the main subject of the page. Supersedes aspect (see: https://schema.orghttp://health-lifesci.schema.org/aspect).
+	 * Indicates if this web page element is the main subject of the page. Supersedes aspect (see: https://schema.orghttps://health-lifesci.schema.org/aspect).
 	 * see : https://schema.org/mainContentOfPage
 	 * @var \WebPageElement|\WebPageElement[]
 	 */
@@ -67,7 +67,7 @@ class ImageGallery extends CollectionPage implements JsonSerializable {
 	 * 
 	 * For more sophisticated markup of speakable sections beyond simple ID references, either CSS selectors or XPath expressions to pick out document section(s) as speakable. For this
 	 * we define a supporting type, SpeakableSpecification (see: https://schema.org/SpeakableSpecification)  which is defined to be a possible value of the speakable property.
-	 * see : http://pending.schema.org/speakable
+	 * see : https://pending.schema.org/speakable
 	 * @var \SpeakableSpecification|\SpeakableSpecification[]|string|string[]
 	 */
 	public var $speakable;

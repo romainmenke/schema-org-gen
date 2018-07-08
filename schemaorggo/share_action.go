@@ -9,7 +9,7 @@ type ShareAction struct {
 	typeContext
 
 	// About see : https://schema.org/about
-	// The subject matter of the content.
+	// The subject matter of the content. Inverse property: subjectOf (see: https://schema.orghttps://pending.schema.org/subjectOf).
 	// types : Thing
 	About []*Thing `json:"about,omitempty"`
 

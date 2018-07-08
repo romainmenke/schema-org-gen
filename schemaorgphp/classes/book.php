@@ -7,7 +7,7 @@ class Book extends CreativeWork implements JsonSerializable {
 	
 	/**
 	 * Indicates whether the book is an abridged edition.
-	 * see : http://bib.schema.org/abridged
+	 * see : https://bib.schema.org/abridged
 	 * @var boolean|boolean[]
 	 */
 	public var $abridged;

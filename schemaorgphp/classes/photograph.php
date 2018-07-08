@@ -6,7 +6,7 @@ class Photograph extends CreativeWork implements JsonSerializable {
 	public static $type = 'Photograph';
 	
 	/**
-	 * The subject matter of the content.
+	 * The subject matter of the content. Inverse property: subjectOf (see: https://schema.orghttps://pending.schema.org/subjectOf).
 	 * see : https://schema.org/about
 	 * @var \Thing|\Thing[]
 	 */
@@ -155,13 +155,13 @@ class Photograph extends CreativeWork implements JsonSerializable {
 	/**
 	 * Official rating of a piece of content—for example,&#39;MPAA PG-13&#39;.
 	 * see : https://schema.org/contentRating
-	 * @var string|string[]
+	 * @var \Rating|\Rating[]|string|string[]
 	 */
 	public var $content_rating;
 	
 	/**
 	 * The specific time described by a creative work, for works (e.g. articles, video objects etc.) that emphasise a particular moment within an Event.
-	 * see : http://pending.schema.org/contentReferenceTime
+	 * see : https://pending.schema.org/contentReferenceTime
 	 * @var string|string[]
 	 */
 	public var $content_reference_time;
@@ -186,6 +186,13 @@ class Photograph extends CreativeWork implements JsonSerializable {
 	 * @var float|float[]
 	 */
 	public var $copyright_year;
+	
+	/**
+	 * Indicates a correction to a CreativeWork (see: https://schema.org/CreativeWork), either via a CorrectionComment (see: https://schema.org/CorrectionComment), textually or in another document.
+	 * see : https://pending.schema.org/correction
+	 * @var \CorrectionComment|\CorrectionComment[]|string|string[]|string|string[]
+	 */
+	public var $correction;
 	
 	/**
 	 * The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.
@@ -251,6 +258,17 @@ class Photograph extends CreativeWork implements JsonSerializable {
 	public var $encoding;
 	
 	/**
+	 * Media type typically expressed using a MIME format (see IANA site (see: https://schema.orghttp://www.iana.org/assignments/media-types/media-types.xhtml) and MDN reference (see: https://schema.orghttps://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types)) e.g. application/zip for a SoftwareApplication binary, audio/mpeg for .mp3 etc.).
+	 * 
+	 * In cases where a CreativeWork (see: https://schema.org/CreativeWork) has several media type representations, encoding (see: https://schema.org/encoding) can be used to indicate each MediaObject (see: https://schema.org/MediaObject) alongside particular encodingFormat (see: https://schema.org/encodingFormat) information.
+	 * 
+	 * Unregistered or niche encoding and file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia/Wikidata entry. Supersedes fileFormat (see: https://schema.org/fileFormat).
+	 * see : https://schema.org/encodingFormat
+	 * @var string|string[]|string|string[]
+	 */
+	public var $encoding_format;
+	
+	/**
 	 * A creative work that this work is an example/instance/realization/derivation of. Inverse property: workExample (see: https://schema.org/workExample).
 	 * see : https://schema.org/exampleOfWork
 	 * @var \CreativeWork|\CreativeWork[]
@@ -263,13 +281,6 @@ class Photograph extends CreativeWork implements JsonSerializable {
 	 * @var string|string[]
 	 */
 	public var $expires;
-	
-	/**
-	 * Media type, typically MIME format (see IANA site (see: https://schema.orghttp://www.iana.org/assignments/media-types/media-types.xhtml)) of the content e.g. application/zip of a SoftwareApplication binary. In cases where a CreativeWork has several media type representations, &#39;encoding&#39; can be used to indicate each MediaObject alongside particular fileFormat information. Unregistered or niche file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia entry.
-	 * see : https://schema.org/fileFormat
-	 * @var string|string[]|string|string[]
-	 */
-	public var $file_format;
 	
 	/**
 	 * A person or organization that supports (sponsors) something through some kind of financial contribution.
@@ -286,9 +297,9 @@ class Photograph extends CreativeWork implements JsonSerializable {
 	public var $genre;
 	
 	/**
-	 * Indicates a CreativeWork that is (in some sense) a part of this CreativeWork. Inverse property: isPartOf (see: https://schema.org/isPartOf).
+	 * Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense). Inverse property: isPartOf (see: https://schema.org/isPartOf).
 	 * see : https://schema.org/hasPart
-	 * @var \CreativeWork|\CreativeWork[]
+	 * @var \CreativeWork|\CreativeWork[]|\Trip|\Trip[]
 	 */
 	public var $has_part;
 	
@@ -342,9 +353,9 @@ class Photograph extends CreativeWork implements JsonSerializable {
 	public var $is_family_friendly;
 	
 	/**
-	 * Indicates a CreativeWork that this CreativeWork is (in some sense) part of. Inverse property: hasPart (see: https://schema.org/hasPart).
+	 * Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of. Inverse property: hasPart (see: https://schema.org/hasPart).
 	 * see : https://schema.org/isPartOf
-	 * @var \CreativeWork|\CreativeWork[]
+	 * @var \CreativeWork|\CreativeWork[]|\Trip|\Trip[]
 	 */
 	public var $is_part_of;
 	
@@ -441,7 +452,7 @@ class Photograph extends CreativeWork implements JsonSerializable {
 	
 	/**
 	 * The publishing division which published the comic.
-	 * see : http://bib.schema.org/publisherImprint
+	 * see : https://bib.schema.org/publisherImprint
 	 * @var \Organization|\Organization[]
 	 */
 	public var $publisher_imprint;
@@ -482,6 +493,28 @@ class Photograph extends CreativeWork implements JsonSerializable {
 	 * @var string|string[]|string|string[]
 	 */
 	public var $schema_version;
+	
+	/**
+	 * Indicates the date on which the current structured data was generated / published. Typically used alongside sdPublisher (see: https://schema.org/sdPublisher)
+	 * see : https://pending.schema.org/sdDatePublished
+	 * @var string|string[]
+	 */
+	public var $sd_date_published;
+	
+	/**
+	 * A license document that applies to this structured data, typically indicated by URL.
+	 * see : https://pending.schema.org/sdLicense
+	 * @var \CreativeWork|\CreativeWork[]|string|string[]
+	 */
+	public var $sd_license;
+	
+	/**
+	 * Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The
+	 * sdPublisher (see: https://schema.org/sdPublisher) property helps make such practices more explicit.
+	 * see : https://pending.schema.org/sdPublisher
+	 * @var \Organization|\Organization[]|\Person|\Person[]
+	 */
+	public var $sd_publisher;
 	
 	/**
 	 * The Organization on whose behalf the creator was working.
@@ -537,8 +570,8 @@ class Photograph extends CreativeWork implements JsonSerializable {
 	public var $time_required;
 	
 	/**
-	 * The work that this work has been translated from. e.g. 物种起源 is a translationOf “On the Origin of Species” Inverse property: workTranslation (see: https://schema.orghttp://bib.schema.org/workTranslation).
-	 * see : http://bib.schema.org/translationOfWork
+	 * The work that this work has been translated from. e.g. 物种起源 is a translationOf “On the Origin of Species” Inverse property: workTranslation (see: https://schema.orghttps://bib.schema.org/workTranslation).
+	 * see : https://bib.schema.org/translationOfWork
 	 * @var \CreativeWork|\CreativeWork[]
 	 */
 	public var $translation_of_work;
@@ -579,8 +612,8 @@ class Photograph extends CreativeWork implements JsonSerializable {
 	public var $work_example;
 	
 	/**
-	 * A work that is a translation of the content of this work. e.g. 西遊記 has an English workTranslation “Journey to the West”,a German workTranslation “Monkeys Pilgerfahrt” and a Vietnamese  translation Tây du ký bình khảo. Inverse property: translationOfWork (see: https://schema.orghttp://bib.schema.org/translationOfWork).
-	 * see : http://bib.schema.org/workTranslation
+	 * A work that is a translation of the content of this work. e.g. 西遊記 has an English workTranslation “Journey to the West”,a German workTranslation “Monkeys Pilgerfahrt” and a Vietnamese  translation Tây du ký bình khảo. Inverse property: translationOfWork (see: https://schema.orghttps://bib.schema.org/translationOfWork).
+	 * see : https://bib.schema.org/workTranslation
 	 * @var \CreativeWork|\CreativeWork[]
 	 */
 	public var $work_translation;
@@ -721,6 +754,11 @@ class Photograph extends CreativeWork implements JsonSerializable {
 			$out['copyrightYear'] = $serialized;
 		}
 		
+		$serialized = so_json_serialize( $this->correction );
+		if ( ! empty( $serialized ) ) {
+			$out['correction'] = $serialized;
+		}
+		
 		$serialized = so_json_serialize( $this->creator );
 		if ( ! empty( $serialized ) ) {
 			$out['creator'] = $serialized;
@@ -766,6 +804,11 @@ class Photograph extends CreativeWork implements JsonSerializable {
 			$out['encoding'] = $serialized;
 		}
 		
+		$serialized = so_json_serialize( $this->encoding_format );
+		if ( ! empty( $serialized ) ) {
+			$out['encodingFormat'] = $serialized;
+		}
+		
 		$serialized = so_json_serialize( $this->example_of_work );
 		if ( ! empty( $serialized ) ) {
 			$out['exampleOfWork'] = $serialized;
@@ -774,11 +817,6 @@ class Photograph extends CreativeWork implements JsonSerializable {
 		$serialized = so_json_serialize( $this->expires );
 		if ( ! empty( $serialized ) ) {
 			$out['expires'] = $serialized;
-		}
-		
-		$serialized = so_json_serialize( $this->file_format );
-		if ( ! empty( $serialized ) ) {
-			$out['fileFormat'] = $serialized;
 		}
 		
 		$serialized = so_json_serialize( $this->funder );
@@ -929,6 +967,21 @@ class Photograph extends CreativeWork implements JsonSerializable {
 		$serialized = so_json_serialize( $this->schema_version );
 		if ( ! empty( $serialized ) ) {
 			$out['schemaVersion'] = $serialized;
+		}
+		
+		$serialized = so_json_serialize( $this->sd_date_published );
+		if ( ! empty( $serialized ) ) {
+			$out['sdDatePublished'] = $serialized;
+		}
+		
+		$serialized = so_json_serialize( $this->sd_license );
+		if ( ! empty( $serialized ) ) {
+			$out['sdLicense'] = $serialized;
+		}
+		
+		$serialized = so_json_serialize( $this->sd_publisher );
+		if ( ! empty( $serialized ) ) {
+			$out['sdPublisher'] = $serialized;
 		}
 		
 		$serialized = so_json_serialize( $this->source_organization );

@@ -8,7 +8,7 @@ type PeopleAudience struct {
 
 	typeContext
 
-	// HealthCondition see : http://health-lifesci.schema.org/healthCondition
+	// HealthCondition see : https://health-lifesci.schema.org/healthCondition
 	// Specifying the health condition(s) of a patient, medical study, or other target audience.
 	// types : MedicalCondition
 	HealthCondition []interface{} `json:"healthCondition,omitempty"`

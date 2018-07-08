@@ -44,7 +44,9 @@ type Order struct {
 	DiscountCode []string `json:"discountCode,omitempty"`
 
 	// DiscountCurrency see : https://schema.org/discountCurrency
-	// The currency (in 3-letter ISO 4217 format) of the discount.
+	// The currency of the discount.
+	//
+	// Use standard formats: ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217) e.g. &quot;USD&quot;; Ticker symbol (see: https://schema.orghttps://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. &quot;BTC&quot;; well known names for Local Exchange Tradings Systems (see: https://schema.orghttps://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. &quot;Ithaca HOUR&quot;.
 	// types : Text
 	DiscountCurrency []string `json:"discountCurrency,omitempty"`
 

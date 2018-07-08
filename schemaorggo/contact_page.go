@@ -19,7 +19,7 @@ type ContactPage struct {
 	LastReviewed []Date `json:"lastReviewed,omitempty"`
 
 	// MainContentOfPage see : https://schema.org/mainContentOfPage
-	// Indicates if this web page element is the main subject of the page. Supersedes aspect (see: https://schema.orghttp://health-lifesci.schema.org/aspect).
+	// Indicates if this web page element is the main subject of the page. Supersedes aspect (see: https://schema.orghttps://health-lifesci.schema.org/aspect).
 	// types : WebPageElement
 	MainContentOfPage []*WebPageElement `json:"mainContentOfPage,omitempty"`
 
@@ -43,7 +43,7 @@ type ContactPage struct {
 	// types : URL
 	SignificantLink []string `json:"significantLink,omitempty"`
 
-	// Speakable see : http://pending.schema.org/speakable
+	// Speakable see : https://pending.schema.org/speakable
 	// Indicates sections of a Web page that are particularly &#39;speakable&#39; in the sense of being highlighted as being especially appropriate for text-to-speech conversion. Other sections of a page may also be usefully spoken in particular circumstances; the &#39;speakable&#39; property serves to indicate the parts most likely to be generally useful for speech.
 	//
 	// The speakable property can be repeated an arbitrary number of times, with three kinds of possible &#39;content-locator&#39; values:

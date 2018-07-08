@@ -7,7 +7,7 @@ class WarrantyScope extends Enumeration implements JsonSerializable {
 	
 	/**
 	 * Relates a term (i.e. a property, class or enumeration) to one that supersedes it.
-	 * see : http://meta.schema.org/supersededBy
+	 * see : https://meta.schema.org/supersededBy
 	 * @var \Class|\Class[]|\Enumeration|\Enumeration[]|\Property|\Property[]
 	 */
 	public var $superseded_by;

@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/romainmenke/schema-org-gen/internal/parsers"
@@ -40,6 +41,8 @@ func TypeMap(ctx context.Context) (*typemap.TypeMap, error) {
 	if err != nil {
 		return nil, err
 	}
+
+	log.Println("fetched the object list")
 
 	return tMap, nil
 }

@@ -7,21 +7,21 @@ class PaymentCard extends FinancialProduct implements JsonSerializable {
 	
 	/**
 	 * A cardholder benefit that pays the cardholder a small percentage of their net expenditures.
-	 * see : http://pending.schema.org/cashBack
+	 * see : https://pending.schema.org/cashBack
 	 * @var boolean|boolean[]|float|float[]
 	 */
 	public var $cash_back;
 	
 	/**
 	 * A secure method for consumers to purchase products or services via debit, credit or smartcards by using RFID or NFC technology.
-	 * see : http://pending.schema.org/contactlessPayment
+	 * see : https://pending.schema.org/contactlessPayment
 	 * @var boolean|boolean[]
 	 */
 	public var $contactless_payment;
 	
 	/**
 	 * A floor limit is the amount of money above which credit card transactions must be authorized.
-	 * see : http://pending.schema.org/floorLimit
+	 * see : https://pending.schema.org/floorLimit
 	 * @var \MonetaryAmount|\MonetaryAmount[]
 	 */
 	public var $floor_limit;

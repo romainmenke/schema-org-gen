@@ -8,7 +8,7 @@ type NGO struct {
 
 	typeContext
 
-	// ActionableFeedbackPolicy see : http://pending.schema.org/actionableFeedbackPolicy
+	// ActionableFeedbackPolicy see : https://pending.schema.org/actionableFeedbackPolicy
 	// For a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization) or other news-related Organization (see: https://schema.org/Organization), a statement about public engagement activities (for news media, the newsroom’s), including involving the public - digitally or otherwise -- in coverage decisions, reporting and activities after publication.
 	// types : CreativeWork URL
 	ActionableFeedbackPolicy []interface{} `json:"actionableFeedbackPolicy,omitempty"`
@@ -48,7 +48,7 @@ type NGO struct {
 	// types : ContactPoint
 	ContactPoint []*ContactPoint `json:"contactPoint,omitempty"`
 
-	// CorrectionsPolicy see : http://pending.schema.org/correctionsPolicy
+	// CorrectionsPolicy see : https://pending.schema.org/correctionsPolicy
 	// For an Organization (see: https://schema.org/Organization) (e.g. NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization)), a statement describing (in news media, the newsroom’s) disclosure and correction policy for errors.
 	// types : CreativeWork URL
 	CorrectionsPolicy []interface{} `json:"correctionsPolicy,omitempty"`
@@ -63,10 +63,15 @@ type NGO struct {
 	// types : Date
 	DissolutionDate []Date `json:"dissolutionDate,omitempty"`
 
-	// DiversityPolicy see : http://pending.schema.org/diversityPolicy
+	// DiversityPolicy see : https://pending.schema.org/diversityPolicy
 	// Statement on diversity policy by an Organization (see: https://schema.org/Organization) e.g. a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization). For a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization), a statement describing the newsroom’s diversity policy on both staffing and sources, typically providing staffing data.
 	// types : CreativeWork URL
 	DiversityPolicy []interface{} `json:"diversityPolicy,omitempty"`
+
+	// DiversityStaffingReport see : https://pending.schema.org/diversityStaffingReport
+	// For an Organization (see: https://schema.org/Organization) (often but not necessarily a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization)), a report on staffing diversity issues. In a news context this might be for example ASNE or RTDNA (US) reports, or self-reported.
+	// types : Article URL
+	DiversityStaffingReport []interface{} `json:"diversityStaffingReport,omitempty"`
 
 	// Duns see : https://schema.org/duns
 	// The Dun &amp; Bradstreet DUNS number for identifying an organization or business person.
@@ -83,7 +88,7 @@ type NGO struct {
 	// types : Person
 	Employee []*Person `json:"employee,omitempty"`
 
-	// EthicsPolicy see : http://pending.schema.org/ethicsPolicy
+	// EthicsPolicy see : https://pending.schema.org/ethicsPolicy
 	// Statement about ethics policy, e.g. of a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization) regarding journalistic and publishing practices, or of a Restaurant (see: https://schema.org/Restaurant), a page describing food source policies. In the case of a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization), an ethicsPolicy is typically a statement describing the personal, organizational, and corporate standards of behavior expected by the organization.
 	// types : CreativeWork URL
 	EthicsPolicy []interface{} `json:"ethicsPolicy,omitempty"`
@@ -138,6 +143,16 @@ type NGO struct {
 	// types : Text
 	IsicV4 []string `json:"isicV4,omitempty"`
 
+	// KnowsAbout see : https://pending.schema.org/knowsAbout
+	// Of a Person (see: https://schema.org/Person), and less typically of an Organization (see: https://schema.org/Organization), to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or yet relate this to educational content, events, objectives or JobPosting (see: https://schema.org/JobPosting) descriptions.
+	// types : Text Thing URL
+	KnowsAbout []interface{} `json:"knowsAbout,omitempty"`
+
+	// KnowsLanguage see : https://pending.schema.org/knowsLanguage
+	// Of a Person (see: https://schema.org/Person), and less typically of an Organization (see: https://schema.org/Organization), to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the IETF BCP 47 standard (see: https://schema.orghttp://tools.ietf.org/html/bcp47).
+	// types : Language Text
+	KnowsLanguage []interface{} `json:"knowsLanguage,omitempty"`
+
 	// LegalName see : https://schema.org/legalName
 	// The official name of the organization, e.g. the registered company name.
 	// types : Text
@@ -182,6 +197,11 @@ type NGO struct {
 	// The number of employees in an organization e.g. business.
 	// types : QuantitativeValue
 	NumberOfEmployees []*QuantitativeValue `json:"numberOfEmployees,omitempty"`
+
+	// OwnershipFundingInfo see : https://pending.schema.org/ownershipFundingInfo
+	// For an Organization (see: https://schema.org/Organization) (often but not necessarily a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization)), a description of organizational ownership structure; funding and grants. In a news/media setting, this is with particular reference to editorial independence.   Note that the funder (see: https://schema.org/funder) is also available and can be used to make basic funder information machine-readable.
+	// types : AboutPage CreativeWork Text URL
+	OwnershipFundingInfo []interface{} `json:"ownershipFundingInfo,omitempty"`
 
 	// Owns see : https://schema.org/owns
 	// Products owned by the organization or person.
@@ -230,7 +250,7 @@ type NGO struct {
 	// types : Text
 	Telephone []string `json:"telephone,omitempty"`
 
-	// UnnamedSourcesPolicy see : http://pending.schema.org/unnamedSourcesPolicy
+	// UnnamedSourcesPolicy see : https://pending.schema.org/unnamedSourcesPolicy
 	// For an Organization (see: https://schema.org/Organization) (typically a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization)), a statement about policy on use of unnamed sources and the decision process required.
 	// types : CreativeWork URL
 	UnnamedSourcesPolicy []interface{} `json:"unnamedSourcesPolicy,omitempty"`
@@ -439,6 +459,22 @@ func (v NGO) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["diversityPolicy"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.DiversityStaffingReport
+		if len(v.DiversityStaffingReport) == 1 {
+			value = v.DiversityStaffingReport[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["diversityStaffingReport"] = json.RawMessage(b)
 		}
 	}
 
@@ -667,6 +703,38 @@ func (v NGO) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
+		var value interface{} = v.KnowsAbout
+		if len(v.KnowsAbout) == 1 {
+			value = v.KnowsAbout[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["knowsAbout"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.KnowsLanguage
+		if len(v.KnowsLanguage) == 1 {
+			value = v.KnowsLanguage[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["knowsLanguage"] = json.RawMessage(b)
+		}
+	}
+
+	{
 		var value interface{} = v.LegalName
 		if len(v.LegalName) == 1 {
 			value = v.LegalName[0]
@@ -807,6 +875,22 @@ func (v NGO) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["numberOfEmployees"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.OwnershipFundingInfo
+		if len(v.OwnershipFundingInfo) == 1 {
+			value = v.OwnershipFundingInfo[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["ownershipFundingInfo"] = json.RawMessage(b)
 		}
 	}
 

@@ -6,7 +6,9 @@ class PoliceStation extends CivicStructure implements JsonSerializable {
 	public static $type = 'PoliceStation';
 	
 	/**
-	 * The currency accepted (in ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217)).
+	 * The currency accepted.
+	 * 
+	 * Use standard formats: ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217) e.g. &quot;USD&quot;; Ticker symbol (see: https://schema.orghttps://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. &quot;BTC&quot;; well known names for Local Exchange Tradings Systems (see: https://schema.orghttps://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. &quot;Ithaca HOUR&quot;.
 	 * see : https://schema.org/currenciesAccepted
 	 * @var string|string[]
 	 */
@@ -28,7 +30,7 @@ class PoliceStation extends CivicStructure implements JsonSerializable {
 	public var $opening_hours;
 	
 	/**
-	 * Cash, credit card, etc.
+	 * Cash, Credit Card, Cryptocurrency, Local Exchange Tradings System, etc.
 	 * see : https://schema.org/paymentAccepted
 	 * @var string|string[]
 	 */

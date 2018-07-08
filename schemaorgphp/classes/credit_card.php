@@ -7,7 +7,7 @@ class CreditCard extends LoanOrCredit implements JsonSerializable {
 	
 	/**
 	 * The minimum payment is the lowest amount of money that one is required to pay on a credit card statement each month.
-	 * see : http://pending.schema.org/monthlyMinimumRepaymentAmount
+	 * see : https://pending.schema.org/monthlyMinimumRepaymentAmount
 	 * @var \MonetaryAmount|\MonetaryAmount[]|float|float[]
 	 */
 	public var $monthly_minimum_repayment_amount;

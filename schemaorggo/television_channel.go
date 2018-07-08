@@ -13,7 +13,7 @@ type TelevisionChannel struct {
 	// types : Text
 	BroadcastChannelId []string `json:"broadcastChannelId,omitempty"`
 
-	// BroadcastFrequency see : http://pending.schema.org/broadcastFrequency
+	// BroadcastFrequency see : https://pending.schema.org/broadcastFrequency
 	// The frequency used for over-the-air broadcasts. Numeric values or simple ranges e.g. 87-99. In addition a shortcut idiom is supported for frequences of AM and FM radio channels, e.g. &quot;87 FM&quot;.
 	// types : BroadcastFrequencySpecification Text
 	BroadcastFrequency []interface{} `json:"broadcastFrequency,omitempty"`
@@ -34,7 +34,7 @@ type TelevisionChannel struct {
 	InBroadcastLineup []*CableOrSatelliteService `json:"inBroadcastLineup,omitempty"`
 
 	// ProvidesBroadcastService see : https://schema.org/providesBroadcastService
-	// The BroadcastService offered on this channel. Inverse property: hasBroadcastChannel (see: https://schema.orghttp://pending.schema.org/hasBroadcastChannel).
+	// The BroadcastService offered on this channel. Inverse property: hasBroadcastChannel (see: https://schema.orghttps://pending.schema.org/hasBroadcastChannel).
 	// types : BroadcastService
 	ProvidesBroadcastService []*BroadcastService `json:"providesBroadcastService,omitempty"`
 }

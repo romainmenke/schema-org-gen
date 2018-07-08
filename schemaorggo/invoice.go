@@ -23,7 +23,7 @@ type Invoice struct {
 	// types : Organization Person
 	Broker []interface{} `json:"broker,omitempty"`
 
-	// Category see : https://schema.org/category
+	// Category see : https://pending.schema.org/category
 	// A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
 	// types : PhysicalActivityCategory Text Thing
 	Category []interface{} `json:"category,omitempty"`

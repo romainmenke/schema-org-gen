@@ -23,10 +23,10 @@ type HowTo struct {
 	// types : Duration
 	PrepTime []*Duration `json:"prepTime,omitempty"`
 
-	// Steps see : https://schema.org/steps
-	// The steps in the form of a single item (text, document, video, etc.) or an ordered list with HowToStep and/or HowToSection items.
-	// types : CreativeWork ItemList Text
-	Steps []interface{} `json:"steps,omitempty"`
+	// Step see : https://schema.org/step
+	// A single step item (as HowToStep, text, document, video, etc.) or a HowToSection. Supersedes steps (see: https://schema.org/steps).
+	// types : CreativeWork HowToSection HowToStep Text
+	Step []interface{} `json:"step,omitempty"`
 
 	// Supply see : https://schema.org/supply
 	// A sub-property of instrument. A supply consumed when performing instructions or a direction.
@@ -107,9 +107,9 @@ func (v HowTo) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
-		var value interface{} = v.Steps
-		if len(v.Steps) == 1 {
-			value = v.Steps[0]
+		var value interface{} = v.Step
+		if len(v.Step) == 1 {
+			value = v.Step[0]
 		}
 
 		b, err := json.Marshal(value)
@@ -118,7 +118,7 @@ func (v HowTo) intoMap(intop *map[string]interface{}) error {
 		}
 
 		if len(b) > 0 && string(b) != "null" {
-			into["steps"] = json.RawMessage(b)
+			into["step"] = json.RawMessage(b)
 		}
 	}
 

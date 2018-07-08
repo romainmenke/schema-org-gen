@@ -4,7 +4,7 @@ import "encoding/json"
 
 // CreativeWorkSeries see : https://schema.org/CreativeWorkSeries
 type CreativeWorkSeries struct {
-	CreativeWork
+	Series
 
 	typeContext
 
@@ -29,7 +29,7 @@ func (v CreativeWorkSeries) intoMap(intop *map[string]interface{}) error {
 		return nil
 	}
 
-	v.CreativeWork.intoMap(intop)
+	v.Series.intoMap(intop)
 
 	into := *intop
 

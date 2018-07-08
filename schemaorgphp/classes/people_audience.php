@@ -7,7 +7,7 @@ class PeopleAudience extends Audience implements JsonSerializable {
 	
 	/**
 	 * Specifying the health condition(s) of a patient, medical study, or other target audience.
-	 * see : http://health-lifesci.schema.org/healthCondition
+	 * see : https://health-lifesci.schema.org/healthCondition
 	 * @var \MedicalCondition|\MedicalCondition[]
 	 */
 	public var $health_condition;

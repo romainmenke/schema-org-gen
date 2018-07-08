@@ -18,6 +18,11 @@ type ScholarlyArticle struct {
 	// types : Text
 	ArticleSection []string `json:"articleSection,omitempty"`
 
+	// Backstory see : https://pending.schema.org/backstory
+	// For an Article (see: https://schema.org/Article), typically a NewsArticle (see: https://schema.org/NewsArticle), the backstory property provides a textual summary giving a brief explanation of why and how an article was created. In a journalistic setting this could include information about reporting process, methods, interviews, data sources, etc.
+	// types : CreativeWork Text
+	Backstory []interface{} `json:"backstory,omitempty"`
+
 	// PageEnd see : https://schema.org/pageEnd
 	// The page on which the work ends; for example &quot;138&quot; or &quot;xvi&quot;.
 	// types : Integer Text
@@ -33,7 +38,7 @@ type ScholarlyArticle struct {
 	// types : Text
 	Pagination []string `json:"pagination,omitempty"`
 
-	// Speakable see : http://pending.schema.org/speakable
+	// Speakable see : https://pending.schema.org/speakable
 	// Indicates sections of a Web page that are particularly &#39;speakable&#39; in the sense of being highlighted as being especially appropriate for text-to-speech conversion. Other sections of a page may also be usefully spoken in particular circumstances; the &#39;speakable&#39; property serves to indicate the parts most likely to be generally useful for speech.
 	//
 	// The speakable property can be repeated an arbitrary number of times, with three kinds of possible &#39;content-locator&#39; values:
@@ -93,6 +98,22 @@ func (v ScholarlyArticle) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["articleSection"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Backstory
+		if len(v.Backstory) == 1 {
+			value = v.Backstory[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["backstory"] = json.RawMessage(b)
 		}
 	}
 

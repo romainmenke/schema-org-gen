@@ -56,6 +56,11 @@ type Thing struct {
 	// types : URL
 	SameAs []string `json:"sameAs,omitempty"`
 
+	// SubjectOf see : https://pending.schema.org/subjectOf
+	// A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
+	// types : CreativeWork Event
+	SubjectOf []interface{} `json:"subjectOf,omitempty"`
+
 	// Url see : https://schema.org/url
 	// URL of the item.
 	// types : URL
@@ -226,6 +231,22 @@ func (v Thing) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["sameAs"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.SubjectOf
+		if len(v.SubjectOf) == 1 {
+			value = v.SubjectOf[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["subjectOf"] = json.RawMessage(b)
 		}
 	}
 

@@ -35,14 +35,14 @@ class Dataset extends CreativeWork implements JsonSerializable {
 	 * If the variableMeasured (see: https://schema.org/variableMeasured) is &quot;depression rating&quot;, the measurementTechnique (see: https://schema.org/measurementTechnique) could be &quot;Zung Scale&quot; or &quot;HAM-D&quot; or &quot;Beck Depression Inventory&quot;.
 	 * 
 	 * If there are several variableMeasured (see: https://schema.org/variableMeasured) properties recorded for some given data object, use a PropertyValue (see: https://schema.org/PropertyValue) for each variableMeasured (see: https://schema.org/variableMeasured) and attach the corresponding measurementTechnique (see: https://schema.org/measurementTechnique).
-	 * see : http://pending.schema.org/measurementTechnique
+	 * see : https://pending.schema.org/measurementTechnique
 	 * @var string|string[]|string|string[]
 	 */
 	public var $measurement_technique;
 	
 	/**
 	 * The variableMeasured property can indicate (repeated as necessary) the  variables that are measured in some dataset, either described as text or as pairs of identifier and description using PropertyValue.
-	 * see : http://pending.schema.org/variableMeasured
+	 * see : https://pending.schema.org/variableMeasured
 	 * @var \PropertyValue|\PropertyValue[]|string|string[]
 	 */
 	public var $variable_measured;

@@ -7,7 +7,7 @@ class Car extends Vehicle implements JsonSerializable {
 	
 	/**
 	 * The ACRISS Car Classification Code is a code used by many car rental companies, for classifying vehicles. ACRISS stands for Association of Car Rental Industry Systems and Standards.
-	 * see : https://schema.org/acrissCode
+	 * see : https://auto.schema.org/acrissCode
 	 * @var string|string[]
 	 */
 	public var $acriss_code;
@@ -23,7 +23,7 @@ class Car extends Vehicle implements JsonSerializable {
 	 * Note 3: Note that you can use minValue (see: https://schema.org/minValue) and maxValue (see: https://schema.org/maxValue) to indicate ranges.
 	 * 
 	 * 
-	 * see : https://schema.org/roofLoad
+	 * see : https://auto.schema.org/roofLoad
 	 * @var \QuantitativeValue|\QuantitativeValue[]
 	 */
 	public var $roof_load;

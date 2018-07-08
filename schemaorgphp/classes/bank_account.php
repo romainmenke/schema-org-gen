@@ -7,21 +7,21 @@ class BankAccount extends FinancialProduct implements JsonSerializable {
 	
 	/**
 	 * A minimum amount that has to be paid in every month.
-	 * see : http://pending.schema.org/accountMinimumInflow
+	 * see : https://pending.schema.org/accountMinimumInflow
 	 * @var \MonetaryAmount|\MonetaryAmount[]
 	 */
 	public var $account_minimum_inflow;
 	
 	/**
 	 * An overdraft is an extension of credit from a lending institution when an account reaches zero. An overdraft allows the individual to continue withdrawing money even if the account has no funds in it. Basically the bank allows people to borrow a set amount of money.
-	 * see : http://pending.schema.org/accountOverdraftLimit
+	 * see : https://pending.schema.org/accountOverdraftLimit
 	 * @var \MonetaryAmount|\MonetaryAmount[]
 	 */
 	public var $account_overdraft_limit;
 	
 	/**
 	 * The type of a bank account.
-	 * see : http://pending.schema.org/bankAccountType
+	 * see : https://pending.schema.org/bankAccountType
 	 * @var string|string[]|string|string[]
 	 */
 	public var $bank_account_type;

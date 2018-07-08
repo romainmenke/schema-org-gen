@@ -23,7 +23,7 @@ type VisualArtwork struct {
 	// types : Text URL
 	Artform []string `json:"artform,omitempty"`
 
-	// Artist see : http://bib.schema.org/artist
+	// Artist see : https://bib.schema.org/artist
 	// The primary artist for a work
 	//     in a medium other than pencils or digital line art--for example, if the
 	//     primary artwork is done in watercolors or digital paints.
@@ -35,7 +35,7 @@ type VisualArtwork struct {
 	// types : Text URL
 	ArtworkSurface []string `json:"artworkSurface,omitempty"`
 
-	// Colorist see : http://bib.schema.org/colorist
+	// Colorist see : https://bib.schema.org/colorist
 	// The individual who adds color to inked drawings.
 	// types : Person
 	Colorist []*Person `json:"colorist,omitempty"`
@@ -50,17 +50,17 @@ type VisualArtwork struct {
 	// types : Distance QuantitativeValue
 	Height []interface{} `json:"height,omitempty"`
 
-	// Inker see : http://bib.schema.org/inker
+	// Inker see : https://bib.schema.org/inker
 	// The individual who traces over the pencil drawings in ink after pencils are complete.
 	// types : Person
 	Inker []*Person `json:"inker,omitempty"`
 
-	// Letterer see : http://bib.schema.org/letterer
+	// Letterer see : https://bib.schema.org/letterer
 	// The individual who adds lettering, including speech balloons and sound effects, to artwork.
 	// types : Person
 	Letterer []*Person `json:"letterer,omitempty"`
 
-	// Penciler see : http://bib.schema.org/penciler
+	// Penciler see : https://bib.schema.org/penciler
 	// The individual who draws the primary narrative artwork.
 	// types : Person
 	Penciler []*Person `json:"penciler,omitempty"`

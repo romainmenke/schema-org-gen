@@ -7,21 +7,21 @@ class MedicalOrganization extends Organization implements JsonSerializable {
 	
 	/**
 	 * Name or unique ID of network. (Networks are often reused across different insurance plans).
-	 * see : http://pending.schema.org/healthPlanNetworkId
+	 * see : https://pending.schema.org/healthPlanNetworkId
 	 * @var string|string[]
 	 */
 	public var $health_plan_network_id;
 	
 	/**
 	 * Whether the provider is accepting new patients.
-	 * see : http://pending.schema.org/isAcceptingNewPatients
+	 * see : https://pending.schema.org/isAcceptingNewPatients
 	 * @var boolean|boolean[]
 	 */
 	public var $is_accepting_new_patients;
 	
 	/**
 	 * A medical specialty of the provider.
-	 * see : http://health-lifesci.schema.org/medicalSpecialty
+	 * see : https://health-lifesci.schema.org/medicalSpecialty
 	 * @var \MedicalSpecialty|\MedicalSpecialty[]
 	 */
 	public var $medical_specialty;

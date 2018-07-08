@@ -6,7 +6,7 @@ class ShareAction extends CommunicateAction implements JsonSerializable {
 	public static $type = 'ShareAction';
 	
 	/**
-	 * The subject matter of the content.
+	 * The subject matter of the content. Inverse property: subjectOf (see: https://schema.orghttps://pending.schema.org/subjectOf).
 	 * see : https://schema.org/about
 	 * @var \Thing|\Thing[]
 	 */

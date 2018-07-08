@@ -18,8 +18,8 @@ type JobPosting struct {
 	// types : Date
 	DatePosted []Date `json:"datePosted,omitempty"`
 
-	// EducationRequirements see : https://schema.org/educationRequirements
-	// Educational background needed for the position.
+	// EducationRequirements see : https://pending.schema.org/educationRequirements
+	// Educational background needed for the position or Occupation.
 	// types : Text
 	EducationRequirements []string `json:"educationRequirements,omitempty"`
 
@@ -28,13 +28,13 @@ type JobPosting struct {
 	// types : Text
 	EmploymentType []string `json:"employmentType,omitempty"`
 
-	// EstimatedSalary see : https://schema.org/estimatedSalary
+	// EstimatedSalary see : https://pending.schema.org/estimatedSalary
 	// A property describing the estimated salary for a job posting based on a variety of variables including, but not limited to industry, job title, and location. The estimated salary is usually computed by outside organizations and therefore the hiring organization is not bound to this estimated salary.
-	// types : MonetaryAmount Number PriceSpecification
+	// types : MonetaryAmount MonetaryAmountDistribution Number PriceSpecification
 	EstimatedSalary []interface{} `json:"estimatedSalary,omitempty"`
 
-	// ExperienceRequirements see : https://schema.org/experienceRequirements
-	// Description of skills and experience needed for the position.
+	// ExperienceRequirements see : https://pending.schema.org/experienceRequirements
+	// Description of skills and experience needed for the position or Occupation.
 	// types : Text
 	ExperienceRequirements []string `json:"experienceRequirements,omitempty"`
 
@@ -63,18 +63,23 @@ type JobPosting struct {
 	// types : Place
 	JobLocation []*Place `json:"jobLocation,omitempty"`
 
-	// OccupationalCategory see : https://schema.org/occupationalCategory
+	// OccupationalCategory see : https://pending.schema.org/occupationalCategory
 	// Category or categories describing the job. Use BLS O*NET-SOC taxonomy: http://www.onetcenter.org/taxonomy.html. Ideally includes textual label and formal code, with the property repeated for each applicable value.
 	// types : Text
 	OccupationalCategory []string `json:"occupationalCategory,omitempty"`
 
-	// Qualifications see : https://schema.org/qualifications
-	// Specific qualifications required for this role.
+	// Qualifications see : https://pending.schema.org/qualifications
+	// Specific qualifications required for this role or Occupation.
 	// types : Text
 	Qualifications []string `json:"qualifications,omitempty"`
 
-	// Responsibilities see : https://schema.org/responsibilities
-	// Responsibilities associated with this role.
+	// RelevantOccupation see : https://pending.schema.org/relevantOccupation
+	// The Occupation for the JobPosting.
+	// types : Occupation
+	RelevantOccupation []interface{} `json:"relevantOccupation,omitempty"`
+
+	// Responsibilities see : https://pending.schema.org/responsibilities
+	// Responsibilities associated with this role or Occupation.
 	// types : Text
 	Responsibilities []string `json:"responsibilities,omitempty"`
 
@@ -83,7 +88,7 @@ type JobPosting struct {
 	// types : Text
 	SalaryCurrency []string `json:"salaryCurrency,omitempty"`
 
-	// Skills see : https://schema.org/skills
+	// Skills see : https://pending.schema.org/skills
 	// Skills required to fulfill this role.
 	// types : Text
 	Skills []string `json:"skills,omitempty"`
@@ -323,6 +328,22 @@ func (v JobPosting) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["qualifications"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.RelevantOccupation
+		if len(v.RelevantOccupation) == 1 {
+			value = v.RelevantOccupation[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["relevantOccupation"] = json.RawMessage(b)
 		}
 	}
 

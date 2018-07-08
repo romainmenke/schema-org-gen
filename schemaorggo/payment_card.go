@@ -8,17 +8,17 @@ type PaymentCard struct {
 
 	typeContext
 
-	// CashBack see : http://pending.schema.org/cashBack
+	// CashBack see : https://pending.schema.org/cashBack
 	// A cardholder benefit that pays the cardholder a small percentage of their net expenditures.
 	// types : Boolean Number
 	CashBack []interface{} `json:"cashBack,omitempty"`
 
-	// ContactlessPayment see : http://pending.schema.org/contactlessPayment
+	// ContactlessPayment see : https://pending.schema.org/contactlessPayment
 	// A secure method for consumers to purchase products or services via debit, credit or smartcards by using RFID or NFC technology.
 	// types : Boolean
 	ContactlessPayment []bool `json:"contactlessPayment,omitempty"`
 
-	// FloorLimit see : http://pending.schema.org/floorLimit
+	// FloorLimit see : https://pending.schema.org/floorLimit
 	// A floor limit is the amount of money above which credit card transactions must be authorized.
 	// types : MonetaryAmount
 	FloorLimit []*MonetaryAmount `json:"floorLimit,omitempty"`

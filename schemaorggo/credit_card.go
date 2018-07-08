@@ -8,7 +8,7 @@ type CreditCard struct {
 
 	typeContext
 
-	// MonthlyMinimumRepaymentAmount see : http://pending.schema.org/monthlyMinimumRepaymentAmount
+	// MonthlyMinimumRepaymentAmount see : https://pending.schema.org/monthlyMinimumRepaymentAmount
 	// The minimum payment is the lowest amount of money that one is required to pay on a credit card statement each month.
 	// types : MonetaryAmount Number
 	MonthlyMinimumRepaymentAmount []interface{} `json:"monthlyMinimumRepaymentAmount,omitempty"`

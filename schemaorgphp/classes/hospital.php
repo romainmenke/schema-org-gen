@@ -7,14 +7,14 @@ class Hospital extends CivicStructure implements JsonSerializable {
 	
 	/**
 	 * A medical service available from this provider.
-	 * see : http://health-lifesci.schema.org/availableService
+	 * see : https://health-lifesci.schema.org/availableService
 	 * @var \MedicalProcedure|\MedicalProcedure[]|\MedicalTest|\MedicalTest[]|\MedicalTherapy|\MedicalTherapy[]
 	 */
 	public var $available_service;
 	
 	/**
 	 * A medical specialty of the provider.
-	 * see : http://health-lifesci.schema.org/medicalSpecialty
+	 * see : https://health-lifesci.schema.org/medicalSpecialty
 	 * @var \MedicalSpecialty|\MedicalSpecialty[]
 	 */
 	public var $medical_specialty;

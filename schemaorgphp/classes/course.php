@@ -21,7 +21,7 @@ class Course extends CreativeWork implements JsonSerializable {
 	
 	/**
 	 * A description of the qualification, award, certificate, diploma or other educational credential awarded as a consequence of successful completion of this course.
-	 * see : http://pending.schema.org/educationalCredentialAwarded
+	 * see : https://pending.schema.org/educationalCredentialAwarded
 	 * @var string|string[]|string|string[]
 	 */
 	public var $educational_credential_awarded;

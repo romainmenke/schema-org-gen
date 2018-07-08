@@ -6,7 +6,7 @@ class CheckOutAction extends CommunicateAction implements JsonSerializable {
 	public static $type = 'CheckOutAction';
 	
 	/**
-	 * The subject matter of the content.
+	 * The subject matter of the content. Inverse property: subjectOf (see: https://schema.orghttps://pending.schema.org/subjectOf).
 	 * see : https://schema.org/about
 	 * @var \Thing|\Thing[]
 	 */

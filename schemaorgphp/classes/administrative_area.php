@@ -81,70 +81,70 @@ class AdministrativeArea extends Place implements JsonSerializable {
 	
 	/**
 	 * Represents a relationship between two geometries (or the places they represent), relating a containing geometry to a contained geometry. &quot;a contains b iff no points of b lie in the exterior of a, and at least one point of the interior of b lies in the interior of a&quot;. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
-	 * see : http://pending.schema.org/geospatiallyContains
+	 * see : https://pending.schema.org/geospatiallyContains
 	 * @var \GeospatialGeometry|\GeospatialGeometry[]|\Place|\Place[]
 	 */
 	public var $geospatially_contains;
 	
 	/**
 	 * Represents a relationship between two geometries (or the places they represent), relating a geometry to another that covers it. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
-	 * see : http://pending.schema.org/geospatiallyCoveredBy
+	 * see : https://pending.schema.org/geospatiallyCoveredBy
 	 * @var \GeospatialGeometry|\GeospatialGeometry[]|\Place|\Place[]
 	 */
 	public var $geospatially_covered_by;
 	
 	/**
 	 * Represents a relationship between two geometries (or the places they represent), relating a covering geometry to a covered geometry. &quot;Every point of b is a point of (the interior or boundary of) a&quot;. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
-	 * see : http://pending.schema.org/geospatiallyCovers
+	 * see : https://pending.schema.org/geospatiallyCovers
 	 * @var \GeospatialGeometry|\GeospatialGeometry[]|\Place|\Place[]
 	 */
 	public var $geospatially_covers;
 	
 	/**
 	 * Represents a relationship between two geometries (or the places they represent), relating a geometry to another that crosses it: &quot;a crosses b: they have some but not all interior points in common, and the dimension of the intersection is less than that of at least one of them&quot;. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
-	 * see : http://pending.schema.org/geospatiallyCrosses
+	 * see : https://pending.schema.org/geospatiallyCrosses
 	 * @var \GeospatialGeometry|\GeospatialGeometry[]|\Place|\Place[]
 	 */
 	public var $geospatially_crosses;
 	
 	/**
 	 * Represents spatial relations in which two geometries (or the places they represent) are topologically disjoint: they have no point in common. They form a set of disconnected geometries.&quot; (a symmetric relationship, as defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM))
-	 * see : http://pending.schema.org/geospatiallyDisjoint
+	 * see : https://pending.schema.org/geospatiallyDisjoint
 	 * @var \GeospatialGeometry|\GeospatialGeometry[]|\Place|\Place[]
 	 */
 	public var $geospatially_disjoint;
 	
 	/**
 	 * Represents spatial relations in which two geometries (or the places they represent) are topologically equal, as defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM). &quot;Two geometries are topologically equal if their interiors intersect and no part of the interior or boundary of one geometry intersects the exterior of the other&quot; (a symmetric relationship)
-	 * see : http://pending.schema.org/geospatiallyEquals
+	 * see : https://pending.schema.org/geospatiallyEquals
 	 * @var \GeospatialGeometry|\GeospatialGeometry[]|\Place|\Place[]
 	 */
 	public var $geospatially_equals;
 	
 	/**
 	 * Represents spatial relations in which two geometries (or the places they represent) have at least one point in common. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
-	 * see : http://pending.schema.org/geospatiallyIntersects
+	 * see : https://pending.schema.org/geospatiallyIntersects
 	 * @var \GeospatialGeometry|\GeospatialGeometry[]|\Place|\Place[]
 	 */
 	public var $geospatially_intersects;
 	
 	/**
 	 * Represents a relationship between two geometries (or the places they represent), relating a geometry to another that geospatially overlaps it, i.e. they have some but not all points in common. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
-	 * see : http://pending.schema.org/geospatiallyOverlaps
+	 * see : https://pending.schema.org/geospatiallyOverlaps
 	 * @var \GeospatialGeometry|\GeospatialGeometry[]|\Place|\Place[]
 	 */
 	public var $geospatially_overlaps;
 	
 	/**
 	 * Represents spatial relations in which two geometries (or the places they represent) touch: they have at least one boundary point in common, but no interior points.&quot; (a symmetric relationship, as defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM) )
-	 * see : http://pending.schema.org/geospatiallyTouches
+	 * see : https://pending.schema.org/geospatiallyTouches
 	 * @var \GeospatialGeometry|\GeospatialGeometry[]|\Place|\Place[]
 	 */
 	public var $geospatially_touches;
 	
 	/**
 	 * Represents a relationship between two geometries (or the places they represent), relating a geometry to one that contains it, i.e. it is inside (i.e. within) its interior. As defined in DE-9IM (see: https://schema.orghttps://en.wikipedia.org/wiki/DE-9IM).
-	 * see : http://pending.schema.org/geospatiallyWithin
+	 * see : https://pending.schema.org/geospatiallyWithin
 	 * @var \GeospatialGeometry|\GeospatialGeometry[]|\Place|\Place[]
 	 */
 	public var $geospatially_within;
