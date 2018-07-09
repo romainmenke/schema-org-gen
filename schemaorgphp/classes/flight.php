@@ -1,7 +1,9 @@
 <?php
 
+namespace SchemaOrg;
+
 // Flight see : https://schema.org/Flight
-class Flight implements JsonSerializable {
+class Flight implements \JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'Flight';
@@ -256,167 +258,167 @@ class Flight implements JsonSerializable {
 			'@type' => 'Flight'
 		);
 		
-		$serialized = so_json_serialize( $this->additional_type );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_type );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalType'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->aircraft );
+		$serialized = \SchemaOrg\json_serialize( $this->aircraft );
 		if ( ! empty( $serialized ) ) {
 			$out['aircraft'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->alternate_name );
+		$serialized = \SchemaOrg\json_serialize( $this->alternate_name );
 		if ( ! empty( $serialized ) ) {
 			$out['alternateName'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->arrival_airport );
+		$serialized = \SchemaOrg\json_serialize( $this->arrival_airport );
 		if ( ! empty( $serialized ) ) {
 			$out['arrivalAirport'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->arrival_gate );
+		$serialized = \SchemaOrg\json_serialize( $this->arrival_gate );
 		if ( ! empty( $serialized ) ) {
 			$out['arrivalGate'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->arrival_terminal );
+		$serialized = \SchemaOrg\json_serialize( $this->arrival_terminal );
 		if ( ! empty( $serialized ) ) {
 			$out['arrivalTerminal'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->arrival_time );
+		$serialized = \SchemaOrg\json_serialize( $this->arrival_time );
 		if ( ! empty( $serialized ) ) {
 			$out['arrivalTime'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->boarding_policy );
+		$serialized = \SchemaOrg\json_serialize( $this->boarding_policy );
 		if ( ! empty( $serialized ) ) {
 			$out['boardingPolicy'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->departure_airport );
+		$serialized = \SchemaOrg\json_serialize( $this->departure_airport );
 		if ( ! empty( $serialized ) ) {
 			$out['departureAirport'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->departure_gate );
+		$serialized = \SchemaOrg\json_serialize( $this->departure_gate );
 		if ( ! empty( $serialized ) ) {
 			$out['departureGate'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->departure_terminal );
+		$serialized = \SchemaOrg\json_serialize( $this->departure_terminal );
 		if ( ! empty( $serialized ) ) {
 			$out['departureTerminal'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->departure_time );
+		$serialized = \SchemaOrg\json_serialize( $this->departure_time );
 		if ( ! empty( $serialized ) ) {
 			$out['departureTime'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->description );
+		$serialized = \SchemaOrg\json_serialize( $this->description );
 		if ( ! empty( $serialized ) ) {
 			$out['description'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->disambiguating_description );
+		$serialized = \SchemaOrg\json_serialize( $this->disambiguating_description );
 		if ( ! empty( $serialized ) ) {
 			$out['disambiguatingDescription'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->estimated_flight_duration );
+		$serialized = \SchemaOrg\json_serialize( $this->estimated_flight_duration );
 		if ( ! empty( $serialized ) ) {
 			$out['estimatedFlightDuration'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->flight_distance );
+		$serialized = \SchemaOrg\json_serialize( $this->flight_distance );
 		if ( ! empty( $serialized ) ) {
 			$out['flightDistance'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->flight_number );
+		$serialized = \SchemaOrg\json_serialize( $this->flight_number );
 		if ( ! empty( $serialized ) ) {
 			$out['flightNumber'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->has_part );
+		$serialized = \SchemaOrg\json_serialize( $this->has_part );
 		if ( ! empty( $serialized ) ) {
 			$out['hasPart'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->identifier );
+		$serialized = \SchemaOrg\json_serialize( $this->identifier );
 		if ( ! empty( $serialized ) ) {
 			$out['identifier'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->image );
+		$serialized = \SchemaOrg\json_serialize( $this->image );
 		if ( ! empty( $serialized ) ) {
 			$out['image'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->is_part_of );
+		$serialized = \SchemaOrg\json_serialize( $this->is_part_of );
 		if ( ! empty( $serialized ) ) {
 			$out['isPartOf'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->itinerary );
+		$serialized = \SchemaOrg\json_serialize( $this->itinerary );
 		if ( ! empty( $serialized ) ) {
 			$out['itinerary'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->main_entity_of_page );
+		$serialized = \SchemaOrg\json_serialize( $this->main_entity_of_page );
 		if ( ! empty( $serialized ) ) {
 			$out['mainEntityOfPage'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->meal_service );
+		$serialized = \SchemaOrg\json_serialize( $this->meal_service );
 		if ( ! empty( $serialized ) ) {
 			$out['mealService'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->name );
+		$serialized = \SchemaOrg\json_serialize( $this->name );
 		if ( ! empty( $serialized ) ) {
 			$out['name'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->offers );
+		$serialized = \SchemaOrg\json_serialize( $this->offers );
 		if ( ! empty( $serialized ) ) {
 			$out['offers'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->potential_action );
+		$serialized = \SchemaOrg\json_serialize( $this->potential_action );
 		if ( ! empty( $serialized ) ) {
 			$out['potentialAction'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->provider );
+		$serialized = \SchemaOrg\json_serialize( $this->provider );
 		if ( ! empty( $serialized ) ) {
 			$out['provider'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->same_as );
+		$serialized = \SchemaOrg\json_serialize( $this->same_as );
 		if ( ! empty( $serialized ) ) {
 			$out['sameAs'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->seller );
+		$serialized = \SchemaOrg\json_serialize( $this->seller );
 		if ( ! empty( $serialized ) ) {
 			$out['seller'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->subject_of );
+		$serialized = \SchemaOrg\json_serialize( $this->subject_of );
 		if ( ! empty( $serialized ) ) {
 			$out['subjectOf'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->url );
+		$serialized = \SchemaOrg\json_serialize( $this->url );
 		if ( ! empty( $serialized ) ) {
 			$out['url'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->web_checkin_time );
+		$serialized = \SchemaOrg\json_serialize( $this->web_checkin_time );
 		if ( ! empty( $serialized ) ) {
 			$out['webCheckinTime'] = $serialized;
 		}

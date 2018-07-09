@@ -1,7 +1,9 @@
 <?php
 
+namespace SchemaOrg;
+
 // ServiceChannel see : https://schema.org/ServiceChannel
-class ServiceChannel implements JsonSerializable {
+class ServiceChannel implements \JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'ServiceChannel';
@@ -161,102 +163,102 @@ class ServiceChannel implements JsonSerializable {
 			'@type' => 'ServiceChannel'
 		);
 		
-		$serialized = so_json_serialize( $this->additional_type );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_type );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalType'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->alternate_name );
+		$serialized = \SchemaOrg\json_serialize( $this->alternate_name );
 		if ( ! empty( $serialized ) ) {
 			$out['alternateName'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->available_language );
+		$serialized = \SchemaOrg\json_serialize( $this->available_language );
 		if ( ! empty( $serialized ) ) {
 			$out['availableLanguage'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->description );
+		$serialized = \SchemaOrg\json_serialize( $this->description );
 		if ( ! empty( $serialized ) ) {
 			$out['description'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->disambiguating_description );
+		$serialized = \SchemaOrg\json_serialize( $this->disambiguating_description );
 		if ( ! empty( $serialized ) ) {
 			$out['disambiguatingDescription'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->identifier );
+		$serialized = \SchemaOrg\json_serialize( $this->identifier );
 		if ( ! empty( $serialized ) ) {
 			$out['identifier'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->image );
+		$serialized = \SchemaOrg\json_serialize( $this->image );
 		if ( ! empty( $serialized ) ) {
 			$out['image'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->main_entity_of_page );
+		$serialized = \SchemaOrg\json_serialize( $this->main_entity_of_page );
 		if ( ! empty( $serialized ) ) {
 			$out['mainEntityOfPage'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->name );
+		$serialized = \SchemaOrg\json_serialize( $this->name );
 		if ( ! empty( $serialized ) ) {
 			$out['name'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->potential_action );
+		$serialized = \SchemaOrg\json_serialize( $this->potential_action );
 		if ( ! empty( $serialized ) ) {
 			$out['potentialAction'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->processing_time );
+		$serialized = \SchemaOrg\json_serialize( $this->processing_time );
 		if ( ! empty( $serialized ) ) {
 			$out['processingTime'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->provides_service );
+		$serialized = \SchemaOrg\json_serialize( $this->provides_service );
 		if ( ! empty( $serialized ) ) {
 			$out['providesService'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->same_as );
+		$serialized = \SchemaOrg\json_serialize( $this->same_as );
 		if ( ! empty( $serialized ) ) {
 			$out['sameAs'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->service_location );
+		$serialized = \SchemaOrg\json_serialize( $this->service_location );
 		if ( ! empty( $serialized ) ) {
 			$out['serviceLocation'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->service_phone );
+		$serialized = \SchemaOrg\json_serialize( $this->service_phone );
 		if ( ! empty( $serialized ) ) {
 			$out['servicePhone'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->service_postal_address );
+		$serialized = \SchemaOrg\json_serialize( $this->service_postal_address );
 		if ( ! empty( $serialized ) ) {
 			$out['servicePostalAddress'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->service_sms_number );
+		$serialized = \SchemaOrg\json_serialize( $this->service_sms_number );
 		if ( ! empty( $serialized ) ) {
 			$out['serviceSmsNumber'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->service_url );
+		$serialized = \SchemaOrg\json_serialize( $this->service_url );
 		if ( ! empty( $serialized ) ) {
 			$out['serviceUrl'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->subject_of );
+		$serialized = \SchemaOrg\json_serialize( $this->subject_of );
 		if ( ! empty( $serialized ) ) {
 			$out['subjectOf'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->url );
+		$serialized = \SchemaOrg\json_serialize( $this->url );
 		if ( ! empty( $serialized ) ) {
 			$out['url'] = $serialized;
 		}

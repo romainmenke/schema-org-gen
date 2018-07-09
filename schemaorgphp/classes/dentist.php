@@ -1,7 +1,9 @@
 <?php
 
+namespace SchemaOrg;
+
 // Dentist see : https://schema.org/Dentist
-class Dentist implements JsonSerializable {
+class Dentist implements \JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'Dentist';
@@ -51,22 +53,22 @@ class Dentist implements JsonSerializable {
 			'@type' => 'Dentist'
 		);
 		
-		$serialized = so_json_serialize( $this->currencies_accepted );
+		$serialized = \SchemaOrg\json_serialize( $this->currencies_accepted );
 		if ( ! empty( $serialized ) ) {
 			$out['currenciesAccepted'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->opening_hours );
+		$serialized = \SchemaOrg\json_serialize( $this->opening_hours );
 		if ( ! empty( $serialized ) ) {
 			$out['openingHours'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->payment_accepted );
+		$serialized = \SchemaOrg\json_serialize( $this->payment_accepted );
 		if ( ! empty( $serialized ) ) {
 			$out['paymentAccepted'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->price_range );
+		$serialized = \SchemaOrg\json_serialize( $this->price_range );
 		if ( ! empty( $serialized ) ) {
 			$out['priceRange'] = $serialized;
 		}

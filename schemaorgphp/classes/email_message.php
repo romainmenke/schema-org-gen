@@ -1,7 +1,9 @@
 <?php
 
+namespace SchemaOrg;
+
 // EmailMessage see : https://schema.org/EmailMessage
-class EmailMessage implements JsonSerializable {
+class EmailMessage implements \JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'EmailMessage';
@@ -785,537 +787,537 @@ class EmailMessage implements JsonSerializable {
 			'@type' => 'EmailMessage'
 		);
 		
-		$serialized = so_json_serialize( $this->about );
+		$serialized = \SchemaOrg\json_serialize( $this->about );
 		if ( ! empty( $serialized ) ) {
 			$out['about'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->access_mode );
+		$serialized = \SchemaOrg\json_serialize( $this->access_mode );
 		if ( ! empty( $serialized ) ) {
 			$out['accessMode'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->access_mode_sufficient );
+		$serialized = \SchemaOrg\json_serialize( $this->access_mode_sufficient );
 		if ( ! empty( $serialized ) ) {
 			$out['accessModeSufficient'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->accessibilityap_i );
+		$serialized = \SchemaOrg\json_serialize( $this->accessibilityap_i );
 		if ( ! empty( $serialized ) ) {
 			$out['accessibilityAPI'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->accessibility_control );
+		$serialized = \SchemaOrg\json_serialize( $this->accessibility_control );
 		if ( ! empty( $serialized ) ) {
 			$out['accessibilityControl'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->accessibility_feature );
+		$serialized = \SchemaOrg\json_serialize( $this->accessibility_feature );
 		if ( ! empty( $serialized ) ) {
 			$out['accessibilityFeature'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->accessibility_hazard );
+		$serialized = \SchemaOrg\json_serialize( $this->accessibility_hazard );
 		if ( ! empty( $serialized ) ) {
 			$out['accessibilityHazard'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->accessibility_summary );
+		$serialized = \SchemaOrg\json_serialize( $this->accessibility_summary );
 		if ( ! empty( $serialized ) ) {
 			$out['accessibilitySummary'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->accountable_person );
+		$serialized = \SchemaOrg\json_serialize( $this->accountable_person );
 		if ( ! empty( $serialized ) ) {
 			$out['accountablePerson'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->additional_type );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_type );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalType'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->aggregate_rating );
+		$serialized = \SchemaOrg\json_serialize( $this->aggregate_rating );
 		if ( ! empty( $serialized ) ) {
 			$out['aggregateRating'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->alternate_name );
+		$serialized = \SchemaOrg\json_serialize( $this->alternate_name );
 		if ( ! empty( $serialized ) ) {
 			$out['alternateName'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->alternative_headline );
+		$serialized = \SchemaOrg\json_serialize( $this->alternative_headline );
 		if ( ! empty( $serialized ) ) {
 			$out['alternativeHeadline'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->associated_media );
+		$serialized = \SchemaOrg\json_serialize( $this->associated_media );
 		if ( ! empty( $serialized ) ) {
 			$out['associatedMedia'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->audience );
+		$serialized = \SchemaOrg\json_serialize( $this->audience );
 		if ( ! empty( $serialized ) ) {
 			$out['audience'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->audio );
+		$serialized = \SchemaOrg\json_serialize( $this->audio );
 		if ( ! empty( $serialized ) ) {
 			$out['audio'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->author );
+		$serialized = \SchemaOrg\json_serialize( $this->author );
 		if ( ! empty( $serialized ) ) {
 			$out['author'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->award );
+		$serialized = \SchemaOrg\json_serialize( $this->award );
 		if ( ! empty( $serialized ) ) {
 			$out['award'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->bcc_recipient );
+		$serialized = \SchemaOrg\json_serialize( $this->bcc_recipient );
 		if ( ! empty( $serialized ) ) {
 			$out['bccRecipient'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->cc_recipient );
+		$serialized = \SchemaOrg\json_serialize( $this->cc_recipient );
 		if ( ! empty( $serialized ) ) {
 			$out['ccRecipient'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->character );
+		$serialized = \SchemaOrg\json_serialize( $this->character );
 		if ( ! empty( $serialized ) ) {
 			$out['character'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->citation );
+		$serialized = \SchemaOrg\json_serialize( $this->citation );
 		if ( ! empty( $serialized ) ) {
 			$out['citation'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->comment );
+		$serialized = \SchemaOrg\json_serialize( $this->comment );
 		if ( ! empty( $serialized ) ) {
 			$out['comment'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->comment_count );
+		$serialized = \SchemaOrg\json_serialize( $this->comment_count );
 		if ( ! empty( $serialized ) ) {
 			$out['commentCount'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->content_location );
+		$serialized = \SchemaOrg\json_serialize( $this->content_location );
 		if ( ! empty( $serialized ) ) {
 			$out['contentLocation'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->content_rating );
+		$serialized = \SchemaOrg\json_serialize( $this->content_rating );
 		if ( ! empty( $serialized ) ) {
 			$out['contentRating'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->content_reference_time );
+		$serialized = \SchemaOrg\json_serialize( $this->content_reference_time );
 		if ( ! empty( $serialized ) ) {
 			$out['contentReferenceTime'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->contributor );
+		$serialized = \SchemaOrg\json_serialize( $this->contributor );
 		if ( ! empty( $serialized ) ) {
 			$out['contributor'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->copyright_holder );
+		$serialized = \SchemaOrg\json_serialize( $this->copyright_holder );
 		if ( ! empty( $serialized ) ) {
 			$out['copyrightHolder'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->copyright_year );
+		$serialized = \SchemaOrg\json_serialize( $this->copyright_year );
 		if ( ! empty( $serialized ) ) {
 			$out['copyrightYear'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->correction );
+		$serialized = \SchemaOrg\json_serialize( $this->correction );
 		if ( ! empty( $serialized ) ) {
 			$out['correction'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->creator );
+		$serialized = \SchemaOrg\json_serialize( $this->creator );
 		if ( ! empty( $serialized ) ) {
 			$out['creator'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->date_created );
+		$serialized = \SchemaOrg\json_serialize( $this->date_created );
 		if ( ! empty( $serialized ) ) {
 			$out['dateCreated'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->date_modified );
+		$serialized = \SchemaOrg\json_serialize( $this->date_modified );
 		if ( ! empty( $serialized ) ) {
 			$out['dateModified'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->date_published );
+		$serialized = \SchemaOrg\json_serialize( $this->date_published );
 		if ( ! empty( $serialized ) ) {
 			$out['datePublished'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->date_read );
+		$serialized = \SchemaOrg\json_serialize( $this->date_read );
 		if ( ! empty( $serialized ) ) {
 			$out['dateRead'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->date_received );
+		$serialized = \SchemaOrg\json_serialize( $this->date_received );
 		if ( ! empty( $serialized ) ) {
 			$out['dateReceived'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->date_sent );
+		$serialized = \SchemaOrg\json_serialize( $this->date_sent );
 		if ( ! empty( $serialized ) ) {
 			$out['dateSent'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->description );
+		$serialized = \SchemaOrg\json_serialize( $this->description );
 		if ( ! empty( $serialized ) ) {
 			$out['description'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->disambiguating_description );
+		$serialized = \SchemaOrg\json_serialize( $this->disambiguating_description );
 		if ( ! empty( $serialized ) ) {
 			$out['disambiguatingDescription'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->discussion_url );
+		$serialized = \SchemaOrg\json_serialize( $this->discussion_url );
 		if ( ! empty( $serialized ) ) {
 			$out['discussionUrl'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->editor );
+		$serialized = \SchemaOrg\json_serialize( $this->editor );
 		if ( ! empty( $serialized ) ) {
 			$out['editor'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->educational_alignment );
+		$serialized = \SchemaOrg\json_serialize( $this->educational_alignment );
 		if ( ! empty( $serialized ) ) {
 			$out['educationalAlignment'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->educational_use );
+		$serialized = \SchemaOrg\json_serialize( $this->educational_use );
 		if ( ! empty( $serialized ) ) {
 			$out['educationalUse'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->encoding );
+		$serialized = \SchemaOrg\json_serialize( $this->encoding );
 		if ( ! empty( $serialized ) ) {
 			$out['encoding'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->encoding_format );
+		$serialized = \SchemaOrg\json_serialize( $this->encoding_format );
 		if ( ! empty( $serialized ) ) {
 			$out['encodingFormat'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->example_of_work );
+		$serialized = \SchemaOrg\json_serialize( $this->example_of_work );
 		if ( ! empty( $serialized ) ) {
 			$out['exampleOfWork'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->expires );
+		$serialized = \SchemaOrg\json_serialize( $this->expires );
 		if ( ! empty( $serialized ) ) {
 			$out['expires'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->funder );
+		$serialized = \SchemaOrg\json_serialize( $this->funder );
 		if ( ! empty( $serialized ) ) {
 			$out['funder'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->genre );
+		$serialized = \SchemaOrg\json_serialize( $this->genre );
 		if ( ! empty( $serialized ) ) {
 			$out['genre'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->has_part );
+		$serialized = \SchemaOrg\json_serialize( $this->has_part );
 		if ( ! empty( $serialized ) ) {
 			$out['hasPart'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->headline );
+		$serialized = \SchemaOrg\json_serialize( $this->headline );
 		if ( ! empty( $serialized ) ) {
 			$out['headline'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->identifier );
+		$serialized = \SchemaOrg\json_serialize( $this->identifier );
 		if ( ! empty( $serialized ) ) {
 			$out['identifier'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->image );
+		$serialized = \SchemaOrg\json_serialize( $this->image );
 		if ( ! empty( $serialized ) ) {
 			$out['image'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->in_language );
+		$serialized = \SchemaOrg\json_serialize( $this->in_language );
 		if ( ! empty( $serialized ) ) {
 			$out['inLanguage'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->interaction_statistic );
+		$serialized = \SchemaOrg\json_serialize( $this->interaction_statistic );
 		if ( ! empty( $serialized ) ) {
 			$out['interactionStatistic'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->interactivity_type );
+		$serialized = \SchemaOrg\json_serialize( $this->interactivity_type );
 		if ( ! empty( $serialized ) ) {
 			$out['interactivityType'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->is_accessible_for_free );
+		$serialized = \SchemaOrg\json_serialize( $this->is_accessible_for_free );
 		if ( ! empty( $serialized ) ) {
 			$out['isAccessibleForFree'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->is_based_on );
+		$serialized = \SchemaOrg\json_serialize( $this->is_based_on );
 		if ( ! empty( $serialized ) ) {
 			$out['isBasedOn'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->is_family_friendly );
+		$serialized = \SchemaOrg\json_serialize( $this->is_family_friendly );
 		if ( ! empty( $serialized ) ) {
 			$out['isFamilyFriendly'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->is_part_of );
+		$serialized = \SchemaOrg\json_serialize( $this->is_part_of );
 		if ( ! empty( $serialized ) ) {
 			$out['isPartOf'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->keywords );
+		$serialized = \SchemaOrg\json_serialize( $this->keywords );
 		if ( ! empty( $serialized ) ) {
 			$out['keywords'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->learning_resource_type );
+		$serialized = \SchemaOrg\json_serialize( $this->learning_resource_type );
 		if ( ! empty( $serialized ) ) {
 			$out['learningResourceType'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->license );
+		$serialized = \SchemaOrg\json_serialize( $this->license );
 		if ( ! empty( $serialized ) ) {
 			$out['license'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->location_created );
+		$serialized = \SchemaOrg\json_serialize( $this->location_created );
 		if ( ! empty( $serialized ) ) {
 			$out['locationCreated'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->main_entity );
+		$serialized = \SchemaOrg\json_serialize( $this->main_entity );
 		if ( ! empty( $serialized ) ) {
 			$out['mainEntity'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->main_entity_of_page );
+		$serialized = \SchemaOrg\json_serialize( $this->main_entity_of_page );
 		if ( ! empty( $serialized ) ) {
 			$out['mainEntityOfPage'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->material );
+		$serialized = \SchemaOrg\json_serialize( $this->material );
 		if ( ! empty( $serialized ) ) {
 			$out['material'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->mentions );
+		$serialized = \SchemaOrg\json_serialize( $this->mentions );
 		if ( ! empty( $serialized ) ) {
 			$out['mentions'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->message_attachment );
+		$serialized = \SchemaOrg\json_serialize( $this->message_attachment );
 		if ( ! empty( $serialized ) ) {
 			$out['messageAttachment'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->name );
+		$serialized = \SchemaOrg\json_serialize( $this->name );
 		if ( ! empty( $serialized ) ) {
 			$out['name'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->offers );
+		$serialized = \SchemaOrg\json_serialize( $this->offers );
 		if ( ! empty( $serialized ) ) {
 			$out['offers'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->position );
+		$serialized = \SchemaOrg\json_serialize( $this->position );
 		if ( ! empty( $serialized ) ) {
 			$out['position'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->potential_action );
+		$serialized = \SchemaOrg\json_serialize( $this->potential_action );
 		if ( ! empty( $serialized ) ) {
 			$out['potentialAction'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->producer );
+		$serialized = \SchemaOrg\json_serialize( $this->producer );
 		if ( ! empty( $serialized ) ) {
 			$out['producer'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->provider );
+		$serialized = \SchemaOrg\json_serialize( $this->provider );
 		if ( ! empty( $serialized ) ) {
 			$out['provider'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->publication );
+		$serialized = \SchemaOrg\json_serialize( $this->publication );
 		if ( ! empty( $serialized ) ) {
 			$out['publication'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->publisher );
+		$serialized = \SchemaOrg\json_serialize( $this->publisher );
 		if ( ! empty( $serialized ) ) {
 			$out['publisher'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->publisher_imprint );
+		$serialized = \SchemaOrg\json_serialize( $this->publisher_imprint );
 		if ( ! empty( $serialized ) ) {
 			$out['publisherImprint'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->publishing_principles );
+		$serialized = \SchemaOrg\json_serialize( $this->publishing_principles );
 		if ( ! empty( $serialized ) ) {
 			$out['publishingPrinciples'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->recipient );
+		$serialized = \SchemaOrg\json_serialize( $this->recipient );
 		if ( ! empty( $serialized ) ) {
 			$out['recipient'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->recorded_at );
+		$serialized = \SchemaOrg\json_serialize( $this->recorded_at );
 		if ( ! empty( $serialized ) ) {
 			$out['recordedAt'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->released_event );
+		$serialized = \SchemaOrg\json_serialize( $this->released_event );
 		if ( ! empty( $serialized ) ) {
 			$out['releasedEvent'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->review );
+		$serialized = \SchemaOrg\json_serialize( $this->review );
 		if ( ! empty( $serialized ) ) {
 			$out['review'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->same_as );
+		$serialized = \SchemaOrg\json_serialize( $this->same_as );
 		if ( ! empty( $serialized ) ) {
 			$out['sameAs'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->schema_version );
+		$serialized = \SchemaOrg\json_serialize( $this->schema_version );
 		if ( ! empty( $serialized ) ) {
 			$out['schemaVersion'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->sd_date_published );
+		$serialized = \SchemaOrg\json_serialize( $this->sd_date_published );
 		if ( ! empty( $serialized ) ) {
 			$out['sdDatePublished'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->sd_license );
+		$serialized = \SchemaOrg\json_serialize( $this->sd_license );
 		if ( ! empty( $serialized ) ) {
 			$out['sdLicense'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->sd_publisher );
+		$serialized = \SchemaOrg\json_serialize( $this->sd_publisher );
 		if ( ! empty( $serialized ) ) {
 			$out['sdPublisher'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->sender );
+		$serialized = \SchemaOrg\json_serialize( $this->sender );
 		if ( ! empty( $serialized ) ) {
 			$out['sender'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->source_organization );
+		$serialized = \SchemaOrg\json_serialize( $this->source_organization );
 		if ( ! empty( $serialized ) ) {
 			$out['sourceOrganization'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->spatial_coverage );
+		$serialized = \SchemaOrg\json_serialize( $this->spatial_coverage );
 		if ( ! empty( $serialized ) ) {
 			$out['spatialCoverage'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->sponsor );
+		$serialized = \SchemaOrg\json_serialize( $this->sponsor );
 		if ( ! empty( $serialized ) ) {
 			$out['sponsor'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->subject_of );
+		$serialized = \SchemaOrg\json_serialize( $this->subject_of );
 		if ( ! empty( $serialized ) ) {
 			$out['subjectOf'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->temporal_coverage );
+		$serialized = \SchemaOrg\json_serialize( $this->temporal_coverage );
 		if ( ! empty( $serialized ) ) {
 			$out['temporalCoverage'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->text );
+		$serialized = \SchemaOrg\json_serialize( $this->text );
 		if ( ! empty( $serialized ) ) {
 			$out['text'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->thumbnail_url );
+		$serialized = \SchemaOrg\json_serialize( $this->thumbnail_url );
 		if ( ! empty( $serialized ) ) {
 			$out['thumbnailUrl'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->time_required );
+		$serialized = \SchemaOrg\json_serialize( $this->time_required );
 		if ( ! empty( $serialized ) ) {
 			$out['timeRequired'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->to_recipient );
+		$serialized = \SchemaOrg\json_serialize( $this->to_recipient );
 		if ( ! empty( $serialized ) ) {
 			$out['toRecipient'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->translation_of_work );
+		$serialized = \SchemaOrg\json_serialize( $this->translation_of_work );
 		if ( ! empty( $serialized ) ) {
 			$out['translationOfWork'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->translator );
+		$serialized = \SchemaOrg\json_serialize( $this->translator );
 		if ( ! empty( $serialized ) ) {
 			$out['translator'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->typical_age_range );
+		$serialized = \SchemaOrg\json_serialize( $this->typical_age_range );
 		if ( ! empty( $serialized ) ) {
 			$out['typicalAgeRange'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->url );
+		$serialized = \SchemaOrg\json_serialize( $this->url );
 		if ( ! empty( $serialized ) ) {
 			$out['url'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->version );
+		$serialized = \SchemaOrg\json_serialize( $this->version );
 		if ( ! empty( $serialized ) ) {
 			$out['version'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->video );
+		$serialized = \SchemaOrg\json_serialize( $this->video );
 		if ( ! empty( $serialized ) ) {
 			$out['video'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->work_example );
+		$serialized = \SchemaOrg\json_serialize( $this->work_example );
 		if ( ! empty( $serialized ) ) {
 			$out['workExample'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->work_translation );
+		$serialized = \SchemaOrg\json_serialize( $this->work_translation );
 		if ( ! empty( $serialized ) ) {
 			$out['workTranslation'] = $serialized;
 		}

@@ -1,7 +1,9 @@
 <?php
 
+namespace SchemaOrg;
+
 // QualitativeValue see : https://schema.org/QualitativeValue
-class QualitativeValue implements JsonSerializable {
+class QualitativeValue implements \JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'QualitativeValue';
@@ -174,107 +176,107 @@ class QualitativeValue implements JsonSerializable {
 			'@type' => 'QualitativeValue'
 		);
 		
-		$serialized = so_json_serialize( $this->additional_property );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_property );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalProperty'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->additional_type );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_type );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalType'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->alternate_name );
+		$serialized = \SchemaOrg\json_serialize( $this->alternate_name );
 		if ( ! empty( $serialized ) ) {
 			$out['alternateName'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->description );
+		$serialized = \SchemaOrg\json_serialize( $this->description );
 		if ( ! empty( $serialized ) ) {
 			$out['description'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->disambiguating_description );
+		$serialized = \SchemaOrg\json_serialize( $this->disambiguating_description );
 		if ( ! empty( $serialized ) ) {
 			$out['disambiguatingDescription'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->equal );
+		$serialized = \SchemaOrg\json_serialize( $this->equal );
 		if ( ! empty( $serialized ) ) {
 			$out['equal'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->greater );
+		$serialized = \SchemaOrg\json_serialize( $this->greater );
 		if ( ! empty( $serialized ) ) {
 			$out['greater'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->greater_or_equal );
+		$serialized = \SchemaOrg\json_serialize( $this->greater_or_equal );
 		if ( ! empty( $serialized ) ) {
 			$out['greaterOrEqual'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->identifier );
+		$serialized = \SchemaOrg\json_serialize( $this->identifier );
 		if ( ! empty( $serialized ) ) {
 			$out['identifier'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->image );
+		$serialized = \SchemaOrg\json_serialize( $this->image );
 		if ( ! empty( $serialized ) ) {
 			$out['image'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->lesser );
+		$serialized = \SchemaOrg\json_serialize( $this->lesser );
 		if ( ! empty( $serialized ) ) {
 			$out['lesser'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->lesser_or_equal );
+		$serialized = \SchemaOrg\json_serialize( $this->lesser_or_equal );
 		if ( ! empty( $serialized ) ) {
 			$out['lesserOrEqual'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->main_entity_of_page );
+		$serialized = \SchemaOrg\json_serialize( $this->main_entity_of_page );
 		if ( ! empty( $serialized ) ) {
 			$out['mainEntityOfPage'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->name );
+		$serialized = \SchemaOrg\json_serialize( $this->name );
 		if ( ! empty( $serialized ) ) {
 			$out['name'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->non_equal );
+		$serialized = \SchemaOrg\json_serialize( $this->non_equal );
 		if ( ! empty( $serialized ) ) {
 			$out['nonEqual'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->potential_action );
+		$serialized = \SchemaOrg\json_serialize( $this->potential_action );
 		if ( ! empty( $serialized ) ) {
 			$out['potentialAction'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->same_as );
+		$serialized = \SchemaOrg\json_serialize( $this->same_as );
 		if ( ! empty( $serialized ) ) {
 			$out['sameAs'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->subject_of );
+		$serialized = \SchemaOrg\json_serialize( $this->subject_of );
 		if ( ! empty( $serialized ) ) {
 			$out['subjectOf'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->superseded_by );
+		$serialized = \SchemaOrg\json_serialize( $this->superseded_by );
 		if ( ! empty( $serialized ) ) {
 			$out['supersededBy'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->url );
+		$serialized = \SchemaOrg\json_serialize( $this->url );
 		if ( ! empty( $serialized ) ) {
 			$out['url'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->value_reference );
+		$serialized = \SchemaOrg\json_serialize( $this->value_reference );
 		if ( ! empty( $serialized ) ) {
 			$out['valueReference'] = $serialized;
 		}

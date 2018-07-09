@@ -1,7 +1,9 @@
 <?php
 
+namespace SchemaOrg;
+
 // Vehicle see : https://schema.org/Vehicle
-class Vehicle implements JsonSerializable {
+class Vehicle implements \JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'Vehicle';
@@ -578,342 +580,342 @@ class Vehicle implements JsonSerializable {
 			'@type' => 'Vehicle'
 		);
 		
-		$serialized = so_json_serialize( $this->acceleration_time );
+		$serialized = \SchemaOrg\json_serialize( $this->acceleration_time );
 		if ( ! empty( $serialized ) ) {
 			$out['accelerationTime'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->additional_type );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_type );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalType'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->aggregate_rating );
+		$serialized = \SchemaOrg\json_serialize( $this->aggregate_rating );
 		if ( ! empty( $serialized ) ) {
 			$out['aggregateRating'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->alternate_name );
+		$serialized = \SchemaOrg\json_serialize( $this->alternate_name );
 		if ( ! empty( $serialized ) ) {
 			$out['alternateName'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->audience );
+		$serialized = \SchemaOrg\json_serialize( $this->audience );
 		if ( ! empty( $serialized ) ) {
 			$out['audience'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->award );
+		$serialized = \SchemaOrg\json_serialize( $this->award );
 		if ( ! empty( $serialized ) ) {
 			$out['award'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->body_type );
+		$serialized = \SchemaOrg\json_serialize( $this->body_type );
 		if ( ! empty( $serialized ) ) {
 			$out['bodyType'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->brand );
+		$serialized = \SchemaOrg\json_serialize( $this->brand );
 		if ( ! empty( $serialized ) ) {
 			$out['brand'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->cargo_volume );
+		$serialized = \SchemaOrg\json_serialize( $this->cargo_volume );
 		if ( ! empty( $serialized ) ) {
 			$out['cargoVolume'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->category );
+		$serialized = \SchemaOrg\json_serialize( $this->category );
 		if ( ! empty( $serialized ) ) {
 			$out['category'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->color );
+		$serialized = \SchemaOrg\json_serialize( $this->color );
 		if ( ! empty( $serialized ) ) {
 			$out['color'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->date_vehicle_first_registered );
+		$serialized = \SchemaOrg\json_serialize( $this->date_vehicle_first_registered );
 		if ( ! empty( $serialized ) ) {
 			$out['dateVehicleFirstRegistered'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->description );
+		$serialized = \SchemaOrg\json_serialize( $this->description );
 		if ( ! empty( $serialized ) ) {
 			$out['description'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->disambiguating_description );
+		$serialized = \SchemaOrg\json_serialize( $this->disambiguating_description );
 		if ( ! empty( $serialized ) ) {
 			$out['disambiguatingDescription'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->drive_wheel_configuration );
+		$serialized = \SchemaOrg\json_serialize( $this->drive_wheel_configuration );
 		if ( ! empty( $serialized ) ) {
 			$out['driveWheelConfiguration'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->emissionsc_o_2 );
+		$serialized = \SchemaOrg\json_serialize( $this->emissionsc_o_2 );
 		if ( ! empty( $serialized ) ) {
 			$out['emissionsCO2'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->fuel_capacity );
+		$serialized = \SchemaOrg\json_serialize( $this->fuel_capacity );
 		if ( ! empty( $serialized ) ) {
 			$out['fuelCapacity'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->fuel_consumption );
+		$serialized = \SchemaOrg\json_serialize( $this->fuel_consumption );
 		if ( ! empty( $serialized ) ) {
 			$out['fuelConsumption'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->fuel_efficiency );
+		$serialized = \SchemaOrg\json_serialize( $this->fuel_efficiency );
 		if ( ! empty( $serialized ) ) {
 			$out['fuelEfficiency'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->fuel_type );
+		$serialized = \SchemaOrg\json_serialize( $this->fuel_type );
 		if ( ! empty( $serialized ) ) {
 			$out['fuelType'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->gtin_8 );
+		$serialized = \SchemaOrg\json_serialize( $this->gtin_8 );
 		if ( ! empty( $serialized ) ) {
 			$out['gtin8'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->height );
+		$serialized = \SchemaOrg\json_serialize( $this->height );
 		if ( ! empty( $serialized ) ) {
 			$out['height'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->identifier );
+		$serialized = \SchemaOrg\json_serialize( $this->identifier );
 		if ( ! empty( $serialized ) ) {
 			$out['identifier'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->image );
+		$serialized = \SchemaOrg\json_serialize( $this->image );
 		if ( ! empty( $serialized ) ) {
 			$out['image'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->is_consumable_for );
+		$serialized = \SchemaOrg\json_serialize( $this->is_consumable_for );
 		if ( ! empty( $serialized ) ) {
 			$out['isConsumableFor'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->is_similar_to );
+		$serialized = \SchemaOrg\json_serialize( $this->is_similar_to );
 		if ( ! empty( $serialized ) ) {
 			$out['isSimilarTo'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->item_condition );
+		$serialized = \SchemaOrg\json_serialize( $this->item_condition );
 		if ( ! empty( $serialized ) ) {
 			$out['itemCondition'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->known_vehicle_damages );
+		$serialized = \SchemaOrg\json_serialize( $this->known_vehicle_damages );
 		if ( ! empty( $serialized ) ) {
 			$out['knownVehicleDamages'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->logo );
+		$serialized = \SchemaOrg\json_serialize( $this->logo );
 		if ( ! empty( $serialized ) ) {
 			$out['logo'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->main_entity_of_page );
+		$serialized = \SchemaOrg\json_serialize( $this->main_entity_of_page );
 		if ( ! empty( $serialized ) ) {
 			$out['mainEntityOfPage'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->manufacturer );
+		$serialized = \SchemaOrg\json_serialize( $this->manufacturer );
 		if ( ! empty( $serialized ) ) {
 			$out['manufacturer'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->material );
+		$serialized = \SchemaOrg\json_serialize( $this->material );
 		if ( ! empty( $serialized ) ) {
 			$out['material'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->meets_emission_standard );
+		$serialized = \SchemaOrg\json_serialize( $this->meets_emission_standard );
 		if ( ! empty( $serialized ) ) {
 			$out['meetsEmissionStandard'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->mileage_from_odometer );
+		$serialized = \SchemaOrg\json_serialize( $this->mileage_from_odometer );
 		if ( ! empty( $serialized ) ) {
 			$out['mileageFromOdometer'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->model_date );
+		$serialized = \SchemaOrg\json_serialize( $this->model_date );
 		if ( ! empty( $serialized ) ) {
 			$out['modelDate'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->mpn );
+		$serialized = \SchemaOrg\json_serialize( $this->mpn );
 		if ( ! empty( $serialized ) ) {
 			$out['mpn'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->name );
+		$serialized = \SchemaOrg\json_serialize( $this->name );
 		if ( ! empty( $serialized ) ) {
 			$out['name'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->number_of_airbags );
+		$serialized = \SchemaOrg\json_serialize( $this->number_of_airbags );
 		if ( ! empty( $serialized ) ) {
 			$out['numberOfAirbags'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->number_of_axles );
+		$serialized = \SchemaOrg\json_serialize( $this->number_of_axles );
 		if ( ! empty( $serialized ) ) {
 			$out['numberOfAxles'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->number_of_doors );
+		$serialized = \SchemaOrg\json_serialize( $this->number_of_doors );
 		if ( ! empty( $serialized ) ) {
 			$out['numberOfDoors'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->number_of_forward_gears );
+		$serialized = \SchemaOrg\json_serialize( $this->number_of_forward_gears );
 		if ( ! empty( $serialized ) ) {
 			$out['numberOfForwardGears'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->number_of_previous_owners );
+		$serialized = \SchemaOrg\json_serialize( $this->number_of_previous_owners );
 		if ( ! empty( $serialized ) ) {
 			$out['numberOfPreviousOwners'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->payload );
+		$serialized = \SchemaOrg\json_serialize( $this->payload );
 		if ( ! empty( $serialized ) ) {
 			$out['payload'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->potential_action );
+		$serialized = \SchemaOrg\json_serialize( $this->potential_action );
 		if ( ! empty( $serialized ) ) {
 			$out['potentialAction'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->producti_d );
+		$serialized = \SchemaOrg\json_serialize( $this->producti_d );
 		if ( ! empty( $serialized ) ) {
 			$out['productID'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->production_date );
+		$serialized = \SchemaOrg\json_serialize( $this->production_date );
 		if ( ! empty( $serialized ) ) {
 			$out['productionDate'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->purchase_date );
+		$serialized = \SchemaOrg\json_serialize( $this->purchase_date );
 		if ( ! empty( $serialized ) ) {
 			$out['purchaseDate'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->review );
+		$serialized = \SchemaOrg\json_serialize( $this->review );
 		if ( ! empty( $serialized ) ) {
 			$out['review'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->same_as );
+		$serialized = \SchemaOrg\json_serialize( $this->same_as );
 		if ( ! empty( $serialized ) ) {
 			$out['sameAs'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->seating_capacity );
+		$serialized = \SchemaOrg\json_serialize( $this->seating_capacity );
 		if ( ! empty( $serialized ) ) {
 			$out['seatingCapacity'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->speed );
+		$serialized = \SchemaOrg\json_serialize( $this->speed );
 		if ( ! empty( $serialized ) ) {
 			$out['speed'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->steering_position );
+		$serialized = \SchemaOrg\json_serialize( $this->steering_position );
 		if ( ! empty( $serialized ) ) {
 			$out['steeringPosition'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->subject_of );
+		$serialized = \SchemaOrg\json_serialize( $this->subject_of );
 		if ( ! empty( $serialized ) ) {
 			$out['subjectOf'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->tongue_weight );
+		$serialized = \SchemaOrg\json_serialize( $this->tongue_weight );
 		if ( ! empty( $serialized ) ) {
 			$out['tongueWeight'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->trailer_weight );
+		$serialized = \SchemaOrg\json_serialize( $this->trailer_weight );
 		if ( ! empty( $serialized ) ) {
 			$out['trailerWeight'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->url );
+		$serialized = \SchemaOrg\json_serialize( $this->url );
 		if ( ! empty( $serialized ) ) {
 			$out['url'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->vehicle_configuration );
+		$serialized = \SchemaOrg\json_serialize( $this->vehicle_configuration );
 		if ( ! empty( $serialized ) ) {
 			$out['vehicleConfiguration'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->vehicle_engine );
+		$serialized = \SchemaOrg\json_serialize( $this->vehicle_engine );
 		if ( ! empty( $serialized ) ) {
 			$out['vehicleEngine'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->vehicle_identification_number );
+		$serialized = \SchemaOrg\json_serialize( $this->vehicle_identification_number );
 		if ( ! empty( $serialized ) ) {
 			$out['vehicleIdentificationNumber'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->vehicle_interior_color );
+		$serialized = \SchemaOrg\json_serialize( $this->vehicle_interior_color );
 		if ( ! empty( $serialized ) ) {
 			$out['vehicleInteriorColor'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->vehicle_interior_type );
+		$serialized = \SchemaOrg\json_serialize( $this->vehicle_interior_type );
 		if ( ! empty( $serialized ) ) {
 			$out['vehicleInteriorType'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->vehicle_model_date );
+		$serialized = \SchemaOrg\json_serialize( $this->vehicle_model_date );
 		if ( ! empty( $serialized ) ) {
 			$out['vehicleModelDate'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->vehicle_seating_capacity );
+		$serialized = \SchemaOrg\json_serialize( $this->vehicle_seating_capacity );
 		if ( ! empty( $serialized ) ) {
 			$out['vehicleSeatingCapacity'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->vehicle_special_usage );
+		$serialized = \SchemaOrg\json_serialize( $this->vehicle_special_usage );
 		if ( ! empty( $serialized ) ) {
 			$out['vehicleSpecialUsage'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->vehicle_transmission );
+		$serialized = \SchemaOrg\json_serialize( $this->vehicle_transmission );
 		if ( ! empty( $serialized ) ) {
 			$out['vehicleTransmission'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->weight_total );
+		$serialized = \SchemaOrg\json_serialize( $this->weight_total );
 		if ( ! empty( $serialized ) ) {
 			$out['weightTotal'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->wheelbase );
+		$serialized = \SchemaOrg\json_serialize( $this->wheelbase );
 		if ( ! empty( $serialized ) ) {
 			$out['wheelbase'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->width );
+		$serialized = \SchemaOrg\json_serialize( $this->width );
 		if ( ! empty( $serialized ) ) {
 			$out['width'] = $serialized;
 		}

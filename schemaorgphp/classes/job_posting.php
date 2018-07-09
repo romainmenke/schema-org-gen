@@ -1,7 +1,9 @@
 <?php
 
+namespace SchemaOrg;
+
 // JobPosting see : https://schema.org/JobPosting
-class JobPosting implements JsonSerializable {
+class JobPosting implements \JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'JobPosting';
@@ -252,167 +254,167 @@ class JobPosting implements JsonSerializable {
 			'@type' => 'JobPosting'
 		);
 		
-		$serialized = so_json_serialize( $this->additional_type );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_type );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalType'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->alternate_name );
+		$serialized = \SchemaOrg\json_serialize( $this->alternate_name );
 		if ( ! empty( $serialized ) ) {
 			$out['alternateName'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->base_salary );
+		$serialized = \SchemaOrg\json_serialize( $this->base_salary );
 		if ( ! empty( $serialized ) ) {
 			$out['baseSalary'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->date_posted );
+		$serialized = \SchemaOrg\json_serialize( $this->date_posted );
 		if ( ! empty( $serialized ) ) {
 			$out['datePosted'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->description );
+		$serialized = \SchemaOrg\json_serialize( $this->description );
 		if ( ! empty( $serialized ) ) {
 			$out['description'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->disambiguating_description );
+		$serialized = \SchemaOrg\json_serialize( $this->disambiguating_description );
 		if ( ! empty( $serialized ) ) {
 			$out['disambiguatingDescription'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->education_requirements );
+		$serialized = \SchemaOrg\json_serialize( $this->education_requirements );
 		if ( ! empty( $serialized ) ) {
 			$out['educationRequirements'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->employment_type );
+		$serialized = \SchemaOrg\json_serialize( $this->employment_type );
 		if ( ! empty( $serialized ) ) {
 			$out['employmentType'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->estimated_salary );
+		$serialized = \SchemaOrg\json_serialize( $this->estimated_salary );
 		if ( ! empty( $serialized ) ) {
 			$out['estimatedSalary'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->experience_requirements );
+		$serialized = \SchemaOrg\json_serialize( $this->experience_requirements );
 		if ( ! empty( $serialized ) ) {
 			$out['experienceRequirements'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->hiring_organization );
+		$serialized = \SchemaOrg\json_serialize( $this->hiring_organization );
 		if ( ! empty( $serialized ) ) {
 			$out['hiringOrganization'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->identifier );
+		$serialized = \SchemaOrg\json_serialize( $this->identifier );
 		if ( ! empty( $serialized ) ) {
 			$out['identifier'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->image );
+		$serialized = \SchemaOrg\json_serialize( $this->image );
 		if ( ! empty( $serialized ) ) {
 			$out['image'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->incentive_compensation );
+		$serialized = \SchemaOrg\json_serialize( $this->incentive_compensation );
 		if ( ! empty( $serialized ) ) {
 			$out['incentiveCompensation'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->industry );
+		$serialized = \SchemaOrg\json_serialize( $this->industry );
 		if ( ! empty( $serialized ) ) {
 			$out['industry'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->job_benefits );
+		$serialized = \SchemaOrg\json_serialize( $this->job_benefits );
 		if ( ! empty( $serialized ) ) {
 			$out['jobBenefits'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->job_location );
+		$serialized = \SchemaOrg\json_serialize( $this->job_location );
 		if ( ! empty( $serialized ) ) {
 			$out['jobLocation'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->main_entity_of_page );
+		$serialized = \SchemaOrg\json_serialize( $this->main_entity_of_page );
 		if ( ! empty( $serialized ) ) {
 			$out['mainEntityOfPage'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->name );
+		$serialized = \SchemaOrg\json_serialize( $this->name );
 		if ( ! empty( $serialized ) ) {
 			$out['name'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->occupational_category );
+		$serialized = \SchemaOrg\json_serialize( $this->occupational_category );
 		if ( ! empty( $serialized ) ) {
 			$out['occupationalCategory'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->potential_action );
+		$serialized = \SchemaOrg\json_serialize( $this->potential_action );
 		if ( ! empty( $serialized ) ) {
 			$out['potentialAction'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->qualifications );
+		$serialized = \SchemaOrg\json_serialize( $this->qualifications );
 		if ( ! empty( $serialized ) ) {
 			$out['qualifications'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->relevant_occupation );
+		$serialized = \SchemaOrg\json_serialize( $this->relevant_occupation );
 		if ( ! empty( $serialized ) ) {
 			$out['relevantOccupation'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->responsibilities );
+		$serialized = \SchemaOrg\json_serialize( $this->responsibilities );
 		if ( ! empty( $serialized ) ) {
 			$out['responsibilities'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->salary_currency );
+		$serialized = \SchemaOrg\json_serialize( $this->salary_currency );
 		if ( ! empty( $serialized ) ) {
 			$out['salaryCurrency'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->same_as );
+		$serialized = \SchemaOrg\json_serialize( $this->same_as );
 		if ( ! empty( $serialized ) ) {
 			$out['sameAs'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->skills );
+		$serialized = \SchemaOrg\json_serialize( $this->skills );
 		if ( ! empty( $serialized ) ) {
 			$out['skills'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->special_commitments );
+		$serialized = \SchemaOrg\json_serialize( $this->special_commitments );
 		if ( ! empty( $serialized ) ) {
 			$out['specialCommitments'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->subject_of );
+		$serialized = \SchemaOrg\json_serialize( $this->subject_of );
 		if ( ! empty( $serialized ) ) {
 			$out['subjectOf'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->title );
+		$serialized = \SchemaOrg\json_serialize( $this->title );
 		if ( ! empty( $serialized ) ) {
 			$out['title'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->url );
+		$serialized = \SchemaOrg\json_serialize( $this->url );
 		if ( ! empty( $serialized ) ) {
 			$out['url'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->valid_through );
+		$serialized = \SchemaOrg\json_serialize( $this->valid_through );
 		if ( ! empty( $serialized ) ) {
 			$out['validThrough'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->work_hours );
+		$serialized = \SchemaOrg\json_serialize( $this->work_hours );
 		if ( ! empty( $serialized ) ) {
 			$out['workHours'] = $serialized;
 		}

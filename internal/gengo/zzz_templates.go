@@ -224,7 +224,7 @@ r0OnYIVxijDHI6hYHTZhjjELrM6W3hHAHAMSrCLBqBT7Y+fyMkv7q0fjOak/AQAA///m1F8l1wQAAA==
 	"/templates/structtypes.twig": {
 		local:   "templates/structtypes.twig",
 		size:    1467,
-		modtime: 1531113967,
+		modtime: 1531116330,
 		compressed: `
 H4sIAAAAAAAC/4yU32vbMBDHn6W/4mpoG5dgd6+BjMHeBt1ge9hDCK7inB1ttmRk2Wsx/t/HSYrzo2bd
 U+S7k+77/dyRRuS/RYkwDBCOmRI1wjhyLutGGwsRqlzvpSrTX61WEedpSuX2tZlqoUWE1RTtTEUP0Plt

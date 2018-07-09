@@ -1,7 +1,9 @@
 <?php
 
+namespace SchemaOrg;
+
 // PriceSpecification see : https://schema.org/PriceSpecification
-class PriceSpecification implements JsonSerializable {
+class PriceSpecification implements \JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'PriceSpecification';
@@ -184,107 +186,107 @@ class PriceSpecification implements JsonSerializable {
 			'@type' => 'PriceSpecification'
 		);
 		
-		$serialized = so_json_serialize( $this->additional_type );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_type );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalType'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->alternate_name );
+		$serialized = \SchemaOrg\json_serialize( $this->alternate_name );
 		if ( ! empty( $serialized ) ) {
 			$out['alternateName'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->description );
+		$serialized = \SchemaOrg\json_serialize( $this->description );
 		if ( ! empty( $serialized ) ) {
 			$out['description'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->disambiguating_description );
+		$serialized = \SchemaOrg\json_serialize( $this->disambiguating_description );
 		if ( ! empty( $serialized ) ) {
 			$out['disambiguatingDescription'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->eligible_quantity );
+		$serialized = \SchemaOrg\json_serialize( $this->eligible_quantity );
 		if ( ! empty( $serialized ) ) {
 			$out['eligibleQuantity'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->eligible_transaction_volume );
+		$serialized = \SchemaOrg\json_serialize( $this->eligible_transaction_volume );
 		if ( ! empty( $serialized ) ) {
 			$out['eligibleTransactionVolume'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->identifier );
+		$serialized = \SchemaOrg\json_serialize( $this->identifier );
 		if ( ! empty( $serialized ) ) {
 			$out['identifier'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->image );
+		$serialized = \SchemaOrg\json_serialize( $this->image );
 		if ( ! empty( $serialized ) ) {
 			$out['image'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->main_entity_of_page );
+		$serialized = \SchemaOrg\json_serialize( $this->main_entity_of_page );
 		if ( ! empty( $serialized ) ) {
 			$out['mainEntityOfPage'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->max_price );
+		$serialized = \SchemaOrg\json_serialize( $this->max_price );
 		if ( ! empty( $serialized ) ) {
 			$out['maxPrice'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->min_price );
+		$serialized = \SchemaOrg\json_serialize( $this->min_price );
 		if ( ! empty( $serialized ) ) {
 			$out['minPrice'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->name );
+		$serialized = \SchemaOrg\json_serialize( $this->name );
 		if ( ! empty( $serialized ) ) {
 			$out['name'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->potential_action );
+		$serialized = \SchemaOrg\json_serialize( $this->potential_action );
 		if ( ! empty( $serialized ) ) {
 			$out['potentialAction'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->price );
+		$serialized = \SchemaOrg\json_serialize( $this->price );
 		if ( ! empty( $serialized ) ) {
 			$out['price'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->price_currency );
+		$serialized = \SchemaOrg\json_serialize( $this->price_currency );
 		if ( ! empty( $serialized ) ) {
 			$out['priceCurrency'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->same_as );
+		$serialized = \SchemaOrg\json_serialize( $this->same_as );
 		if ( ! empty( $serialized ) ) {
 			$out['sameAs'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->subject_of );
+		$serialized = \SchemaOrg\json_serialize( $this->subject_of );
 		if ( ! empty( $serialized ) ) {
 			$out['subjectOf'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->url );
+		$serialized = \SchemaOrg\json_serialize( $this->url );
 		if ( ! empty( $serialized ) ) {
 			$out['url'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->valid_from );
+		$serialized = \SchemaOrg\json_serialize( $this->valid_from );
 		if ( ! empty( $serialized ) ) {
 			$out['validFrom'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->valid_through );
+		$serialized = \SchemaOrg\json_serialize( $this->valid_through );
 		if ( ! empty( $serialized ) ) {
 			$out['validThrough'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->value_added_tax_included );
+		$serialized = \SchemaOrg\json_serialize( $this->value_added_tax_included );
 		if ( ! empty( $serialized ) ) {
 			$out['valueAddedTaxIncluded'] = $serialized;
 		}

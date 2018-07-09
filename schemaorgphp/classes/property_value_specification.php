@@ -1,7 +1,9 @@
 <?php
 
+namespace SchemaOrg;
+
 // PropertyValueSpecification see : https://schema.org/PropertyValueSpecification
-class PropertyValueSpecification implements JsonSerializable {
+class PropertyValueSpecification implements \JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'PropertyValueSpecification';
@@ -182,117 +184,117 @@ class PropertyValueSpecification implements JsonSerializable {
 			'@type' => 'PropertyValueSpecification'
 		);
 		
-		$serialized = so_json_serialize( $this->additional_type );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_type );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalType'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->alternate_name );
+		$serialized = \SchemaOrg\json_serialize( $this->alternate_name );
 		if ( ! empty( $serialized ) ) {
 			$out['alternateName'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->default_value );
+		$serialized = \SchemaOrg\json_serialize( $this->default_value );
 		if ( ! empty( $serialized ) ) {
 			$out['defaultValue'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->description );
+		$serialized = \SchemaOrg\json_serialize( $this->description );
 		if ( ! empty( $serialized ) ) {
 			$out['description'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->disambiguating_description );
+		$serialized = \SchemaOrg\json_serialize( $this->disambiguating_description );
 		if ( ! empty( $serialized ) ) {
 			$out['disambiguatingDescription'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->identifier );
+		$serialized = \SchemaOrg\json_serialize( $this->identifier );
 		if ( ! empty( $serialized ) ) {
 			$out['identifier'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->image );
+		$serialized = \SchemaOrg\json_serialize( $this->image );
 		if ( ! empty( $serialized ) ) {
 			$out['image'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->main_entity_of_page );
+		$serialized = \SchemaOrg\json_serialize( $this->main_entity_of_page );
 		if ( ! empty( $serialized ) ) {
 			$out['mainEntityOfPage'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->max_value );
+		$serialized = \SchemaOrg\json_serialize( $this->max_value );
 		if ( ! empty( $serialized ) ) {
 			$out['maxValue'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->min_value );
+		$serialized = \SchemaOrg\json_serialize( $this->min_value );
 		if ( ! empty( $serialized ) ) {
 			$out['minValue'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->multiple_values );
+		$serialized = \SchemaOrg\json_serialize( $this->multiple_values );
 		if ( ! empty( $serialized ) ) {
 			$out['multipleValues'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->name );
+		$serialized = \SchemaOrg\json_serialize( $this->name );
 		if ( ! empty( $serialized ) ) {
 			$out['name'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->potential_action );
+		$serialized = \SchemaOrg\json_serialize( $this->potential_action );
 		if ( ! empty( $serialized ) ) {
 			$out['potentialAction'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->readonly_value );
+		$serialized = \SchemaOrg\json_serialize( $this->readonly_value );
 		if ( ! empty( $serialized ) ) {
 			$out['readonlyValue'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->same_as );
+		$serialized = \SchemaOrg\json_serialize( $this->same_as );
 		if ( ! empty( $serialized ) ) {
 			$out['sameAs'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->step_value );
+		$serialized = \SchemaOrg\json_serialize( $this->step_value );
 		if ( ! empty( $serialized ) ) {
 			$out['stepValue'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->subject_of );
+		$serialized = \SchemaOrg\json_serialize( $this->subject_of );
 		if ( ! empty( $serialized ) ) {
 			$out['subjectOf'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->url );
+		$serialized = \SchemaOrg\json_serialize( $this->url );
 		if ( ! empty( $serialized ) ) {
 			$out['url'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->value_max_length );
+		$serialized = \SchemaOrg\json_serialize( $this->value_max_length );
 		if ( ! empty( $serialized ) ) {
 			$out['valueMaxLength'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->value_min_length );
+		$serialized = \SchemaOrg\json_serialize( $this->value_min_length );
 		if ( ! empty( $serialized ) ) {
 			$out['valueMinLength'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->value_name );
+		$serialized = \SchemaOrg\json_serialize( $this->value_name );
 		if ( ! empty( $serialized ) ) {
 			$out['valueName'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->value_pattern );
+		$serialized = \SchemaOrg\json_serialize( $this->value_pattern );
 		if ( ! empty( $serialized ) ) {
 			$out['valuePattern'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->value_required );
+		$serialized = \SchemaOrg\json_serialize( $this->value_required );
 		if ( ! empty( $serialized ) ) {
 			$out['valueRequired'] = $serialized;
 		}
