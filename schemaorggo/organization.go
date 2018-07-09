@@ -4,14 +4,20 @@ import "encoding/json"
 
 // Organization see : https://schema.org/Organization
 type Organization struct {
-	Thing
-
 	typeContext
+
+	// With properties from Thing see : https://schema.org/Thing
+	//
 
 	// ActionableFeedbackPolicy see : https://pending.schema.org/actionableFeedbackPolicy
 	// For a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization) or other news-related Organization (see: https://schema.org/Organization), a statement about public engagement activities (for news media, the newsroom’s), including involving the public - digitally or otherwise -- in coverage decisions, reporting and activities after publication.
 	// types : CreativeWork URL
 	ActionableFeedbackPolicy []interface{} `json:"actionableFeedbackPolicy,omitempty"`
+
+	// AdditionalType see : https://schema.org/additionalType
+	// An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the &#39;typeof&#39; attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.
+	// types : URL
+	AdditionalType []string `json:"additionalType,omitempty"`
 
 	// Address see : https://schema.org/address
 	// Physical address of the item.
@@ -22,6 +28,11 @@ type Organization struct {
 	// The overall rating, based on a collection of reviews or ratings, of the item.
 	// types : AggregateRating
 	AggregateRating []*AggregateRating `json:"aggregateRating,omitempty"`
+
+	// AlternateName see : https://schema.org/alternateName
+	// An alias for the item.
+	// types : Text
+	AlternateName []string `json:"alternateName,omitempty"`
 
 	// Alumni see : https://schema.org/alumni
 	// Alumni of an organization. Inverse property: alumniOf (see: https://schema.org/alumniOf).
@@ -58,6 +69,16 @@ type Organization struct {
 	// types : Organization
 	Department []*Organization `json:"department,omitempty"`
 
+	// Description see : https://schema.org/description
+	// A description of the item.
+	// types : Text
+	Description []string `json:"description,omitempty"`
+
+	// DisambiguatingDescription see : https://schema.org/disambiguatingDescription
+	// A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.
+	// types : Text
+	DisambiguatingDescription []string `json:"disambiguatingDescription,omitempty"`
+
 	// DissolutionDate see : https://schema.org/dissolutionDate
 	// The date that this organization was dissolved.
 	// types : Date
@@ -67,6 +88,11 @@ type Organization struct {
 	// Statement on diversity policy by an Organization (see: https://schema.org/Organization) e.g. a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization). For a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization), a statement describing the newsroom’s diversity policy on both staffing and sources, typically providing staffing data.
 	// types : CreativeWork URL
 	DiversityPolicy []interface{} `json:"diversityPolicy,omitempty"`
+
+	// DiversityStaffingReport see : https://pending.schema.org/diversityStaffingReport
+	// For an Organization (see: https://schema.org/Organization) (often but not necessarily a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization)), a report on staffing diversity issues. In a news context this might be for example ASNE or RTDNA (US) reports, or self-reported.
+	// types : Article URL
+	DiversityStaffingReport []interface{} `json:"diversityStaffingReport,omitempty"`
 
 	// Duns see : https://schema.org/duns
 	// The Dun &amp; Bradstreet DUNS number for identifying an organization or business person.
@@ -133,10 +159,30 @@ type Organization struct {
 	// types : Place
 	HasPOS []*Place `json:"hasPOS,omitempty"`
 
+	// Identifier see : https://schema.org/identifier
+	// The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
+	// types : PropertyValue Text URL
+	Identifier []interface{} `json:"identifier,omitempty"`
+
+	// Image see : https://schema.org/image
+	// An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
+	// types : ImageObject URL
+	Image []interface{} `json:"image,omitempty"`
+
 	// IsicV4 see : https://schema.org/isicV4
 	// The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.
 	// types : Text
 	IsicV4 []string `json:"isicV4,omitempty"`
+
+	// KnowsAbout see : https://pending.schema.org/knowsAbout
+	// Of a Person (see: https://schema.org/Person), and less typically of an Organization (see: https://schema.org/Organization), to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or yet relate this to educational content, events, objectives or JobPosting (see: https://schema.org/JobPosting) descriptions.
+	// types : Text Thing URL
+	KnowsAbout []interface{} `json:"knowsAbout,omitempty"`
+
+	// KnowsLanguage see : https://pending.schema.org/knowsLanguage
+	// Of a Person (see: https://schema.org/Person), and less typically of an Organization (see: https://schema.org/Organization), to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the IETF BCP 47 standard (see: https://schema.orghttp://tools.ietf.org/html/bcp47).
+	// types : Language Text
+	KnowsLanguage []interface{} `json:"knowsLanguage,omitempty"`
 
 	// LegalName see : https://schema.org/legalName
 	// The official name of the organization, e.g. the registered company name.
@@ -158,6 +204,11 @@ type Organization struct {
 	// types : ImageObject URL
 	Logo []interface{} `json:"logo,omitempty"`
 
+	// MainEntityOfPage see : https://schema.org/mainEntityOfPage
+	// Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
+	// types : CreativeWork URL
+	MainEntityOfPage []interface{} `json:"mainEntityOfPage,omitempty"`
+
 	// MakesOffer see : https://schema.org/makesOffer
 	// A pointer to products or services offered by the organization or person. Inverse property: offeredBy (see: https://schema.org/offeredBy).
 	// types : Offer
@@ -178,10 +229,20 @@ type Organization struct {
 	// types : Text
 	Naics []string `json:"naics,omitempty"`
 
+	// Name see : https://schema.org/name
+	// The name of the item.
+	// types : Text
+	Name []string `json:"name,omitempty"`
+
 	// NumberOfEmployees see : https://schema.org/numberOfEmployees
 	// The number of employees in an organization e.g. business.
 	// types : QuantitativeValue
 	NumberOfEmployees []*QuantitativeValue `json:"numberOfEmployees,omitempty"`
+
+	// OwnershipFundingInfo see : https://pending.schema.org/ownershipFundingInfo
+	// For an Organization (see: https://schema.org/Organization) (often but not necessarily a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization)), a description of organizational ownership structure; funding and grants. In a news/media setting, this is with particular reference to editorial independence.   Note that the funder (see: https://schema.org/funder) is also available and can be used to make basic funder information machine-readable.
+	// types : AboutPage CreativeWork Text URL
+	OwnershipFundingInfo []interface{} `json:"ownershipFundingInfo,omitempty"`
 
 	// Owns see : https://schema.org/owns
 	// Products owned by the organization or person.
@@ -192,6 +253,11 @@ type Organization struct {
 	// The larger organization that this organization is a subOrganization (see: https://schema.org/subOrganization) of, if any. Supersedes branchOf (see: https://schema.org/branchOf). Inverse property: subOrganization (see: https://schema.org/subOrganization).
 	// types : Organization
 	ParentOrganization []*Organization `json:"parentOrganization,omitempty"`
+
+	// PotentialAction see : https://schema.org/potentialAction
+	// Indicates a potential Action, which describes an idealized action in which this thing would play an &#39;object&#39; role.
+	// types : Action
+	PotentialAction []*Action `json:"potentialAction,omitempty"`
 
 	// PublishingPrinciples see : https://schema.org/publishingPrinciples
 	// The publishingPrinciples property indicates (typically via URL (see: https://schema.org/URL)) a document describing the editorial principles of an Organization (see: https://schema.org/Organization) (or individual e.g. a Person (see: https://schema.org/Person) writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a CreativeWork (see: https://schema.org/CreativeWork) (e.g. NewsArticle (see: https://schema.org/NewsArticle)) the principles are those of the party primarily responsible for the creation of the CreativeWork (see: https://schema.org/CreativeWork).
@@ -204,6 +270,11 @@ type Organization struct {
 	// A review of the item. Supersedes reviews (see: https://schema.org/reviews).
 	// types : Review
 	Review []*Review `json:"review,omitempty"`
+
+	// SameAs see : https://schema.org/sameAs
+	// URL of a reference Web page that unambiguously indicates the item&#39;s identity. E.g. the URL of the item&#39;s Wikipedia page, Wikidata entry, or official website.
+	// types : URL
+	SameAs []string `json:"sameAs,omitempty"`
 
 	// Seeks see : https://schema.org/seeks
 	// A pointer to products or services sought by the organization or person (demand).
@@ -220,6 +291,11 @@ type Organization struct {
 	// types : Organization
 	SubOrganization []*Organization `json:"subOrganization,omitempty"`
 
+	// SubjectOf see : https://pending.schema.org/subjectOf
+	// A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
+	// types : CreativeWork Event
+	SubjectOf []interface{} `json:"subjectOf,omitempty"`
+
 	// TaxID see : https://schema.org/taxID
 	// The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.
 	// types : Text
@@ -235,6 +311,11 @@ type Organization struct {
 	// types : CreativeWork URL
 	UnnamedSourcesPolicy []interface{} `json:"unnamedSourcesPolicy,omitempty"`
 
+	// Url see : https://schema.org/url
+	// URL of the item.
+	// types : URL
+	Url []string `json:"url,omitempty"`
+
 	// VatID see : https://schema.org/vatID
 	// The Value-added Tax ID of the organization or person.
 	// types : Text
@@ -245,8 +326,6 @@ func (v Organization) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
-
-	v.Thing.intoMap(intop)
 
 	into := *intop
 
@@ -263,6 +342,22 @@ func (v Organization) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["actionableFeedbackPolicy"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.AdditionalType
+		if len(v.AdditionalType) == 1 {
+			value = v.AdditionalType[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["additionalType"] = json.RawMessage(b)
 		}
 	}
 
@@ -295,6 +390,22 @@ func (v Organization) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["aggregateRating"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.AlternateName
+		if len(v.AlternateName) == 1 {
+			value = v.AlternateName[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["alternateName"] = json.RawMessage(b)
 		}
 	}
 
@@ -411,6 +522,38 @@ func (v Organization) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
+		var value interface{} = v.Description
+		if len(v.Description) == 1 {
+			value = v.Description[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["description"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.DisambiguatingDescription
+		if len(v.DisambiguatingDescription) == 1 {
+			value = v.DisambiguatingDescription[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["disambiguatingDescription"] = json.RawMessage(b)
+		}
+	}
+
+	{
 		var value interface{} = v.DissolutionDate
 		if len(v.DissolutionDate) == 1 {
 			value = v.DissolutionDate[0]
@@ -439,6 +582,22 @@ func (v Organization) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["diversityPolicy"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.DiversityStaffingReport
+		if len(v.DiversityStaffingReport) == 1 {
+			value = v.DiversityStaffingReport[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["diversityStaffingReport"] = json.RawMessage(b)
 		}
 	}
 
@@ -651,6 +810,38 @@ func (v Organization) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
+		var value interface{} = v.Identifier
+		if len(v.Identifier) == 1 {
+			value = v.Identifier[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["identifier"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Image
+		if len(v.Image) == 1 {
+			value = v.Image[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["image"] = json.RawMessage(b)
+		}
+	}
+
+	{
 		var value interface{} = v.IsicV4
 		if len(v.IsicV4) == 1 {
 			value = v.IsicV4[0]
@@ -663,6 +854,38 @@ func (v Organization) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["isicV4"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.KnowsAbout
+		if len(v.KnowsAbout) == 1 {
+			value = v.KnowsAbout[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["knowsAbout"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.KnowsLanguage
+		if len(v.KnowsLanguage) == 1 {
+			value = v.KnowsLanguage[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["knowsLanguage"] = json.RawMessage(b)
 		}
 	}
 
@@ -731,6 +954,22 @@ func (v Organization) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
+		var value interface{} = v.MainEntityOfPage
+		if len(v.MainEntityOfPage) == 1 {
+			value = v.MainEntityOfPage[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["mainEntityOfPage"] = json.RawMessage(b)
+		}
+	}
+
+	{
 		var value interface{} = v.MakesOffer
 		if len(v.MakesOffer) == 1 {
 			value = v.MakesOffer[0]
@@ -795,6 +1034,22 @@ func (v Organization) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
+		var value interface{} = v.Name
+		if len(v.Name) == 1 {
+			value = v.Name[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["name"] = json.RawMessage(b)
+		}
+	}
+
+	{
 		var value interface{} = v.NumberOfEmployees
 		if len(v.NumberOfEmployees) == 1 {
 			value = v.NumberOfEmployees[0]
@@ -807,6 +1062,22 @@ func (v Organization) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["numberOfEmployees"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.OwnershipFundingInfo
+		if len(v.OwnershipFundingInfo) == 1 {
+			value = v.OwnershipFundingInfo[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["ownershipFundingInfo"] = json.RawMessage(b)
 		}
 	}
 
@@ -843,6 +1114,22 @@ func (v Organization) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
+		var value interface{} = v.PotentialAction
+		if len(v.PotentialAction) == 1 {
+			value = v.PotentialAction[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["potentialAction"] = json.RawMessage(b)
+		}
+	}
+
+	{
 		var value interface{} = v.PublishingPrinciples
 		if len(v.PublishingPrinciples) == 1 {
 			value = v.PublishingPrinciples[0]
@@ -871,6 +1158,22 @@ func (v Organization) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["review"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.SameAs
+		if len(v.SameAs) == 1 {
+			value = v.SameAs[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["sameAs"] = json.RawMessage(b)
 		}
 	}
 
@@ -923,6 +1226,22 @@ func (v Organization) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
+		var value interface{} = v.SubjectOf
+		if len(v.SubjectOf) == 1 {
+			value = v.SubjectOf[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["subjectOf"] = json.RawMessage(b)
+		}
+	}
+
+	{
 		var value interface{} = v.TaxID
 		if len(v.TaxID) == 1 {
 			value = v.TaxID[0]
@@ -967,6 +1286,22 @@ func (v Organization) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["unnamedSourcesPolicy"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Url
+		if len(v.Url) == 1 {
+			value = v.Url[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["url"] = json.RawMessage(b)
 		}
 	}
 

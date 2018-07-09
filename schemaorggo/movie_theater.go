@@ -4,8 +4,6 @@ import "encoding/json"
 
 // MovieTheater see : https://schema.org/MovieTheater
 type MovieTheater struct {
-	CivicStructure
-
 	typeContext
 
 	// ScreenCount see : https://schema.org/screenCount
@@ -18,8 +16,6 @@ func (v MovieTheater) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
-
-	v.CivicStructure.intoMap(intop)
 
 	into := *intop
 

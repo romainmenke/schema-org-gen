@@ -1,9 +1,15 @@
 <?php
 
-class {{ type_name }}{% if parent_type_name %} extends {{ parent_type_name }}{% endif %} implements JsonSerializable {
+// {{ type_name }} see : {{ type_url }}
+class {{ type_name }} implements JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = '{{ type_name }}';
+	{% for parent in parents %}
+	/**
+	 * With properties from {{ parent.type_name }} see : {{ parent.type_url }}
+	 */
+	{% endfor %}
 	{% for field in fields %}
 	/**{% for comment_line in field.comment_lines %}
 	 * {{ comment_line }}{% endfor %}

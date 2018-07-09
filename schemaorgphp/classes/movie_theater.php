@@ -1,14 +1,16 @@
 <?php
 
-class MovieTheater extends CivicStructure implements JsonSerializable {
+// MovieTheater see : https://schema.org/MovieTheater
+class MovieTheater implements JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'MovieTheater';
 	
+	
 	/**
 	 * The number of screens in the movie theater.
 	 * see : https://schema.org/screenCount
-	 * @var float|float[]
+	 * @var float | float[]
 	 */
 	public var $screen_count;
 	

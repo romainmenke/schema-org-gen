@@ -4,11 +4,13 @@ import "encoding/json"
 
 // {{ type_name }} see : {{ type_url }}
 type {{ type_name }} struct {
-	{% if parent_type_name %}
-		{{ parent_type_name }}
-	{% endif %}
 
 	typeContext
+
+	{% for parent in parents %}
+		// With properties from {{ parent.type_name }} see : {{ parent.type_url }}
+		//
+	{% endfor %}
 
 	{% for field in fields %}
 		{{ field.external_ref }}

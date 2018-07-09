@@ -4,12 +4,19 @@ import "encoding/json"
 
 // WPAdBlock see : https://schema.org/WPAdBlock
 type WPAdBlock struct {
-	WebPageElement
-
 	typeContext
 
+	// With properties from CreativeWork see : https://schema.org/CreativeWork
+	//
+
+	// With properties from Thing see : https://schema.org/Thing
+	//
+
+	// With properties from WebPageElement see : https://schema.org/WebPageElement
+	//
+
 	// About see : https://schema.org/about
-	// The subject matter of the content.
+	// The subject matter of the content. Inverse property: subjectOf (see: https://schema.orghttps://pending.schema.org/subjectOf).
 	// types : Thing
 	About []*Thing `json:"about,omitempty"`
 
@@ -53,10 +60,20 @@ type WPAdBlock struct {
 	// types : Person
 	AccountablePerson []*Person `json:"accountablePerson,omitempty"`
 
+	// AdditionalType see : https://schema.org/additionalType
+	// An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the &#39;typeof&#39; attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.
+	// types : URL
+	AdditionalType []string `json:"additionalType,omitempty"`
+
 	// AggregateRating see : https://schema.org/aggregateRating
 	// The overall rating, based on a collection of reviews or ratings, of the item.
 	// types : AggregateRating
 	AggregateRating []*AggregateRating `json:"aggregateRating,omitempty"`
+
+	// AlternateName see : https://schema.org/alternateName
+	// An alias for the item.
+	// types : Text
+	AlternateName []string `json:"alternateName,omitempty"`
 
 	// AlternativeHeadline see : https://schema.org/alternativeHeadline
 	// A secondary title of the CreativeWork.
@@ -115,8 +132,8 @@ type WPAdBlock struct {
 
 	// ContentRating see : https://schema.org/contentRating
 	// Official rating of a piece of content—for example,&#39;MPAA PG-13&#39;.
-	// types : Text
-	ContentRating []string `json:"contentRating,omitempty"`
+	// types : Rating Text
+	ContentRating []interface{} `json:"contentRating,omitempty"`
 
 	// ContentReferenceTime see : https://pending.schema.org/contentReferenceTime
 	// The specific time described by a creative work, for works (e.g. articles, video objects etc.) that emphasise a particular moment within an Event.
@@ -138,10 +155,20 @@ type WPAdBlock struct {
 	// types : Number
 	CopyrightYear []float64 `json:"copyrightYear,omitempty"`
 
+	// Correction see : https://pending.schema.org/correction
+	// Indicates a correction to a CreativeWork (see: https://schema.org/CreativeWork), either via a CorrectionComment (see: https://schema.org/CorrectionComment), textually or in another document.
+	// types : CorrectionComment Text URL
+	Correction []interface{} `json:"correction,omitempty"`
+
 	// Creator see : https://schema.org/creator
 	// The creator/author of this CreativeWork. This is the same as the Author property for CreativeWork.
 	// types : Organization Person
 	Creator []interface{} `json:"creator,omitempty"`
+
+	// CssSelector see : https://pending.schema.org/cssSelector
+	// A CSS selector, e.g. of a SpeakableSpecification (see: https://schema.org/SpeakableSpecification) or WebPageElement (see: https://schema.org/WebPageElement). In the latter case, multiple matches within a page can constitute a single conceptual &quot;Web page element&quot;.
+	// types : CssSelectorType
+	CssSelector []interface{} `json:"cssSelector,omitempty"`
 
 	// DateCreated see : https://schema.org/dateCreated
 	// The date on which the CreativeWork was created or the item was added to a DataFeed.
@@ -157,6 +184,16 @@ type WPAdBlock struct {
 	// Date of first broadcast/publication.
 	// types : Date
 	DatePublished []Date `json:"datePublished,omitempty"`
+
+	// Description see : https://schema.org/description
+	// A description of the item.
+	// types : Text
+	Description []string `json:"description,omitempty"`
+
+	// DisambiguatingDescription see : https://schema.org/disambiguatingDescription
+	// A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.
+	// types : Text
+	DisambiguatingDescription []string `json:"disambiguatingDescription,omitempty"`
 
 	// DiscussionUrl see : https://schema.org/discussionUrl
 	// A link to the page containing the comments of the CreativeWork.
@@ -183,6 +220,15 @@ type WPAdBlock struct {
 	// types : MediaObject
 	Encoding []*MediaObject `json:"encoding,omitempty"`
 
+	// EncodingFormat see : https://schema.org/encodingFormat
+	// Media type typically expressed using a MIME format (see IANA site (see: https://schema.orghttp://www.iana.org/assignments/media-types/media-types.xhtml) and MDN reference (see: https://schema.orghttps://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types)) e.g. application/zip for a SoftwareApplication binary, audio/mpeg for .mp3 etc.).
+	//
+	// In cases where a CreativeWork (see: https://schema.org/CreativeWork) has several media type representations, encoding (see: https://schema.org/encoding) can be used to indicate each MediaObject (see: https://schema.org/MediaObject) alongside particular encodingFormat (see: https://schema.org/encodingFormat) information.
+	//
+	// Unregistered or niche encoding and file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia/Wikidata entry. Supersedes fileFormat (see: https://schema.org/fileFormat).
+	// types : Text URL
+	EncodingFormat []string `json:"encodingFormat,omitempty"`
+
 	// ExampleOfWork see : https://schema.org/exampleOfWork
 	// A creative work that this work is an example/instance/realization/derivation of. Inverse property: workExample (see: https://schema.org/workExample).
 	// types : CreativeWork
@@ -192,11 +238,6 @@ type WPAdBlock struct {
 	// Date the content expires and is no longer useful or available. For example a VideoObject (see: https://schema.org/VideoObject) or NewsArticle (see: https://schema.org/NewsArticle) whose availability or relevance is time-limited, or a ClaimReview (see: https://schema.org/ClaimReview) fact check whose publisher wants to indicate that it may no longer be relevant (or helpful to highlight) after some date.
 	// types : Date
 	Expires []Date `json:"expires,omitempty"`
-
-	// FileFormat see : https://schema.org/fileFormat
-	// Media type, typically MIME format (see IANA site (see: https://schema.orghttp://www.iana.org/assignments/media-types/media-types.xhtml)) of the content e.g. application/zip of a SoftwareApplication binary. In cases where a CreativeWork has several media type representations, &#39;encoding&#39; can be used to indicate each MediaObject alongside particular fileFormat information. Unregistered or niche file formats can be indicated instead via the most appropriate URL, e.g. defining Web page or a Wikipedia entry.
-	// types : Text URL
-	FileFormat []string `json:"fileFormat,omitempty"`
 
 	// Funder see : https://schema.org/funder
 	// A person or organization that supports (sponsors) something through some kind of financial contribution.
@@ -209,14 +250,24 @@ type WPAdBlock struct {
 	Genre []string `json:"genre,omitempty"`
 
 	// HasPart see : https://schema.org/hasPart
-	// Indicates a CreativeWork that is (in some sense) a part of this CreativeWork. Inverse property: isPartOf (see: https://schema.org/isPartOf).
-	// types : CreativeWork
-	HasPart []*CreativeWork `json:"hasPart,omitempty"`
+	// Indicates an item or CreativeWork that is part of this item, or CreativeWork (in some sense). Inverse property: isPartOf (see: https://schema.org/isPartOf).
+	// types : CreativeWork Trip
+	HasPart []interface{} `json:"hasPart,omitempty"`
 
 	// Headline see : https://schema.org/headline
 	// Headline of the article.
 	// types : Text
 	Headline []string `json:"headline,omitempty"`
+
+	// Identifier see : https://schema.org/identifier
+	// The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
+	// types : PropertyValue Text URL
+	Identifier []interface{} `json:"identifier,omitempty"`
+
+	// Image see : https://schema.org/image
+	// An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
+	// types : ImageObject URL
+	Image []interface{} `json:"image,omitempty"`
 
 	// InLanguage see : https://schema.org/inLanguage
 	// The language of the content or performance or used in an action. Please use one of the language codes from the IETF BCP 47 standard (see: https://schema.orghttp://tools.ietf.org/html/bcp47). See also availableLanguage (see: https://schema.org/availableLanguage). Supersedes language (see: https://schema.org/language).
@@ -249,9 +300,9 @@ type WPAdBlock struct {
 	IsFamilyFriendly []bool `json:"isFamilyFriendly,omitempty"`
 
 	// IsPartOf see : https://schema.org/isPartOf
-	// Indicates a CreativeWork that this CreativeWork is (in some sense) part of. Inverse property: hasPart (see: https://schema.org/hasPart).
-	// types : CreativeWork
-	IsPartOf []*CreativeWork `json:"isPartOf,omitempty"`
+	// Indicates an item or CreativeWork that this item, or CreativeWork (in some sense), is part of. Inverse property: hasPart (see: https://schema.org/hasPart).
+	// types : CreativeWork Trip
+	IsPartOf []interface{} `json:"isPartOf,omitempty"`
 
 	// Keywords see : https://schema.org/keywords
 	// Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas.
@@ -278,6 +329,11 @@ type WPAdBlock struct {
 	// types : Thing
 	MainEntity []*Thing `json:"mainEntity,omitempty"`
 
+	// MainEntityOfPage see : https://schema.org/mainEntityOfPage
+	// Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
+	// types : CreativeWork URL
+	MainEntityOfPage []interface{} `json:"mainEntityOfPage,omitempty"`
+
 	// Material see : https://schema.org/material
 	// A material that something is made from, e.g. leather, wool, cotton, paper.
 	// types : Product Text URL
@@ -288,6 +344,11 @@ type WPAdBlock struct {
 	// types : Thing
 	Mentions []*Thing `json:"mentions,omitempty"`
 
+	// Name see : https://schema.org/name
+	// The name of the item.
+	// types : Text
+	Name []string `json:"name,omitempty"`
+
 	// Offers see : https://schema.org/offers
 	// An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event.
 	// types : Offer
@@ -297,6 +358,11 @@ type WPAdBlock struct {
 	// The position of an item in a series or sequence of items.
 	// types : Integer Text
 	Position []interface{} `json:"position,omitempty"`
+
+	// PotentialAction see : https://schema.org/potentialAction
+	// Indicates a potential Action, which describes an idealized action in which this thing would play an &#39;object&#39; role.
+	// types : Action
+	PotentialAction []*Action `json:"potentialAction,omitempty"`
 
 	// Producer see : https://schema.org/producer
 	// The person or organization who produced the work (e.g. music album, movie, tv/radio series etc.).
@@ -345,10 +411,31 @@ type WPAdBlock struct {
 	// types : Review
 	Review []*Review `json:"review,omitempty"`
 
+	// SameAs see : https://schema.org/sameAs
+	// URL of a reference Web page that unambiguously indicates the item&#39;s identity. E.g. the URL of the item&#39;s Wikipedia page, Wikidata entry, or official website.
+	// types : URL
+	SameAs []string `json:"sameAs,omitempty"`
+
 	// SchemaVersion see : https://schema.org/schemaVersion
 	// Indicates (by URL or string) a particular version of a schema used in some CreativeWork. For example, a document could declare a schemaVersion using an URL such as http://schema.org/version/2.0/ if precise indication of schema version was required by some application.
 	// types : Text URL
 	SchemaVersion []string `json:"schemaVersion,omitempty"`
+
+	// SdDatePublished see : https://pending.schema.org/sdDatePublished
+	// Indicates the date on which the current structured data was generated / published. Typically used alongside sdPublisher (see: https://schema.org/sdPublisher)
+	// types : Date
+	SdDatePublished []Date `json:"sdDatePublished,omitempty"`
+
+	// SdLicense see : https://pending.schema.org/sdLicense
+	// A license document that applies to this structured data, typically indicated by URL.
+	// types : CreativeWork URL
+	SdLicense []interface{} `json:"sdLicense,omitempty"`
+
+	// SdPublisher see : https://pending.schema.org/sdPublisher
+	// Indicates the party responsible for generating and publishing the current structured data markup, typically in cases where the structured data is derived automatically from existing published content but published on a different site. For example, student projects and open data initiatives often re-publish existing content with more explicitly structured metadata. The
+	// sdPublisher (see: https://schema.org/sdPublisher) property helps make such practices more explicit.
+	// types : Organization Person
+	SdPublisher []interface{} `json:"sdPublisher,omitempty"`
 
 	// SourceOrganization see : https://schema.org/sourceOrganization
 	// The Organization on whose behalf the creator was working.
@@ -366,6 +453,11 @@ type WPAdBlock struct {
 	// A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
 	// types : Organization Person
 	Sponsor []interface{} `json:"sponsor,omitempty"`
+
+	// SubjectOf see : https://pending.schema.org/subjectOf
+	// A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
+	// types : CreativeWork Event
+	SubjectOf []interface{} `json:"subjectOf,omitempty"`
 
 	// TemporalCoverage see : https://schema.org/temporalCoverage
 	// The temporalCoverage of a CreativeWork indicates the period that the content applies to, i.e. that it describes, either as a DateTime or as a textual string indicating a time period in ISO 8601 time interval format (see: https://schema.orghttps://en.wikipedia.org/wiki/ISO_8601#Time_intervals). In
@@ -404,6 +496,11 @@ type WPAdBlock struct {
 	// types : Text
 	TypicalAgeRange []string `json:"typicalAgeRange,omitempty"`
 
+	// Url see : https://schema.org/url
+	// URL of the item.
+	// types : URL
+	Url []string `json:"url,omitempty"`
+
 	// Version see : https://schema.org/version
 	// The version of the CreativeWork embodied by a specified resource.
 	// types : Number Text
@@ -423,14 +520,17 @@ type WPAdBlock struct {
 	// A work that is a translation of the content of this work. e.g. 西遊記 has an English workTranslation “Journey to the West”,a German workTranslation “Monkeys Pilgerfahrt” and a Vietnamese  translation Tây du ký bình khảo. Inverse property: translationOfWork (see: https://schema.orghttps://bib.schema.org/translationOfWork).
 	// types : CreativeWork
 	WorkTranslation []*CreativeWork `json:"workTranslation,omitempty"`
+
+	// Xpath see : https://pending.schema.org/xpath
+	// An XPath, e.g. of a SpeakableSpecification (see: https://schema.org/SpeakableSpecification) or WebPageElement (see: https://schema.org/WebPageElement). In the latter case, multiple matches within a page can constitute a single conceptual &quot;Web page element&quot;.
+	// types : XPathType
+	Xpath []interface{} `json:"xpath,omitempty"`
 }
 
 func (v WPAdBlock) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
-
-	v.WebPageElement.intoMap(intop)
 
 	into := *intop
 
@@ -579,6 +679,22 @@ func (v WPAdBlock) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
+		var value interface{} = v.AdditionalType
+		if len(v.AdditionalType) == 1 {
+			value = v.AdditionalType[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["additionalType"] = json.RawMessage(b)
+		}
+	}
+
+	{
 		var value interface{} = v.AggregateRating
 		if len(v.AggregateRating) == 1 {
 			value = v.AggregateRating[0]
@@ -591,6 +707,22 @@ func (v WPAdBlock) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["aggregateRating"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.AlternateName
+		if len(v.AlternateName) == 1 {
+			value = v.AlternateName[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["alternateName"] = json.RawMessage(b)
 		}
 	}
 
@@ -851,6 +983,22 @@ func (v WPAdBlock) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
+		var value interface{} = v.Correction
+		if len(v.Correction) == 1 {
+			value = v.Correction[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["correction"] = json.RawMessage(b)
+		}
+	}
+
+	{
 		var value interface{} = v.Creator
 		if len(v.Creator) == 1 {
 			value = v.Creator[0]
@@ -863,6 +1011,22 @@ func (v WPAdBlock) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["creator"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.CssSelector
+		if len(v.CssSelector) == 1 {
+			value = v.CssSelector[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["cssSelector"] = json.RawMessage(b)
 		}
 	}
 
@@ -911,6 +1075,38 @@ func (v WPAdBlock) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["datePublished"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Description
+		if len(v.Description) == 1 {
+			value = v.Description[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["description"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.DisambiguatingDescription
+		if len(v.DisambiguatingDescription) == 1 {
+			value = v.DisambiguatingDescription[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["disambiguatingDescription"] = json.RawMessage(b)
 		}
 	}
 
@@ -995,6 +1191,22 @@ func (v WPAdBlock) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
+		var value interface{} = v.EncodingFormat
+		if len(v.EncodingFormat) == 1 {
+			value = v.EncodingFormat[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["encodingFormat"] = json.RawMessage(b)
+		}
+	}
+
+	{
 		var value interface{} = v.ExampleOfWork
 		if len(v.ExampleOfWork) == 1 {
 			value = v.ExampleOfWork[0]
@@ -1023,22 +1235,6 @@ func (v WPAdBlock) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["expires"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.FileFormat
-		if len(v.FileFormat) == 1 {
-			value = v.FileFormat[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["fileFormat"] = json.RawMessage(b)
 		}
 	}
 
@@ -1103,6 +1299,38 @@ func (v WPAdBlock) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["headline"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Identifier
+		if len(v.Identifier) == 1 {
+			value = v.Identifier[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["identifier"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Image
+		if len(v.Image) == 1 {
+			value = v.Image[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["image"] = json.RawMessage(b)
 		}
 	}
 
@@ -1299,6 +1527,22 @@ func (v WPAdBlock) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
+		var value interface{} = v.MainEntityOfPage
+		if len(v.MainEntityOfPage) == 1 {
+			value = v.MainEntityOfPage[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["mainEntityOfPage"] = json.RawMessage(b)
+		}
+	}
+
+	{
 		var value interface{} = v.Material
 		if len(v.Material) == 1 {
 			value = v.Material[0]
@@ -1331,6 +1575,22 @@ func (v WPAdBlock) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
+		var value interface{} = v.Name
+		if len(v.Name) == 1 {
+			value = v.Name[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["name"] = json.RawMessage(b)
+		}
+	}
+
+	{
 		var value interface{} = v.Offers
 		if len(v.Offers) == 1 {
 			value = v.Offers[0]
@@ -1359,6 +1619,22 @@ func (v WPAdBlock) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["position"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.PotentialAction
+		if len(v.PotentialAction) == 1 {
+			value = v.PotentialAction[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["potentialAction"] = json.RawMessage(b)
 		}
 	}
 
@@ -1507,6 +1783,22 @@ func (v WPAdBlock) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
+		var value interface{} = v.SameAs
+		if len(v.SameAs) == 1 {
+			value = v.SameAs[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["sameAs"] = json.RawMessage(b)
+		}
+	}
+
+	{
 		var value interface{} = v.SchemaVersion
 		if len(v.SchemaVersion) == 1 {
 			value = v.SchemaVersion[0]
@@ -1519,6 +1811,54 @@ func (v WPAdBlock) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["schemaVersion"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.SdDatePublished
+		if len(v.SdDatePublished) == 1 {
+			value = v.SdDatePublished[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["sdDatePublished"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.SdLicense
+		if len(v.SdLicense) == 1 {
+			value = v.SdLicense[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["sdLicense"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.SdPublisher
+		if len(v.SdPublisher) == 1 {
+			value = v.SdPublisher[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["sdPublisher"] = json.RawMessage(b)
 		}
 	}
 
@@ -1567,6 +1907,22 @@ func (v WPAdBlock) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["sponsor"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.SubjectOf
+		if len(v.SubjectOf) == 1 {
+			value = v.SubjectOf[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["subjectOf"] = json.RawMessage(b)
 		}
 	}
 
@@ -1683,6 +2039,22 @@ func (v WPAdBlock) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
+		var value interface{} = v.Url
+		if len(v.Url) == 1 {
+			value = v.Url[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["url"] = json.RawMessage(b)
+		}
+	}
+
+	{
 		var value interface{} = v.Version
 		if len(v.Version) == 1 {
 			value = v.Version[0]
@@ -1743,6 +2115,22 @@ func (v WPAdBlock) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["workTranslation"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Xpath
+		if len(v.Xpath) == 1 {
+			value = v.Xpath[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["xpath"] = json.RawMessage(b)
 		}
 	}
 

@@ -1,14 +1,16 @@
 <?php
 
-class DepositAccount extends InvestmentOrDeposit implements JsonSerializable {
+// DepositAccount see : https://schema.org/DepositAccount
+class DepositAccount implements JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'DepositAccount';
 	
+	
 	/**
 	 * The amount of money.
 	 * see : https://schema.org/amount
-	 * @var \MonetaryAmount|\MonetaryAmount[]|float|float[]
+	 * @var \MonetaryAmount | \MonetaryAmount[] | float | float[]
 	 */
 	public var $amount;
 	

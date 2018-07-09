@@ -1,14 +1,18 @@
 <?php
 
-class PoliceStation extends CivicStructure implements JsonSerializable {
+// PoliceStation see : https://schema.org/PoliceStation
+class PoliceStation implements JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'PoliceStation';
 	
+	
 	/**
-	 * The currency accepted (in ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217)).
+	 * The currency accepted.
+	 * 
+	 * Use standard formats: ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217) e.g. &quot;USD&quot;; Ticker symbol (see: https://schema.orghttps://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. &quot;BTC&quot;; well known names for Local Exchange Tradings Systems (see: https://schema.orghttps://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. &quot;Ithaca HOUR&quot;.
 	 * see : https://schema.org/currenciesAccepted
-	 * @var string|string[]
+	 * @var string | string[]
 	 */
 	public var $currencies_accepted;
 	
@@ -23,21 +27,21 @@ class PoliceStation extends CivicStructure implements JsonSerializable {
 	 * 
 	 * 
 	 * see : https://schema.org/openingHours
-	 * @var string|string[]
+	 * @var string | string[]
 	 */
 	public var $opening_hours;
 	
 	/**
-	 * Cash, credit card, etc.
+	 * Cash, Credit Card, Cryptocurrency, Local Exchange Tradings System, etc.
 	 * see : https://schema.org/paymentAccepted
-	 * @var string|string[]
+	 * @var string | string[]
 	 */
 	public var $payment_accepted;
 	
 	/**
 	 * The price range of the business, for example $$$.
 	 * see : https://schema.org/priceRange
-	 * @var string|string[]
+	 * @var string | string[]
 	 */
 	public var $price_range;
 	

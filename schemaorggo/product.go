@@ -4,21 +4,25 @@ import "encoding/json"
 
 // Product see : https://schema.org/Product
 type Product struct {
-	Thing
-
 	typeContext
 
-	// AdditionalProperty see : https://schema.org/additionalProperty
-	// A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.
+	// With properties from Thing see : https://schema.org/Thing
 	//
-	// Note: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.
-	// types : PropertyValue
-	AdditionalProperty []*PropertyValue `json:"additionalProperty,omitempty"`
+
+	// AdditionalType see : https://schema.org/additionalType
+	// An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the &#39;typeof&#39; attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.
+	// types : URL
+	AdditionalType []string `json:"additionalType,omitempty"`
 
 	// AggregateRating see : https://schema.org/aggregateRating
 	// The overall rating, based on a collection of reviews or ratings, of the item.
 	// types : AggregateRating
 	AggregateRating []*AggregateRating `json:"aggregateRating,omitempty"`
+
+	// AlternateName see : https://schema.org/alternateName
+	// An alias for the item.
+	// types : Text
+	AlternateName []string `json:"alternateName,omitempty"`
 
 	// Audience see : https://schema.org/audience
 	// An intended audience, i.e. a group for whom something was created. Supersedes serviceAudience (see: https://schema.org/serviceAudience).
@@ -26,7 +30,7 @@ type Product struct {
 	Audience []*Audience `json:"audience,omitempty"`
 
 	// Award see : https://schema.org/award
-	// An award won by or for this item. Supersedes awards (see: https://schema.org/awards).
+	// An award won by or for this item.
 	// types : Text
 	Award []string `json:"award,omitempty"`
 
@@ -35,7 +39,7 @@ type Product struct {
 	// types : Brand Organization
 	Brand []interface{} `json:"brand,omitempty"`
 
-	// Category see : https://schema.org/category
+	// Category see : https://pending.schema.org/category
 	// A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
 	// types : PhysicalActivityCategory Text Thing
 	Category []interface{} `json:"category,omitempty"`
@@ -45,25 +49,15 @@ type Product struct {
 	// types : Text
 	Color []string `json:"color,omitempty"`
 
-	// Depth see : https://schema.org/depth
-	// The depth of the item.
-	// types : Distance QuantitativeValue
-	Depth []interface{} `json:"depth,omitempty"`
-
-	// Gtin12 see : https://schema.org/gtin12
-	// The GTIN-12 (see: https://schema.orghttp://apps.gs1.org/GDD/glossary/Pages/GTIN-12.aspx) code of the product, or the product to which the offer refers. The GTIN-12 is the 12-digit GS1 Identification Key composed of a U.P.C. Company Prefix, Item Reference, and Check Digit used to identify trade items. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	// Description see : https://schema.org/description
+	// A description of the item.
 	// types : Text
-	Gtin12 []string `json:"gtin12,omitempty"`
+	Description []string `json:"description,omitempty"`
 
-	// Gtin13 see : https://schema.org/gtin13
-	// The GTIN-13 (see: https://schema.orghttp://apps.gs1.org/GDD/glossary/Pages/GTIN-13.aspx) code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
+	// DisambiguatingDescription see : https://schema.org/disambiguatingDescription
+	// A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.
 	// types : Text
-	Gtin13 []string `json:"gtin13,omitempty"`
-
-	// Gtin14 see : https://schema.org/gtin14
-	// The GTIN-14 (see: https://schema.orghttp://apps.gs1.org/GDD/glossary/Pages/GTIN-14.aspx) code of the product, or the product to which the offer refers. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
-	// types : Text
-	Gtin14 []string `json:"gtin14,omitempty"`
+	DisambiguatingDescription []string `json:"disambiguatingDescription,omitempty"`
 
 	// Gtin8 see : https://schema.org/gtin8
 	// The GTIN-8 (see: https://schema.orghttp://apps.gs1.org/GDD/glossary/Pages/GTIN-8.aspx) code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
@@ -75,20 +69,20 @@ type Product struct {
 	// types : Distance QuantitativeValue
 	Height []interface{} `json:"height,omitempty"`
 
-	// IsAccessoryOrSparePartFor see : https://schema.org/isAccessoryOrSparePartFor
-	// A pointer to another product (or multiple products) for which this product is an accessory or spare part.
-	// types : Product
-	IsAccessoryOrSparePartFor []*Product `json:"isAccessoryOrSparePartFor,omitempty"`
+	// Identifier see : https://schema.org/identifier
+	// The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
+	// types : PropertyValue Text URL
+	Identifier []interface{} `json:"identifier,omitempty"`
+
+	// Image see : https://schema.org/image
+	// An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
+	// types : ImageObject URL
+	Image []interface{} `json:"image,omitempty"`
 
 	// IsConsumableFor see : https://schema.org/isConsumableFor
 	// A pointer to another product (or multiple products) for which this product is a consumable.
 	// types : Product
 	IsConsumableFor []*Product `json:"isConsumableFor,omitempty"`
-
-	// IsRelatedTo see : https://schema.org/isRelatedTo
-	// A pointer to another, somehow related product (or multiple products).
-	// types : Product Service
-	IsRelatedTo []interface{} `json:"isRelatedTo,omitempty"`
 
 	// IsSimilarTo see : https://schema.org/isSimilarTo
 	// A pointer to another, functionally similar product (or multiple products).
@@ -105,6 +99,11 @@ type Product struct {
 	// types : ImageObject URL
 	Logo []interface{} `json:"logo,omitempty"`
 
+	// MainEntityOfPage see : https://schema.org/mainEntityOfPage
+	// Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
+	// types : CreativeWork URL
+	MainEntityOfPage []interface{} `json:"mainEntityOfPage,omitempty"`
+
 	// Manufacturer see : https://schema.org/manufacturer
 	// The manufacturer of the product.
 	// types : Organization
@@ -115,55 +114,45 @@ type Product struct {
 	// types : Product Text URL
 	Material []interface{} `json:"material,omitempty"`
 
-	// Model see : https://schema.org/model
-	// The model of the product. Use with the URL of a ProductModel or a textual representation of the model identifier. The URL of the ProductModel can be from an external source. It is recommended to additionally provide strong product identifiers via the gtin8/gtin13/gtin14 and mpn properties.
-	// types : ProductModel Text
-	Model []interface{} `json:"model,omitempty"`
-
 	// Mpn see : https://schema.org/mpn
 	// The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.
 	// types : Text
 	Mpn []string `json:"mpn,omitempty"`
 
-	// Offers see : https://schema.org/offers
-	// An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event.
-	// types : Offer
-	Offers []*Offer `json:"offers,omitempty"`
+	// Name see : https://schema.org/name
+	// The name of the item.
+	// types : Text
+	Name []string `json:"name,omitempty"`
+
+	// PotentialAction see : https://schema.org/potentialAction
+	// Indicates a potential Action, which describes an idealized action in which this thing would play an &#39;object&#39; role.
+	// types : Action
+	PotentialAction []*Action `json:"potentialAction,omitempty"`
 
 	// ProductID see : https://schema.org/productID
 	// The product identifier, such as ISBN. For example: meta itemprop=&quot;productID&quot; content=&quot;isbn:123-456-789&quot;.
 	// types : Text
 	ProductID []string `json:"productID,omitempty"`
 
-	// ProductionDate see : https://schema.org/productionDate
-	// The date of production of the item, e.g. vehicle.
-	// types : Date
-	ProductionDate []Date `json:"productionDate,omitempty"`
-
-	// PurchaseDate see : https://schema.org/purchaseDate
-	// The date the item e.g. vehicle was purchased by the current owner.
-	// types : Date
-	PurchaseDate []Date `json:"purchaseDate,omitempty"`
-
-	// ReleaseDate see : https://schema.org/releaseDate
-	// The release date of a product or product model. This can be used to distinguish the exact variant of a product.
-	// types : Date
-	ReleaseDate []Date `json:"releaseDate,omitempty"`
-
 	// Review see : https://schema.org/review
 	// A review of the item. Supersedes reviews (see: https://schema.org/reviews).
 	// types : Review
 	Review []*Review `json:"review,omitempty"`
 
-	// Sku see : https://schema.org/sku
-	// The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers.
-	// types : Text
-	Sku []string `json:"sku,omitempty"`
+	// SameAs see : https://schema.org/sameAs
+	// URL of a reference Web page that unambiguously indicates the item&#39;s identity. E.g. the URL of the item&#39;s Wikipedia page, Wikidata entry, or official website.
+	// types : URL
+	SameAs []string `json:"sameAs,omitempty"`
 
-	// Weight see : https://schema.org/weight
-	// The weight of the product or person.
-	// types : QuantitativeValue
-	Weight []*QuantitativeValue `json:"weight,omitempty"`
+	// SubjectOf see : https://pending.schema.org/subjectOf
+	// A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
+	// types : CreativeWork Event
+	SubjectOf []interface{} `json:"subjectOf,omitempty"`
+
+	// Url see : https://schema.org/url
+	// URL of the item.
+	// types : URL
+	Url []string `json:"url,omitempty"`
 
 	// Width see : https://schema.org/width
 	// The width of the item.
@@ -176,14 +165,12 @@ func (v Product) intoMap(intop *map[string]interface{}) error {
 		return nil
 	}
 
-	v.Thing.intoMap(intop)
-
 	into := *intop
 
 	{
-		var value interface{} = v.AdditionalProperty
-		if len(v.AdditionalProperty) == 1 {
-			value = v.AdditionalProperty[0]
+		var value interface{} = v.AdditionalType
+		if len(v.AdditionalType) == 1 {
+			value = v.AdditionalType[0]
 		}
 
 		b, err := json.Marshal(value)
@@ -192,7 +179,7 @@ func (v Product) intoMap(intop *map[string]interface{}) error {
 		}
 
 		if len(b) > 0 && string(b) != "null" {
-			into["additionalProperty"] = json.RawMessage(b)
+			into["additionalType"] = json.RawMessage(b)
 		}
 	}
 
@@ -209,6 +196,22 @@ func (v Product) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["aggregateRating"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.AlternateName
+		if len(v.AlternateName) == 1 {
+			value = v.AlternateName[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["alternateName"] = json.RawMessage(b)
 		}
 	}
 
@@ -293,9 +296,9 @@ func (v Product) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
-		var value interface{} = v.Depth
-		if len(v.Depth) == 1 {
-			value = v.Depth[0]
+		var value interface{} = v.Description
+		if len(v.Description) == 1 {
+			value = v.Description[0]
 		}
 
 		b, err := json.Marshal(value)
@@ -304,14 +307,14 @@ func (v Product) intoMap(intop *map[string]interface{}) error {
 		}
 
 		if len(b) > 0 && string(b) != "null" {
-			into["depth"] = json.RawMessage(b)
+			into["description"] = json.RawMessage(b)
 		}
 	}
 
 	{
-		var value interface{} = v.Gtin12
-		if len(v.Gtin12) == 1 {
-			value = v.Gtin12[0]
+		var value interface{} = v.DisambiguatingDescription
+		if len(v.DisambiguatingDescription) == 1 {
+			value = v.DisambiguatingDescription[0]
 		}
 
 		b, err := json.Marshal(value)
@@ -320,39 +323,7 @@ func (v Product) intoMap(intop *map[string]interface{}) error {
 		}
 
 		if len(b) > 0 && string(b) != "null" {
-			into["gtin12"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Gtin13
-		if len(v.Gtin13) == 1 {
-			value = v.Gtin13[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["gtin13"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Gtin14
-		if len(v.Gtin14) == 1 {
-			value = v.Gtin14[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["gtin14"] = json.RawMessage(b)
+			into["disambiguatingDescription"] = json.RawMessage(b)
 		}
 	}
 
@@ -389,9 +360,9 @@ func (v Product) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
-		var value interface{} = v.IsAccessoryOrSparePartFor
-		if len(v.IsAccessoryOrSparePartFor) == 1 {
-			value = v.IsAccessoryOrSparePartFor[0]
+		var value interface{} = v.Identifier
+		if len(v.Identifier) == 1 {
+			value = v.Identifier[0]
 		}
 
 		b, err := json.Marshal(value)
@@ -400,7 +371,23 @@ func (v Product) intoMap(intop *map[string]interface{}) error {
 		}
 
 		if len(b) > 0 && string(b) != "null" {
-			into["isAccessoryOrSparePartFor"] = json.RawMessage(b)
+			into["identifier"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Image
+		if len(v.Image) == 1 {
+			value = v.Image[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["image"] = json.RawMessage(b)
 		}
 	}
 
@@ -417,22 +404,6 @@ func (v Product) intoMap(intop *map[string]interface{}) error {
 
 		if len(b) > 0 && string(b) != "null" {
 			into["isConsumableFor"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.IsRelatedTo
-		if len(v.IsRelatedTo) == 1 {
-			value = v.IsRelatedTo[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["isRelatedTo"] = json.RawMessage(b)
 		}
 	}
 
@@ -485,6 +456,22 @@ func (v Product) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
+		var value interface{} = v.MainEntityOfPage
+		if len(v.MainEntityOfPage) == 1 {
+			value = v.MainEntityOfPage[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["mainEntityOfPage"] = json.RawMessage(b)
+		}
+	}
+
+	{
 		var value interface{} = v.Manufacturer
 		if len(v.Manufacturer) == 1 {
 			value = v.Manufacturer[0]
@@ -517,22 +504,6 @@ func (v Product) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
-		var value interface{} = v.Model
-		if len(v.Model) == 1 {
-			value = v.Model[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["model"] = json.RawMessage(b)
-		}
-	}
-
-	{
 		var value interface{} = v.Mpn
 		if len(v.Mpn) == 1 {
 			value = v.Mpn[0]
@@ -549,9 +520,9 @@ func (v Product) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
-		var value interface{} = v.Offers
-		if len(v.Offers) == 1 {
-			value = v.Offers[0]
+		var value interface{} = v.Name
+		if len(v.Name) == 1 {
+			value = v.Name[0]
 		}
 
 		b, err := json.Marshal(value)
@@ -560,7 +531,23 @@ func (v Product) intoMap(intop *map[string]interface{}) error {
 		}
 
 		if len(b) > 0 && string(b) != "null" {
-			into["offers"] = json.RawMessage(b)
+			into["name"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.PotentialAction
+		if len(v.PotentialAction) == 1 {
+			value = v.PotentialAction[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["potentialAction"] = json.RawMessage(b)
 		}
 	}
 
@@ -581,54 +568,6 @@ func (v Product) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
-		var value interface{} = v.ProductionDate
-		if len(v.ProductionDate) == 1 {
-			value = v.ProductionDate[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["productionDate"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PurchaseDate
-		if len(v.PurchaseDate) == 1 {
-			value = v.PurchaseDate[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["purchaseDate"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ReleaseDate
-		if len(v.ReleaseDate) == 1 {
-			value = v.ReleaseDate[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["releaseDate"] = json.RawMessage(b)
-		}
-	}
-
-	{
 		var value interface{} = v.Review
 		if len(v.Review) == 1 {
 			value = v.Review[0]
@@ -645,9 +584,9 @@ func (v Product) intoMap(intop *map[string]interface{}) error {
 	}
 
 	{
-		var value interface{} = v.Sku
-		if len(v.Sku) == 1 {
-			value = v.Sku[0]
+		var value interface{} = v.SameAs
+		if len(v.SameAs) == 1 {
+			value = v.SameAs[0]
 		}
 
 		b, err := json.Marshal(value)
@@ -656,14 +595,14 @@ func (v Product) intoMap(intop *map[string]interface{}) error {
 		}
 
 		if len(b) > 0 && string(b) != "null" {
-			into["sku"] = json.RawMessage(b)
+			into["sameAs"] = json.RawMessage(b)
 		}
 	}
 
 	{
-		var value interface{} = v.Weight
-		if len(v.Weight) == 1 {
-			value = v.Weight[0]
+		var value interface{} = v.SubjectOf
+		if len(v.SubjectOf) == 1 {
+			value = v.SubjectOf[0]
 		}
 
 		b, err := json.Marshal(value)
@@ -672,7 +611,23 @@ func (v Product) intoMap(intop *map[string]interface{}) error {
 		}
 
 		if len(b) > 0 && string(b) != "null" {
-			into["weight"] = json.RawMessage(b)
+			into["subjectOf"] = json.RawMessage(b)
+		}
+	}
+
+	{
+		var value interface{} = v.Url
+		if len(v.Url) == 1 {
+			value = v.Url[0]
+		}
+
+		b, err := json.Marshal(value)
+		if err != nil {
+			return err
+		}
+
+		if len(b) > 0 && string(b) != "null" {
+			into["url"] = json.RawMessage(b)
 		}
 	}
 
