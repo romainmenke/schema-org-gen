@@ -12,7 +12,6 @@ import (
 
 	"github.com/romainmenke/schema-org-gen/internal/fetch"
 	"github.com/romainmenke/schema-org-gen/internal/gengo"
-	"github.com/romainmenke/schema-org-gen/internal/genjson"
 	"github.com/romainmenke/schema-org-gen/internal/genphp"
 	"github.com/romainmenke/schema-org-gen/internal/typemap"
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
@@ -24,9 +23,8 @@ func main() {
 		app   = kingpin.New("schema-org-gen", "A generator for schema.org types")
 		clean = app.Flag("clean", "Fetch the typemap from schema.org before generating.").Bool()
 
-		goCmd   = app.Command("go", "Generate for Go")
-		phpCmd  = app.Command("php", "Generate for php")
-		jsonCmd = app.Command("json", "Generate JSON examples")
+		goCmd  = app.Command("go", "Generate for Go")
+		phpCmd = app.Command("php", "Generate for php")
 
 		tm  *typemap.TypeMap
 		err error
@@ -76,12 +74,6 @@ func main() {
 	switch cmd {
 	case goCmd.FullCommand():
 		err = gengo.Generate(ctx, tm, "./schemaorggo", "schemaorggo")
-		if err != nil {
-			log.Fatal(err)
-		}
-
-	case jsonCmd.FullCommand():
-		err = genjson.Generate(ctx, tm, "./schemaorgjson")
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -139,6 +131,11 @@ func tmFromSchemaOrg(ctx context.Context) (*typemap.TypeMap, error) {
 	}
 
 	err = tm.Walk(ctx, fetch.Object)
+	if err != nil {
+		return nil, err
+	}
+
+	err = tm.FlattenTypes(ctx)
 	if err != nil {
 		return nil, err
 	}

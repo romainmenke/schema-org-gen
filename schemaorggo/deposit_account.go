@@ -4,8 +4,6 @@ import "encoding/json"
 
 // DepositAccount see : https://schema.org/DepositAccount
 type DepositAccount struct {
-	InvestmentOrDeposit
-
 	typeContext
 
 	// Amount see : https://schema.org/amount
@@ -18,8 +16,6 @@ func (v DepositAccount) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
-
-	v.InvestmentOrDeposit.intoMap(intop)
 
 	into := *intop
 

@@ -20,9 +20,6 @@ func ObjectParser(tokenizer *html.Tokenizer, o *typemap.ObjectSource) error {
 	capturedObject := false
 
 	o.Object.URL = "https://schema.org" + o.URL
-	if o.Parent != nil && o.Parent.Object != nil {
-		o.Object.ParentObject = o.Parent.Object
-	}
 
 	currentField := ast.Field{}
 
@@ -145,7 +142,7 @@ TOKENIZER_LOOP:
 
 				if t.Data == "tr" {
 					inField = false
-					o.Object.Fields = append(o.Object.Fields, currentField)
+					o.Object.AddField(currentField)
 					currentField = ast.Field{}
 				}
 			}

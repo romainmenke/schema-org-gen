@@ -18,8 +18,6 @@ func (v *ObjectSource) walk(ctx context.Context, walker WalkFunc) error {
 		return nil
 	}
 
-	var err error
-
 	select {
 	case <-ctx.Done():
 		return ctx.Err()
@@ -27,7 +25,7 @@ func (v *ObjectSource) walk(ctx context.Context, walker WalkFunc) error {
 		//
 	}
 
-	err = walker(ctx, v, err)
+	err := walker(ctx, v, nil)
 	if err != nil {
 		return err
 	}
@@ -50,5 +48,5 @@ func (v *ObjectSource) walk(ctx context.Context, walker WalkFunc) error {
 		}
 	}
 
-	return err
+	return nil
 }

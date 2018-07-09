@@ -4,8 +4,6 @@ import "encoding/json"
 
 // Dentist see : https://schema.org/Dentist
 type Dentist struct {
-	MedicalOrganization
-
 	typeContext
 
 	// CurrenciesAccepted see : https://schema.org/currenciesAccepted
@@ -43,8 +41,6 @@ func (v Dentist) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
-
-	v.MedicalOrganization.intoMap(intop)
 
 	into := *intop
 

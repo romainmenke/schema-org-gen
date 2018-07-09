@@ -4,8 +4,6 @@ import "encoding/json"
 
 // Hospital see : https://schema.org/Hospital
 type Hospital struct {
-	CivicStructure
-
 	typeContext
 
 	// AvailableService see : https://health-lifesci.schema.org/availableService
@@ -23,8 +21,6 @@ func (v Hospital) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
-
-	v.CivicStructure.intoMap(intop)
 
 	into := *intop
 

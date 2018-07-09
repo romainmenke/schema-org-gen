@@ -4,9 +4,16 @@ import "encoding/json"
 
 // Distance see : https://schema.org/Distance
 type Distance struct {
-	Quantity
-
 	typeContext
+
+	// With properties from Intangible see : https://schema.org/Intangible
+	//
+
+	// With properties from Quantity see : https://schema.org/Quantity
+	//
+
+	// With properties from Thing see : https://schema.org/Thing
+	//
 
 	// AdditionalType see : https://schema.org/additionalType
 	// An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the &#39;typeof&#39; attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.
@@ -73,8 +80,6 @@ func (v Distance) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
-
-	v.Quantity.intoMap(intop)
 
 	into := *intop
 

@@ -4,8 +4,6 @@ import "encoding/json"
 
 // PoliceStation see : https://schema.org/PoliceStation
 type PoliceStation struct {
-	CivicStructure
-
 	typeContext
 
 	// CurrenciesAccepted see : https://schema.org/currenciesAccepted
@@ -43,8 +41,6 @@ func (v PoliceStation) intoMap(intop *map[string]interface{}) error {
 	if intop == nil {
 		return nil
 	}
-
-	v.CivicStructure.intoMap(intop)
 
 	into := *intop
 

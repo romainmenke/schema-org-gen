@@ -14,6 +14,7 @@ The code generator scrapes schema.org collecting a type map, field definitions, 
 ### Generate
 
 ```
+$ schema-org-gen --help
 usage: schema-org-gen [<flags>] <command> [<args> ...]
 
 A generator for schema.org types
@@ -29,13 +30,17 @@ Commands:
   go
     Generate for Go
 
-  json
-    Generate JSON examples
+  php
+    Generate for php
+
+
 ```
 
 # Using the generated types
 
 ### Go
+
+*The generate package is a bit large and it might be better in some cases to copy/paste the types you need.*
 
 `go get github.com/romainmenke/schema-org-gen/schemaorggo`
 
@@ -90,11 +95,3 @@ func main() {
 }
 ```
 ------
-
-### JSON
-
-* Choose a json from the `schemaorgjson` directory and copy it.
-* Go to [Googles structured data testing tool](https://search.google.com/structured-data/testing-tool)
-* Use the testing tool to get an idea of how Google will see the data.
-
-The JSON generator does not create valid values as it uses a random value generator and it only goes 2 levels deep. It does give you a starting point to work with as neither Google not schema.org provide very elaborate `json` examples.
