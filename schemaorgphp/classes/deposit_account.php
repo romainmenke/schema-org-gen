@@ -1,7 +1,9 @@
 <?php
 
+namespace SchemaOrg;
+
 // DepositAccount see : https://schema.org/DepositAccount
-class DepositAccount implements JsonSerializable {
+class DepositAccount implements \JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'DepositAccount';
@@ -20,7 +22,7 @@ class DepositAccount implements JsonSerializable {
 			'@type' => 'DepositAccount'
 		);
 		
-		$serialized = so_json_serialize( $this->amount );
+		$serialized = \SchemaOrg\json_serialize( $this->amount );
 		if ( ! empty( $serialized ) ) {
 			$out['amount'] = $serialized;
 		}

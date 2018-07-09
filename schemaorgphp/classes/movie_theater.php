@@ -1,7 +1,9 @@
 <?php
 
+namespace SchemaOrg;
+
 // MovieTheater see : https://schema.org/MovieTheater
-class MovieTheater implements JsonSerializable {
+class MovieTheater implements \JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'MovieTheater';
@@ -20,7 +22,7 @@ class MovieTheater implements JsonSerializable {
 			'@type' => 'MovieTheater'
 		);
 		
-		$serialized = so_json_serialize( $this->screen_count );
+		$serialized = \SchemaOrg\json_serialize( $this->screen_count );
 		if ( ! empty( $serialized ) ) {
 			$out['screenCount'] = $serialized;
 		}

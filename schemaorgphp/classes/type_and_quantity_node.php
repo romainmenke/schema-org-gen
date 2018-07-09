@@ -1,7 +1,9 @@
 <?php
 
+namespace SchemaOrg;
+
 // TypeAndQuantityNode see : https://schema.org/TypeAndQuantityNode
-class TypeAndQuantityNode implements JsonSerializable {
+class TypeAndQuantityNode implements \JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'TypeAndQuantityNode';
@@ -145,87 +147,87 @@ class TypeAndQuantityNode implements JsonSerializable {
 			'@type' => 'TypeAndQuantityNode'
 		);
 		
-		$serialized = so_json_serialize( $this->additional_type );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_type );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalType'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->alternate_name );
+		$serialized = \SchemaOrg\json_serialize( $this->alternate_name );
 		if ( ! empty( $serialized ) ) {
 			$out['alternateName'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->amount_of_this_good );
+		$serialized = \SchemaOrg\json_serialize( $this->amount_of_this_good );
 		if ( ! empty( $serialized ) ) {
 			$out['amountOfThisGood'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->business_function );
+		$serialized = \SchemaOrg\json_serialize( $this->business_function );
 		if ( ! empty( $serialized ) ) {
 			$out['businessFunction'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->description );
+		$serialized = \SchemaOrg\json_serialize( $this->description );
 		if ( ! empty( $serialized ) ) {
 			$out['description'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->disambiguating_description );
+		$serialized = \SchemaOrg\json_serialize( $this->disambiguating_description );
 		if ( ! empty( $serialized ) ) {
 			$out['disambiguatingDescription'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->identifier );
+		$serialized = \SchemaOrg\json_serialize( $this->identifier );
 		if ( ! empty( $serialized ) ) {
 			$out['identifier'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->image );
+		$serialized = \SchemaOrg\json_serialize( $this->image );
 		if ( ! empty( $serialized ) ) {
 			$out['image'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->main_entity_of_page );
+		$serialized = \SchemaOrg\json_serialize( $this->main_entity_of_page );
 		if ( ! empty( $serialized ) ) {
 			$out['mainEntityOfPage'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->name );
+		$serialized = \SchemaOrg\json_serialize( $this->name );
 		if ( ! empty( $serialized ) ) {
 			$out['name'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->potential_action );
+		$serialized = \SchemaOrg\json_serialize( $this->potential_action );
 		if ( ! empty( $serialized ) ) {
 			$out['potentialAction'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->same_as );
+		$serialized = \SchemaOrg\json_serialize( $this->same_as );
 		if ( ! empty( $serialized ) ) {
 			$out['sameAs'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->subject_of );
+		$serialized = \SchemaOrg\json_serialize( $this->subject_of );
 		if ( ! empty( $serialized ) ) {
 			$out['subjectOf'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->type_of_good );
+		$serialized = \SchemaOrg\json_serialize( $this->type_of_good );
 		if ( ! empty( $serialized ) ) {
 			$out['typeOfGood'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->unit_code );
+		$serialized = \SchemaOrg\json_serialize( $this->unit_code );
 		if ( ! empty( $serialized ) ) {
 			$out['unitCode'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->unit_text );
+		$serialized = \SchemaOrg\json_serialize( $this->unit_text );
 		if ( ! empty( $serialized ) ) {
 			$out['unitText'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->url );
+		$serialized = \SchemaOrg\json_serialize( $this->url );
 		if ( ! empty( $serialized ) ) {
 			$out['url'] = $serialized;
 		}

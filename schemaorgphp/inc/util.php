@@ -1,6 +1,8 @@
 <?php
 
-function so_json_serialize( $value ) {
+namespace SchemaOrg;
+
+function json_serialize( $value ) {
 	if ( empty( $value ) ) {
 		return;
 	}
@@ -10,11 +12,13 @@ function so_json_serialize( $value ) {
 	if ( is_array( $value ) ) {
 		foreach( $value as $index => $element ) {
 			if ( method_exists( $element, 'jsonSerialize' ) ) {
-				array_push( $out, $element->jsonSerialize() );
+				$out_part = $element->jsonSerialize();
+				unset($out_part['@context']);
+
+				array_push( $out, $out_part );
 			}
 		}
 
-		unset($out['@context']);
 		return $out;
 	}
 

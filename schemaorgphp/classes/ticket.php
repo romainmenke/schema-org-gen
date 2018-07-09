@@ -1,7 +1,9 @@
 <?php
 
+namespace SchemaOrg;
+
 // Ticket see : https://schema.org/Ticket
-class Ticket implements JsonSerializable {
+class Ticket implements \JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'Ticket';
@@ -163,102 +165,102 @@ class Ticket implements JsonSerializable {
 			'@type' => 'Ticket'
 		);
 		
-		$serialized = so_json_serialize( $this->additional_type );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_type );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalType'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->alternate_name );
+		$serialized = \SchemaOrg\json_serialize( $this->alternate_name );
 		if ( ! empty( $serialized ) ) {
 			$out['alternateName'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->date_issued );
+		$serialized = \SchemaOrg\json_serialize( $this->date_issued );
 		if ( ! empty( $serialized ) ) {
 			$out['dateIssued'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->description );
+		$serialized = \SchemaOrg\json_serialize( $this->description );
 		if ( ! empty( $serialized ) ) {
 			$out['description'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->disambiguating_description );
+		$serialized = \SchemaOrg\json_serialize( $this->disambiguating_description );
 		if ( ! empty( $serialized ) ) {
 			$out['disambiguatingDescription'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->identifier );
+		$serialized = \SchemaOrg\json_serialize( $this->identifier );
 		if ( ! empty( $serialized ) ) {
 			$out['identifier'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->image );
+		$serialized = \SchemaOrg\json_serialize( $this->image );
 		if ( ! empty( $serialized ) ) {
 			$out['image'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->issued_by );
+		$serialized = \SchemaOrg\json_serialize( $this->issued_by );
 		if ( ! empty( $serialized ) ) {
 			$out['issuedBy'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->main_entity_of_page );
+		$serialized = \SchemaOrg\json_serialize( $this->main_entity_of_page );
 		if ( ! empty( $serialized ) ) {
 			$out['mainEntityOfPage'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->name );
+		$serialized = \SchemaOrg\json_serialize( $this->name );
 		if ( ! empty( $serialized ) ) {
 			$out['name'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->potential_action );
+		$serialized = \SchemaOrg\json_serialize( $this->potential_action );
 		if ( ! empty( $serialized ) ) {
 			$out['potentialAction'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->price_currency );
+		$serialized = \SchemaOrg\json_serialize( $this->price_currency );
 		if ( ! empty( $serialized ) ) {
 			$out['priceCurrency'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->same_as );
+		$serialized = \SchemaOrg\json_serialize( $this->same_as );
 		if ( ! empty( $serialized ) ) {
 			$out['sameAs'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->subject_of );
+		$serialized = \SchemaOrg\json_serialize( $this->subject_of );
 		if ( ! empty( $serialized ) ) {
 			$out['subjectOf'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->ticket_number );
+		$serialized = \SchemaOrg\json_serialize( $this->ticket_number );
 		if ( ! empty( $serialized ) ) {
 			$out['ticketNumber'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->ticket_token );
+		$serialized = \SchemaOrg\json_serialize( $this->ticket_token );
 		if ( ! empty( $serialized ) ) {
 			$out['ticketToken'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->ticketed_seat );
+		$serialized = \SchemaOrg\json_serialize( $this->ticketed_seat );
 		if ( ! empty( $serialized ) ) {
 			$out['ticketedSeat'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->total_price );
+		$serialized = \SchemaOrg\json_serialize( $this->total_price );
 		if ( ! empty( $serialized ) ) {
 			$out['totalPrice'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->under_name );
+		$serialized = \SchemaOrg\json_serialize( $this->under_name );
 		if ( ! empty( $serialized ) ) {
 			$out['underName'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->url );
+		$serialized = \SchemaOrg\json_serialize( $this->url );
 		if ( ! empty( $serialized ) ) {
 			$out['url'] = $serialized;
 		}

@@ -1,7 +1,9 @@
 <?php
 
+namespace SchemaOrg;
+
 // PoliceStation see : https://schema.org/PoliceStation
-class PoliceStation implements JsonSerializable {
+class PoliceStation implements \JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = 'PoliceStation';
@@ -51,22 +53,22 @@ class PoliceStation implements JsonSerializable {
 			'@type' => 'PoliceStation'
 		);
 		
-		$serialized = so_json_serialize( $this->currencies_accepted );
+		$serialized = \SchemaOrg\json_serialize( $this->currencies_accepted );
 		if ( ! empty( $serialized ) ) {
 			$out['currenciesAccepted'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->opening_hours );
+		$serialized = \SchemaOrg\json_serialize( $this->opening_hours );
 		if ( ! empty( $serialized ) ) {
 			$out['openingHours'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->payment_accepted );
+		$serialized = \SchemaOrg\json_serialize( $this->payment_accepted );
 		if ( ! empty( $serialized ) ) {
 			$out['paymentAccepted'] = $serialized;
 		}
 		
-		$serialized = so_json_serialize( $this->price_range );
+		$serialized = \SchemaOrg\json_serialize( $this->price_range );
 		if ( ! empty( $serialized ) ) {
 			$out['priceRange'] = $serialized;
 		}
