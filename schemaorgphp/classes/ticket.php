@@ -22,77 +22,77 @@ class Ticket implements \JsonSerializable {
 	 * see : https://schema.org/additionalType
 	 * @var string | string[]
 	 */
-	public var $additional_type;
+	public $additional_type;
 	
 	/**
 	 * An alias for the item.
 	 * see : https://schema.org/alternateName
 	 * @var string | string[]
 	 */
-	public var $alternate_name;
+	public $alternate_name;
 	
 	/**
 	 * The date the ticket was issued.
 	 * see : https://schema.org/dateIssued
 	 * @var string | string[]
 	 */
-	public var $date_issued;
+	public $date_issued;
 	
 	/**
 	 * A description of the item.
 	 * see : https://schema.org/description
 	 * @var string | string[]
 	 */
-	public var $description;
+	public $description;
 	
 	/**
 	 * A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.
 	 * see : https://schema.org/disambiguatingDescription
 	 * @var string | string[]
 	 */
-	public var $disambiguating_description;
+	public $disambiguating_description;
 	
 	/**
 	 * The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
 	 * see : https://schema.org/identifier
 	 * @var \PropertyValue | \PropertyValue[] | string | string[]
 	 */
-	public var $identifier;
+	public $identifier;
 	
 	/**
 	 * An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
 	 * see : https://schema.org/image
 	 * @var \ImageObject | \ImageObject[] | string | string[]
 	 */
-	public var $image;
+	public $image;
 	
 	/**
 	 * The organization issuing the ticket or permit.
 	 * see : https://schema.org/issuedBy
 	 * @var \Organization | \Organization[]
 	 */
-	public var $issued_by;
+	public $issued_by;
 	
 	/**
 	 * Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
 	 * see : https://schema.org/mainEntityOfPage
 	 * @var \CreativeWork | \CreativeWork[] | string | string[]
 	 */
-	public var $main_entity_of_page;
+	public $main_entity_of_page;
 	
 	/**
 	 * The name of the item.
 	 * see : https://schema.org/name
 	 * @var string | string[]
 	 */
-	public var $name;
+	public $name;
 	
 	/**
 	 * Indicates a potential Action, which describes an idealized action in which this thing would play an &#39;object&#39; role.
 	 * see : https://schema.org/potentialAction
 	 * @var \Action | \Action[]
 	 */
-	public var $potential_action;
+	public $potential_action;
 	
 	/**
 	 * The currency of the price, or a price component when attached to PriceSpecification (see: https://schema.org/PriceSpecification) and its subtypes.
@@ -101,63 +101,63 @@ class Ticket implements \JsonSerializable {
 	 * see : https://schema.org/priceCurrency
 	 * @var string | string[]
 	 */
-	public var $price_currency;
+	public $price_currency;
 	
 	/**
 	 * URL of a reference Web page that unambiguously indicates the item&#39;s identity. E.g. the URL of the item&#39;s Wikipedia page, Wikidata entry, or official website.
 	 * see : https://schema.org/sameAs
 	 * @var string | string[]
 	 */
-	public var $same_as;
+	public $same_as;
 	
 	/**
 	 * A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
 	 * see : https://pending.schema.org/subjectOf
 	 * @var \CreativeWork | \CreativeWork[] | \Event | \Event[]
 	 */
-	public var $subject_of;
+	public $subject_of;
 	
 	/**
 	 * The unique identifier for the ticket.
 	 * see : https://schema.org/ticketNumber
 	 * @var string | string[]
 	 */
-	public var $ticket_number;
+	public $ticket_number;
 	
 	/**
 	 * Reference to an asset (e.g., Barcode, QR code image or PDF) usable for entrance.
 	 * see : https://schema.org/ticketToken
 	 * @var string | string[]
 	 */
-	public var $ticket_token;
+	public $ticket_token;
 	
 	/**
 	 * The seat associated with the ticket.
 	 * see : https://schema.org/ticketedSeat
 	 * @var \Seat | \Seat[]
 	 */
-	public var $ticketed_seat;
+	public $ticketed_seat;
 	
 	/**
 	 * The total price for the reservation or ticket, including applicable taxes, shipping, etc.
 	 * see : https://schema.org/totalPrice
 	 * @var float | float[] | \PriceSpecification | \PriceSpecification[] | string | string[]
 	 */
-	public var $total_price;
+	public $total_price;
 	
 	/**
 	 * The person or organization the reservation or ticket is for.
 	 * see : https://schema.org/underName
 	 * @var \Organization | \Organization[] | \Person | \Person[]
 	 */
-	public var $under_name;
+	public $under_name;
 	
 	/**
 	 * URL of the item.
 	 * see : https://schema.org/url
 	 * @var string | string[]
 	 */
-	public var $url;
+	public $url;
 	
 	public function jsonSerialize() {
 		$out = array(

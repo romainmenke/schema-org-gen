@@ -30,77 +30,77 @@ class JewelryStore implements \JsonSerializable {
 	 * see : https://pending.schema.org/actionableFeedbackPolicy
 	 * @var \CreativeWork | \CreativeWork[] | string | string[]
 	 */
-	public var $actionable_feedback_policy;
+	public $actionable_feedback_policy;
 	
 	/**
 	 * An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the &#39;typeof&#39; attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.
 	 * see : https://schema.org/additionalType
 	 * @var string | string[]
 	 */
-	public var $additional_type;
+	public $additional_type;
 	
 	/**
 	 * Physical address of the item.
 	 * see : https://schema.org/address
 	 * @var \PostalAddress | \PostalAddress[] | string | string[]
 	 */
-	public var $address;
+	public $address;
 	
 	/**
 	 * The overall rating, based on a collection of reviews or ratings, of the item.
 	 * see : https://schema.org/aggregateRating
 	 * @var \AggregateRating | \AggregateRating[]
 	 */
-	public var $aggregate_rating;
+	public $aggregate_rating;
 	
 	/**
 	 * An alias for the item.
 	 * see : https://schema.org/alternateName
 	 * @var string | string[]
 	 */
-	public var $alternate_name;
+	public $alternate_name;
 	
 	/**
 	 * Alumni of an organization. Inverse property: alumniOf (see: https://schema.org/alumniOf).
 	 * see : https://schema.org/alumni
 	 * @var \Person | \Person[]
 	 */
-	public var $alumni;
+	public $alumni;
 	
 	/**
 	 * The geographic area where a service or offered item is provided. Supersedes serviceArea (see: https://schema.org/serviceArea).
 	 * see : https://schema.org/areaServed
 	 * @var \AdministrativeArea | \AdministrativeArea[] | \GeoShape | \GeoShape[] | \Place | \Place[] | string | string[]
 	 */
-	public var $area_served;
+	public $area_served;
 	
 	/**
 	 * An award won by or for this item. Supersedes awards (see: https://schema.org/awards).
 	 * see : https://schema.org/award
 	 * @var string | string[]
 	 */
-	public var $award;
+	public $award;
 	
 	/**
 	 * The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
 	 * see : https://schema.org/brand
 	 * @var \Brand | \Brand[] | \Organization | \Organization[]
 	 */
-	public var $brand;
+	public $brand;
 	
 	/**
 	 * A contact point for a person or organization. Supersedes contactPoints (see: https://schema.org/contactPoints).
 	 * see : https://schema.org/contactPoint
 	 * @var \ContactPoint | \ContactPoint[]
 	 */
-	public var $contact_point;
+	public $contact_point;
 	
 	/**
 	 * For an Organization (see: https://schema.org/Organization) (e.g. NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization)), a statement describing (in news media, the newsroom’s) disclosure and correction policy for errors.
 	 * see : https://pending.schema.org/correctionsPolicy
 	 * @var \CreativeWork | \CreativeWork[] | string | string[]
 	 */
-	public var $corrections_policy;
+	public $corrections_policy;
 	
 	/**
 	 * The currency accepted.
@@ -109,252 +109,252 @@ class JewelryStore implements \JsonSerializable {
 	 * see : https://schema.org/currenciesAccepted
 	 * @var string | string[]
 	 */
-	public var $currencies_accepted;
+	public $currencies_accepted;
 	
 	/**
 	 * A relationship between an organization and a department of that organization, also described as an organization (allowing different urls, logos, opening hours). For example: a store with a pharmacy, or a bakery with a cafe.
 	 * see : https://schema.org/department
 	 * @var \Organization | \Organization[]
 	 */
-	public var $department;
+	public $department;
 	
 	/**
 	 * A description of the item.
 	 * see : https://schema.org/description
 	 * @var string | string[]
 	 */
-	public var $description;
+	public $description;
 	
 	/**
 	 * A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.
 	 * see : https://schema.org/disambiguatingDescription
 	 * @var string | string[]
 	 */
-	public var $disambiguating_description;
+	public $disambiguating_description;
 	
 	/**
 	 * The date that this organization was dissolved.
 	 * see : https://schema.org/dissolutionDate
 	 * @var string | string[]
 	 */
-	public var $dissolution_date;
+	public $dissolution_date;
 	
 	/**
 	 * Statement on diversity policy by an Organization (see: https://schema.org/Organization) e.g. a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization). For a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization), a statement describing the newsroom’s diversity policy on both staffing and sources, typically providing staffing data.
 	 * see : https://pending.schema.org/diversityPolicy
 	 * @var \CreativeWork | \CreativeWork[] | string | string[]
 	 */
-	public var $diversity_policy;
+	public $diversity_policy;
 	
 	/**
 	 * For an Organization (see: https://schema.org/Organization) (often but not necessarily a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization)), a report on staffing diversity issues. In a news context this might be for example ASNE or RTDNA (US) reports, or self-reported.
 	 * see : https://pending.schema.org/diversityStaffingReport
 	 * @var \Article | \Article[] | string | string[]
 	 */
-	public var $diversity_staffing_report;
+	public $diversity_staffing_report;
 	
 	/**
 	 * The Dun &amp; Bradstreet DUNS number for identifying an organization or business person.
 	 * see : https://schema.org/duns
 	 * @var string | string[]
 	 */
-	public var $duns;
+	public $duns;
 	
 	/**
 	 * Email address.
 	 * see : https://schema.org/email
 	 * @var string | string[]
 	 */
-	public var $email;
+	public $email;
 	
 	/**
 	 * Someone working for this organization. Supersedes employees (see: https://schema.org/employees).
 	 * see : https://schema.org/employee
 	 * @var \Person | \Person[]
 	 */
-	public var $employee;
+	public $employee;
 	
 	/**
 	 * Statement about ethics policy, e.g. of a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization) regarding journalistic and publishing practices, or of a Restaurant (see: https://schema.org/Restaurant), a page describing food source policies. In the case of a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization), an ethicsPolicy is typically a statement describing the personal, organizational, and corporate standards of behavior expected by the organization.
 	 * see : https://pending.schema.org/ethicsPolicy
 	 * @var \CreativeWork | \CreativeWork[] | string | string[]
 	 */
-	public var $ethics_policy;
+	public $ethics_policy;
 	
 	/**
 	 * Upcoming or past event associated with this place, organization, or action. Supersedes events (see: https://schema.org/events).
 	 * see : https://schema.org/event
 	 * @var \Event | \Event[]
 	 */
-	public var $event;
+	public $event;
 	
 	/**
 	 * The fax number.
 	 * see : https://schema.org/faxNumber
 	 * @var string | string[]
 	 */
-	public var $fax_number;
+	public $fax_number;
 	
 	/**
 	 * A person who founded this organization. Supersedes founders (see: https://schema.org/founders).
 	 * see : https://schema.org/founder
 	 * @var \Person | \Person[]
 	 */
-	public var $founder;
+	public $founder;
 	
 	/**
 	 * The date that this organization was founded.
 	 * see : https://schema.org/foundingDate
 	 * @var string | string[]
 	 */
-	public var $founding_date;
+	public $founding_date;
 	
 	/**
 	 * The place where the Organization was founded.
 	 * see : https://schema.org/foundingLocation
 	 * @var \Place | \Place[]
 	 */
-	public var $founding_location;
+	public $founding_location;
 	
 	/**
 	 * A person or organization that supports (sponsors) something through some kind of financial contribution.
 	 * see : https://schema.org/funder
 	 * @var \Organization | \Organization[] | \Person | \Person[]
 	 */
-	public var $funder;
+	public $funder;
 	
 	/**
 	 * The Global Location Number (see: https://schema.orghttp://www.gs1.org/gln) (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.
 	 * see : https://schema.org/globalLocationNumber
 	 * @var string | string[]
 	 */
-	public var $global_location_number;
+	public $global_location_number;
 	
 	/**
 	 * Indicates an OfferCatalog listing for this Organization, Person, or Service.
 	 * see : https://schema.org/hasOfferCatalog
 	 * @var \OfferCatalog | \OfferCatalog[]
 	 */
-	public var $has_offer_catalog;
+	public $has_offer_catalog;
 	
 	/**
 	 * Points-of-Sales operated by the organization or person.
 	 * see : https://schema.org/hasPOS
 	 * @var \Place | \Place[]
 	 */
-	public var $haspo_s;
+	public $has_pos;
 	
 	/**
 	 * The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
 	 * see : https://schema.org/identifier
 	 * @var \PropertyValue | \PropertyValue[] | string | string[]
 	 */
-	public var $identifier;
+	public $identifier;
 	
 	/**
 	 * An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
 	 * see : https://schema.org/image
 	 * @var \ImageObject | \ImageObject[] | string | string[]
 	 */
-	public var $image;
+	public $image;
 	
 	/**
 	 * The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place.
 	 * see : https://schema.org/isicV4
 	 * @var string | string[]
 	 */
-	public var $isic_v_4;
+	public $isic_v_4;
 	
 	/**
 	 * Of a Person (see: https://schema.org/Person), and less typically of an Organization (see: https://schema.org/Organization), to indicate a topic that is known about - suggesting possible expertise but not implying it. We do not distinguish skill levels here, or yet relate this to educational content, events, objectives or JobPosting (see: https://schema.org/JobPosting) descriptions.
 	 * see : https://pending.schema.org/knowsAbout
 	 * @var string | string[] | \Thing | \Thing[]
 	 */
-	public var $knows_about;
+	public $knows_about;
 	
 	/**
 	 * Of a Person (see: https://schema.org/Person), and less typically of an Organization (see: https://schema.org/Organization), to indicate a known language. We do not distinguish skill levels or reading/writing/speaking/signing here. Use language codes from the IETF BCP 47 standard (see: https://schema.orghttp://tools.ietf.org/html/bcp47).
 	 * see : https://pending.schema.org/knowsLanguage
 	 * @var \Language | \Language[] | string | string[]
 	 */
-	public var $knows_language;
+	public $knows_language;
 	
 	/**
 	 * The official name of the organization, e.g. the registered company name.
 	 * see : https://schema.org/legalName
 	 * @var string | string[]
 	 */
-	public var $legal_name;
+	public $legal_name;
 	
 	/**
 	 * An organization identifier that uniquely identifies a legal entity as defined in ISO 17442.
 	 * see : https://schema.org/leiCode
 	 * @var string | string[]
 	 */
-	public var $lei_code;
+	public $lei_code;
 	
 	/**
 	 * The location of for example where the event is happening, an organization is located, or where an action takes place.
 	 * see : https://schema.org/location
 	 * @var \Place | \Place[] | \PostalAddress | \PostalAddress[] | string | string[]
 	 */
-	public var $location;
+	public $location;
 	
 	/**
 	 * An associated logo.
 	 * see : https://schema.org/logo
 	 * @var \ImageObject | \ImageObject[] | string | string[]
 	 */
-	public var $logo;
+	public $logo;
 	
 	/**
 	 * Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
 	 * see : https://schema.org/mainEntityOfPage
 	 * @var \CreativeWork | \CreativeWork[] | string | string[]
 	 */
-	public var $main_entity_of_page;
+	public $main_entity_of_page;
 	
 	/**
 	 * A pointer to products or services offered by the organization or person. Inverse property: offeredBy (see: https://schema.org/offeredBy).
 	 * see : https://schema.org/makesOffer
 	 * @var \Offer | \Offer[]
 	 */
-	public var $makes_offer;
+	public $makes_offer;
 	
 	/**
 	 * A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals. Supersedes members (see: https://schema.org/members), musicGroupMember (see: https://schema.org/musicGroupMember). Inverse property: memberOf (see: https://schema.org/memberOf).
 	 * see : https://schema.org/member
 	 * @var \Organization | \Organization[] | \Person | \Person[]
 	 */
-	public var $member;
+	public $member;
 	
 	/**
 	 * An Organization (or ProgramMembership) to which this Person or Organization belongs. Inverse property: member (see: https://schema.org/member).
 	 * see : https://schema.org/memberOf
 	 * @var \Organization | \Organization[] | \ProgramMembership | \ProgramMembership[]
 	 */
-	public var $member_of;
+	public $member_of;
 	
 	/**
 	 * The North American Industry Classification System (NAICS) code for a particular organization or business person.
 	 * see : https://schema.org/naics
 	 * @var string | string[]
 	 */
-	public var $naics;
+	public $naics;
 	
 	/**
 	 * The name of the item.
 	 * see : https://schema.org/name
 	 * @var string | string[]
 	 */
-	public var $name;
+	public $name;
 	
 	/**
 	 * The number of employees in an organization e.g. business.
 	 * see : https://schema.org/numberOfEmployees
 	 * @var \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $number_of_employees;
+	public $number_of_employees;
 	
 	/**
 	 * The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas &#39;,&#39; separating each day. Day or time ranges are specified using a hyphen &#39;-&#39;.
@@ -369,49 +369,49 @@ class JewelryStore implements \JsonSerializable {
 	 * see : https://schema.org/openingHours
 	 * @var string | string[]
 	 */
-	public var $opening_hours;
+	public $opening_hours;
 	
 	/**
 	 * For an Organization (see: https://schema.org/Organization) (often but not necessarily a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization)), a description of organizational ownership structure; funding and grants. In a news/media setting, this is with particular reference to editorial independence.   Note that the funder (see: https://schema.org/funder) is also available and can be used to make basic funder information machine-readable.
 	 * see : https://pending.schema.org/ownershipFundingInfo
 	 * @var \AboutPage | \AboutPage[] | \CreativeWork | \CreativeWork[] | string | string[]
 	 */
-	public var $ownership_funding_info;
+	public $ownership_funding_info;
 	
 	/**
 	 * Products owned by the organization or person.
 	 * see : https://schema.org/owns
 	 * @var \OwnershipInfo | \OwnershipInfo[] | \Product | \Product[]
 	 */
-	public var $owns;
+	public $owns;
 	
 	/**
 	 * The larger organization that this organization is a subOrganization (see: https://schema.org/subOrganization) of, if any. Supersedes branchOf (see: https://schema.org/branchOf). Inverse property: subOrganization (see: https://schema.org/subOrganization).
 	 * see : https://schema.org/parentOrganization
 	 * @var \Organization | \Organization[]
 	 */
-	public var $parent_organization;
+	public $parent_organization;
 	
 	/**
 	 * Cash, Credit Card, Cryptocurrency, Local Exchange Tradings System, etc.
 	 * see : https://schema.org/paymentAccepted
 	 * @var string | string[]
 	 */
-	public var $payment_accepted;
+	public $payment_accepted;
 	
 	/**
 	 * Indicates a potential Action, which describes an idealized action in which this thing would play an &#39;object&#39; role.
 	 * see : https://schema.org/potentialAction
 	 * @var \Action | \Action[]
 	 */
-	public var $potential_action;
+	public $potential_action;
 	
 	/**
 	 * The price range of the business, for example $$$.
 	 * see : https://schema.org/priceRange
 	 * @var string | string[]
 	 */
-	public var $price_range;
+	public $price_range;
 	
 	/**
 	 * The publishingPrinciples property indicates (typically via URL (see: https://schema.org/URL)) a document describing the editorial principles of an Organization (see: https://schema.org/Organization) (or individual e.g. a Person (see: https://schema.org/Person) writing a blog) that relate to their activities as a publisher, e.g. ethics or diversity policies. When applied to a CreativeWork (see: https://schema.org/CreativeWork) (e.g. NewsArticle (see: https://schema.org/NewsArticle)) the principles are those of the party primarily responsible for the creation of the CreativeWork (see: https://schema.org/CreativeWork).
@@ -420,84 +420,84 @@ class JewelryStore implements \JsonSerializable {
 	 * see : https://schema.org/publishingPrinciples
 	 * @var \CreativeWork | \CreativeWork[] | string | string[]
 	 */
-	public var $publishing_principles;
+	public $publishing_principles;
 	
 	/**
 	 * A review of the item. Supersedes reviews (see: https://schema.org/reviews).
 	 * see : https://schema.org/review
 	 * @var \Review | \Review[]
 	 */
-	public var $review;
+	public $review;
 	
 	/**
 	 * URL of a reference Web page that unambiguously indicates the item&#39;s identity. E.g. the URL of the item&#39;s Wikipedia page, Wikidata entry, or official website.
 	 * see : https://schema.org/sameAs
 	 * @var string | string[]
 	 */
-	public var $same_as;
+	public $same_as;
 	
 	/**
 	 * A pointer to products or services sought by the organization or person (demand).
 	 * see : https://schema.org/seeks
 	 * @var \Demand | \Demand[]
 	 */
-	public var $seeks;
+	public $seeks;
 	
 	/**
 	 * A person or organization that supports a thing through a pledge, promise, or financial contribution. e.g. a sponsor of a Medical Study or a corporate sponsor of an event.
 	 * see : https://schema.org/sponsor
 	 * @var \Organization | \Organization[] | \Person | \Person[]
 	 */
-	public var $sponsor;
+	public $sponsor;
 	
 	/**
 	 * A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific &#39;department&#39; property. Inverse property: parentOrganization (see: https://schema.org/parentOrganization).
 	 * see : https://schema.org/subOrganization
 	 * @var \Organization | \Organization[]
 	 */
-	public var $sub_organization;
+	public $sub_organization;
 	
 	/**
 	 * A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
 	 * see : https://pending.schema.org/subjectOf
 	 * @var \CreativeWork | \CreativeWork[] | \Event | \Event[]
 	 */
-	public var $subject_of;
+	public $subject_of;
 	
 	/**
 	 * The Tax / Fiscal ID of the organization or person, e.g. the TIN in the US or the CIF/NIF in Spain.
 	 * see : https://schema.org/taxID
 	 * @var string | string[]
 	 */
-	public var $taxi_d;
+	public $tax_id;
 	
 	/**
 	 * The telephone number.
 	 * see : https://schema.org/telephone
 	 * @var string | string[]
 	 */
-	public var $telephone;
+	public $telephone;
 	
 	/**
 	 * For an Organization (see: https://schema.org/Organization) (typically a NewsMediaOrganization (see: https://schema.org/NewsMediaOrganization)), a statement about policy on use of unnamed sources and the decision process required.
 	 * see : https://pending.schema.org/unnamedSourcesPolicy
 	 * @var \CreativeWork | \CreativeWork[] | string | string[]
 	 */
-	public var $unnamed_sources_policy;
+	public $unnamed_sources_policy;
 	
 	/**
 	 * URL of the item.
 	 * see : https://schema.org/url
 	 * @var string | string[]
 	 */
-	public var $url;
+	public $url;
 	
 	/**
 	 * The Value-added Tax ID of the organization or person.
 	 * see : https://schema.org/vatID
 	 * @var string | string[]
 	 */
-	public var $vati_d;
+	public $vat_id;
 	
 	public function jsonSerialize() {
 		$out = array(
@@ -655,7 +655,7 @@ class JewelryStore implements \JsonSerializable {
 			$out['hasOfferCatalog'] = $serialized;
 		}
 		
-		$serialized = \SchemaOrg\json_serialize( $this->haspo_s );
+		$serialized = \SchemaOrg\json_serialize( $this->has_pos );
 		if ( ! empty( $serialized ) ) {
 			$out['hasPOS'] = $serialized;
 		}
@@ -810,7 +810,7 @@ class JewelryStore implements \JsonSerializable {
 			$out['subjectOf'] = $serialized;
 		}
 		
-		$serialized = \SchemaOrg\json_serialize( $this->taxi_d );
+		$serialized = \SchemaOrg\json_serialize( $this->tax_id );
 		if ( ! empty( $serialized ) ) {
 			$out['taxID'] = $serialized;
 		}
@@ -830,7 +830,7 @@ class JewelryStore implements \JsonSerializable {
 			$out['url'] = $serialized;
 		}
 		
-		$serialized = \SchemaOrg\json_serialize( $this->vati_d );
+		$serialized = \SchemaOrg\json_serialize( $this->vat_id );
 		if ( ! empty( $serialized ) ) {
 			$out['vatID'] = $serialized;
 		}

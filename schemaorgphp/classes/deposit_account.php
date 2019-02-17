@@ -14,7 +14,7 @@ class DepositAccount implements \JsonSerializable {
 	 * see : https://schema.org/amount
 	 * @var \MonetaryAmount | \MonetaryAmount[] | float | float[]
 	 */
-	public var $amount;
+	public $amount;
 	
 	public function jsonSerialize() {
 		$out = array(

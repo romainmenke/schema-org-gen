@@ -26,147 +26,147 @@ class ContactPoint implements \JsonSerializable {
 	 * see : https://schema.org/additionalType
 	 * @var string | string[]
 	 */
-	public var $additional_type;
+	public $additional_type;
 	
 	/**
 	 * An alias for the item.
 	 * see : https://schema.org/alternateName
 	 * @var string | string[]
 	 */
-	public var $alternate_name;
+	public $alternate_name;
 	
 	/**
 	 * The geographic area where a service or offered item is provided. Supersedes serviceArea (see: https://schema.org/serviceArea).
 	 * see : https://schema.org/areaServed
 	 * @var \AdministrativeArea | \AdministrativeArea[] | \GeoShape | \GeoShape[] | \Place | \Place[] | string | string[]
 	 */
-	public var $area_served;
+	public $area_served;
 	
 	/**
 	 * A language someone may use with or at the item, service or place. Please use one of the language codes from the IETF BCP 47 standard (see: https://schema.orghttp://tools.ietf.org/html/bcp47). See also inLanguage (see: https://schema.org/inLanguage)
 	 * see : https://schema.org/availableLanguage
 	 * @var \Language | \Language[] | string | string[]
 	 */
-	public var $available_language;
+	public $available_language;
 	
 	/**
 	 * An option available on this contact point (e.g. a toll-free number or support for hearing-impaired callers).
 	 * see : https://schema.org/contactOption
 	 * @var \ContactPointOption | \ContactPointOption[]
 	 */
-	public var $contact_option;
+	public $contact_option;
 	
 	/**
 	 * A person or organization can have different contact points, for different purposes. For example, a sales contact point, a PR contact point and so on. This property is used to specify the kind of contact point.
 	 * see : https://schema.org/contactType
 	 * @var string | string[]
 	 */
-	public var $contact_type;
+	public $contact_type;
 	
 	/**
 	 * A description of the item.
 	 * see : https://schema.org/description
 	 * @var string | string[]
 	 */
-	public var $description;
+	public $description;
 	
 	/**
 	 * A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.
 	 * see : https://schema.org/disambiguatingDescription
 	 * @var string | string[]
 	 */
-	public var $disambiguating_description;
+	public $disambiguating_description;
 	
 	/**
 	 * Email address.
 	 * see : https://schema.org/email
 	 * @var string | string[]
 	 */
-	public var $email;
+	public $email;
 	
 	/**
 	 * The fax number.
 	 * see : https://schema.org/faxNumber
 	 * @var string | string[]
 	 */
-	public var $fax_number;
+	public $fax_number;
 	
 	/**
 	 * The hours during which this service or contact is available.
 	 * see : https://schema.org/hoursAvailable
 	 * @var \OpeningHoursSpecification | \OpeningHoursSpecification[]
 	 */
-	public var $hours_available;
+	public $hours_available;
 	
 	/**
 	 * The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
 	 * see : https://schema.org/identifier
 	 * @var \PropertyValue | \PropertyValue[] | string | string[]
 	 */
-	public var $identifier;
+	public $identifier;
 	
 	/**
 	 * An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
 	 * see : https://schema.org/image
 	 * @var \ImageObject | \ImageObject[] | string | string[]
 	 */
-	public var $image;
+	public $image;
 	
 	/**
 	 * Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
 	 * see : https://schema.org/mainEntityOfPage
 	 * @var \CreativeWork | \CreativeWork[] | string | string[]
 	 */
-	public var $main_entity_of_page;
+	public $main_entity_of_page;
 	
 	/**
 	 * The name of the item.
 	 * see : https://schema.org/name
 	 * @var string | string[]
 	 */
-	public var $name;
+	public $name;
 	
 	/**
 	 * Indicates a potential Action, which describes an idealized action in which this thing would play an &#39;object&#39; role.
 	 * see : https://schema.org/potentialAction
 	 * @var \Action | \Action[]
 	 */
-	public var $potential_action;
+	public $potential_action;
 	
 	/**
 	 * The product or service this support contact point is related to (such as product support for a particular product line). This can be a specific product or product line (e.g. &quot;iPhone&quot;) or a general category of products or services (e.g. &quot;smartphones&quot;).
 	 * see : https://schema.org/productSupported
 	 * @var \Product | \Product[] | string | string[]
 	 */
-	public var $product_supported;
+	public $product_supported;
 	
 	/**
 	 * URL of a reference Web page that unambiguously indicates the item&#39;s identity. E.g. the URL of the item&#39;s Wikipedia page, Wikidata entry, or official website.
 	 * see : https://schema.org/sameAs
 	 * @var string | string[]
 	 */
-	public var $same_as;
+	public $same_as;
 	
 	/**
 	 * A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
 	 * see : https://pending.schema.org/subjectOf
 	 * @var \CreativeWork | \CreativeWork[] | \Event | \Event[]
 	 */
-	public var $subject_of;
+	public $subject_of;
 	
 	/**
 	 * The telephone number.
 	 * see : https://schema.org/telephone
 	 * @var string | string[]
 	 */
-	public var $telephone;
+	public $telephone;
 	
 	/**
 	 * URL of the item.
 	 * see : https://schema.org/url
 	 * @var string | string[]
 	 */
-	public var $url;
+	public $url;
 	
 	public function jsonSerialize() {
 		$out = array(

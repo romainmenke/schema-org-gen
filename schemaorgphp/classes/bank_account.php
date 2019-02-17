@@ -30,266 +30,266 @@ class BankAccount implements \JsonSerializable {
 	 * see : https://pending.schema.org/accountMinimumInflow
 	 * @var \MonetaryAmount | \MonetaryAmount[]
 	 */
-	public var $account_minimum_inflow;
+	public $account_minimum_inflow;
 	
 	/**
 	 * An overdraft is an extension of credit from a lending institution when an account reaches zero. An overdraft allows the individual to continue withdrawing money even if the account has no funds in it. Basically the bank allows people to borrow a set amount of money.
 	 * see : https://pending.schema.org/accountOverdraftLimit
 	 * @var \MonetaryAmount | \MonetaryAmount[]
 	 */
-	public var $account_overdraft_limit;
+	public $account_overdraft_limit;
 	
 	/**
 	 * An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the &#39;typeof&#39; attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.
 	 * see : https://schema.org/additionalType
 	 * @var string | string[]
 	 */
-	public var $additional_type;
+	public $additional_type;
 	
 	/**
 	 * The overall rating, based on a collection of reviews or ratings, of the item.
 	 * see : https://schema.org/aggregateRating
 	 * @var \AggregateRating | \AggregateRating[]
 	 */
-	public var $aggregate_rating;
+	public $aggregate_rating;
 	
 	/**
 	 * An alias for the item.
 	 * see : https://schema.org/alternateName
 	 * @var string | string[]
 	 */
-	public var $alternate_name;
+	public $alternate_name;
 	
 	/**
 	 * The annual rate that is charged for borrowing (or made by investing), expressed as a single percentage number that represents the actual yearly cost of funds over the term of a loan. This includes any fees or additional costs associated with the transaction.
 	 * see : https://schema.org/annualPercentageRate
 	 * @var float | float[] | \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $annual_percentage_rate;
+	public $annual_percentage_rate;
 	
 	/**
 	 * The geographic area where a service or offered item is provided. Supersedes serviceArea (see: https://schema.org/serviceArea).
 	 * see : https://schema.org/areaServed
 	 * @var \AdministrativeArea | \AdministrativeArea[] | \GeoShape | \GeoShape[] | \Place | \Place[] | string | string[]
 	 */
-	public var $area_served;
+	public $area_served;
 	
 	/**
 	 * An intended audience, i.e. a group for whom something was created. Supersedes serviceAudience (see: https://schema.org/serviceAudience).
 	 * see : https://schema.org/audience
 	 * @var \Audience | \Audience[]
 	 */
-	public var $audience;
+	public $audience;
 	
 	/**
 	 * A means of accessing the service (e.g. a phone bank, a web site, a location, etc.).
 	 * see : https://schema.org/availableChannel
 	 * @var \ServiceChannel | \ServiceChannel[]
 	 */
-	public var $available_channel;
+	public $available_channel;
 	
 	/**
 	 * An award won by or for this item. Supersedes awards (see: https://schema.org/awards).
 	 * see : https://schema.org/award
 	 * @var string | string[]
 	 */
-	public var $award;
+	public $award;
 	
 	/**
 	 * The type of a bank account.
 	 * see : https://pending.schema.org/bankAccountType
 	 * @var string | string[]
 	 */
-	public var $bank_account_type;
+	public $bank_account_type;
 	
 	/**
 	 * The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
 	 * see : https://schema.org/brand
 	 * @var \Brand | \Brand[] | \Organization | \Organization[]
 	 */
-	public var $brand;
+	public $brand;
 	
 	/**
 	 * An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred. Supersedes bookingAgent (see: https://schema.org/bookingAgent).
 	 * see : https://schema.org/broker
 	 * @var \Organization | \Organization[] | \Person | \Person[]
 	 */
-	public var $broker;
+	public $broker;
 	
 	/**
 	 * A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
 	 * see : https://pending.schema.org/category
 	 * @var \PhysicalActivityCategory | \PhysicalActivityCategory[] | string | string[] | \Thing | \Thing[]
 	 */
-	public var $category;
+	public $category;
 	
 	/**
 	 * A description of the item.
 	 * see : https://schema.org/description
 	 * @var string | string[]
 	 */
-	public var $description;
+	public $description;
 	
 	/**
 	 * A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.
 	 * see : https://schema.org/disambiguatingDescription
 	 * @var string | string[]
 	 */
-	public var $disambiguating_description;
+	public $disambiguating_description;
 	
 	/**
 	 * Description of fees, commissions, and other terms applied either to a class of financial product, or by a financial service organization.
 	 * see : https://schema.org/feesAndCommissionsSpecification
 	 * @var string | string[]
 	 */
-	public var $fees_and_commissions_specification;
+	public $fees_and_commissions_specification;
 	
 	/**
 	 * Indicates an OfferCatalog listing for this Organization, Person, or Service.
 	 * see : https://schema.org/hasOfferCatalog
 	 * @var \OfferCatalog | \OfferCatalog[]
 	 */
-	public var $has_offer_catalog;
+	public $has_offer_catalog;
 	
 	/**
 	 * The hours during which this service or contact is available.
 	 * see : https://schema.org/hoursAvailable
 	 * @var \OpeningHoursSpecification | \OpeningHoursSpecification[]
 	 */
-	public var $hours_available;
+	public $hours_available;
 	
 	/**
 	 * The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
 	 * see : https://schema.org/identifier
 	 * @var \PropertyValue | \PropertyValue[] | string | string[]
 	 */
-	public var $identifier;
+	public $identifier;
 	
 	/**
 	 * An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
 	 * see : https://schema.org/image
 	 * @var \ImageObject | \ImageObject[] | string | string[]
 	 */
-	public var $image;
+	public $image;
 	
 	/**
 	 * The interest rate, charged or paid, applicable to the financial product. Note: This is different from the calculated annualPercentageRate.
 	 * see : https://schema.org/interestRate
 	 * @var float | float[] | \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $interest_rate;
+	public $interest_rate;
 	
 	/**
 	 * A pointer to another, somehow related product (or multiple products).
 	 * see : https://schema.org/isRelatedTo
 	 * @var \Product | \Product[] | \Service | \Service[]
 	 */
-	public var $is_related_to;
+	public $is_related_to;
 	
 	/**
 	 * A pointer to another, functionally similar product (or multiple products).
 	 * see : https://schema.org/isSimilarTo
 	 * @var \Product | \Product[] | \Service | \Service[]
 	 */
-	public var $is_similar_to;
+	public $is_similar_to;
 	
 	/**
 	 * An associated logo.
 	 * see : https://schema.org/logo
 	 * @var \ImageObject | \ImageObject[] | string | string[]
 	 */
-	public var $logo;
+	public $logo;
 	
 	/**
 	 * Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
 	 * see : https://schema.org/mainEntityOfPage
 	 * @var \CreativeWork | \CreativeWork[] | string | string[]
 	 */
-	public var $main_entity_of_page;
+	public $main_entity_of_page;
 	
 	/**
 	 * The name of the item.
 	 * see : https://schema.org/name
 	 * @var string | string[]
 	 */
-	public var $name;
+	public $name;
 	
 	/**
 	 * An offer to provide this item—for example, an offer to sell a product, rent the DVD of a movie, perform a service, or give away tickets to an event.
 	 * see : https://schema.org/offers
 	 * @var \Offer | \Offer[]
 	 */
-	public var $offers;
+	public $offers;
 	
 	/**
 	 * Indicates a potential Action, which describes an idealized action in which this thing would play an &#39;object&#39; role.
 	 * see : https://schema.org/potentialAction
 	 * @var \Action | \Action[]
 	 */
-	public var $potential_action;
+	public $potential_action;
 	
 	/**
 	 * The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier (see: https://schema.org/carrier).
 	 * see : https://schema.org/provider
 	 * @var \Organization | \Organization[] | \Person | \Person[]
 	 */
-	public var $provider;
+	public $provider;
 	
 	/**
 	 * Indicates the mobility of a provided service (e.g. &#39;static&#39;, &#39;dynamic&#39;).
 	 * see : https://schema.org/providerMobility
 	 * @var string | string[]
 	 */
-	public var $provider_mobility;
+	public $provider_mobility;
 	
 	/**
 	 * A review of the item. Supersedes reviews (see: https://schema.org/reviews).
 	 * see : https://schema.org/review
 	 * @var \Review | \Review[]
 	 */
-	public var $review;
+	public $review;
 	
 	/**
 	 * URL of a reference Web page that unambiguously indicates the item&#39;s identity. E.g. the URL of the item&#39;s Wikipedia page, Wikidata entry, or official website.
 	 * see : https://schema.org/sameAs
 	 * @var string | string[]
 	 */
-	public var $same_as;
+	public $same_as;
 	
 	/**
 	 * The tangible thing generated by the service, e.g. a passport, permit, etc. Supersedes produces (see: https://schema.org/produces).
 	 * see : https://schema.org/serviceOutput
 	 * @var \Thing | \Thing[]
 	 */
-	public var $service_output;
+	public $service_output;
 	
 	/**
 	 * The type of service being offered, e.g. veterans&#39; benefits, emergency relief, etc.
 	 * see : https://schema.org/serviceType
 	 * @var string | string[]
 	 */
-	public var $service_type;
+	public $service_type;
 	
 	/**
 	 * A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
 	 * see : https://pending.schema.org/subjectOf
 	 * @var \CreativeWork | \CreativeWork[] | \Event | \Event[]
 	 */
-	public var $subject_of;
+	public $subject_of;
 	
 	/**
 	 * Human-readable terms of service documentation.
 	 * see : https://pending.schema.org/termsOfService
 	 * @var string | string[]
 	 */
-	public var $terms_of_service;
+	public $terms_of_service;
 	
 	/**
 	 * URL of the item.
 	 * see : https://schema.org/url
 	 * @var string | string[]
 	 */
-	public var $url;
+	public $url;
 	
 	public function jsonSerialize() {
 		$out = array(

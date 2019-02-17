@@ -30,161 +30,161 @@ class ParentAudience implements \JsonSerializable {
 	 * see : https://schema.org/additionalType
 	 * @var string | string[]
 	 */
-	public var $additional_type;
+	public $additional_type;
 	
 	/**
 	 * An alias for the item.
 	 * see : https://schema.org/alternateName
 	 * @var string | string[]
 	 */
-	public var $alternate_name;
+	public $alternate_name;
 	
 	/**
 	 * The target group associated with a given audience (e.g. veterans, car owners, musicians, etc.).
 	 * see : https://schema.org/audienceType
 	 * @var string | string[]
 	 */
-	public var $audience_type;
+	public $audience_type;
 	
 	/**
 	 * Maximal age of the child.
 	 * see : https://schema.org/childMaxAge
 	 * @var float | float[]
 	 */
-	public var $child_max_age;
+	public $child_max_age;
 	
 	/**
 	 * Minimal age of the child.
 	 * see : https://schema.org/childMinAge
 	 * @var float | float[]
 	 */
-	public var $child_min_age;
+	public $child_min_age;
 	
 	/**
 	 * A description of the item.
 	 * see : https://schema.org/description
 	 * @var string | string[]
 	 */
-	public var $description;
+	public $description;
 	
 	/**
 	 * A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.
 	 * see : https://schema.org/disambiguatingDescription
 	 * @var string | string[]
 	 */
-	public var $disambiguating_description;
+	public $disambiguating_description;
 	
 	/**
 	 * The geographic area associated with the audience.
 	 * see : https://schema.org/geographicArea
 	 * @var \AdministrativeArea | \AdministrativeArea[]
 	 */
-	public var $geographic_area;
+	public $geographic_area;
 	
 	/**
 	 * Specifying the health condition(s) of a patient, medical study, or other target audience.
 	 * see : https://health-lifesci.schema.org/healthCondition
 	 * @var \MedicalCondition | \MedicalCondition[]
 	 */
-	public var $health_condition;
+	public $health_condition;
 	
 	/**
 	 * The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
 	 * see : https://schema.org/identifier
 	 * @var \PropertyValue | \PropertyValue[] | string | string[]
 	 */
-	public var $identifier;
+	public $identifier;
 	
 	/**
 	 * An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
 	 * see : https://schema.org/image
 	 * @var \ImageObject | \ImageObject[] | string | string[]
 	 */
-	public var $image;
+	public $image;
 	
 	/**
 	 * Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
 	 * see : https://schema.org/mainEntityOfPage
 	 * @var \CreativeWork | \CreativeWork[] | string | string[]
 	 */
-	public var $main_entity_of_page;
+	public $main_entity_of_page;
 	
 	/**
 	 * The name of the item.
 	 * see : https://schema.org/name
 	 * @var string | string[]
 	 */
-	public var $name;
+	public $name;
 	
 	/**
 	 * Indicates a potential Action, which describes an idealized action in which this thing would play an &#39;object&#39; role.
 	 * see : https://schema.org/potentialAction
 	 * @var \Action | \Action[]
 	 */
-	public var $potential_action;
+	public $potential_action;
 	
 	/**
 	 * Audiences defined by a person&#39;s gender.
 	 * see : https://schema.org/requiredGender
 	 * @var string | string[]
 	 */
-	public var $required_gender;
+	public $required_gender;
 	
 	/**
 	 * Audiences defined by a person&#39;s maximum age.
 	 * see : https://schema.org/requiredMaxAge
 	 * @var integer | integer[]
 	 */
-	public var $required_max_age;
+	public $required_max_age;
 	
 	/**
 	 * Audiences defined by a person&#39;s minimum age.
 	 * see : https://schema.org/requiredMinAge
 	 * @var integer | integer[]
 	 */
-	public var $required_min_age;
+	public $required_min_age;
 	
 	/**
 	 * URL of a reference Web page that unambiguously indicates the item&#39;s identity. E.g. the URL of the item&#39;s Wikipedia page, Wikidata entry, or official website.
 	 * see : https://schema.org/sameAs
 	 * @var string | string[]
 	 */
-	public var $same_as;
+	public $same_as;
 	
 	/**
 	 * A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
 	 * see : https://pending.schema.org/subjectOf
 	 * @var \CreativeWork | \CreativeWork[] | \Event | \Event[]
 	 */
-	public var $subject_of;
+	public $subject_of;
 	
 	/**
 	 * The gender of the person or audience.
 	 * see : https://schema.org/suggestedGender
 	 * @var string | string[]
 	 */
-	public var $suggested_gender;
+	public $suggested_gender;
 	
 	/**
 	 * Maximal age recommended for viewing content.
 	 * see : https://schema.org/suggestedMaxAge
 	 * @var float | float[]
 	 */
-	public var $suggested_max_age;
+	public $suggested_max_age;
 	
 	/**
 	 * Minimal age recommended for viewing content.
 	 * see : https://schema.org/suggestedMinAge
 	 * @var float | float[]
 	 */
-	public var $suggested_min_age;
+	public $suggested_min_age;
 	
 	/**
 	 * URL of the item.
 	 * see : https://schema.org/url
 	 * @var string | string[]
 	 */
-	public var $url;
+	public $url;
 	
 	public function jsonSerialize() {
 		$out = array(

@@ -14,14 +14,14 @@ class Hospital implements \JsonSerializable {
 	 * see : https://health-lifesci.schema.org/availableService
 	 * @var \MedicalProcedure | \MedicalProcedure[] | \MedicalTest | \MedicalTest[] | \MedicalTherapy | \MedicalTherapy[]
 	 */
-	public var $available_service;
+	public $available_service;
 	
 	/**
 	 * A medical specialty of the provider.
 	 * see : https://health-lifesci.schema.org/medicalSpecialty
 	 * @var \MedicalSpecialty | \MedicalSpecialty[]
 	 */
-	public var $medical_specialty;
+	public $medical_specialty;
 	
 	public function jsonSerialize() {
 		$out = array(

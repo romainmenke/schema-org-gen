@@ -6,6 +6,8 @@ import (
 	"bytes"
 	"compress/gzip"
 	"encoding/base64"
+	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -100,7 +102,24 @@ func (f *_escFile) Close() error {
 }
 
 func (f *_escFile) Readdir(count int) ([]os.FileInfo, error) {
-	return nil, nil
+	if !f.isDir {
+		return nil, fmt.Errorf(" escFile.Readdir: '%s' is not directory", f.name)
+	}
+
+	fis, ok := _escDirs[f.local]
+	if !ok {
+		return nil, fmt.Errorf(" escFile.Readdir: '%s' is directory, but we have no info about content of this dir, local=%s", f.name, f.local)
+	}
+	limit := count
+	if count <= 0 || limit > len(fis) {
+		limit = len(fis)
+	}
+
+	if len(fis) == 0 && count > 0 {
+		return nil, io.EOF
+	}
+
+	return fis[0:limit], nil
 }
 
 func (f *_escFile) Stat() (os.FileInfo, error) {
@@ -191,6 +210,7 @@ func FSMustString(useLocal bool, name string) string {
 var _escData = map[string]*_escFile{
 
 	"/templates/datatypes.twig": {
+		name:    "datatypes.twig",
 		local:   "templates/datatypes.twig",
 		size:    509,
 		modtime: 1526196205,
@@ -205,6 +225,7 @@ AAD//ypkTbD9AQAA
 	},
 
 	"/templates/example.twig": {
+		name:    "example.twig",
 		local:   "templates/example.twig",
 		size:    1239,
 		modtime: 1526200401,
@@ -222,6 +243,7 @@ r0OnYIVxijDHI6hYHTZhjjELrM6W3hHAHAMSrCLBqBT7Y+fyMkv7q0fjOak/AQAA///m1F8l1wQAAA==
 	},
 
 	"/templates/structtypes.twig": {
+		name:    "structtypes.twig",
 		local:   "templates/structtypes.twig",
 		size:    1467,
 		modtime: 1531116330,
@@ -240,6 +262,7 @@ HTnxRVe2opN/Kl2+SyHM+8uPb1+JxWa7e7V47X1akT4J1P7bWAhe7JZHM/K/AQAA//9T/RgHuwUAAA==
 	},
 
 	"/templates/util.twig": {
+		name:    "util.twig",
 		local:   "templates/util.twig",
 		size:    159,
 		modtime: 1526199929,
@@ -250,13 +273,19 @@ faY0NXoHAAD//6b99LqfAAAA
 `,
 	},
 
-	"/": {
-		isDir: true,
-		local: "",
-	},
-
 	"/templates": {
+		name:  "templates",
+		local: `templates`,
 		isDir: true,
-		local: "templates",
+	},
+}
+
+var _escDirs = map[string][]os.FileInfo{
+
+	"templates": {
+		_escData["/templates/datatypes.twig"],
+		_escData["/templates/example.twig"],
+		_escData["/templates/structtypes.twig"],
+		_escData["/templates/util.twig"],
 	},
 }

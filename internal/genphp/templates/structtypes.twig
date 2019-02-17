@@ -16,7 +16,7 @@ class {{ type_name }} implements \JsonSerializable {
 	/**{% for comment_line in field.comment_lines %}
 	 * {{ comment_line }}{% endfor %}
 	 */
-	public var ${{ field.name }};
+	public ${{ field.name }};
 	{% endfor %}
 	public function jsonSerialize() {
 		$out = array(

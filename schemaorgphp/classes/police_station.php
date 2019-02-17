@@ -16,7 +16,7 @@ class PoliceStation implements \JsonSerializable {
 	 * see : https://schema.org/currenciesAccepted
 	 * @var string | string[]
 	 */
-	public var $currencies_accepted;
+	public $currencies_accepted;
 	
 	/**
 	 * The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas &#39;,&#39; separating each day. Day or time ranges are specified using a hyphen &#39;-&#39;.
@@ -31,21 +31,21 @@ class PoliceStation implements \JsonSerializable {
 	 * see : https://schema.org/openingHours
 	 * @var string | string[]
 	 */
-	public var $opening_hours;
+	public $opening_hours;
 	
 	/**
 	 * Cash, Credit Card, Cryptocurrency, Local Exchange Tradings System, etc.
 	 * see : https://schema.org/paymentAccepted
 	 * @var string | string[]
 	 */
-	public var $payment_accepted;
+	public $payment_accepted;
 	
 	/**
 	 * The price range of the business, for example $$$.
 	 * see : https://schema.org/priceRange
 	 * @var string | string[]
 	 */
-	public var $price_range;
+	public $price_range;
 	
 	public function jsonSerialize() {
 		$out = array(

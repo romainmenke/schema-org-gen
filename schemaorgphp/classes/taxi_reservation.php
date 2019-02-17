@@ -26,105 +26,105 @@ class TaxiReservation implements \JsonSerializable {
 	 * see : https://schema.org/additionalType
 	 * @var string | string[]
 	 */
-	public var $additional_type;
+	public $additional_type;
 	
 	/**
 	 * An alias for the item.
 	 * see : https://schema.org/alternateName
 	 * @var string | string[]
 	 */
-	public var $alternate_name;
+	public $alternate_name;
 	
 	/**
 	 * The date and time the reservation was booked.
 	 * see : https://schema.org/bookingTime
 	 * @var string | string[]
 	 */
-	public var $booking_time;
+	public $booking_time;
 	
 	/**
 	 * An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred. Supersedes bookingAgent (see: https://schema.org/bookingAgent).
 	 * see : https://schema.org/broker
 	 * @var \Organization | \Organization[] | \Person | \Person[]
 	 */
-	public var $broker;
+	public $broker;
 	
 	/**
 	 * A description of the item.
 	 * see : https://schema.org/description
 	 * @var string | string[]
 	 */
-	public var $description;
+	public $description;
 	
 	/**
 	 * A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.
 	 * see : https://schema.org/disambiguatingDescription
 	 * @var string | string[]
 	 */
-	public var $disambiguating_description;
+	public $disambiguating_description;
 	
 	/**
 	 * The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
 	 * see : https://schema.org/identifier
 	 * @var \PropertyValue | \PropertyValue[] | string | string[]
 	 */
-	public var $identifier;
+	public $identifier;
 	
 	/**
 	 * An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
 	 * see : https://schema.org/image
 	 * @var \ImageObject | \ImageObject[] | string | string[]
 	 */
-	public var $image;
+	public $image;
 	
 	/**
 	 * Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
 	 * see : https://schema.org/mainEntityOfPage
 	 * @var \CreativeWork | \CreativeWork[] | string | string[]
 	 */
-	public var $main_entity_of_page;
+	public $main_entity_of_page;
 	
 	/**
 	 * The date and time the reservation was modified.
 	 * see : https://schema.org/modifiedTime
 	 * @var string | string[]
 	 */
-	public var $modified_time;
+	public $modified_time;
 	
 	/**
 	 * The name of the item.
 	 * see : https://schema.org/name
 	 * @var string | string[]
 	 */
-	public var $name;
+	public $name;
 	
 	/**
 	 * Number of people the reservation should accommodate.
 	 * see : https://schema.org/partySize
 	 * @var integer | integer[] | \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $party_size;
+	public $party_size;
 	
 	/**
 	 * Where a taxi will pick up a passenger or a rental car can be picked up.
 	 * see : https://schema.org/pickupLocation
 	 * @var \Place | \Place[]
 	 */
-	public var $pickup_location;
+	public $pickup_location;
 	
 	/**
 	 * When a taxi will pickup a passenger or a rental car can be picked up.
 	 * see : https://schema.org/pickupTime
 	 * @var string | string[]
 	 */
-	public var $pickup_time;
+	public $pickup_time;
 	
 	/**
 	 * Indicates a potential Action, which describes an idealized action in which this thing would play an &#39;object&#39; role.
 	 * see : https://schema.org/potentialAction
 	 * @var \Action | \Action[]
 	 */
-	public var $potential_action;
+	public $potential_action;
 	
 	/**
 	 * The currency of the price, or a price component when attached to PriceSpecification (see: https://schema.org/PriceSpecification) and its subtypes.
@@ -133,84 +133,84 @@ class TaxiReservation implements \JsonSerializable {
 	 * see : https://schema.org/priceCurrency
 	 * @var string | string[]
 	 */
-	public var $price_currency;
+	public $price_currency;
 	
 	/**
 	 * Any membership in a frequent flyer, hotel loyalty program, etc. being applied to the reservation.
 	 * see : https://schema.org/programMembershipUsed
 	 * @var \ProgramMembership | \ProgramMembership[]
 	 */
-	public var $program_membership_used;
+	public $program_membership_used;
 	
 	/**
 	 * The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier (see: https://schema.org/carrier).
 	 * see : https://schema.org/provider
 	 * @var \Organization | \Organization[] | \Person | \Person[]
 	 */
-	public var $provider;
+	public $provider;
 	
 	/**
 	 * The thing -- flight, event, restaurant,etc. being reserved.
 	 * see : https://schema.org/reservationFor
 	 * @var \Thing | \Thing[]
 	 */
-	public var $reservation_for;
+	public $reservation_for;
 	
 	/**
 	 * A unique identifier for the reservation.
 	 * see : https://schema.org/reservationId
 	 * @var string | string[]
 	 */
-	public var $reservation_id;
+	public $reservation_id;
 	
 	/**
 	 * The current status of the reservation.
 	 * see : https://schema.org/reservationStatus
 	 * @var \ReservationStatusType | \ReservationStatusType[]
 	 */
-	public var $reservation_status;
+	public $reservation_status;
 	
 	/**
 	 * A ticket associated with the reservation.
 	 * see : https://schema.org/reservedTicket
 	 * @var \Ticket | \Ticket[]
 	 */
-	public var $reserved_ticket;
+	public $reserved_ticket;
 	
 	/**
 	 * URL of a reference Web page that unambiguously indicates the item&#39;s identity. E.g. the URL of the item&#39;s Wikipedia page, Wikidata entry, or official website.
 	 * see : https://schema.org/sameAs
 	 * @var string | string[]
 	 */
-	public var $same_as;
+	public $same_as;
 	
 	/**
 	 * A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
 	 * see : https://pending.schema.org/subjectOf
 	 * @var \CreativeWork | \CreativeWork[] | \Event | \Event[]
 	 */
-	public var $subject_of;
+	public $subject_of;
 	
 	/**
 	 * The total price for the reservation or ticket, including applicable taxes, shipping, etc.
 	 * see : https://schema.org/totalPrice
 	 * @var float | float[] | \PriceSpecification | \PriceSpecification[] | string | string[]
 	 */
-	public var $total_price;
+	public $total_price;
 	
 	/**
 	 * The person or organization the reservation or ticket is for.
 	 * see : https://schema.org/underName
 	 * @var \Organization | \Organization[] | \Person | \Person[]
 	 */
-	public var $under_name;
+	public $under_name;
 	
 	/**
 	 * URL of the item.
 	 * see : https://schema.org/url
 	 * @var string | string[]
 	 */
-	public var $url;
+	public $url;
 	
 	public function jsonSerialize() {
 		$out = array(

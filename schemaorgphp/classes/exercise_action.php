@@ -26,63 +26,63 @@ class ExerciseAction implements \JsonSerializable {
 	 * see : https://schema.org/actionStatus
 	 * @var \ActionStatusType | \ActionStatusType[]
 	 */
-	public var $action_status;
+	public $action_status;
 	
 	/**
 	 * An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the &#39;typeof&#39; attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.
 	 * see : https://schema.org/additionalType
 	 * @var string | string[]
 	 */
-	public var $additional_type;
+	public $additional_type;
 	
 	/**
 	 * The direct performer or driver of the action (animate or inanimate). e.g. John wrote a book.
 	 * see : https://schema.org/agent
 	 * @var \Organization | \Organization[] | \Person | \Person[]
 	 */
-	public var $agent;
+	public $agent;
 	
 	/**
 	 * An alias for the item.
 	 * see : https://schema.org/alternateName
 	 * @var string | string[]
 	 */
-	public var $alternate_name;
+	public $alternate_name;
 	
 	/**
 	 * An intended audience, i.e. a group for whom something was created. Supersedes serviceAudience (see: https://schema.org/serviceAudience).
 	 * see : https://schema.org/audience
 	 * @var \Audience | \Audience[]
 	 */
-	public var $audience;
+	public $audience;
 	
 	/**
 	 * A description of the item.
 	 * see : https://schema.org/description
 	 * @var string | string[]
 	 */
-	public var $description;
+	public $description;
 	
 	/**
 	 * A sub property of instrument. The diet used in this action.
 	 * see : https://health-lifesci.schema.org/diet
 	 * @var \Diet | \Diet[]
 	 */
-	public var $diet;
+	public $diet;
 	
 	/**
 	 * A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.
 	 * see : https://schema.org/disambiguatingDescription
 	 * @var string | string[]
 	 */
-	public var $disambiguating_description;
+	public $disambiguating_description;
 	
 	/**
 	 * The distance travelled, e.g. exercising or travelling.
 	 * see : https://schema.org/distance
 	 * @var \Distance | \Distance[]
 	 */
-	public var $distance;
+	public $distance;
 	
 	/**
 	 * The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to December.
@@ -91,161 +91,161 @@ class ExerciseAction implements \JsonSerializable {
 	 * see : https://schema.org/endTime
 	 * @var string | string[]
 	 */
-	public var $end_time;
+	public $end_time;
 	
 	/**
 	 * For failed actions, more information on the cause of the failure.
 	 * see : https://schema.org/error
 	 * @var \Thing | \Thing[]
 	 */
-	public var $error;
+	public $error;
 	
 	/**
 	 * Upcoming or past event associated with this place, organization, or action. Supersedes events (see: https://schema.org/events).
 	 * see : https://schema.org/event
 	 * @var \Event | \Event[]
 	 */
-	public var $event;
+	public $event;
 	
 	/**
 	 * A sub property of location. The course where this action was taken. Supersedes course (see: https://schema.org/course).
 	 * see : https://schema.org/exerciseCourse
 	 * @var \Place | \Place[]
 	 */
-	public var $exercise_course;
+	public $exercise_course;
 	
 	/**
 	 * A sub property of instrument. The exercise plan used on this action.
 	 * see : https://health-lifesci.schema.org/exercisePlan
 	 * @var \ExercisePlan | \ExercisePlan[]
 	 */
-	public var $exercise_plan;
+	public $exercise_plan;
 	
 	/**
 	 * A sub property of instrument. The diet used in this action.
 	 * see : https://health-lifesci.schema.org/exerciseRelatedDiet
 	 * @var \Diet | \Diet[]
 	 */
-	public var $exercise_related_diet;
+	public $exercise_related_diet;
 	
 	/**
 	 * Type(s) of exercise or activity, such as strength training, flexibility training, aerobics, cardiac rehabilitation, etc.
 	 * see : https://health-lifesci.schema.org/exerciseType
 	 * @var string | string[]
 	 */
-	public var $exercise_type;
+	public $exercise_type;
 	
 	/**
 	 * A sub property of location. The original location of the object or the agent before the action.
 	 * see : https://schema.org/fromLocation
 	 * @var \Place | \Place[]
 	 */
-	public var $from_location;
+	public $from_location;
 	
 	/**
 	 * The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
 	 * see : https://schema.org/identifier
 	 * @var \PropertyValue | \PropertyValue[] | string | string[]
 	 */
-	public var $identifier;
+	public $identifier;
 	
 	/**
 	 * An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
 	 * see : https://schema.org/image
 	 * @var \ImageObject | \ImageObject[] | string | string[]
 	 */
-	public var $image;
+	public $image;
 	
 	/**
 	 * The object that helped the agent perform the action. e.g. John wrote a book with a pen.
 	 * see : https://schema.org/instrument
 	 * @var \Thing | \Thing[]
 	 */
-	public var $instrument;
+	public $instrument;
 	
 	/**
 	 * The location of for example where the event is happening, an organization is located, or where an action takes place.
 	 * see : https://schema.org/location
 	 * @var \Place | \Place[] | \PostalAddress | \PostalAddress[] | string | string[]
 	 */
-	public var $location;
+	public $location;
 	
 	/**
 	 * Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
 	 * see : https://schema.org/mainEntityOfPage
 	 * @var \CreativeWork | \CreativeWork[] | string | string[]
 	 */
-	public var $main_entity_of_page;
+	public $main_entity_of_page;
 	
 	/**
 	 * The name of the item.
 	 * see : https://schema.org/name
 	 * @var string | string[]
 	 */
-	public var $name;
+	public $name;
 	
 	/**
 	 * The object upon which the action is carried out, whose state is kept intact or changed. Also known as the semantic roles patient, affected or undergoer (which change their state) or theme (which doesn&#39;t). e.g. John read a book.
 	 * see : https://schema.org/object
 	 * @var \Thing | \Thing[]
 	 */
-	public var $object;
+	public $object;
 	
 	/**
 	 * A sub property of participant. The opponent on this action.
 	 * see : https://schema.org/opponent
 	 * @var \Person | \Person[]
 	 */
-	public var $opponent;
+	public $opponent;
 	
 	/**
 	 * Other co-agents that participated in the action indirectly. e.g. John wrote a book with Steve.
 	 * see : https://schema.org/participant
 	 * @var \Organization | \Organization[] | \Person | \Person[]
 	 */
-	public var $participant;
+	public $participant;
 	
 	/**
 	 * Indicates a potential Action, which describes an idealized action in which this thing would play an &#39;object&#39; role.
 	 * see : https://schema.org/potentialAction
 	 * @var \Action | \Action[]
 	 */
-	public var $potential_action;
+	public $potential_action;
 	
 	/**
 	 * The result produced in the action. e.g. John wrote a book.
 	 * see : https://schema.org/result
 	 * @var \Thing | \Thing[]
 	 */
-	public var $result;
+	public $result;
 	
 	/**
 	 * URL of a reference Web page that unambiguously indicates the item&#39;s identity. E.g. the URL of the item&#39;s Wikipedia page, Wikidata entry, or official website.
 	 * see : https://schema.org/sameAs
 	 * @var string | string[]
 	 */
-	public var $same_as;
+	public $same_as;
 	
 	/**
 	 * A sub property of location. The sports activity location where this action occurred.
 	 * see : https://schema.org/sportsActivityLocation
 	 * @var \SportsActivityLocation | \SportsActivityLocation[]
 	 */
-	public var $sports_activity_location;
+	public $sports_activity_location;
 	
 	/**
 	 * A sub property of location. The sports event where this action occurred.
 	 * see : https://schema.org/sportsEvent
 	 * @var \SportsEvent | \SportsEvent[]
 	 */
-	public var $sports_event;
+	public $sports_event;
 	
 	/**
 	 * A sub property of participant. The sports team that participated on this action.
 	 * see : https://schema.org/sportsTeam
 	 * @var \SportsTeam | \SportsTeam[]
 	 */
-	public var $sports_team;
+	public $sports_team;
 	
 	/**
 	 * The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to December.
@@ -254,35 +254,35 @@ class ExerciseAction implements \JsonSerializable {
 	 * see : https://schema.org/startTime
 	 * @var string | string[]
 	 */
-	public var $start_time;
+	public $start_time;
 	
 	/**
 	 * A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
 	 * see : https://pending.schema.org/subjectOf
 	 * @var \CreativeWork | \CreativeWork[] | \Event | \Event[]
 	 */
-	public var $subject_of;
+	public $subject_of;
 	
 	/**
 	 * Indicates a target EntryPoint for an Action.
 	 * see : https://schema.org/target
 	 * @var \EntryPoint | \EntryPoint[]
 	 */
-	public var $target;
+	public $target;
 	
 	/**
 	 * A sub property of location. The final location of the object or the agent after the action.
 	 * see : https://schema.org/toLocation
 	 * @var \Place | \Place[]
 	 */
-	public var $to_location;
+	public $to_location;
 	
 	/**
 	 * URL of the item.
 	 * see : https://schema.org/url
 	 * @var string | string[]
 	 */
-	public var $url;
+	public $url;
 	
 	public function jsonSerialize() {
 		$out = array(

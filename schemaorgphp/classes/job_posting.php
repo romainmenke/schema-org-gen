@@ -22,231 +22,231 @@ class JobPosting implements \JsonSerializable {
 	 * see : https://schema.org/additionalType
 	 * @var string | string[]
 	 */
-	public var $additional_type;
+	public $additional_type;
 	
 	/**
 	 * An alias for the item.
 	 * see : https://schema.org/alternateName
 	 * @var string | string[]
 	 */
-	public var $alternate_name;
+	public $alternate_name;
 	
 	/**
 	 * The base salary of the job or of an employee in an EmployeeRole.
 	 * see : https://schema.org/baseSalary
 	 * @var \MonetaryAmount | \MonetaryAmount[] | float | float[] | \PriceSpecification | \PriceSpecification[]
 	 */
-	public var $base_salary;
+	public $base_salary;
 	
 	/**
 	 * Publication date for the job posting.
 	 * see : https://schema.org/datePosted
 	 * @var string | string[]
 	 */
-	public var $date_posted;
+	public $date_posted;
 	
 	/**
 	 * A description of the item.
 	 * see : https://schema.org/description
 	 * @var string | string[]
 	 */
-	public var $description;
+	public $description;
 	
 	/**
 	 * A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.
 	 * see : https://schema.org/disambiguatingDescription
 	 * @var string | string[]
 	 */
-	public var $disambiguating_description;
+	public $disambiguating_description;
 	
 	/**
 	 * Educational background needed for the position or Occupation.
 	 * see : https://pending.schema.org/educationRequirements
 	 * @var string | string[]
 	 */
-	public var $education_requirements;
+	public $education_requirements;
 	
 	/**
 	 * Type of employment (e.g. full-time, part-time, contract, temporary, seasonal, internship).
 	 * see : https://schema.org/employmentType
 	 * @var string | string[]
 	 */
-	public var $employment_type;
+	public $employment_type;
 	
 	/**
 	 * A property describing the estimated salary for a job posting based on a variety of variables including, but not limited to industry, job title, and location. The estimated salary is usually computed by outside organizations and therefore the hiring organization is not bound to this estimated salary.
 	 * see : https://pending.schema.org/estimatedSalary
 	 * @var \MonetaryAmount | \MonetaryAmount[] | \MonetaryAmountDistribution | \MonetaryAmountDistribution[] | float | float[] | \PriceSpecification | \PriceSpecification[]
 	 */
-	public var $estimated_salary;
+	public $estimated_salary;
 	
 	/**
 	 * Description of skills and experience needed for the position or Occupation.
 	 * see : https://pending.schema.org/experienceRequirements
 	 * @var string | string[]
 	 */
-	public var $experience_requirements;
+	public $experience_requirements;
 	
 	/**
 	 * Organization offering the job position.
 	 * see : https://schema.org/hiringOrganization
 	 * @var \Organization | \Organization[]
 	 */
-	public var $hiring_organization;
+	public $hiring_organization;
 	
 	/**
 	 * The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
 	 * see : https://schema.org/identifier
 	 * @var \PropertyValue | \PropertyValue[] | string | string[]
 	 */
-	public var $identifier;
+	public $identifier;
 	
 	/**
 	 * An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
 	 * see : https://schema.org/image
 	 * @var \ImageObject | \ImageObject[] | string | string[]
 	 */
-	public var $image;
+	public $image;
 	
 	/**
 	 * Description of bonus and commission compensation aspects of the job. Supersedes incentives (see: https://schema.org/incentives).
 	 * see : https://schema.org/incentiveCompensation
 	 * @var string | string[]
 	 */
-	public var $incentive_compensation;
+	public $incentive_compensation;
 	
 	/**
 	 * The industry associated with the job position.
 	 * see : https://schema.org/industry
 	 * @var string | string[]
 	 */
-	public var $industry;
+	public $industry;
 	
 	/**
 	 * Description of benefits associated with the job. Supersedes benefits (see: https://schema.org/benefits).
 	 * see : https://schema.org/jobBenefits
 	 * @var string | string[]
 	 */
-	public var $job_benefits;
+	public $job_benefits;
 	
 	/**
 	 * A (typically single) geographic location associated with the job position.
 	 * see : https://schema.org/jobLocation
 	 * @var \Place | \Place[]
 	 */
-	public var $job_location;
+	public $job_location;
 	
 	/**
 	 * Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
 	 * see : https://schema.org/mainEntityOfPage
 	 * @var \CreativeWork | \CreativeWork[] | string | string[]
 	 */
-	public var $main_entity_of_page;
+	public $main_entity_of_page;
 	
 	/**
 	 * The name of the item.
 	 * see : https://schema.org/name
 	 * @var string | string[]
 	 */
-	public var $name;
+	public $name;
 	
 	/**
 	 * Category or categories describing the job. Use BLS O*NET-SOC taxonomy: http://www.onetcenter.org/taxonomy.html. Ideally includes textual label and formal code, with the property repeated for each applicable value.
 	 * see : https://pending.schema.org/occupationalCategory
 	 * @var string | string[]
 	 */
-	public var $occupational_category;
+	public $occupational_category;
 	
 	/**
 	 * Indicates a potential Action, which describes an idealized action in which this thing would play an &#39;object&#39; role.
 	 * see : https://schema.org/potentialAction
 	 * @var \Action | \Action[]
 	 */
-	public var $potential_action;
+	public $potential_action;
 	
 	/**
 	 * Specific qualifications required for this role or Occupation.
 	 * see : https://pending.schema.org/qualifications
 	 * @var string | string[]
 	 */
-	public var $qualifications;
+	public $qualifications;
 	
 	/**
 	 * The Occupation for the JobPosting.
 	 * see : https://pending.schema.org/relevantOccupation
 	 * @var \Occupation | \Occupation[]
 	 */
-	public var $relevant_occupation;
+	public $relevant_occupation;
 	
 	/**
 	 * Responsibilities associated with this role or Occupation.
 	 * see : https://pending.schema.org/responsibilities
 	 * @var string | string[]
 	 */
-	public var $responsibilities;
+	public $responsibilities;
 	
 	/**
 	 * The currency (coded using ISO 4217 (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217) ) used for the main salary information in this job posting or for this employee.
 	 * see : https://schema.org/salaryCurrency
 	 * @var string | string[]
 	 */
-	public var $salary_currency;
+	public $salary_currency;
 	
 	/**
 	 * URL of a reference Web page that unambiguously indicates the item&#39;s identity. E.g. the URL of the item&#39;s Wikipedia page, Wikidata entry, or official website.
 	 * see : https://schema.org/sameAs
 	 * @var string | string[]
 	 */
-	public var $same_as;
+	public $same_as;
 	
 	/**
 	 * Skills required to fulfill this role.
 	 * see : https://pending.schema.org/skills
 	 * @var string | string[]
 	 */
-	public var $skills;
+	public $skills;
 	
 	/**
 	 * Any special commitments associated with this job posting. Valid entries include VeteranCommit, MilitarySpouseCommit, etc.
 	 * see : https://schema.org/specialCommitments
 	 * @var string | string[]
 	 */
-	public var $special_commitments;
+	public $special_commitments;
 	
 	/**
 	 * A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
 	 * see : https://pending.schema.org/subjectOf
 	 * @var \CreativeWork | \CreativeWork[] | \Event | \Event[]
 	 */
-	public var $subject_of;
+	public $subject_of;
 	
 	/**
 	 * The title of the job.
 	 * see : https://schema.org/title
 	 * @var string | string[]
 	 */
-	public var $title;
+	public $title;
 	
 	/**
 	 * URL of the item.
 	 * see : https://schema.org/url
 	 * @var string | string[]
 	 */
-	public var $url;
+	public $url;
 	
 	/**
 	 * The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
 	 * see : https://schema.org/validThrough
 	 * @var string | string[]
 	 */
-	public var $valid_through;
+	public $valid_through;
 	
 	/**
 	 * The typical working hours for this job (e.g. 1st shift, night shift, 8am-5pm).
 	 * see : https://schema.org/workHours
 	 * @var string | string[]
 	 */
-	public var $work_hours;
+	public $work_hours;
 	
 	public function jsonSerialize() {
 		$out = array(
