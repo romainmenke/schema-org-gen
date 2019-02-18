@@ -33,63 +33,63 @@ class Car implements \JsonSerializable {
 	 * see : https://auto.schema.org/accelerationTime
 	 * @var \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $acceleration_time;
+	public $acceleration_time;
 	
 	/**
 	 * The ACRISS Car Classification Code is a code used by many car rental companies, for classifying vehicles. ACRISS stands for Association of Car Rental Industry Systems and Standards.
 	 * see : https://auto.schema.org/acrissCode
 	 * @var string | string[]
 	 */
-	public var $acriss_code;
+	public $acriss_code;
 	
 	/**
 	 * An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the &#39;typeof&#39; attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.
 	 * see : https://schema.org/additionalType
 	 * @var string | string[]
 	 */
-	public var $additional_type;
+	public $additional_type;
 	
 	/**
 	 * The overall rating, based on a collection of reviews or ratings, of the item.
 	 * see : https://schema.org/aggregateRating
 	 * @var \AggregateRating | \AggregateRating[]
 	 */
-	public var $aggregate_rating;
+	public $aggregate_rating;
 	
 	/**
 	 * An alias for the item.
 	 * see : https://schema.org/alternateName
 	 * @var string | string[]
 	 */
-	public var $alternate_name;
+	public $alternate_name;
 	
 	/**
 	 * An intended audience, i.e. a group for whom something was created. Supersedes serviceAudience (see: https://schema.org/serviceAudience).
 	 * see : https://schema.org/audience
 	 * @var \Audience | \Audience[]
 	 */
-	public var $audience;
+	public $audience;
 	
 	/**
 	 * An award won by or for this item.
 	 * see : https://schema.org/award
 	 * @var string | string[]
 	 */
-	public var $award;
+	public $award;
 	
 	/**
 	 * Indicates the design and body style of the vehicle (e.g. station wagon, hatchback, etc.).
 	 * see : https://auto.schema.org/bodyType
 	 * @var \QualitativeValue | \QualitativeValue[] | string | string[]
 	 */
-	public var $body_type;
+	public $body_type;
 	
 	/**
 	 * The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person.
 	 * see : https://schema.org/brand
 	 * @var \Brand | \Brand[] | \Organization | \Organization[]
 	 */
-	public var $brand;
+	public $brand;
 	
 	/**
 	 * The available volume for cargo or luggage. For automobiles, this is usually the trunk volume.
@@ -100,56 +100,56 @@ class Car implements \JsonSerializable {
 	 * see : https://schema.org/cargoVolume
 	 * @var \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $cargo_volume;
+	public $cargo_volume;
 	
 	/**
 	 * A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy.
 	 * see : https://pending.schema.org/category
 	 * @var \PhysicalActivityCategory | \PhysicalActivityCategory[] | string | string[] | \Thing | \Thing[]
 	 */
-	public var $category;
+	public $category;
 	
 	/**
 	 * The color of the product.
 	 * see : https://schema.org/color
 	 * @var string | string[]
 	 */
-	public var $color;
+	public $color;
 	
 	/**
 	 * The date of the first registration of the vehicle with the respective public authorities.
 	 * see : https://schema.org/dateVehicleFirstRegistered
 	 * @var string | string[]
 	 */
-	public var $date_vehicle_first_registered;
+	public $date_vehicle_first_registered;
 	
 	/**
 	 * A description of the item.
 	 * see : https://schema.org/description
 	 * @var string | string[]
 	 */
-	public var $description;
+	public $description;
 	
 	/**
 	 * A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.
 	 * see : https://schema.org/disambiguatingDescription
 	 * @var string | string[]
 	 */
-	public var $disambiguating_description;
+	public $disambiguating_description;
 	
 	/**
 	 * The drive wheel configuration, i.e. which roadwheels will receive torque from the vehicle&#39;s engine via the drivetrain.
 	 * see : https://schema.org/driveWheelConfiguration
 	 * @var \DriveWheelConfigurationValue | \DriveWheelConfigurationValue[] | string | string[]
 	 */
-	public var $drive_wheel_configuration;
+	public $drive_wheel_configuration;
 	
 	/**
 	 * The CO2 emissions in g/km. When used in combination with a QuantitativeValue, put &quot;g/km&quot; into the unitText property of that value, since there is no UN/CEFACT Common Code for &quot;g/km&quot;.
 	 * see : https://auto.schema.org/emissionsCO2
 	 * @var float | float[]
 	 */
-	public var $emissionsc_o_2;
+	public $emissions_co_2;
 	
 	/**
 	 * The capacity of the fuel tank or in the case of electric cars, the battery. If there are multiple components for storage, this should indicate the total of all storage of the same type.
@@ -158,7 +158,7 @@ class Car implements \JsonSerializable {
 	 * see : https://auto.schema.org/fuelCapacity
 	 * @var \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $fuel_capacity;
+	public $fuel_capacity;
 	
 	/**
 	 * The amount of fuel consumed for traveling a particular distance or temporal duration with the given vehicle (e.g. liters per 100 km).
@@ -172,7 +172,7 @@ class Car implements \JsonSerializable {
 	 * see : https://schema.org/fuelConsumption
 	 * @var \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $fuel_consumption;
+	public $fuel_consumption;
 	
 	/**
 	 * The distance traveled per unit of fuel used; most commonly miles per gallon (mpg) or kilometers per liter (km/L).
@@ -186,105 +186,105 @@ class Car implements \JsonSerializable {
 	 * see : https://schema.org/fuelEfficiency
 	 * @var \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $fuel_efficiency;
+	public $fuel_efficiency;
 	
 	/**
 	 * The type of fuel suitable for the engine or engines of the vehicle. If the vehicle has only one engine, this property can be attached directly to the vehicle.
 	 * see : https://schema.org/fuelType
 	 * @var \QualitativeValue | \QualitativeValue[] | string | string[]
 	 */
-	public var $fuel_type;
+	public $fuel_type;
 	
 	/**
 	 * The GTIN-8 (see: https://schema.orghttp://apps.gs1.org/GDD/glossary/Pages/GTIN-8.aspx) code of the product, or the product to which the offer refers. This code is also known as EAN/UCC-8 or 8-digit EAN. See GS1 GTIN Summary (see: https://schema.orghttp://www.gs1.org/barcodes/technical/idkeys/gtin) for more details.
 	 * see : https://schema.org/gtin8
 	 * @var string | string[]
 	 */
-	public var $gtin_8;
+	public $gtin_8;
 	
 	/**
 	 * The height of the item.
 	 * see : https://schema.org/height
 	 * @var \Distance | \Distance[] | \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $height;
+	public $height;
 	
 	/**
 	 * The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
 	 * see : https://schema.org/identifier
 	 * @var \PropertyValue | \PropertyValue[] | string | string[]
 	 */
-	public var $identifier;
+	public $identifier;
 	
 	/**
 	 * An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
 	 * see : https://schema.org/image
 	 * @var \ImageObject | \ImageObject[] | string | string[]
 	 */
-	public var $image;
+	public $image;
 	
 	/**
 	 * A pointer to another product (or multiple products) for which this product is a consumable.
 	 * see : https://schema.org/isConsumableFor
 	 * @var \Product | \Product[]
 	 */
-	public var $is_consumable_for;
+	public $is_consumable_for;
 	
 	/**
 	 * A pointer to another, functionally similar product (or multiple products).
 	 * see : https://schema.org/isSimilarTo
 	 * @var \Product | \Product[] | \Service | \Service[]
 	 */
-	public var $is_similar_to;
+	public $is_similar_to;
 	
 	/**
 	 * A predefined value from OfferItemCondition or a textual description of the condition of the product or service, or the products or services included in the offer.
 	 * see : https://schema.org/itemCondition
 	 * @var \OfferItemCondition | \OfferItemCondition[]
 	 */
-	public var $item_condition;
+	public $item_condition;
 	
 	/**
 	 * A textual description of known damages, both repaired and unrepaired.
 	 * see : https://schema.org/knownVehicleDamages
 	 * @var string | string[]
 	 */
-	public var $known_vehicle_damages;
+	public $known_vehicle_damages;
 	
 	/**
 	 * An associated logo.
 	 * see : https://schema.org/logo
 	 * @var \ImageObject | \ImageObject[] | string | string[]
 	 */
-	public var $logo;
+	public $logo;
 	
 	/**
 	 * Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
 	 * see : https://schema.org/mainEntityOfPage
 	 * @var \CreativeWork | \CreativeWork[] | string | string[]
 	 */
-	public var $main_entity_of_page;
+	public $main_entity_of_page;
 	
 	/**
 	 * The manufacturer of the product.
 	 * see : https://schema.org/manufacturer
 	 * @var \Organization | \Organization[]
 	 */
-	public var $manufacturer;
+	public $manufacturer;
 	
 	/**
 	 * A material that something is made from, e.g. leather, wool, cotton, paper.
 	 * see : https://schema.org/material
 	 * @var \Product | \Product[] | string | string[]
 	 */
-	public var $material;
+	public $material;
 	
 	/**
 	 * Indicates that the vehicle meets the respective emission standard.
 	 * see : https://auto.schema.org/meetsEmissionStandard
 	 * @var \QualitativeValue | \QualitativeValue[] | string | string[]
 	 */
-	public var $meets_emission_standard;
+	public $meets_emission_standard;
 	
 	/**
 	 * The total distance travelled by the particular vehicle since its initial production, as read from its odometer.
@@ -293,35 +293,35 @@ class Car implements \JsonSerializable {
 	 * see : https://schema.org/mileageFromOdometer
 	 * @var \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $mileage_from_odometer;
+	public $mileage_from_odometer;
 	
 	/**
 	 * The release date of a vehicle model (often used to differentiate versions of the same make and model).
 	 * see : https://auto.schema.org/modelDate
 	 * @var string | string[]
 	 */
-	public var $model_date;
+	public $model_date;
 	
 	/**
 	 * The Manufacturer Part Number (MPN) of the product, or the product to which the offer refers.
 	 * see : https://schema.org/mpn
 	 * @var string | string[]
 	 */
-	public var $mpn;
+	public $mpn;
 	
 	/**
 	 * The name of the item.
 	 * see : https://schema.org/name
 	 * @var string | string[]
 	 */
-	public var $name;
+	public $name;
 	
 	/**
 	 * The number or type of airbags in the vehicle.
 	 * see : https://schema.org/numberOfAirbags
 	 * @var float | float[] | string | string[]
 	 */
-	public var $number_of_airbags;
+	public $number_of_airbags;
 	
 	/**
 	 * The number of axles.
@@ -330,7 +330,7 @@ class Car implements \JsonSerializable {
 	 * see : https://schema.org/numberOfAxles
 	 * @var float | float[] | \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $number_of_axles;
+	public $number_of_axles;
 	
 	/**
 	 * The number of doors.
@@ -339,7 +339,7 @@ class Car implements \JsonSerializable {
 	 * see : https://schema.org/numberOfDoors
 	 * @var float | float[] | \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $number_of_doors;
+	public $number_of_doors;
 	
 	/**
 	 * The total number of forward gears available for the transmission system of the vehicle.
@@ -348,7 +348,7 @@ class Car implements \JsonSerializable {
 	 * see : https://schema.org/numberOfForwardGears
 	 * @var float | float[] | \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $number_of_forward_gears;
+	public $number_of_forward_gears;
 	
 	/**
 	 * The number of owners of the vehicle, including the current one.
@@ -357,7 +357,7 @@ class Car implements \JsonSerializable {
 	 * see : https://schema.org/numberOfPreviousOwners
 	 * @var float | float[] | \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $number_of_previous_owners;
+	public $number_of_previous_owners;
 	
 	/**
 	 * The permitted weight of passengers and cargo, EXCLUDING the weight of the empty vehicle.
@@ -374,42 +374,42 @@ class Car implements \JsonSerializable {
 	 * see : https://auto.schema.org/payload
 	 * @var \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $payload;
+	public $payload;
 	
 	/**
 	 * Indicates a potential Action, which describes an idealized action in which this thing would play an &#39;object&#39; role.
 	 * see : https://schema.org/potentialAction
 	 * @var \Action | \Action[]
 	 */
-	public var $potential_action;
+	public $potential_action;
 	
 	/**
 	 * The product identifier, such as ISBN. For example: meta itemprop=&quot;productID&quot; content=&quot;isbn:123-456-789&quot;.
 	 * see : https://schema.org/productID
 	 * @var string | string[]
 	 */
-	public var $producti_d;
+	public $product_id;
 	
 	/**
 	 * The date of production of the item, e.g. vehicle.
 	 * see : https://schema.org/productionDate
 	 * @var string | string[]
 	 */
-	public var $production_date;
+	public $production_date;
 	
 	/**
 	 * The date the item e.g. vehicle was purchased by the current owner.
 	 * see : https://schema.org/purchaseDate
 	 * @var string | string[]
 	 */
-	public var $purchase_date;
+	public $purchase_date;
 	
 	/**
 	 * A review of the item. Supersedes reviews (see: https://schema.org/reviews).
 	 * see : https://schema.org/review
 	 * @var \Review | \Review[]
 	 */
-	public var $review;
+	public $review;
 	
 	/**
 	 * The permitted total weight of cargo and installations (e.g. a roof rack) on top of the vehicle.
@@ -425,14 +425,14 @@ class Car implements \JsonSerializable {
 	 * see : https://auto.schema.org/roofLoad
 	 * @var \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $roof_load;
+	public $roof_load;
 	
 	/**
 	 * URL of a reference Web page that unambiguously indicates the item&#39;s identity. E.g. the URL of the item&#39;s Wikipedia page, Wikidata entry, or official website.
 	 * see : https://schema.org/sameAs
 	 * @var string | string[]
 	 */
-	public var $same_as;
+	public $same_as;
 	
 	/**
 	 * The number of persons that can be seated (e.g. in a vehicle), both in terms of the physical space available, and in terms of limitations set by law.
@@ -441,7 +441,7 @@ class Car implements \JsonSerializable {
 	 * see : https://auto.schema.org/seatingCapacity
 	 * @var float | float[] | \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $seating_capacity;
+	public $seating_capacity;
 	
 	/**
 	 * The speed range of the vehicle. If the vehicle is powered by an engine, the upper limit of the speed range (indicated by maxValue (see: https://schema.org/maxValue) should be the maximum speed achievable under regular conditions.
@@ -453,21 +453,21 @@ class Car implements \JsonSerializable {
 	 * see : https://auto.schema.org/speed
 	 * @var \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $speed;
+	public $speed;
 	
 	/**
 	 * The position of the steering wheel or similar device (mostly for cars).
 	 * see : https://schema.org/steeringPosition
 	 * @var \SteeringPositionValue | \SteeringPositionValue[]
 	 */
-	public var $steering_position;
+	public $steering_position;
 	
 	/**
 	 * A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
 	 * see : https://pending.schema.org/subjectOf
 	 * @var \CreativeWork | \CreativeWork[] | \Event | \Event[]
 	 */
-	public var $subject_of;
+	public $subject_of;
 	
 	/**
 	 * The permitted vertical load (TWR) of a trailer attached to the vehicle. Also referred to as Tongue Load Rating (TLR) or Vertical Load Rating (VLR)
@@ -483,7 +483,7 @@ class Car implements \JsonSerializable {
 	 * see : https://auto.schema.org/tongueWeight
 	 * @var \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $tongue_weight;
+	public $tongue_weight;
 	
 	/**
 	 * The permitted weight of a trailer attached to the vehicle.
@@ -495,56 +495,56 @@ class Car implements \JsonSerializable {
 	 * see : https://auto.schema.org/trailerWeight
 	 * @var \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $trailer_weight;
+	public $trailer_weight;
 	
 	/**
 	 * URL of the item.
 	 * see : https://schema.org/url
 	 * @var string | string[]
 	 */
-	public var $url;
+	public $url;
 	
 	/**
 	 * A short text indicating the configuration of the vehicle, e.g. &#39;5dr hatchback ST 2.5 MT 225 hp&#39; or &#39;limited edition&#39;.
 	 * see : https://schema.org/vehicleConfiguration
 	 * @var string | string[]
 	 */
-	public var $vehicle_configuration;
+	public $vehicle_configuration;
 	
 	/**
 	 * Information about the engine or engines of the vehicle.
 	 * see : https://schema.org/vehicleEngine
 	 * @var \EngineSpecification | \EngineSpecification[]
 	 */
-	public var $vehicle_engine;
+	public $vehicle_engine;
 	
 	/**
 	 * The Vehicle Identification Number (VIN) is a unique serial number used by the automotive industry to identify individual motor vehicles.
 	 * see : https://schema.org/vehicleIdentificationNumber
 	 * @var string | string[]
 	 */
-	public var $vehicle_identification_number;
+	public $vehicle_identification_number;
 	
 	/**
 	 * The color or color combination of the interior of the vehicle.
 	 * see : https://schema.org/vehicleInteriorColor
 	 * @var string | string[]
 	 */
-	public var $vehicle_interior_color;
+	public $vehicle_interior_color;
 	
 	/**
 	 * The type or material of the interior of the vehicle (e.g. synthetic fabric, leather, wood, etc.). While most interior types are characterized by the material used, an interior type can also be based on vehicle usage or target audience.
 	 * see : https://schema.org/vehicleInteriorType
 	 * @var string | string[]
 	 */
-	public var $vehicle_interior_type;
+	public $vehicle_interior_type;
 	
 	/**
 	 * The release date of a vehicle model (often used to differentiate versions of the same make and model).
 	 * see : https://schema.org/vehicleModelDate
 	 * @var string | string[]
 	 */
-	public var $vehicle_model_date;
+	public $vehicle_model_date;
 	
 	/**
 	 * The number of passengers that can be seated in the vehicle, both in terms of the physical space available, and in terms of limitations set by law.
@@ -553,21 +553,21 @@ class Car implements \JsonSerializable {
 	 * see : https://schema.org/vehicleSeatingCapacity
 	 * @var float | float[] | \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $vehicle_seating_capacity;
+	public $vehicle_seating_capacity;
 	
 	/**
 	 * Indicates whether the vehicle has been used for special purposes, like commercial rental, driving school, or as a taxi. The legislation in many countries requires this information to be revealed when offering a car for sale.
 	 * see : https://auto.schema.org/vehicleSpecialUsage
 	 * @var \CarUsageType | \CarUsageType[] | string | string[]
 	 */
-	public var $vehicle_special_usage;
+	public $vehicle_special_usage;
 	
 	/**
 	 * The type of component used for transmitting the power from a rotating power source to the wheels or other relevant component(s) (&quot;gearbox&quot; for cars).
 	 * see : https://schema.org/vehicleTransmission
 	 * @var \QualitativeValue | \QualitativeValue[] | string | string[]
 	 */
-	public var $vehicle_transmission;
+	public $vehicle_transmission;
 	
 	/**
 	 * The permitted total weight of the loaded vehicle, including passengers and cargo and the weight of the empty vehicle.
@@ -583,7 +583,7 @@ class Car implements \JsonSerializable {
 	 * see : https://auto.schema.org/weightTotal
 	 * @var \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $weight_total;
+	public $weight_total;
 	
 	/**
 	 * The distance between the centers of the front and rear wheels.
@@ -592,14 +592,14 @@ class Car implements \JsonSerializable {
 	 * see : https://auto.schema.org/wheelbase
 	 * @var \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $wheelbase;
+	public $wheelbase;
 	
 	/**
 	 * The width of the item.
 	 * see : https://schema.org/width
 	 * @var \Distance | \Distance[] | \QuantitativeValue | \QuantitativeValue[]
 	 */
-	public var $width;
+	public $width;
 	
 	public function jsonSerialize() {
 		$out = array(
@@ -687,7 +687,7 @@ class Car implements \JsonSerializable {
 			$out['driveWheelConfiguration'] = $serialized;
 		}
 		
-		$serialized = \SchemaOrg\json_serialize( $this->emissionsc_o_2 );
+		$serialized = \SchemaOrg\json_serialize( $this->emissions_co_2 );
 		if ( ! empty( $serialized ) ) {
 			$out['emissionsCO2'] = $serialized;
 		}
@@ -832,7 +832,7 @@ class Car implements \JsonSerializable {
 			$out['potentialAction'] = $serialized;
 		}
 		
-		$serialized = \SchemaOrg\json_serialize( $this->producti_d );
+		$serialized = \SchemaOrg\json_serialize( $this->product_id );
 		if ( ! empty( $serialized ) ) {
 			$out['productID'] = $serialized;
 		}

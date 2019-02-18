@@ -16,6 +16,8 @@ function json_serialize( $value ) {
 				unset($out_part['@context']);
 
 				array_push( $out, $out_part );
+			} else {
+				array_push( $out, $element );
 			}
 		}
 

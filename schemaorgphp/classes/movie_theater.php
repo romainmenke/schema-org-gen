@@ -14,7 +14,7 @@ class MovieTheater implements \JsonSerializable {
 	 * see : https://schema.org/screenCount
 	 * @var float | float[]
 	 */
-	public var $screen_count;
+	public $screen_count;
 	
 	public function jsonSerialize() {
 		$out = array(

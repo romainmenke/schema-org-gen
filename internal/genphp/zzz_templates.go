@@ -6,6 +6,8 @@ import (
 	"bytes"
 	"compress/gzip"
 	"encoding/base64"
+	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -100,7 +102,24 @@ func (f *_escFile) Close() error {
 }
 
 func (f *_escFile) Readdir(count int) ([]os.FileInfo, error) {
-	return nil, nil
+	if !f.isDir {
+		return nil, fmt.Errorf(" escFile.Readdir: '%s' is not directory", f.name)
+	}
+
+	fis, ok := _escDirs[f.local]
+	if !ok {
+		return nil, fmt.Errorf(" escFile.Readdir: '%s' is directory, but we have no info about content of this dir, local=%s", f.name, f.local)
+	}
+	limit := count
+	if count <= 0 || limit > len(fis) {
+		limit = len(fis)
+	}
+
+	if len(fis) == 0 && count > 0 {
+		return nil, io.EOF
+	}
+
+	return fis[0:limit], nil
 }
 
 func (f *_escFile) Stat() (os.FileInfo, error) {
@@ -191,6 +210,7 @@ func FSMustString(useLocal bool, name string) string {
 var _escData = map[string]*_escFile{
 
 	"/templates/load.twig": {
+		name:    "load.twig",
 		local:   "templates/load.twig",
 		size:    218,
 		modtime: 1531116733,
@@ -202,40 +222,47 @@ zGRUJryEcbEw8kzA+l0HMnyr9XPnHLnU+40IYXO9BNLDS5ZBPAMAAP//1Bw4+NoAAAA=
 	},
 
 	"/templates/structtypes.twig": {
+		name:    "structtypes.twig",
 		local:   "templates/structtypes.twig",
-		size:    848,
-		modtime: 1531116900,
+		size:    844,
+		modtime: 1550423899,
 		compressed: `
-H4sIAAAAAAAC/3ySQW+cMBCFz/aveJWIYFG73EM37bmXHnLooVutHHYIrsC2bFN1i/zfK4ODyGaVG/J8
-M++9GT5/MZ3hXImBnBEN4bHpaBDf7XPNeVVhmuAvhk4RQAhwRLhfX0fbIwTe9MK5N6gcTE8DKe9w/Oa0
-eiQrRS//iaeeMHHOzPjUywbOCy8bZI1Wnv56HJB33pv7qnKzl722z3n9Bo9akb2SjeR0h1ZbGGFJeUiV
-vhzuAmdVWXKGEj+k72CsNmS9JIfW6iFmWNj97dTbYgrPUFazJKlzVI0ayUArqT9H/fljlU/VRg9xO6de
-Klqh/fZ16UAZlV/RIbzWmy2k/fwRFtk0pXEpQX3tMMHtqBovtcLvzYGo2GHijGV6jNcQ1opLwRlj+dd0
-oxyHh1tX+rhQcT0Lcn0cztiu5uy9BbHMvfg444Dj+kMeo8fTWiyQ+U66Tw/XWTEryBYFPoAG4y8FtjN3
-WOLN+X7ma/s8/sXoLxy2TXFiWHxvlsgs+dEqxEE1Z4EH/j8AAP//u+hIalADAAA=
+H4sIAAAAAAAC/3ySQW+cMBCFz/aveJWIYFG73EM37bmXHnLooVutHHYIrsC2bCN1i/zfK4ODCIl6Q55v
+5r03w+cvpjOcKzGQM6IhPDYdDeK7fa45rypME/zN0CUCCAGOCPfr62h7hMCbXjj3BpWD6Wkg5R3O35xW
+j2Sl6OVf8dQTJs6ZGZ962cB54WWDrNHK0x+PE/LOe3NfVW72ctT2Oa/f4FErsjvZSE53aLWFEZaUh1Tp
+y+EucFaVJWco8UP6DsZqQ9ZLcmitHmKGhT2+n3pbTOEZymqWJHWNqlEjGWgl9deoP3+s8qna6CFu59JL
+RSt03L4uHSij8is6hNd6s4W0n2ya0qjkvt67S2A7qsZLrfB7cxwqDpg4Y5ke4yWEteJWcMZY/jXdJ8fp
+4b0LfVyouJoF2R+GM3aoOfvfcljmXnxcccJ5/RnP0eNlLRbIfCfdp4d9VswKskWBD6DB+FuB7cwDlnhz
+vp/52j6PfzH6C6dtU5wYFt+bJTJLfrQKcVDNWeCB/wsAAP//88szgEwDAAA=
 `,
 	},
 
 	"/templates/util.twig": {
+		name:    "util.twig",
 		local:   "templates/util.twig",
-		size:    593,
-		modtime: 1531116910,
+		size:    639,
+		modtime: 1550424314,
 		compressed: `
-H4sIAAAAAAAC/3yQTU7DMBCF155TzCJSUqmcILRwAxZdIhQZd0pcNbZlj1EKyt1RnJ+SErEdfzP+3nt8
-crUDMLKh4KQiPKiaGvniP0qAUzSKtTV4DtZUgbyWF/1FBWaf8hIJN/gNQp+wQGocX3/N04vwxNGbEkQH
-IDIbGXcovZfXYlPCuKlDNYzul0/Wk1T1PJcBM22O1OJujxldqCHDIzucaohre6yo1YFDMTNbzHv/w6Sf
-z1+IJFU56XuziX/YL/DetUejCcTFvPCaPytrmFrO31IaIUQKUrkYemsbeYu3+8OVDkQqY6wmvY/9TG3Y
-9zMp/lPHasKE/JNv7HzgVnMlmVu0u1RrnoubJSyJDn4CAAD//7V+cxBRAgAA
+H4sIAAAAAAAC/3yRQU7DMBBF155TzCJSUqmcILRwAxZdIhQZd0pcJbZlj1EL6t1RHDclJWI7efP95+Xx
+ybUOwMiegpOKcKda6uWL/6gBDtEo1tbgMVjTBPJadvqLKiw+ZRcJV/gNQh+wQuodn3/N0xfhiaM3NYgL
+gChsZNyg9F6eq1UNeVOHZhzdLx+sJ6naaS4DFtrs6YSbLRbUUU+GMztG9cSt3Td00oFDNTFrLIf+u2v9
+cnpCpFKNk35oduUftjN86Dqg0QTialp4LZ+VNUwnLt/SNUKIdEjjYhha28hrvOWPKRekLlB+fAGfzhpp
+EEldFpmgbPPqzr4fSfEfeYs+EvKPjfyHRm7RQipzE3HnYKnnLLOGOXGBnwAAAP//SQB/Rn8CAAA=
 `,
 	},
 
-	"/": {
-		isDir: true,
-		local: "",
-	},
-
 	"/templates": {
+		name:  "templates",
+		local: `templates`,
 		isDir: true,
-		local: "templates",
+	},
+}
+
+var _escDirs = map[string][]os.FileInfo{
+
+	"templates": {
+		_escData["/templates/load.twig"],
+		_escData["/templates/structtypes.twig"],
+		_escData["/templates/util.twig"],
 	},
 }

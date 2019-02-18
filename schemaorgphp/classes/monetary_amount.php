@@ -26,14 +26,14 @@ class MonetaryAmount implements \JsonSerializable {
 	 * see : https://schema.org/additionalType
 	 * @var string | string[]
 	 */
-	public var $additional_type;
+	public $additional_type;
 	
 	/**
 	 * An alias for the item.
 	 * see : https://schema.org/alternateName
 	 * @var string | string[]
 	 */
-	public var $alternate_name;
+	public $alternate_name;
 	
 	/**
 	 * The currency in which the monetary amount is expressed.
@@ -42,105 +42,105 @@ class MonetaryAmount implements \JsonSerializable {
 	 * see : https://pending.schema.org/currency
 	 * @var string | string[]
 	 */
-	public var $currency;
+	public $currency;
 	
 	/**
 	 * A description of the item.
 	 * see : https://schema.org/description
 	 * @var string | string[]
 	 */
-	public var $description;
+	public $description;
 	
 	/**
 	 * A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation.
 	 * see : https://schema.org/disambiguatingDescription
 	 * @var string | string[]
 	 */
-	public var $disambiguating_description;
+	public $disambiguating_description;
 	
 	/**
 	 * The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
 	 * see : https://schema.org/identifier
 	 * @var \PropertyValue | \PropertyValue[] | string | string[]
 	 */
-	public var $identifier;
+	public $identifier;
 	
 	/**
 	 * An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
 	 * see : https://schema.org/image
 	 * @var \ImageObject | \ImageObject[] | string | string[]
 	 */
-	public var $image;
+	public $image;
 	
 	/**
 	 * Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
 	 * see : https://schema.org/mainEntityOfPage
 	 * @var \CreativeWork | \CreativeWork[] | string | string[]
 	 */
-	public var $main_entity_of_page;
+	public $main_entity_of_page;
 	
 	/**
 	 * The upper value of some characteristic or property.
 	 * see : https://schema.org/maxValue
 	 * @var float | float[]
 	 */
-	public var $max_value;
+	public $max_value;
 	
 	/**
 	 * The lower value of some characteristic or property.
 	 * see : https://schema.org/minValue
 	 * @var float | float[]
 	 */
-	public var $min_value;
+	public $min_value;
 	
 	/**
 	 * The name of the item.
 	 * see : https://schema.org/name
 	 * @var string | string[]
 	 */
-	public var $name;
+	public $name;
 	
 	/**
 	 * Indicates a potential Action, which describes an idealized action in which this thing would play an &#39;object&#39; role.
 	 * see : https://schema.org/potentialAction
 	 * @var \Action | \Action[]
 	 */
-	public var $potential_action;
+	public $potential_action;
 	
 	/**
 	 * URL of a reference Web page that unambiguously indicates the item&#39;s identity. E.g. the URL of the item&#39;s Wikipedia page, Wikidata entry, or official website.
 	 * see : https://schema.org/sameAs
 	 * @var string | string[]
 	 */
-	public var $same_as;
+	public $same_as;
 	
 	/**
 	 * A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
 	 * see : https://pending.schema.org/subjectOf
 	 * @var \CreativeWork | \CreativeWork[] | \Event | \Event[]
 	 */
-	public var $subject_of;
+	public $subject_of;
 	
 	/**
 	 * URL of the item.
 	 * see : https://schema.org/url
 	 * @var string | string[]
 	 */
-	public var $url;
+	public $url;
 	
 	/**
 	 * The date when the item becomes valid.
 	 * see : https://schema.org/validFrom
 	 * @var string | string[]
 	 */
-	public var $valid_from;
+	public $valid_from;
 	
 	/**
 	 * The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
 	 * see : https://schema.org/validThrough
 	 * @var string | string[]
 	 */
-	public var $valid_through;
+	public $valid_through;
 	
 	/**
 	 * The value of the quantitative value or property value node.
@@ -153,7 +153,7 @@ class MonetaryAmount implements \JsonSerializable {
 	 * see : https://schema.org/value
 	 * @var boolean | boolean[] | float | float[] | \StructuredValue | \StructuredValue[] | string | string[]
 	 */
-	public var $value;
+	public $value;
 	
 	public function jsonSerialize() {
 		$out = array(
