@@ -4,7 +4,6 @@ import "encoding/json"
 
 // Order see : https://schema.org/Order
 type Order struct {
-	typeContext
 
 	// With properties from Intangible see : https://schema.org/Intangible
 	//
@@ -33,8 +32,8 @@ type Order struct {
 	BillingAddress []*PostalAddress `json:"billingAddress,omitempty"`
 
 	// Broker see : https://schema.org/broker
-	// An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred. Supersedes bookingAgent (see: https://schema.org/bookingAgent).
-	// types : Organization Person
+	// An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.
+	// types : Person Organization
 	Broker []interface{} `json:"broker,omitempty"`
 
 	// ConfirmationNumber see : https://schema.org/confirmationNumber
@@ -68,20 +67,19 @@ type Order struct {
 	DiscountCode []string `json:"discountCode,omitempty"`
 
 	// DiscountCurrency see : https://schema.org/discountCurrency
-	// The currency of the discount.
-	//
-	// Use standard formats: ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217) e.g. &quot;USD&quot;; Ticker symbol (see: https://schema.orghttps://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. &quot;BTC&quot;; well known names for Local Exchange Tradings Systems (see: https://schema.orghttps://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. &quot;Ithaca HOUR&quot;.
+	// The currency of the discount.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. &quot;USD&quot;; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. &quot;BTC&quot;; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. &quot;Ithaca HOUR&quot;.
 	// types : Text
 	DiscountCurrency []string `json:"discountCurrency,omitempty"`
 
 	// Identifier see : https://schema.org/identifier
-	// The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
-	// types : PropertyValue Text URL
+	// The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.
+	//
+	// types : URL Text PropertyValue
 	Identifier []interface{} `json:"identifier,omitempty"`
 
 	// Image see : https://schema.org/image
-	// An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
-	// types : ImageObject URL
+	// An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].
+	// types : URL ImageObject
 	Image []interface{} `json:"image,omitempty"`
 
 	// IsGift see : https://schema.org/isGift
@@ -90,9 +88,14 @@ type Order struct {
 	IsGift []bool `json:"isGift,omitempty"`
 
 	// MainEntityOfPage see : https://schema.org/mainEntityOfPage
-	// Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
+	// Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.
 	// types : CreativeWork URL
 	MainEntityOfPage []interface{} `json:"mainEntityOfPage,omitempty"`
+
+	// Merchant see : https://schema.org/merchant
+	// &#39;merchant&#39; is an out-dated term for &#39;seller&#39;.
+	// types : Organization Person
+	Merchant []interface{} `json:"merchant,omitempty"`
 
 	// Name see : https://schema.org/name
 	// The name of the item.
@@ -121,7 +124,7 @@ type Order struct {
 
 	// OrderedItem see : https://schema.org/orderedItem
 	// The item ordered.
-	// types : OrderItem Product
+	// types : Product OrderItem
 	OrderedItem []interface{} `json:"orderedItem,omitempty"`
 
 	// PartOfInvoice see : https://schema.org/partOfInvoice
@@ -129,8 +132,13 @@ type Order struct {
 	// types : Invoice
 	PartOfInvoice []*Invoice `json:"partOfInvoice,omitempty"`
 
+	// PaymentDue see : https://schema.org/paymentDue
+	// The date that payment is due.
+	// types : DateTime
+	PaymentDue []DateTime `json:"paymentDue,omitempty"`
+
 	// PaymentDueDate see : https://schema.org/paymentDueDate
-	// The date that payment is due. Supersedes paymentDue (see: https://schema.org/paymentDue).
+	// The date that payment is due.
 	// types : DateTime
 	PaymentDueDate []DateTime `json:"paymentDueDate,omitempty"`
 
@@ -160,14 +168,9 @@ type Order struct {
 	SameAs []string `json:"sameAs,omitempty"`
 
 	// Seller see : https://schema.org/seller
-	// An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider. Supersedes merchant (see: https://schema.org/merchant), vendor (see: https://schema.org/vendor).
+	// An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider.
 	// types : Organization Person
 	Seller []interface{} `json:"seller,omitempty"`
-
-	// SubjectOf see : https://pending.schema.org/subjectOf
-	// A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
-	// types : CreativeWork Event
-	SubjectOf []interface{} `json:"subjectOf,omitempty"`
 
 	// Url see : https://schema.org/url
 	// URL of the item.
@@ -175,548 +178,13 @@ type Order struct {
 	Url []string `json:"url,omitempty"`
 }
 
-func (v Order) intoMap(intop *map[string]interface{}) error {
-	if intop == nil {
-		return nil
-	}
-
-	into := *intop
-
-	{
-		var value interface{} = v.AcceptedOffer
-		if len(v.AcceptedOffer) == 1 {
-			value = v.AcceptedOffer[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["acceptedOffer"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.AdditionalType
-		if len(v.AdditionalType) == 1 {
-			value = v.AdditionalType[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["additionalType"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.AlternateName
-		if len(v.AlternateName) == 1 {
-			value = v.AlternateName[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["alternateName"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.BillingAddress
-		if len(v.BillingAddress) == 1 {
-			value = v.BillingAddress[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["billingAddress"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Broker
-		if len(v.Broker) == 1 {
-			value = v.Broker[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["broker"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ConfirmationNumber
-		if len(v.ConfirmationNumber) == 1 {
-			value = v.ConfirmationNumber[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["confirmationNumber"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Customer
-		if len(v.Customer) == 1 {
-			value = v.Customer[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["customer"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Description
-		if len(v.Description) == 1 {
-			value = v.Description[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["description"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.DisambiguatingDescription
-		if len(v.DisambiguatingDescription) == 1 {
-			value = v.DisambiguatingDescription[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["disambiguatingDescription"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Discount
-		if len(v.Discount) == 1 {
-			value = v.Discount[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["discount"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.DiscountCode
-		if len(v.DiscountCode) == 1 {
-			value = v.DiscountCode[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["discountCode"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.DiscountCurrency
-		if len(v.DiscountCurrency) == 1 {
-			value = v.DiscountCurrency[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["discountCurrency"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Identifier
-		if len(v.Identifier) == 1 {
-			value = v.Identifier[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["identifier"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Image
-		if len(v.Image) == 1 {
-			value = v.Image[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["image"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.IsGift
-		if len(v.IsGift) == 1 {
-			value = v.IsGift[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["isGift"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.MainEntityOfPage
-		if len(v.MainEntityOfPage) == 1 {
-			value = v.MainEntityOfPage[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["mainEntityOfPage"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Name
-		if len(v.Name) == 1 {
-			value = v.Name[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["name"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.OrderDate
-		if len(v.OrderDate) == 1 {
-			value = v.OrderDate[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["orderDate"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.OrderDelivery
-		if len(v.OrderDelivery) == 1 {
-			value = v.OrderDelivery[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["orderDelivery"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.OrderNumber
-		if len(v.OrderNumber) == 1 {
-			value = v.OrderNumber[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["orderNumber"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.OrderStatus
-		if len(v.OrderStatus) == 1 {
-			value = v.OrderStatus[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["orderStatus"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.OrderedItem
-		if len(v.OrderedItem) == 1 {
-			value = v.OrderedItem[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["orderedItem"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PartOfInvoice
-		if len(v.PartOfInvoice) == 1 {
-			value = v.PartOfInvoice[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["partOfInvoice"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PaymentDueDate
-		if len(v.PaymentDueDate) == 1 {
-			value = v.PaymentDueDate[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["paymentDueDate"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PaymentMethod
-		if len(v.PaymentMethod) == 1 {
-			value = v.PaymentMethod[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["paymentMethod"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PaymentMethodId
-		if len(v.PaymentMethodId) == 1 {
-			value = v.PaymentMethodId[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["paymentMethodId"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PaymentUrl
-		if len(v.PaymentUrl) == 1 {
-			value = v.PaymentUrl[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["paymentUrl"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PotentialAction
-		if len(v.PotentialAction) == 1 {
-			value = v.PotentialAction[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["potentialAction"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.SameAs
-		if len(v.SameAs) == 1 {
-			value = v.SameAs[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["sameAs"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Seller
-		if len(v.Seller) == 1 {
-			value = v.Seller[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["seller"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.SubjectOf
-		if len(v.SubjectOf) == 1 {
-			value = v.SubjectOf[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["subjectOf"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Url
-		if len(v.Url) == 1 {
-			value = v.Url[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["url"] = json.RawMessage(b)
-		}
-	}
-
-	*intop = into
-
-	return nil
-}
-
-func (v Order) asMap() (map[string]interface{}, error) {
-	data := map[string]interface{}{}
-	err := v.intoMap(&data)
-	if err != nil {
-		return nil, err
-	}
-
-	data["@context"] = "http://schema.org"
-	data["@type"] = "Order"
-
-	return data, nil
-}
-
 func (v Order) MarshalJSON() ([]byte, error) {
-	data, err := v.asMap()
+	type Alias Order
+
+	b, err := json.Marshal((Alias)(v))
 	if err != nil {
 		return nil, err
 	}
 
-	return json.Marshal(data)
+	return append([]byte("{\"@context\":\"http://schema.org\",\"@type\":\"Order\","), b[1:]...), nil
 }

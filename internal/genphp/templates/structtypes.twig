@@ -1,7 +1,8 @@
 <?php
+namespace SchemaOrg;
 
 // {{ type_name }} see : {{ type_url }}
-class {{ type_name }} implements JsonSerializable {
+class {{ type_name }} implements \JsonSerializable {
 
 	public static $context = 'http://schema.org';
 	public static $type = '{{ type_name }}';
@@ -14,7 +15,7 @@ class {{ type_name }} implements JsonSerializable {
 	/**{% for comment_line in field.comment_lines %}
 	 * {{ comment_line }}{% endfor %}
 	 */
-	public var ${{ field.name }};
+	public ${{ field.name }};
 	{% endfor %}
 	public function jsonSerialize() {
 		$out = array(

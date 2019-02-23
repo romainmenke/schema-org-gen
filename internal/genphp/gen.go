@@ -4,11 +4,12 @@ import (
 	"context"
 	"log"
 	"os"
+	"os/exec"
 
-	"github.com/romainmenke/schema-org-gen/internal/typemap"
+	"github.com/romainmenke/schema-org-gen/internal/ast"
 )
 
-func Generate(ctx context.Context, tm *typemap.TypeMap, dir string, packageName string) error {
+func Generate(ctx context.Context, tm ast.Typemap, dir string, packageName string) error {
 	err := os.RemoveAll(dir)
 	if err != nil {
 		log.Println(err)
@@ -26,18 +27,32 @@ func Generate(ctx context.Context, tm *typemap.TypeMap, dir string, packageName 
 		return err
 	}
 
-	err = tm.Walk(ctx, phpTypeFile(dir, packageName))
-	if err != nil {
-		return err
+	for _, o := range tm {
+		select {
+		case <-ctx.Done():
+			return ctx.Err()
+		default:
+		}
+
+		if len(o.Fields) == 0 {
+			continue
+		}
+
+		err := phpTypeFile(ctx, dir, packageName, o)
+		if err != nil {
+			return err
+		}
 	}
 
-	phpFiles := []string{}
-	err = tm.Walk(ctx, listPhpFiles(&phpFiles))
-	if err != nil {
-		return err
-	}
+	phpFiles := listPhpFiles(tm)
 
 	err = writeLoad(ctx, dir, packageName, phpFiles)
+	if err != nil {
+		return err
+	}
+
+	cmd := exec.CommandContext(ctx, "./vendor-php/bin/phpcbf", "--standard=WordPress", "./schemaorgphp", dir)
+	err = cmd.Run()
 	if err != nil {
 		return err
 	}

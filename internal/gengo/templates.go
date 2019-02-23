@@ -45,17 +45,11 @@ func loadTemplates() (*stick.Env, error) {
 		return nil, err
 	}
 
-	utilTmpl, err := FSString(false, "/templates/util.twig")
-	if err != nil {
-		return nil, err
-	}
-
 	templates := &stick.MemoryLoader{
 		Templates: map[string]string{
 			"/templates/datatypes.twig":   dataTypesTmpl,
 			"/templates/example.twig":     exampleTmpl,
 			"/templates/structtypes.twig": structTypesTmpl,
-			"/templates/util.twig":        utilTmpl,
 		},
 	}
 

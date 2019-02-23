@@ -4,12 +4,14 @@ import "encoding/json"
 
 // MonetaryAmount see : https://schema.org/MonetaryAmount
 type MonetaryAmount struct {
-	typeContext
+
+	// With properties from StructuredValue see : https://schema.org/StructuredValue
+	//
 
 	// With properties from Intangible see : https://schema.org/Intangible
 	//
 
-	// With properties from StructuredValue see : https://schema.org/StructuredValue
+	// With properties from Thing see : https://schema.org/Thing
 	//
 
 	// With properties from Thing see : https://schema.org/Thing
@@ -25,10 +27,8 @@ type MonetaryAmount struct {
 	// types : Text
 	AlternateName []string `json:"alternateName,omitempty"`
 
-	// Currency see : https://pending.schema.org/currency
-	// The currency in which the monetary amount is expressed.
-	//
-	// Use standard formats: ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217) e.g. &quot;USD&quot;; Ticker symbol (see: https://schema.orghttps://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. &quot;BTC&quot;; well known names for Local Exchange Tradings Systems (see: https://schema.orghttps://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. &quot;Ithaca HOUR&quot;.
+	// Currency see : https://schema.org/currency
+	// The currency in which the monetary amount is expressed.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. &quot;USD&quot;; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. &quot;BTC&quot;; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. &quot;Ithaca HOUR&quot;.
 	// types : Text
 	Currency []string `json:"currency,omitempty"`
 
@@ -43,17 +43,18 @@ type MonetaryAmount struct {
 	DisambiguatingDescription []string `json:"disambiguatingDescription,omitempty"`
 
 	// Identifier see : https://schema.org/identifier
-	// The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
-	// types : PropertyValue Text URL
+	// The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.
+	//
+	// types : URL Text PropertyValue
 	Identifier []interface{} `json:"identifier,omitempty"`
 
 	// Image see : https://schema.org/image
-	// An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
-	// types : ImageObject URL
+	// An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].
+	// types : URL ImageObject
 	Image []interface{} `json:"image,omitempty"`
 
 	// MainEntityOfPage see : https://schema.org/mainEntityOfPage
-	// Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
+	// Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.
 	// types : CreativeWork URL
 	MainEntityOfPage []interface{} `json:"mainEntityOfPage,omitempty"`
 
@@ -82,356 +83,24 @@ type MonetaryAmount struct {
 	// types : URL
 	SameAs []string `json:"sameAs,omitempty"`
 
-	// SubjectOf see : https://pending.schema.org/subjectOf
-	// A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
-	// types : CreativeWork Event
-	SubjectOf []interface{} `json:"subjectOf,omitempty"`
-
 	// Url see : https://schema.org/url
 	// URL of the item.
 	// types : URL
 	Url []string `json:"url,omitempty"`
 
-	// ValidFrom see : https://schema.org/validFrom
-	// The date when the item becomes valid.
-	// types : DateTime
-	ValidFrom []DateTime `json:"validFrom,omitempty"`
-
-	// ValidThrough see : https://schema.org/validThrough
-	// The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours.
-	// types : DateTime
-	ValidThrough []DateTime `json:"validThrough,omitempty"`
-
 	// Value see : https://schema.org/value
-	// The value of the quantitative value or property value node.
-	//
-	//
-	// For QuantitativeValue (see: https://schema.org/QuantitativeValue) and MonetaryAmount (see: https://schema.org/MonetaryAmount), the recommended type for values is &#39;Number&#39;.
-	// For PropertyValue (see: https://schema.org/PropertyValue), it can be &#39;Text;&#39;, &#39;Number&#39;, &#39;Boolean&#39;, or &#39;StructuredValue&#39;.
-	//
-	//
-	// types : Boolean Number StructuredValue Text
+	// The value of the quantitative value or property value node.\n\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is &#39;Number&#39;.\n* For [[PropertyValue]], it can be &#39;Text;&#39;, &#39;Number&#39;, &#39;Boolean&#39;, or &#39;StructuredValue&#39;.
+	// types : Number Text Boolean StructuredValue
 	Value []interface{} `json:"value,omitempty"`
 }
 
-func (v MonetaryAmount) intoMap(intop *map[string]interface{}) error {
-	if intop == nil {
-		return nil
-	}
-
-	into := *intop
-
-	{
-		var value interface{} = v.AdditionalType
-		if len(v.AdditionalType) == 1 {
-			value = v.AdditionalType[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["additionalType"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.AlternateName
-		if len(v.AlternateName) == 1 {
-			value = v.AlternateName[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["alternateName"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Currency
-		if len(v.Currency) == 1 {
-			value = v.Currency[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["currency"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Description
-		if len(v.Description) == 1 {
-			value = v.Description[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["description"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.DisambiguatingDescription
-		if len(v.DisambiguatingDescription) == 1 {
-			value = v.DisambiguatingDescription[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["disambiguatingDescription"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Identifier
-		if len(v.Identifier) == 1 {
-			value = v.Identifier[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["identifier"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Image
-		if len(v.Image) == 1 {
-			value = v.Image[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["image"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.MainEntityOfPage
-		if len(v.MainEntityOfPage) == 1 {
-			value = v.MainEntityOfPage[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["mainEntityOfPage"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.MaxValue
-		if len(v.MaxValue) == 1 {
-			value = v.MaxValue[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["maxValue"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.MinValue
-		if len(v.MinValue) == 1 {
-			value = v.MinValue[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["minValue"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Name
-		if len(v.Name) == 1 {
-			value = v.Name[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["name"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PotentialAction
-		if len(v.PotentialAction) == 1 {
-			value = v.PotentialAction[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["potentialAction"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.SameAs
-		if len(v.SameAs) == 1 {
-			value = v.SameAs[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["sameAs"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.SubjectOf
-		if len(v.SubjectOf) == 1 {
-			value = v.SubjectOf[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["subjectOf"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Url
-		if len(v.Url) == 1 {
-			value = v.Url[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["url"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ValidFrom
-		if len(v.ValidFrom) == 1 {
-			value = v.ValidFrom[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["validFrom"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ValidThrough
-		if len(v.ValidThrough) == 1 {
-			value = v.ValidThrough[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["validThrough"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Value
-		if len(v.Value) == 1 {
-			value = v.Value[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["value"] = json.RawMessage(b)
-		}
-	}
-
-	*intop = into
-
-	return nil
-}
-
-func (v MonetaryAmount) asMap() (map[string]interface{}, error) {
-	data := map[string]interface{}{}
-	err := v.intoMap(&data)
-	if err != nil {
-		return nil, err
-	}
-
-	data["@context"] = "http://schema.org"
-	data["@type"] = "MonetaryAmount"
-
-	return data, nil
-}
-
 func (v MonetaryAmount) MarshalJSON() ([]byte, error) {
-	data, err := v.asMap()
+	type Alias MonetaryAmount
+
+	b, err := json.Marshal((Alias)(v))
 	if err != nil {
 		return nil, err
 	}
 
-	return json.Marshal(data)
+	return append([]byte("{\"@context\":\"http://schema.org\",\"@type\":\"MonetaryAmount\","), b[1:]...), nil
 }

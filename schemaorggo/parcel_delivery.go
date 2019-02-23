@@ -4,7 +4,6 @@ import "encoding/json"
 
 // ParcelDelivery see : https://schema.org/ParcelDelivery
 type ParcelDelivery struct {
-	typeContext
 
 	// With properties from Intangible see : https://schema.org/Intangible
 	//
@@ -21,6 +20,11 @@ type ParcelDelivery struct {
 	// An alias for the item.
 	// types : Text
 	AlternateName []string `json:"alternateName,omitempty"`
+
+	// Carrier see : https://schema.org/carrier
+	// &#39;carrier&#39; is an out-dated term indicating the &#39;provider&#39; for parcel delivery and flights.
+	// types : Organization
+	Carrier []*Organization `json:"carrier,omitempty"`
 
 	// DeliveryAddress see : https://schema.org/deliveryAddress
 	// Destination address.
@@ -58,13 +62,14 @@ type ParcelDelivery struct {
 	HasDeliveryMethod []*DeliveryMethod `json:"hasDeliveryMethod,omitempty"`
 
 	// Identifier see : https://schema.org/identifier
-	// The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
-	// types : PropertyValue Text URL
+	// The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.
+	//
+	// types : URL Text PropertyValue
 	Identifier []interface{} `json:"identifier,omitempty"`
 
 	// Image see : https://schema.org/image
-	// An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
-	// types : ImageObject URL
+	// An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].
+	// types : URL ImageObject
 	Image []interface{} `json:"image,omitempty"`
 
 	// ItemShipped see : https://schema.org/itemShipped
@@ -73,7 +78,7 @@ type ParcelDelivery struct {
 	ItemShipped []*Product `json:"itemShipped,omitempty"`
 
 	// MainEntityOfPage see : https://schema.org/mainEntityOfPage
-	// Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
+	// Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.
 	// types : CreativeWork URL
 	MainEntityOfPage []interface{} `json:"mainEntityOfPage,omitempty"`
 
@@ -98,19 +103,14 @@ type ParcelDelivery struct {
 	PotentialAction []*Action `json:"potentialAction,omitempty"`
 
 	// Provider see : https://schema.org/provider
-	// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier (see: https://schema.org/carrier).
-	// types : Organization Person
+	// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+	// types : Person Organization
 	Provider []interface{} `json:"provider,omitempty"`
 
 	// SameAs see : https://schema.org/sameAs
 	// URL of a reference Web page that unambiguously indicates the item&#39;s identity. E.g. the URL of the item&#39;s Wikipedia page, Wikidata entry, or official website.
 	// types : URL
 	SameAs []string `json:"sameAs,omitempty"`
-
-	// SubjectOf see : https://pending.schema.org/subjectOf
-	// A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
-	// types : CreativeWork Event
-	SubjectOf []interface{} `json:"subjectOf,omitempty"`
 
 	// TrackingNumber see : https://schema.org/trackingNumber
 	// Shipper tracking number.
@@ -128,404 +128,13 @@ type ParcelDelivery struct {
 	Url []string `json:"url,omitempty"`
 }
 
-func (v ParcelDelivery) intoMap(intop *map[string]interface{}) error {
-	if intop == nil {
-		return nil
-	}
-
-	into := *intop
-
-	{
-		var value interface{} = v.AdditionalType
-		if len(v.AdditionalType) == 1 {
-			value = v.AdditionalType[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["additionalType"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.AlternateName
-		if len(v.AlternateName) == 1 {
-			value = v.AlternateName[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["alternateName"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.DeliveryAddress
-		if len(v.DeliveryAddress) == 1 {
-			value = v.DeliveryAddress[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["deliveryAddress"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.DeliveryStatus
-		if len(v.DeliveryStatus) == 1 {
-			value = v.DeliveryStatus[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["deliveryStatus"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Description
-		if len(v.Description) == 1 {
-			value = v.Description[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["description"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.DisambiguatingDescription
-		if len(v.DisambiguatingDescription) == 1 {
-			value = v.DisambiguatingDescription[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["disambiguatingDescription"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ExpectedArrivalFrom
-		if len(v.ExpectedArrivalFrom) == 1 {
-			value = v.ExpectedArrivalFrom[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["expectedArrivalFrom"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ExpectedArrivalUntil
-		if len(v.ExpectedArrivalUntil) == 1 {
-			value = v.ExpectedArrivalUntil[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["expectedArrivalUntil"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.HasDeliveryMethod
-		if len(v.HasDeliveryMethod) == 1 {
-			value = v.HasDeliveryMethod[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["hasDeliveryMethod"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Identifier
-		if len(v.Identifier) == 1 {
-			value = v.Identifier[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["identifier"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Image
-		if len(v.Image) == 1 {
-			value = v.Image[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["image"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ItemShipped
-		if len(v.ItemShipped) == 1 {
-			value = v.ItemShipped[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["itemShipped"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.MainEntityOfPage
-		if len(v.MainEntityOfPage) == 1 {
-			value = v.MainEntityOfPage[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["mainEntityOfPage"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Name
-		if len(v.Name) == 1 {
-			value = v.Name[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["name"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.OriginAddress
-		if len(v.OriginAddress) == 1 {
-			value = v.OriginAddress[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["originAddress"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PartOfOrder
-		if len(v.PartOfOrder) == 1 {
-			value = v.PartOfOrder[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["partOfOrder"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PotentialAction
-		if len(v.PotentialAction) == 1 {
-			value = v.PotentialAction[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["potentialAction"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Provider
-		if len(v.Provider) == 1 {
-			value = v.Provider[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["provider"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.SameAs
-		if len(v.SameAs) == 1 {
-			value = v.SameAs[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["sameAs"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.SubjectOf
-		if len(v.SubjectOf) == 1 {
-			value = v.SubjectOf[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["subjectOf"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.TrackingNumber
-		if len(v.TrackingNumber) == 1 {
-			value = v.TrackingNumber[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["trackingNumber"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.TrackingUrl
-		if len(v.TrackingUrl) == 1 {
-			value = v.TrackingUrl[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["trackingUrl"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Url
-		if len(v.Url) == 1 {
-			value = v.Url[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["url"] = json.RawMessage(b)
-		}
-	}
-
-	*intop = into
-
-	return nil
-}
-
-func (v ParcelDelivery) asMap() (map[string]interface{}, error) {
-	data := map[string]interface{}{}
-	err := v.intoMap(&data)
-	if err != nil {
-		return nil, err
-	}
-
-	data["@context"] = "http://schema.org"
-	data["@type"] = "ParcelDelivery"
-
-	return data, nil
-}
-
 func (v ParcelDelivery) MarshalJSON() ([]byte, error) {
-	data, err := v.asMap()
+	type Alias ParcelDelivery
+
+	b, err := json.Marshal((Alias)(v))
 	if err != nil {
 		return nil, err
 	}
 
-	return json.Marshal(data)
+	return append([]byte("{\"@context\":\"http://schema.org\",\"@type\":\"ParcelDelivery\","), b[1:]...), nil
 }

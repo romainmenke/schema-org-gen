@@ -4,12 +4,14 @@ import "encoding/json"
 
 // ContactPoint see : https://schema.org/ContactPoint
 type ContactPoint struct {
-	typeContext
+
+	// With properties from StructuredValue see : https://schema.org/StructuredValue
+	//
 
 	// With properties from Intangible see : https://schema.org/Intangible
 	//
 
-	// With properties from StructuredValue see : https://schema.org/StructuredValue
+	// With properties from Thing see : https://schema.org/Thing
 	//
 
 	// With properties from Thing see : https://schema.org/Thing
@@ -26,12 +28,12 @@ type ContactPoint struct {
 	AlternateName []string `json:"alternateName,omitempty"`
 
 	// AreaServed see : https://schema.org/areaServed
-	// The geographic area where a service or offered item is provided. Supersedes serviceArea (see: https://schema.org/serviceArea).
-	// types : AdministrativeArea GeoShape Place Text
+	// The geographic area where a service or offered item is provided.
+	// types : Place AdministrativeArea GeoShape Text
 	AreaServed []interface{} `json:"areaServed,omitempty"`
 
 	// AvailableLanguage see : https://schema.org/availableLanguage
-	// A language someone may use with or at the item, service or place. Please use one of the language codes from the IETF BCP 47 standard (see: https://schema.orghttp://tools.ietf.org/html/bcp47). See also inLanguage (see: https://schema.org/inLanguage)
+	// A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]]
 	// types : Language Text
 	AvailableLanguage []interface{} `json:"availableLanguage,omitempty"`
 
@@ -71,17 +73,18 @@ type ContactPoint struct {
 	HoursAvailable []*OpeningHoursSpecification `json:"hoursAvailable,omitempty"`
 
 	// Identifier see : https://schema.org/identifier
-	// The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
-	// types : PropertyValue Text URL
+	// The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.
+	//
+	// types : URL Text PropertyValue
 	Identifier []interface{} `json:"identifier,omitempty"`
 
 	// Image see : https://schema.org/image
-	// An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
-	// types : ImageObject URL
+	// An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].
+	// types : URL ImageObject
 	Image []interface{} `json:"image,omitempty"`
 
 	// MainEntityOfPage see : https://schema.org/mainEntityOfPage
-	// Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
+	// Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.
 	// types : CreativeWork URL
 	MainEntityOfPage []interface{} `json:"mainEntityOfPage,omitempty"`
 
@@ -105,10 +108,10 @@ type ContactPoint struct {
 	// types : URL
 	SameAs []string `json:"sameAs,omitempty"`
 
-	// SubjectOf see : https://pending.schema.org/subjectOf
-	// A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
-	// types : CreativeWork Event
-	SubjectOf []interface{} `json:"subjectOf,omitempty"`
+	// ServiceArea see : https://schema.org/serviceArea
+	// The geographic area where the service is provided.
+	// types : Place AdministrativeArea GeoShape
+	ServiceArea []interface{} `json:"serviceArea,omitempty"`
 
 	// Telephone see : https://schema.org/telephone
 	// The telephone number.
@@ -121,372 +124,13 @@ type ContactPoint struct {
 	Url []string `json:"url,omitempty"`
 }
 
-func (v ContactPoint) intoMap(intop *map[string]interface{}) error {
-	if intop == nil {
-		return nil
-	}
-
-	into := *intop
-
-	{
-		var value interface{} = v.AdditionalType
-		if len(v.AdditionalType) == 1 {
-			value = v.AdditionalType[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["additionalType"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.AlternateName
-		if len(v.AlternateName) == 1 {
-			value = v.AlternateName[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["alternateName"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.AreaServed
-		if len(v.AreaServed) == 1 {
-			value = v.AreaServed[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["areaServed"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.AvailableLanguage
-		if len(v.AvailableLanguage) == 1 {
-			value = v.AvailableLanguage[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["availableLanguage"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ContactOption
-		if len(v.ContactOption) == 1 {
-			value = v.ContactOption[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["contactOption"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ContactType
-		if len(v.ContactType) == 1 {
-			value = v.ContactType[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["contactType"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Description
-		if len(v.Description) == 1 {
-			value = v.Description[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["description"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.DisambiguatingDescription
-		if len(v.DisambiguatingDescription) == 1 {
-			value = v.DisambiguatingDescription[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["disambiguatingDescription"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Email
-		if len(v.Email) == 1 {
-			value = v.Email[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["email"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.FaxNumber
-		if len(v.FaxNumber) == 1 {
-			value = v.FaxNumber[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["faxNumber"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.HoursAvailable
-		if len(v.HoursAvailable) == 1 {
-			value = v.HoursAvailable[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["hoursAvailable"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Identifier
-		if len(v.Identifier) == 1 {
-			value = v.Identifier[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["identifier"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Image
-		if len(v.Image) == 1 {
-			value = v.Image[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["image"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.MainEntityOfPage
-		if len(v.MainEntityOfPage) == 1 {
-			value = v.MainEntityOfPage[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["mainEntityOfPage"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Name
-		if len(v.Name) == 1 {
-			value = v.Name[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["name"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PotentialAction
-		if len(v.PotentialAction) == 1 {
-			value = v.PotentialAction[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["potentialAction"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ProductSupported
-		if len(v.ProductSupported) == 1 {
-			value = v.ProductSupported[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["productSupported"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.SameAs
-		if len(v.SameAs) == 1 {
-			value = v.SameAs[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["sameAs"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.SubjectOf
-		if len(v.SubjectOf) == 1 {
-			value = v.SubjectOf[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["subjectOf"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Telephone
-		if len(v.Telephone) == 1 {
-			value = v.Telephone[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["telephone"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Url
-		if len(v.Url) == 1 {
-			value = v.Url[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["url"] = json.RawMessage(b)
-		}
-	}
-
-	*intop = into
-
-	return nil
-}
-
-func (v ContactPoint) asMap() (map[string]interface{}, error) {
-	data := map[string]interface{}{}
-	err := v.intoMap(&data)
-	if err != nil {
-		return nil, err
-	}
-
-	data["@context"] = "http://schema.org"
-	data["@type"] = "ContactPoint"
-
-	return data, nil
-}
-
 func (v ContactPoint) MarshalJSON() ([]byte, error) {
-	data, err := v.asMap()
+	type Alias ContactPoint
+
+	b, err := json.Marshal((Alias)(v))
 	if err != nil {
 		return nil, err
 	}
 
-	return json.Marshal(data)
+	return append([]byte("{\"@context\":\"http://schema.org\",\"@type\":\"ContactPoint\","), b[1:]...), nil
 }

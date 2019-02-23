@@ -58,6 +58,7 @@ func goTypeForSchemaDataType(goTypes []string, schemaDataType string) string {
 				return "[]*" + schemaDataType
 			}
 		}
-		return "[]interface{}"
 	}
+
+	return "[]interface{}"
 }

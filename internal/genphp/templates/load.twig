@@ -1,7 +1,6 @@
 <?php
+namespace SchemaOrg;
 
-define( 'SCHEMAORG_PLUGIN_PATH', dirname( __FILE__ ) );
-
-include SCHEMAORG_PLUGIN_PATH . '/inc/util.php';
+require_once dirname( __FILE__ ) . '/inc/util.php';
 {% for file in files %}
-include SCHEMAORG_PLUGIN_PATH . '/classes/{{ file }}.php';{% endfor %}
+require_once dirname( __FILE__ ) . '/classes/{{ file }}.php';{% endfor %}

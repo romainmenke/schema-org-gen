@@ -4,15 +4,29 @@ import "encoding/json"
 
 // LocationFeatureSpecification see : https://schema.org/LocationFeatureSpecification
 type LocationFeatureSpecification struct {
-	typeContext
-
-	// With properties from Intangible see : https://schema.org/Intangible
-	//
 
 	// With properties from PropertyValue see : https://schema.org/PropertyValue
 	//
 
 	// With properties from StructuredValue see : https://schema.org/StructuredValue
+	//
+
+	// With properties from Intangible see : https://schema.org/Intangible
+	//
+
+	// With properties from Thing see : https://schema.org/Thing
+	//
+
+	// With properties from Thing see : https://schema.org/Thing
+	//
+
+	// With properties from Intangible see : https://schema.org/Intangible
+	//
+
+	// With properties from Thing see : https://schema.org/Thing
+	//
+
+	// With properties from Thing see : https://schema.org/Thing
 	//
 
 	// With properties from Thing see : https://schema.org/Thing
@@ -44,17 +58,18 @@ type LocationFeatureSpecification struct {
 	HoursAvailable []*OpeningHoursSpecification `json:"hoursAvailable,omitempty"`
 
 	// Identifier see : https://schema.org/identifier
-	// The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
-	// types : PropertyValue Text URL
+	// The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.
+	//
+	// types : URL Text PropertyValue
 	Identifier []interface{} `json:"identifier,omitempty"`
 
 	// Image see : https://schema.org/image
-	// An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
-	// types : ImageObject URL
+	// An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].
+	// types : URL ImageObject
 	Image []interface{} `json:"image,omitempty"`
 
 	// MainEntityOfPage see : https://schema.org/mainEntityOfPage
-	// Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
+	// Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.
 	// types : CreativeWork URL
 	MainEntityOfPage []interface{} `json:"mainEntityOfPage,omitempty"`
 
@@ -62,18 +77,6 @@ type LocationFeatureSpecification struct {
 	// The upper value of some characteristic or property.
 	// types : Number
 	MaxValue []float64 `json:"maxValue,omitempty"`
-
-	// MeasurementTechnique see : https://pending.schema.org/measurementTechnique
-	// A technique or technology used in a Dataset (see: https://schema.org/Dataset) (or DataDownload (see: https://schema.org/DataDownload), DataCatalog (see: https://schema.org/DataCatalog)),
-	// corresponding to the method used for measuring the corresponding variable(s) (described using variableMeasured (see: https://schema.org/variableMeasured)). This is oriented towards scientific and scholarly dataset publication but may have broader applicability; it is not intended as a full representation of measurement, but rather as a high level summary for dataset discovery.
-	//
-	// For example, if variableMeasured (see: https://schema.org/variableMeasured) is: molecule concentration, measurementTechnique (see: https://schema.org/measurementTechnique) could be: &quot;mass spectrometry&quot; or &quot;nmr spectroscopy&quot; or &quot;colorimetry&quot; or &quot;immunofluorescence&quot;.
-	//
-	// If the variableMeasured (see: https://schema.org/variableMeasured) is &quot;depression rating&quot;, the measurementTechnique (see: https://schema.org/measurementTechnique) could be &quot;Zung Scale&quot; or &quot;HAM-D&quot; or &quot;Beck Depression Inventory&quot;.
-	//
-	// If there are several variableMeasured (see: https://schema.org/variableMeasured) properties recorded for some given data object, use a PropertyValue (see: https://schema.org/PropertyValue) for each variableMeasured (see: https://schema.org/variableMeasured) and attach the corresponding measurementTechnique (see: https://schema.org/measurementTechnique).
-	// types : Text URL
-	MeasurementTechnique []string `json:"measurementTechnique,omitempty"`
 
 	// MinValue see : https://schema.org/minValue
 	// The lower value of some characteristic or property.
@@ -103,11 +106,6 @@ type LocationFeatureSpecification struct {
 	// types : URL
 	SameAs []string `json:"sameAs,omitempty"`
 
-	// SubjectOf see : https://pending.schema.org/subjectOf
-	// A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
-	// types : CreativeWork Event
-	SubjectOf []interface{} `json:"subjectOf,omitempty"`
-
 	// UnitCode see : https://schema.org/unitCode
 	// The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon.
 	// types : Text URL
@@ -115,7 +113,7 @@ type LocationFeatureSpecification struct {
 
 	// UnitText see : https://schema.org/unitText
 	// A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for
-	// unitCode (see: https://schema.orgunitCode).
+	// &lt;a href=&#39;unitCode&#39;&gt;unitCode&lt;/a&gt;.
 	// types : Text
 	UnitText []string `json:"unitText,omitempty"`
 
@@ -135,420 +133,23 @@ type LocationFeatureSpecification struct {
 	ValidThrough []DateTime `json:"validThrough,omitempty"`
 
 	// Value see : https://schema.org/value
-	// The value of the quantitative value or property value node.
-	//
-	//
-	// For QuantitativeValue (see: https://schema.org/QuantitativeValue) and MonetaryAmount (see: https://schema.org/MonetaryAmount), the recommended type for values is &#39;Number&#39;.
-	// For PropertyValue (see: https://schema.org/PropertyValue), it can be &#39;Text;&#39;, &#39;Number&#39;, &#39;Boolean&#39;, or &#39;StructuredValue&#39;.
-	//
-	//
-	// types : Boolean Number StructuredValue Text
+	// The value of the quantitative value or property value node.\n\n* For [[QuantitativeValue]] and [[MonetaryAmount]], the recommended type for values is &#39;Number&#39;.\n* For [[PropertyValue]], it can be &#39;Text;&#39;, &#39;Number&#39;, &#39;Boolean&#39;, or &#39;StructuredValue&#39;.
+	// types : Number Text Boolean StructuredValue
 	Value []interface{} `json:"value,omitempty"`
 
 	// ValueReference see : https://schema.org/valueReference
 	// A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature.
-	// types : Enumeration PropertyValue QualitativeValue QuantitativeValue StructuredValue
+	// types : Enumeration StructuredValue PropertyValue QualitativeValue QuantitativeValue
 	ValueReference []interface{} `json:"valueReference,omitempty"`
 }
 
-func (v LocationFeatureSpecification) intoMap(intop *map[string]interface{}) error {
-	if intop == nil {
-		return nil
-	}
-
-	into := *intop
-
-	{
-		var value interface{} = v.AdditionalType
-		if len(v.AdditionalType) == 1 {
-			value = v.AdditionalType[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["additionalType"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.AlternateName
-		if len(v.AlternateName) == 1 {
-			value = v.AlternateName[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["alternateName"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Description
-		if len(v.Description) == 1 {
-			value = v.Description[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["description"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.DisambiguatingDescription
-		if len(v.DisambiguatingDescription) == 1 {
-			value = v.DisambiguatingDescription[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["disambiguatingDescription"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.HoursAvailable
-		if len(v.HoursAvailable) == 1 {
-			value = v.HoursAvailable[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["hoursAvailable"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Identifier
-		if len(v.Identifier) == 1 {
-			value = v.Identifier[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["identifier"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Image
-		if len(v.Image) == 1 {
-			value = v.Image[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["image"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.MainEntityOfPage
-		if len(v.MainEntityOfPage) == 1 {
-			value = v.MainEntityOfPage[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["mainEntityOfPage"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.MaxValue
-		if len(v.MaxValue) == 1 {
-			value = v.MaxValue[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["maxValue"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.MeasurementTechnique
-		if len(v.MeasurementTechnique) == 1 {
-			value = v.MeasurementTechnique[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["measurementTechnique"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.MinValue
-		if len(v.MinValue) == 1 {
-			value = v.MinValue[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["minValue"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Name
-		if len(v.Name) == 1 {
-			value = v.Name[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["name"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PotentialAction
-		if len(v.PotentialAction) == 1 {
-			value = v.PotentialAction[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["potentialAction"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PropertyID
-		if len(v.PropertyID) == 1 {
-			value = v.PropertyID[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["propertyID"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.SameAs
-		if len(v.SameAs) == 1 {
-			value = v.SameAs[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["sameAs"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.SubjectOf
-		if len(v.SubjectOf) == 1 {
-			value = v.SubjectOf[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["subjectOf"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.UnitCode
-		if len(v.UnitCode) == 1 {
-			value = v.UnitCode[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["unitCode"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.UnitText
-		if len(v.UnitText) == 1 {
-			value = v.UnitText[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["unitText"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Url
-		if len(v.Url) == 1 {
-			value = v.Url[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["url"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ValidFrom
-		if len(v.ValidFrom) == 1 {
-			value = v.ValidFrom[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["validFrom"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ValidThrough
-		if len(v.ValidThrough) == 1 {
-			value = v.ValidThrough[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["validThrough"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Value
-		if len(v.Value) == 1 {
-			value = v.Value[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["value"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ValueReference
-		if len(v.ValueReference) == 1 {
-			value = v.ValueReference[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["valueReference"] = json.RawMessage(b)
-		}
-	}
-
-	*intop = into
-
-	return nil
-}
-
-func (v LocationFeatureSpecification) asMap() (map[string]interface{}, error) {
-	data := map[string]interface{}{}
-	err := v.intoMap(&data)
-	if err != nil {
-		return nil, err
-	}
-
-	data["@context"] = "http://schema.org"
-	data["@type"] = "LocationFeatureSpecification"
-
-	return data, nil
-}
-
 func (v LocationFeatureSpecification) MarshalJSON() ([]byte, error) {
-	data, err := v.asMap()
+	type Alias LocationFeatureSpecification
+
+	b, err := json.Marshal((Alias)(v))
 	if err != nil {
 		return nil, err
 	}
 
-	return json.Marshal(data)
+	return append([]byte("{\"@context\":\"http://schema.org\",\"@type\":\"LocationFeatureSpecification\","), b[1:]...), nil
 }

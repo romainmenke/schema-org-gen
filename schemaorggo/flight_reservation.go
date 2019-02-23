@@ -4,12 +4,14 @@ import "encoding/json"
 
 // FlightReservation see : https://schema.org/FlightReservation
 type FlightReservation struct {
-	typeContext
+
+	// With properties from Reservation see : https://schema.org/Reservation
+	//
 
 	// With properties from Intangible see : https://schema.org/Intangible
 	//
 
-	// With properties from Reservation see : https://schema.org/Reservation
+	// With properties from Thing see : https://schema.org/Thing
 	//
 
 	// With properties from Thing see : https://schema.org/Thing
@@ -25,10 +27,10 @@ type FlightReservation struct {
 	// types : Text
 	AlternateName []string `json:"alternateName,omitempty"`
 
-	// BoardingGroup see : https://schema.org/boardingGroup
-	// The airline-specific indicator of boarding order / preference.
-	// types : Text
-	BoardingGroup []string `json:"boardingGroup,omitempty"`
+	// BookingAgent see : https://schema.org/bookingAgent
+	// &#39;bookingAgent&#39; is an out-dated term indicating a &#39;broker&#39; that serves as a booking agent.
+	// types : Person Organization
+	BookingAgent []interface{} `json:"bookingAgent,omitempty"`
 
 	// BookingTime see : https://schema.org/bookingTime
 	// The date and time the reservation was booked.
@@ -36,8 +38,8 @@ type FlightReservation struct {
 	BookingTime []DateTime `json:"bookingTime,omitempty"`
 
 	// Broker see : https://schema.org/broker
-	// An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred. Supersedes bookingAgent (see: https://schema.org/bookingAgent).
-	// types : Organization Person
+	// An entity that arranges for an exchange between a buyer and a seller.  In most cases a broker never acquires or releases ownership of a product or service involved in an exchange.  If it is not clear whether an entity is a broker, seller, or buyer, the latter two terms are preferred.
+	// types : Person Organization
 	Broker []interface{} `json:"broker,omitempty"`
 
 	// Description see : https://schema.org/description
@@ -51,17 +53,18 @@ type FlightReservation struct {
 	DisambiguatingDescription []string `json:"disambiguatingDescription,omitempty"`
 
 	// Identifier see : https://schema.org/identifier
-	// The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
-	// types : PropertyValue Text URL
+	// The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.
+	//
+	// types : URL Text PropertyValue
 	Identifier []interface{} `json:"identifier,omitempty"`
 
 	// Image see : https://schema.org/image
-	// An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
-	// types : ImageObject URL
+	// An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].
+	// types : URL ImageObject
 	Image []interface{} `json:"image,omitempty"`
 
 	// MainEntityOfPage see : https://schema.org/mainEntityOfPage
-	// Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
+	// Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.
 	// types : CreativeWork URL
 	MainEntityOfPage []interface{} `json:"mainEntityOfPage,omitempty"`
 
@@ -77,7 +80,7 @@ type FlightReservation struct {
 
 	// PassengerPriorityStatus see : https://schema.org/passengerPriorityStatus
 	// The priority status assigned to a passenger for security or boarding (e.g. FastTrack or Priority).
-	// types : QualitativeValue Text
+	// types : Text QualitativeValue
 	PassengerPriorityStatus []interface{} `json:"passengerPriorityStatus,omitempty"`
 
 	// PassengerSequenceNumber see : https://schema.org/passengerSequenceNumber
@@ -91,9 +94,7 @@ type FlightReservation struct {
 	PotentialAction []*Action `json:"potentialAction,omitempty"`
 
 	// PriceCurrency see : https://schema.org/priceCurrency
-	// The currency of the price, or a price component when attached to PriceSpecification (see: https://schema.org/PriceSpecification) and its subtypes.
-	//
-	// Use standard formats: ISO 4217 currency format (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_4217) e.g. &quot;USD&quot;; Ticker symbol (see: https://schema.orghttps://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. &quot;BTC&quot;; well known names for Local Exchange Tradings Systems (see: https://schema.orghttps://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. &quot;Ithaca HOUR&quot;.
+	// The currency of the price, or a price component when attached to [[PriceSpecification]] and its subtypes.\n\nUse standard formats: [ISO 4217 currency format](http://en.wikipedia.org/wiki/ISO_4217) e.g. &quot;USD&quot;; [Ticker symbol](https://en.wikipedia.org/wiki/List_of_cryptocurrencies) for cryptocurrencies e.g. &quot;BTC&quot;; well known names for [Local Exchange Tradings Systems](https://en.wikipedia.org/wiki/Local_exchange_trading_system) (LETS) and other currency types e.g. &quot;Ithaca HOUR&quot;.
 	// types : Text
 	PriceCurrency []string `json:"priceCurrency,omitempty"`
 
@@ -103,8 +104,8 @@ type FlightReservation struct {
 	ProgramMembershipUsed []*ProgramMembership `json:"programMembershipUsed,omitempty"`
 
 	// Provider see : https://schema.org/provider
-	// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller. Supersedes carrier (see: https://schema.org/carrier).
-	// types : Organization Person
+	// The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller.
+	// types : Person Organization
 	Provider []interface{} `json:"provider,omitempty"`
 
 	// ReservationFor see : https://schema.org/reservationFor
@@ -137,19 +138,14 @@ type FlightReservation struct {
 	// types : Text
 	SecurityScreening []string `json:"securityScreening,omitempty"`
 
-	// SubjectOf see : https://pending.schema.org/subjectOf
-	// A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
-	// types : CreativeWork Event
-	SubjectOf []interface{} `json:"subjectOf,omitempty"`
-
 	// TotalPrice see : https://schema.org/totalPrice
 	// The total price for the reservation or ticket, including applicable taxes, shipping, etc.
-	// types : Number PriceSpecification Text
+	// types : Number Text PriceSpecification
 	TotalPrice []interface{} `json:"totalPrice,omitempty"`
 
 	// UnderName see : https://schema.org/underName
 	// The person or organization the reservation or ticket is for.
-	// types : Organization Person
+	// types : Person Organization
 	UnderName []interface{} `json:"underName,omitempty"`
 
 	// Url see : https://schema.org/url
@@ -158,484 +154,13 @@ type FlightReservation struct {
 	Url []string `json:"url,omitempty"`
 }
 
-func (v FlightReservation) intoMap(intop *map[string]interface{}) error {
-	if intop == nil {
-		return nil
-	}
-
-	into := *intop
-
-	{
-		var value interface{} = v.AdditionalType
-		if len(v.AdditionalType) == 1 {
-			value = v.AdditionalType[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["additionalType"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.AlternateName
-		if len(v.AlternateName) == 1 {
-			value = v.AlternateName[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["alternateName"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.BoardingGroup
-		if len(v.BoardingGroup) == 1 {
-			value = v.BoardingGroup[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["boardingGroup"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.BookingTime
-		if len(v.BookingTime) == 1 {
-			value = v.BookingTime[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["bookingTime"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Broker
-		if len(v.Broker) == 1 {
-			value = v.Broker[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["broker"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Description
-		if len(v.Description) == 1 {
-			value = v.Description[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["description"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.DisambiguatingDescription
-		if len(v.DisambiguatingDescription) == 1 {
-			value = v.DisambiguatingDescription[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["disambiguatingDescription"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Identifier
-		if len(v.Identifier) == 1 {
-			value = v.Identifier[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["identifier"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Image
-		if len(v.Image) == 1 {
-			value = v.Image[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["image"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.MainEntityOfPage
-		if len(v.MainEntityOfPage) == 1 {
-			value = v.MainEntityOfPage[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["mainEntityOfPage"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ModifiedTime
-		if len(v.ModifiedTime) == 1 {
-			value = v.ModifiedTime[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["modifiedTime"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Name
-		if len(v.Name) == 1 {
-			value = v.Name[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["name"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PassengerPriorityStatus
-		if len(v.PassengerPriorityStatus) == 1 {
-			value = v.PassengerPriorityStatus[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["passengerPriorityStatus"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PassengerSequenceNumber
-		if len(v.PassengerSequenceNumber) == 1 {
-			value = v.PassengerSequenceNumber[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["passengerSequenceNumber"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PotentialAction
-		if len(v.PotentialAction) == 1 {
-			value = v.PotentialAction[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["potentialAction"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PriceCurrency
-		if len(v.PriceCurrency) == 1 {
-			value = v.PriceCurrency[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["priceCurrency"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ProgramMembershipUsed
-		if len(v.ProgramMembershipUsed) == 1 {
-			value = v.ProgramMembershipUsed[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["programMembershipUsed"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Provider
-		if len(v.Provider) == 1 {
-			value = v.Provider[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["provider"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ReservationFor
-		if len(v.ReservationFor) == 1 {
-			value = v.ReservationFor[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["reservationFor"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ReservationId
-		if len(v.ReservationId) == 1 {
-			value = v.ReservationId[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["reservationId"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ReservationStatus
-		if len(v.ReservationStatus) == 1 {
-			value = v.ReservationStatus[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["reservationStatus"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ReservedTicket
-		if len(v.ReservedTicket) == 1 {
-			value = v.ReservedTicket[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["reservedTicket"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.SameAs
-		if len(v.SameAs) == 1 {
-			value = v.SameAs[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["sameAs"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.SecurityScreening
-		if len(v.SecurityScreening) == 1 {
-			value = v.SecurityScreening[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["securityScreening"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.SubjectOf
-		if len(v.SubjectOf) == 1 {
-			value = v.SubjectOf[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["subjectOf"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.TotalPrice
-		if len(v.TotalPrice) == 1 {
-			value = v.TotalPrice[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["totalPrice"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.UnderName
-		if len(v.UnderName) == 1 {
-			value = v.UnderName[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["underName"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Url
-		if len(v.Url) == 1 {
-			value = v.Url[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["url"] = json.RawMessage(b)
-		}
-	}
-
-	*intop = into
-
-	return nil
-}
-
-func (v FlightReservation) asMap() (map[string]interface{}, error) {
-	data := map[string]interface{}{}
-	err := v.intoMap(&data)
-	if err != nil {
-		return nil, err
-	}
-
-	data["@context"] = "http://schema.org"
-	data["@type"] = "FlightReservation"
-
-	return data, nil
-}
-
 func (v FlightReservation) MarshalJSON() ([]byte, error) {
-	data, err := v.asMap()
+	type Alias FlightReservation
+
+	b, err := json.Marshal((Alias)(v))
 	if err != nil {
 		return nil, err
 	}
 
-	return json.Marshal(data)
+	return append([]byte("{\"@context\":\"http://schema.org\",\"@type\":\"FlightReservation\","), b[1:]...), nil
 }

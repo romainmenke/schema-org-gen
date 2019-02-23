@@ -4,15 +4,29 @@ import "encoding/json"
 
 // PostalAddress see : https://schema.org/PostalAddress
 type PostalAddress struct {
-	typeContext
 
 	// With properties from ContactPoint see : https://schema.org/ContactPoint
+	//
+
+	// With properties from StructuredValue see : https://schema.org/StructuredValue
 	//
 
 	// With properties from Intangible see : https://schema.org/Intangible
 	//
 
-	// With properties from StructuredValue see : https://schema.org/StructuredValue
+	// With properties from Thing see : https://schema.org/Thing
+	//
+
+	// With properties from Thing see : https://schema.org/Thing
+	//
+
+	// With properties from Intangible see : https://schema.org/Intangible
+	//
+
+	// With properties from Thing see : https://schema.org/Thing
+	//
+
+	// With properties from Thing see : https://schema.org/Thing
 	//
 
 	// With properties from Thing see : https://schema.org/Thing
@@ -24,8 +38,8 @@ type PostalAddress struct {
 	AdditionalType []string `json:"additionalType,omitempty"`
 
 	// AddressCountry see : https://schema.org/addressCountry
-	// The country. For example, USA. You can also provide the two-letter ISO 3166-1 alpha-2 country code (see: https://schema.orghttp://en.wikipedia.org/wiki/ISO_3166-1).
-	// types : Country Text
+	// The country. For example, USA. You can also provide the two-letter [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1).
+	// types : Text Country
 	AddressCountry []interface{} `json:"addressCountry,omitempty"`
 
 	// AddressLocality see : https://schema.org/addressLocality
@@ -44,12 +58,12 @@ type PostalAddress struct {
 	AlternateName []string `json:"alternateName,omitempty"`
 
 	// AreaServed see : https://schema.org/areaServed
-	// The geographic area where a service or offered item is provided. Supersedes serviceArea (see: https://schema.org/serviceArea).
-	// types : AdministrativeArea GeoShape Place Text
+	// The geographic area where a service or offered item is provided.
+	// types : Place AdministrativeArea GeoShape Text
 	AreaServed []interface{} `json:"areaServed,omitempty"`
 
 	// AvailableLanguage see : https://schema.org/availableLanguage
-	// A language someone may use with or at the item, service or place. Please use one of the language codes from the IETF BCP 47 standard (see: https://schema.orghttp://tools.ietf.org/html/bcp47). See also inLanguage (see: https://schema.org/inLanguage)
+	// A language someone may use with or at the item, service or place. Please use one of the language codes from the [IETF BCP 47 standard](http://tools.ietf.org/html/bcp47). See also [[inLanguage]]
 	// types : Language Text
 	AvailableLanguage []interface{} `json:"availableLanguage,omitempty"`
 
@@ -89,17 +103,18 @@ type PostalAddress struct {
 	HoursAvailable []*OpeningHoursSpecification `json:"hoursAvailable,omitempty"`
 
 	// Identifier see : https://schema.org/identifier
-	// The identifier property represents any kind of identifier for any kind of Thing (see: https://schema.org/Thing), such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See background notes (see: https://schema.org/docs/datamodel.html#identifierBg) for more details.
-	// types : PropertyValue Text URL
+	// The identifier property represents any kind of identifier for any kind of [[Thing]], such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See [background notes](/docs/datamodel.html#identifierBg) for more details.
+	//
+	// types : URL Text PropertyValue
 	Identifier []interface{} `json:"identifier,omitempty"`
 
 	// Image see : https://schema.org/image
-	// An image of the item. This can be a URL (see: https://schema.org/URL) or a fully described ImageObject (see: https://schema.org/ImageObject).
-	// types : ImageObject URL
+	// An image of the item. This can be a [[URL]] or a fully described [[ImageObject]].
+	// types : URL ImageObject
 	Image []interface{} `json:"image,omitempty"`
 
 	// MainEntityOfPage see : https://schema.org/mainEntityOfPage
-	// Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See background notes (see: https://schema.org/docs/datamodel.html#mainEntityBackground) for details. Inverse property: mainEntity (see: https://schema.org/mainEntity).
+	// Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See [background notes](/docs/datamodel.html#mainEntityBackground) for details.
 	// types : CreativeWork URL
 	MainEntityOfPage []interface{} `json:"mainEntityOfPage,omitempty"`
 
@@ -133,15 +148,15 @@ type PostalAddress struct {
 	// types : URL
 	SameAs []string `json:"sameAs,omitempty"`
 
+	// ServiceArea see : https://schema.org/serviceArea
+	// The geographic area where the service is provided.
+	// types : Place AdministrativeArea GeoShape
+	ServiceArea []interface{} `json:"serviceArea,omitempty"`
+
 	// StreetAddress see : https://schema.org/streetAddress
 	// The street address. For example, 1600 Amphitheatre Pkwy.
 	// types : Text
 	StreetAddress []string `json:"streetAddress,omitempty"`
-
-	// SubjectOf see : https://pending.schema.org/subjectOf
-	// A CreativeWork or Event about this Thing.. Inverse property: about (see: https://schema.org/about).
-	// types : CreativeWork Event
-	SubjectOf []interface{} `json:"subjectOf,omitempty"`
 
 	// Telephone see : https://schema.org/telephone
 	// The telephone number.
@@ -154,468 +169,13 @@ type PostalAddress struct {
 	Url []string `json:"url,omitempty"`
 }
 
-func (v PostalAddress) intoMap(intop *map[string]interface{}) error {
-	if intop == nil {
-		return nil
-	}
-
-	into := *intop
-
-	{
-		var value interface{} = v.AdditionalType
-		if len(v.AdditionalType) == 1 {
-			value = v.AdditionalType[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["additionalType"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.AddressCountry
-		if len(v.AddressCountry) == 1 {
-			value = v.AddressCountry[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["addressCountry"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.AddressLocality
-		if len(v.AddressLocality) == 1 {
-			value = v.AddressLocality[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["addressLocality"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.AddressRegion
-		if len(v.AddressRegion) == 1 {
-			value = v.AddressRegion[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["addressRegion"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.AlternateName
-		if len(v.AlternateName) == 1 {
-			value = v.AlternateName[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["alternateName"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.AreaServed
-		if len(v.AreaServed) == 1 {
-			value = v.AreaServed[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["areaServed"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.AvailableLanguage
-		if len(v.AvailableLanguage) == 1 {
-			value = v.AvailableLanguage[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["availableLanguage"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ContactOption
-		if len(v.ContactOption) == 1 {
-			value = v.ContactOption[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["contactOption"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ContactType
-		if len(v.ContactType) == 1 {
-			value = v.ContactType[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["contactType"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Description
-		if len(v.Description) == 1 {
-			value = v.Description[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["description"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.DisambiguatingDescription
-		if len(v.DisambiguatingDescription) == 1 {
-			value = v.DisambiguatingDescription[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["disambiguatingDescription"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Email
-		if len(v.Email) == 1 {
-			value = v.Email[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["email"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.FaxNumber
-		if len(v.FaxNumber) == 1 {
-			value = v.FaxNumber[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["faxNumber"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.HoursAvailable
-		if len(v.HoursAvailable) == 1 {
-			value = v.HoursAvailable[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["hoursAvailable"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Identifier
-		if len(v.Identifier) == 1 {
-			value = v.Identifier[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["identifier"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Image
-		if len(v.Image) == 1 {
-			value = v.Image[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["image"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.MainEntityOfPage
-		if len(v.MainEntityOfPage) == 1 {
-			value = v.MainEntityOfPage[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["mainEntityOfPage"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Name
-		if len(v.Name) == 1 {
-			value = v.Name[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["name"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PostOfficeBoxNumber
-		if len(v.PostOfficeBoxNumber) == 1 {
-			value = v.PostOfficeBoxNumber[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["postOfficeBoxNumber"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PostalCode
-		if len(v.PostalCode) == 1 {
-			value = v.PostalCode[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["postalCode"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.PotentialAction
-		if len(v.PotentialAction) == 1 {
-			value = v.PotentialAction[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["potentialAction"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.ProductSupported
-		if len(v.ProductSupported) == 1 {
-			value = v.ProductSupported[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["productSupported"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.SameAs
-		if len(v.SameAs) == 1 {
-			value = v.SameAs[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["sameAs"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.StreetAddress
-		if len(v.StreetAddress) == 1 {
-			value = v.StreetAddress[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["streetAddress"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.SubjectOf
-		if len(v.SubjectOf) == 1 {
-			value = v.SubjectOf[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["subjectOf"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Telephone
-		if len(v.Telephone) == 1 {
-			value = v.Telephone[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["telephone"] = json.RawMessage(b)
-		}
-	}
-
-	{
-		var value interface{} = v.Url
-		if len(v.Url) == 1 {
-			value = v.Url[0]
-		}
-
-		b, err := json.Marshal(value)
-		if err != nil {
-			return err
-		}
-
-		if len(b) > 0 && string(b) != "null" {
-			into["url"] = json.RawMessage(b)
-		}
-	}
-
-	*intop = into
-
-	return nil
-}
-
-func (v PostalAddress) asMap() (map[string]interface{}, error) {
-	data := map[string]interface{}{}
-	err := v.intoMap(&data)
-	if err != nil {
-		return nil, err
-	}
-
-	data["@context"] = "http://schema.org"
-	data["@type"] = "PostalAddress"
-
-	return data, nil
-}
-
 func (v PostalAddress) MarshalJSON() ([]byte, error) {
-	data, err := v.asMap()
+	type Alias PostalAddress
+
+	b, err := json.Marshal((Alias)(v))
 	if err != nil {
 		return nil, err
 	}
 
-	return json.Marshal(data)
+	return append([]byte("{\"@context\":\"http://schema.org\",\"@type\":\"PostalAddress\","), b[1:]...), nil
 }

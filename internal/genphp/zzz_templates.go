@@ -6,6 +6,8 @@ import (
 	"bytes"
 	"compress/gzip"
 	"encoding/base64"
+	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -100,7 +102,24 @@ func (f *_escFile) Close() error {
 }
 
 func (f *_escFile) Readdir(count int) ([]os.FileInfo, error) {
-	return nil, nil
+	if !f.isDir {
+		return nil, fmt.Errorf(" escFile.Readdir: '%s' is not directory", f.name)
+	}
+
+	fis, ok := _escDirs[f.local]
+	if !ok {
+		return nil, fmt.Errorf(" escFile.Readdir: '%s' is directory, but we have no info about content of this dir, local=%s", f.name, f.local)
+	}
+	limit := count
+	if count <= 0 || limit > len(fis) {
+		limit = len(fis)
+	}
+
+	if len(fis) == 0 && count > 0 {
+		return nil, io.EOF
+	}
+
+	return fis[0:limit], nil
 }
 
 func (f *_escFile) Stat() (os.FileInfo, error) {
@@ -191,51 +210,59 @@ func FSMustString(useLocal bool, name string) string {
 var _escData = map[string]*_escFile{
 
 	"/templates/load.twig": {
+		name:    "load.twig",
 		local:   "templates/load.twig",
-		size:    208,
-		modtime: 1526223692,
+		size:    178,
+		modtime: 1550935133,
 		compressed: `
-H4sIAAAAAAAC/4zMvQqDMBRA4T1PcZcQhaIPYKFIsSrYVvozBzE3eCFNg6lTyLuX1rVDpzOdb7tzk2NM
-oSaLCYjrvqmO5flSy7671+1J9uWtERtQNNvhgQlIeWi7SkpIIS0YIzuaRSH8/CADkZMd8+VFJnOTEwUL
-HPRzBk0Ggey3Hnj8AxrN4D36PIT1jnElAwe06oPyyN4BAAD//9B/+5nQAAAA
+H4sIAAAAAAAC/4zMMQrCMBSH8T2n+C+hujQHqOCkIAgOHiCE9NU8SNOYZ6eQu0vtBZy+5eN3OueQVXIz
+SXae8PSBZvcor0GpQu+VC9klecLIZbsOsPZ6u1+sxRE9OsPJm/XDsc8hd4OqGtNSMHEkcPpVoNt/lo9O
+hMTUugOt7WrVoDRurm7qGwAA//9vm+rbsgAAAA==
 `,
 	},
 
 	"/templates/structtypes.twig": {
+		name:    "structtypes.twig",
 		local:   "templates/structtypes.twig",
-		size:    817,
-		modtime: 1531114125,
+		size:    835,
+		modtime: 1550935230,
 		compressed: `
-H4sIAAAAAAAC/3xRTY/TMBA927/iIWWVNILmvqULZ64cOCBUedMJMXJsy3YQJfJ/R068UTZbcbPGb97H
-vI+fbG85bxpME8LN0kWLgRAjPBEe1+noFGLkrRLev4HKwSoaSAePL97or+SkUPKveFaEiXNmx2clW/gg
-gmxRtEYH+hNwRtmHYB+bxrc9DeJo3M/y9AaepBJ2p5qQ0wM642CFIx0gdX55PETOmrrmDDW+ydDDOmPJ
-BUkenTNDirBgj/dDbz9zdoa6mSVJX5Nq0sgGOknqmvTnxyqff1szpONclNS0go7b6bKBOim/Qsf4Wm+2
-kO/zWzgU05TpcoLT3mEGd6NugzQavzYFUXXAxBkrzJjaEM6JW8UZY+Xn3FGJ89O9lt4vqHSeBbIvhzN2
-OHH2vwOxwr/4uOIMby7J22UdVihCL/2Hp31GzMyyQ4V3oMGGW4Ut1wFLrDnX93Jdn+lfDP7AebuUGOPi
-d3M85iiMTiMRnTiLPPJ/AQAA//8Lc+TBMQMAAA==
+H4sIAAAAAAAC/3yRzW6cMBSF1/ZTnEpEMKgd9qGTdt1NF1l00VYjh7kEV2BbtpE6RX73yuAgQkbZWfbn
+83Pv5y+mM1yJgZwRDeGx6WgQ3+1zzXlVYZrgr4bOEUAIcES4X29H2yME3vTCuTeoHExPAynv8Oub0+qR
+rBS9/CeeesLEOTPjUy8bOC+8bJA1Wnn663FC3nlv7qvKzVmO2j7n9Rs8ekV2ZxvJ6Q6ttjDCkvKQKp0c
+7gJnVVlyhhI/pO9grDZkvSSH1uohdljY4+3W28dUnqGsZktSl+gaPVKAVlJ/if7zYbVPr40e4nTOvVS0
+Qsft7fIDZXR+RYfw2m+OkOaTTVOSSunrfboEtqNqvNQKfzbLoeKAiTOW6TFuQlgrrgVnjOVf035ynB5u
+bejjQsXRLMh+MZyxQ83Ze8NhmXvJccEJTp9jtvN6WSDznXSfHvYdMSvLFgU+gAbjrwW2WgcsteZeP/P1
++yz/EvA3TttPUTEseTfDY5b8aBWiUM1Z4IH/DwAA//9Hj6RTQwMAAA==
 `,
 	},
 
 	"/templates/util.twig": {
+		name:    "util.twig",
 		local:   "templates/util.twig",
-		size:    539,
-		modtime: 1526222360,
+		size:    611,
+		modtime: 1550935292,
 		compressed: `
-H4sIAAAAAAAC/5yQQW6rMBCG155TzAIJI+WdwC9p79BlVVkuGYQjsJE9rkgr7l5hCCpN1UW34/+b+X7/
-fxjaAaBJrmbrHUavL9E7HSlY09l3kli8mS4RVvgBwjYokfqBr1/m+UUE4hScAjEBiMInxiOaEMxVVgpW
-0ka9jL7DjQ9k6nabm4iFdWca8XjCgjrqyfGaXVb1xK0/axpt5Ci3zAHL2f/ppl9uJ4TIp/WQ4nzHJz5s
-1L/TDpIVVmpGJhC5jkguEssZei4fa++YRi5fcmjpnReu5W9V/euFar7r+qN+jvwiv37okrvTVX/y3O1U
-sE9M8BkAAP//+0ZubxsCAAA=
+H4sIAAAAAAAC/5yQwU7DMAyGz/FT+FCprTSeIGzwBhx2RKgKmUcztUkVO2iA9u6oaVcBA4S42t9n+/f1
+zdAO4E1PPBhLuLUt9eYuPmmAffJWXPDIoTlw8A1TdKZzr1Rh8Wy6RFjjGyi3xwqpH+TlQz13VCRJ0WtQ
+J5g5x42J0VyiRUiCa5yatQZQah8iGdsuqGEsnN/REdcbLKijnrzM+jS9J2nDrqGjY+FqYVZYjgG25/vL
+ZatSeWEzJB73hCSrxbrafJKqGms9KiekjulHfblrgkHl8Cp5JqlG5L68tcELHaV8yND0pax/eVV4PJCV
+v/zq2/jZ+iX8PGfiLuLqf51+ruSZGk7wHgAA//+TtlZQYwIAAA==
 `,
 	},
 
-	"/": {
-		isDir: true,
-		local: "",
-	},
-
 	"/templates": {
+		name:  "templates",
+		local: `templates`,
 		isDir: true,
-		local: "templates",
+	},
+}
+
+var _escDirs = map[string][]os.FileInfo{
+
+	"templates": {
+		_escData["/templates/load.twig"],
+		_escData["/templates/structtypes.twig"],
+		_escData["/templates/util.twig"],
 	},
 }
