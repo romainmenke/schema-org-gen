@@ -392,232 +392,232 @@ class SomeProducts implements \JsonSerializable {
 			'@type'    => 'SomeProducts',
 		);
 
-		$serialized = so_json_serialize( $this->additional_property );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_property );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalProperty'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->additional_type );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_type );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalType'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->aggregate_rating );
+		$serialized = \SchemaOrg\json_serialize( $this->aggregate_rating );
 		if ( ! empty( $serialized ) ) {
 			$out['aggregateRating'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->alternate_name );
+		$serialized = \SchemaOrg\json_serialize( $this->alternate_name );
 		if ( ! empty( $serialized ) ) {
 			$out['alternateName'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->audience );
+		$serialized = \SchemaOrg\json_serialize( $this->audience );
 		if ( ! empty( $serialized ) ) {
 			$out['audience'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->award );
+		$serialized = \SchemaOrg\json_serialize( $this->award );
 		if ( ! empty( $serialized ) ) {
 			$out['award'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->awards );
+		$serialized = \SchemaOrg\json_serialize( $this->awards );
 		if ( ! empty( $serialized ) ) {
 			$out['awards'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->brand );
+		$serialized = \SchemaOrg\json_serialize( $this->brand );
 		if ( ! empty( $serialized ) ) {
 			$out['brand'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->category );
+		$serialized = \SchemaOrg\json_serialize( $this->category );
 		if ( ! empty( $serialized ) ) {
 			$out['category'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->color );
+		$serialized = \SchemaOrg\json_serialize( $this->color );
 		if ( ! empty( $serialized ) ) {
 			$out['color'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->depth );
+		$serialized = \SchemaOrg\json_serialize( $this->depth );
 		if ( ! empty( $serialized ) ) {
 			$out['depth'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->description );
+		$serialized = \SchemaOrg\json_serialize( $this->description );
 		if ( ! empty( $serialized ) ) {
 			$out['description'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->disambiguating_description );
+		$serialized = \SchemaOrg\json_serialize( $this->disambiguating_description );
 		if ( ! empty( $serialized ) ) {
 			$out['disambiguatingDescription'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->gtin_12 );
+		$serialized = \SchemaOrg\json_serialize( $this->gtin_12 );
 		if ( ! empty( $serialized ) ) {
 			$out['gtin12'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->gtin_13 );
+		$serialized = \SchemaOrg\json_serialize( $this->gtin_13 );
 		if ( ! empty( $serialized ) ) {
 			$out['gtin13'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->gtin_14 );
+		$serialized = \SchemaOrg\json_serialize( $this->gtin_14 );
 		if ( ! empty( $serialized ) ) {
 			$out['gtin14'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->gtin_8 );
+		$serialized = \SchemaOrg\json_serialize( $this->gtin_8 );
 		if ( ! empty( $serialized ) ) {
 			$out['gtin8'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->height );
+		$serialized = \SchemaOrg\json_serialize( $this->height );
 		if ( ! empty( $serialized ) ) {
 			$out['height'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->identifier );
+		$serialized = \SchemaOrg\json_serialize( $this->identifier );
 		if ( ! empty( $serialized ) ) {
 			$out['identifier'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->image );
+		$serialized = \SchemaOrg\json_serialize( $this->image );
 		if ( ! empty( $serialized ) ) {
 			$out['image'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->inventory_level );
+		$serialized = \SchemaOrg\json_serialize( $this->inventory_level );
 		if ( ! empty( $serialized ) ) {
 			$out['inventoryLevel'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->is_accessory_or_spare_part_for );
+		$serialized = \SchemaOrg\json_serialize( $this->is_accessory_or_spare_part_for );
 		if ( ! empty( $serialized ) ) {
 			$out['isAccessoryOrSparePartFor'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->is_consumable_for );
+		$serialized = \SchemaOrg\json_serialize( $this->is_consumable_for );
 		if ( ! empty( $serialized ) ) {
 			$out['isConsumableFor'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->is_related_to );
+		$serialized = \SchemaOrg\json_serialize( $this->is_related_to );
 		if ( ! empty( $serialized ) ) {
 			$out['isRelatedTo'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->is_similar_to );
+		$serialized = \SchemaOrg\json_serialize( $this->is_similar_to );
 		if ( ! empty( $serialized ) ) {
 			$out['isSimilarTo'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->item_condition );
+		$serialized = \SchemaOrg\json_serialize( $this->item_condition );
 		if ( ! empty( $serialized ) ) {
 			$out['itemCondition'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->logo );
+		$serialized = \SchemaOrg\json_serialize( $this->logo );
 		if ( ! empty( $serialized ) ) {
 			$out['logo'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->main_entity_of_page );
+		$serialized = \SchemaOrg\json_serialize( $this->main_entity_of_page );
 		if ( ! empty( $serialized ) ) {
 			$out['mainEntityOfPage'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->manufacturer );
+		$serialized = \SchemaOrg\json_serialize( $this->manufacturer );
 		if ( ! empty( $serialized ) ) {
 			$out['manufacturer'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->material );
+		$serialized = \SchemaOrg\json_serialize( $this->material );
 		if ( ! empty( $serialized ) ) {
 			$out['material'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->model );
+		$serialized = \SchemaOrg\json_serialize( $this->model );
 		if ( ! empty( $serialized ) ) {
 			$out['model'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->mpn );
+		$serialized = \SchemaOrg\json_serialize( $this->mpn );
 		if ( ! empty( $serialized ) ) {
 			$out['mpn'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->name );
+		$serialized = \SchemaOrg\json_serialize( $this->name );
 		if ( ! empty( $serialized ) ) {
 			$out['name'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->offers );
+		$serialized = \SchemaOrg\json_serialize( $this->offers );
 		if ( ! empty( $serialized ) ) {
 			$out['offers'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->potential_action );
+		$serialized = \SchemaOrg\json_serialize( $this->potential_action );
 		if ( ! empty( $serialized ) ) {
 			$out['potentialAction'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->product_id );
+		$serialized = \SchemaOrg\json_serialize( $this->product_id );
 		if ( ! empty( $serialized ) ) {
 			$out['productID'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->production_date );
+		$serialized = \SchemaOrg\json_serialize( $this->production_date );
 		if ( ! empty( $serialized ) ) {
 			$out['productionDate'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->purchase_date );
+		$serialized = \SchemaOrg\json_serialize( $this->purchase_date );
 		if ( ! empty( $serialized ) ) {
 			$out['purchaseDate'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->release_date );
+		$serialized = \SchemaOrg\json_serialize( $this->release_date );
 		if ( ! empty( $serialized ) ) {
 			$out['releaseDate'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->review );
+		$serialized = \SchemaOrg\json_serialize( $this->review );
 		if ( ! empty( $serialized ) ) {
 			$out['review'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->reviews );
+		$serialized = \SchemaOrg\json_serialize( $this->reviews );
 		if ( ! empty( $serialized ) ) {
 			$out['reviews'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->same_as );
+		$serialized = \SchemaOrg\json_serialize( $this->same_as );
 		if ( ! empty( $serialized ) ) {
 			$out['sameAs'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->sku );
+		$serialized = \SchemaOrg\json_serialize( $this->sku );
 		if ( ! empty( $serialized ) ) {
 			$out['sku'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->url );
+		$serialized = \SchemaOrg\json_serialize( $this->url );
 		if ( ! empty( $serialized ) ) {
 			$out['url'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->weight );
+		$serialized = \SchemaOrg\json_serialize( $this->weight );
 		if ( ! empty( $serialized ) ) {
 			$out['weight'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->width );
+		$serialized = \SchemaOrg\json_serialize( $this->width );
 		if ( ! empty( $serialized ) ) {
 			$out['width'] = $serialized;
 		}

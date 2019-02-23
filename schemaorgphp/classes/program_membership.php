@@ -151,82 +151,82 @@ class ProgramMembership implements \JsonSerializable {
 			'@type'    => 'ProgramMembership',
 		);
 
-		$serialized = so_json_serialize( $this->additional_type );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_type );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalType'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->alternate_name );
+		$serialized = \SchemaOrg\json_serialize( $this->alternate_name );
 		if ( ! empty( $serialized ) ) {
 			$out['alternateName'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->description );
+		$serialized = \SchemaOrg\json_serialize( $this->description );
 		if ( ! empty( $serialized ) ) {
 			$out['description'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->disambiguating_description );
+		$serialized = \SchemaOrg\json_serialize( $this->disambiguating_description );
 		if ( ! empty( $serialized ) ) {
 			$out['disambiguatingDescription'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->hosting_organization );
+		$serialized = \SchemaOrg\json_serialize( $this->hosting_organization );
 		if ( ! empty( $serialized ) ) {
 			$out['hostingOrganization'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->identifier );
+		$serialized = \SchemaOrg\json_serialize( $this->identifier );
 		if ( ! empty( $serialized ) ) {
 			$out['identifier'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->image );
+		$serialized = \SchemaOrg\json_serialize( $this->image );
 		if ( ! empty( $serialized ) ) {
 			$out['image'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->main_entity_of_page );
+		$serialized = \SchemaOrg\json_serialize( $this->main_entity_of_page );
 		if ( ! empty( $serialized ) ) {
 			$out['mainEntityOfPage'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->member );
+		$serialized = \SchemaOrg\json_serialize( $this->member );
 		if ( ! empty( $serialized ) ) {
 			$out['member'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->members );
+		$serialized = \SchemaOrg\json_serialize( $this->members );
 		if ( ! empty( $serialized ) ) {
 			$out['members'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->membership_number );
+		$serialized = \SchemaOrg\json_serialize( $this->membership_number );
 		if ( ! empty( $serialized ) ) {
 			$out['membershipNumber'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->name );
+		$serialized = \SchemaOrg\json_serialize( $this->name );
 		if ( ! empty( $serialized ) ) {
 			$out['name'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->potential_action );
+		$serialized = \SchemaOrg\json_serialize( $this->potential_action );
 		if ( ! empty( $serialized ) ) {
 			$out['potentialAction'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->program_name );
+		$serialized = \SchemaOrg\json_serialize( $this->program_name );
 		if ( ! empty( $serialized ) ) {
 			$out['programName'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->same_as );
+		$serialized = \SchemaOrg\json_serialize( $this->same_as );
 		if ( ! empty( $serialized ) ) {
 			$out['sameAs'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->url );
+		$serialized = \SchemaOrg\json_serialize( $this->url );
 		if ( ! empty( $serialized ) ) {
 			$out['url'] = $serialized;
 		}

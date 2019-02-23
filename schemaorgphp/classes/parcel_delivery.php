@@ -207,117 +207,117 @@ class ParcelDelivery implements \JsonSerializable {
 			'@type'    => 'ParcelDelivery',
 		);
 
-		$serialized = so_json_serialize( $this->additional_type );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_type );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalType'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->alternate_name );
+		$serialized = \SchemaOrg\json_serialize( $this->alternate_name );
 		if ( ! empty( $serialized ) ) {
 			$out['alternateName'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->carrier );
+		$serialized = \SchemaOrg\json_serialize( $this->carrier );
 		if ( ! empty( $serialized ) ) {
 			$out['carrier'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->delivery_address );
+		$serialized = \SchemaOrg\json_serialize( $this->delivery_address );
 		if ( ! empty( $serialized ) ) {
 			$out['deliveryAddress'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->delivery_status );
+		$serialized = \SchemaOrg\json_serialize( $this->delivery_status );
 		if ( ! empty( $serialized ) ) {
 			$out['deliveryStatus'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->description );
+		$serialized = \SchemaOrg\json_serialize( $this->description );
 		if ( ! empty( $serialized ) ) {
 			$out['description'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->disambiguating_description );
+		$serialized = \SchemaOrg\json_serialize( $this->disambiguating_description );
 		if ( ! empty( $serialized ) ) {
 			$out['disambiguatingDescription'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->expected_arrival_from );
+		$serialized = \SchemaOrg\json_serialize( $this->expected_arrival_from );
 		if ( ! empty( $serialized ) ) {
 			$out['expectedArrivalFrom'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->expected_arrival_until );
+		$serialized = \SchemaOrg\json_serialize( $this->expected_arrival_until );
 		if ( ! empty( $serialized ) ) {
 			$out['expectedArrivalUntil'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->has_delivery_method );
+		$serialized = \SchemaOrg\json_serialize( $this->has_delivery_method );
 		if ( ! empty( $serialized ) ) {
 			$out['hasDeliveryMethod'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->identifier );
+		$serialized = \SchemaOrg\json_serialize( $this->identifier );
 		if ( ! empty( $serialized ) ) {
 			$out['identifier'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->image );
+		$serialized = \SchemaOrg\json_serialize( $this->image );
 		if ( ! empty( $serialized ) ) {
 			$out['image'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->item_shipped );
+		$serialized = \SchemaOrg\json_serialize( $this->item_shipped );
 		if ( ! empty( $serialized ) ) {
 			$out['itemShipped'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->main_entity_of_page );
+		$serialized = \SchemaOrg\json_serialize( $this->main_entity_of_page );
 		if ( ! empty( $serialized ) ) {
 			$out['mainEntityOfPage'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->name );
+		$serialized = \SchemaOrg\json_serialize( $this->name );
 		if ( ! empty( $serialized ) ) {
 			$out['name'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->origin_address );
+		$serialized = \SchemaOrg\json_serialize( $this->origin_address );
 		if ( ! empty( $serialized ) ) {
 			$out['originAddress'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->part_of_order );
+		$serialized = \SchemaOrg\json_serialize( $this->part_of_order );
 		if ( ! empty( $serialized ) ) {
 			$out['partOfOrder'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->potential_action );
+		$serialized = \SchemaOrg\json_serialize( $this->potential_action );
 		if ( ! empty( $serialized ) ) {
 			$out['potentialAction'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->provider );
+		$serialized = \SchemaOrg\json_serialize( $this->provider );
 		if ( ! empty( $serialized ) ) {
 			$out['provider'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->same_as );
+		$serialized = \SchemaOrg\json_serialize( $this->same_as );
 		if ( ! empty( $serialized ) ) {
 			$out['sameAs'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->tracking_number );
+		$serialized = \SchemaOrg\json_serialize( $this->tracking_number );
 		if ( ! empty( $serialized ) ) {
 			$out['trackingNumber'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->tracking_url );
+		$serialized = \SchemaOrg\json_serialize( $this->tracking_url );
 		if ( ! empty( $serialized ) ) {
 			$out['trackingUrl'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->url );
+		$serialized = \SchemaOrg\json_serialize( $this->url );
 		if ( ! empty( $serialized ) ) {
 			$out['url'] = $serialized;
 		}

@@ -295,167 +295,167 @@ class ExerciseAction implements \JsonSerializable {
 			'@type'    => 'ExerciseAction',
 		);
 
-		$serialized = so_json_serialize( $this->action_status );
+		$serialized = \SchemaOrg\json_serialize( $this->action_status );
 		if ( ! empty( $serialized ) ) {
 			$out['actionStatus'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->additional_type );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_type );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalType'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->agent );
+		$serialized = \SchemaOrg\json_serialize( $this->agent );
 		if ( ! empty( $serialized ) ) {
 			$out['agent'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->alternate_name );
+		$serialized = \SchemaOrg\json_serialize( $this->alternate_name );
 		if ( ! empty( $serialized ) ) {
 			$out['alternateName'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->audience );
+		$serialized = \SchemaOrg\json_serialize( $this->audience );
 		if ( ! empty( $serialized ) ) {
 			$out['audience'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->course );
+		$serialized = \SchemaOrg\json_serialize( $this->course );
 		if ( ! empty( $serialized ) ) {
 			$out['course'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->description );
+		$serialized = \SchemaOrg\json_serialize( $this->description );
 		if ( ! empty( $serialized ) ) {
 			$out['description'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->disambiguating_description );
+		$serialized = \SchemaOrg\json_serialize( $this->disambiguating_description );
 		if ( ! empty( $serialized ) ) {
 			$out['disambiguatingDescription'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->distance );
+		$serialized = \SchemaOrg\json_serialize( $this->distance );
 		if ( ! empty( $serialized ) ) {
 			$out['distance'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->end_time );
+		$serialized = \SchemaOrg\json_serialize( $this->end_time );
 		if ( ! empty( $serialized ) ) {
 			$out['endTime'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->error );
+		$serialized = \SchemaOrg\json_serialize( $this->error );
 		if ( ! empty( $serialized ) ) {
 			$out['error'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->event );
+		$serialized = \SchemaOrg\json_serialize( $this->event );
 		if ( ! empty( $serialized ) ) {
 			$out['event'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->exercise_course );
+		$serialized = \SchemaOrg\json_serialize( $this->exercise_course );
 		if ( ! empty( $serialized ) ) {
 			$out['exerciseCourse'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->from_location );
+		$serialized = \SchemaOrg\json_serialize( $this->from_location );
 		if ( ! empty( $serialized ) ) {
 			$out['fromLocation'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->identifier );
+		$serialized = \SchemaOrg\json_serialize( $this->identifier );
 		if ( ! empty( $serialized ) ) {
 			$out['identifier'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->image );
+		$serialized = \SchemaOrg\json_serialize( $this->image );
 		if ( ! empty( $serialized ) ) {
 			$out['image'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->instrument );
+		$serialized = \SchemaOrg\json_serialize( $this->instrument );
 		if ( ! empty( $serialized ) ) {
 			$out['instrument'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->location );
+		$serialized = \SchemaOrg\json_serialize( $this->location );
 		if ( ! empty( $serialized ) ) {
 			$out['location'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->main_entity_of_page );
+		$serialized = \SchemaOrg\json_serialize( $this->main_entity_of_page );
 		if ( ! empty( $serialized ) ) {
 			$out['mainEntityOfPage'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->name );
+		$serialized = \SchemaOrg\json_serialize( $this->name );
 		if ( ! empty( $serialized ) ) {
 			$out['name'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->object );
+		$serialized = \SchemaOrg\json_serialize( $this->object );
 		if ( ! empty( $serialized ) ) {
 			$out['object'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->opponent );
+		$serialized = \SchemaOrg\json_serialize( $this->opponent );
 		if ( ! empty( $serialized ) ) {
 			$out['opponent'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->participant );
+		$serialized = \SchemaOrg\json_serialize( $this->participant );
 		if ( ! empty( $serialized ) ) {
 			$out['participant'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->potential_action );
+		$serialized = \SchemaOrg\json_serialize( $this->potential_action );
 		if ( ! empty( $serialized ) ) {
 			$out['potentialAction'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->result );
+		$serialized = \SchemaOrg\json_serialize( $this->result );
 		if ( ! empty( $serialized ) ) {
 			$out['result'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->same_as );
+		$serialized = \SchemaOrg\json_serialize( $this->same_as );
 		if ( ! empty( $serialized ) ) {
 			$out['sameAs'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->sports_activity_location );
+		$serialized = \SchemaOrg\json_serialize( $this->sports_activity_location );
 		if ( ! empty( $serialized ) ) {
 			$out['sportsActivityLocation'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->sports_event );
+		$serialized = \SchemaOrg\json_serialize( $this->sports_event );
 		if ( ! empty( $serialized ) ) {
 			$out['sportsEvent'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->sports_team );
+		$serialized = \SchemaOrg\json_serialize( $this->sports_team );
 		if ( ! empty( $serialized ) ) {
 			$out['sportsTeam'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->start_time );
+		$serialized = \SchemaOrg\json_serialize( $this->start_time );
 		if ( ! empty( $serialized ) ) {
 			$out['startTime'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->target );
+		$serialized = \SchemaOrg\json_serialize( $this->target );
 		if ( ! empty( $serialized ) ) {
 			$out['target'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->to_location );
+		$serialized = \SchemaOrg\json_serialize( $this->to_location );
 		if ( ! empty( $serialized ) ) {
 			$out['toLocation'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->url );
+		$serialized = \SchemaOrg\json_serialize( $this->url );
 		if ( ! empty( $serialized ) ) {
 			$out['url'] = $serialized;
 		}

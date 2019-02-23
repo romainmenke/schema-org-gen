@@ -354,202 +354,202 @@ class ApartmentComplex implements \JsonSerializable {
 			'@type'    => 'ApartmentComplex',
 		);
 
-		$serialized = so_json_serialize( $this->additional_property );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_property );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalProperty'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->additional_type );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_type );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalType'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->address );
+		$serialized = \SchemaOrg\json_serialize( $this->address );
 		if ( ! empty( $serialized ) ) {
 			$out['address'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->aggregate_rating );
+		$serialized = \SchemaOrg\json_serialize( $this->aggregate_rating );
 		if ( ! empty( $serialized ) ) {
 			$out['aggregateRating'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->alternate_name );
+		$serialized = \SchemaOrg\json_serialize( $this->alternate_name );
 		if ( ! empty( $serialized ) ) {
 			$out['alternateName'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->amenity_feature );
+		$serialized = \SchemaOrg\json_serialize( $this->amenity_feature );
 		if ( ! empty( $serialized ) ) {
 			$out['amenityFeature'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->branch_code );
+		$serialized = \SchemaOrg\json_serialize( $this->branch_code );
 		if ( ! empty( $serialized ) ) {
 			$out['branchCode'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->contained_in );
+		$serialized = \SchemaOrg\json_serialize( $this->contained_in );
 		if ( ! empty( $serialized ) ) {
 			$out['containedIn'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->contained_in_place );
+		$serialized = \SchemaOrg\json_serialize( $this->contained_in_place );
 		if ( ! empty( $serialized ) ) {
 			$out['containedInPlace'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->contains_place );
+		$serialized = \SchemaOrg\json_serialize( $this->contains_place );
 		if ( ! empty( $serialized ) ) {
 			$out['containsPlace'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->description );
+		$serialized = \SchemaOrg\json_serialize( $this->description );
 		if ( ! empty( $serialized ) ) {
 			$out['description'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->disambiguating_description );
+		$serialized = \SchemaOrg\json_serialize( $this->disambiguating_description );
 		if ( ! empty( $serialized ) ) {
 			$out['disambiguatingDescription'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->event );
+		$serialized = \SchemaOrg\json_serialize( $this->event );
 		if ( ! empty( $serialized ) ) {
 			$out['event'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->events );
+		$serialized = \SchemaOrg\json_serialize( $this->events );
 		if ( ! empty( $serialized ) ) {
 			$out['events'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->fax_number );
+		$serialized = \SchemaOrg\json_serialize( $this->fax_number );
 		if ( ! empty( $serialized ) ) {
 			$out['faxNumber'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->geo );
+		$serialized = \SchemaOrg\json_serialize( $this->geo );
 		if ( ! empty( $serialized ) ) {
 			$out['geo'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->global_location_number );
+		$serialized = \SchemaOrg\json_serialize( $this->global_location_number );
 		if ( ! empty( $serialized ) ) {
 			$out['globalLocationNumber'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->has_map );
+		$serialized = \SchemaOrg\json_serialize( $this->has_map );
 		if ( ! empty( $serialized ) ) {
 			$out['hasMap'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->identifier );
+		$serialized = \SchemaOrg\json_serialize( $this->identifier );
 		if ( ! empty( $serialized ) ) {
 			$out['identifier'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->image );
+		$serialized = \SchemaOrg\json_serialize( $this->image );
 		if ( ! empty( $serialized ) ) {
 			$out['image'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->is_accessible_for_free );
+		$serialized = \SchemaOrg\json_serialize( $this->is_accessible_for_free );
 		if ( ! empty( $serialized ) ) {
 			$out['isAccessibleForFree'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->isic_v_4 );
+		$serialized = \SchemaOrg\json_serialize( $this->isic_v_4 );
 		if ( ! empty( $serialized ) ) {
 			$out['isicV4'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->logo );
+		$serialized = \SchemaOrg\json_serialize( $this->logo );
 		if ( ! empty( $serialized ) ) {
 			$out['logo'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->main_entity_of_page );
+		$serialized = \SchemaOrg\json_serialize( $this->main_entity_of_page );
 		if ( ! empty( $serialized ) ) {
 			$out['mainEntityOfPage'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->map );
+		$serialized = \SchemaOrg\json_serialize( $this->map );
 		if ( ! empty( $serialized ) ) {
 			$out['map'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->maps );
+		$serialized = \SchemaOrg\json_serialize( $this->maps );
 		if ( ! empty( $serialized ) ) {
 			$out['maps'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->maximum_attendee_capacity );
+		$serialized = \SchemaOrg\json_serialize( $this->maximum_attendee_capacity );
 		if ( ! empty( $serialized ) ) {
 			$out['maximumAttendeeCapacity'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->name );
+		$serialized = \SchemaOrg\json_serialize( $this->name );
 		if ( ! empty( $serialized ) ) {
 			$out['name'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->opening_hours_specification );
+		$serialized = \SchemaOrg\json_serialize( $this->opening_hours_specification );
 		if ( ! empty( $serialized ) ) {
 			$out['openingHoursSpecification'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->photo );
+		$serialized = \SchemaOrg\json_serialize( $this->photo );
 		if ( ! empty( $serialized ) ) {
 			$out['photo'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->photos );
+		$serialized = \SchemaOrg\json_serialize( $this->photos );
 		if ( ! empty( $serialized ) ) {
 			$out['photos'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->potential_action );
+		$serialized = \SchemaOrg\json_serialize( $this->potential_action );
 		if ( ! empty( $serialized ) ) {
 			$out['potentialAction'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->public_access );
+		$serialized = \SchemaOrg\json_serialize( $this->public_access );
 		if ( ! empty( $serialized ) ) {
 			$out['publicAccess'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->review );
+		$serialized = \SchemaOrg\json_serialize( $this->review );
 		if ( ! empty( $serialized ) ) {
 			$out['review'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->reviews );
+		$serialized = \SchemaOrg\json_serialize( $this->reviews );
 		if ( ! empty( $serialized ) ) {
 			$out['reviews'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->same_as );
+		$serialized = \SchemaOrg\json_serialize( $this->same_as );
 		if ( ! empty( $serialized ) ) {
 			$out['sameAs'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->smoking_allowed );
+		$serialized = \SchemaOrg\json_serialize( $this->smoking_allowed );
 		if ( ! empty( $serialized ) ) {
 			$out['smokingAllowed'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->special_opening_hours_specification );
+		$serialized = \SchemaOrg\json_serialize( $this->special_opening_hours_specification );
 		if ( ! empty( $serialized ) ) {
 			$out['specialOpeningHoursSpecification'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->telephone );
+		$serialized = \SchemaOrg\json_serialize( $this->telephone );
 		if ( ! empty( $serialized ) ) {
 			$out['telephone'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->url );
+		$serialized = \SchemaOrg\json_serialize( $this->url );
 		if ( ! empty( $serialized ) ) {
 			$out['url'] = $serialized;
 		}

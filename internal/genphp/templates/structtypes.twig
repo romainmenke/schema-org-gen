@@ -23,7 +23,7 @@ class {{ type_name }} implements \JsonSerializable {
 			'@type' => '{{ type_name }}'
 		);
 		{% for field in fields %}
-		$serialized = so_json_serialize( $this->{{ field.name }} );
+		$serialized = \SchemaOrg\json_serialize( $this->{{ field.name }} );
 		if ( ! empty( $serialized ) ) {
 			$out['{{ field.json_name }}'] = $serialized;
 		}

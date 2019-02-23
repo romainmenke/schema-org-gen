@@ -287,167 +287,167 @@ class Order implements \JsonSerializable {
 			'@type'    => 'Order',
 		);
 
-		$serialized = so_json_serialize( $this->accepted_offer );
+		$serialized = \SchemaOrg\json_serialize( $this->accepted_offer );
 		if ( ! empty( $serialized ) ) {
 			$out['acceptedOffer'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->additional_type );
+		$serialized = \SchemaOrg\json_serialize( $this->additional_type );
 		if ( ! empty( $serialized ) ) {
 			$out['additionalType'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->alternate_name );
+		$serialized = \SchemaOrg\json_serialize( $this->alternate_name );
 		if ( ! empty( $serialized ) ) {
 			$out['alternateName'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->billing_address );
+		$serialized = \SchemaOrg\json_serialize( $this->billing_address );
 		if ( ! empty( $serialized ) ) {
 			$out['billingAddress'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->broker );
+		$serialized = \SchemaOrg\json_serialize( $this->broker );
 		if ( ! empty( $serialized ) ) {
 			$out['broker'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->confirmation_number );
+		$serialized = \SchemaOrg\json_serialize( $this->confirmation_number );
 		if ( ! empty( $serialized ) ) {
 			$out['confirmationNumber'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->customer );
+		$serialized = \SchemaOrg\json_serialize( $this->customer );
 		if ( ! empty( $serialized ) ) {
 			$out['customer'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->description );
+		$serialized = \SchemaOrg\json_serialize( $this->description );
 		if ( ! empty( $serialized ) ) {
 			$out['description'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->disambiguating_description );
+		$serialized = \SchemaOrg\json_serialize( $this->disambiguating_description );
 		if ( ! empty( $serialized ) ) {
 			$out['disambiguatingDescription'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->discount );
+		$serialized = \SchemaOrg\json_serialize( $this->discount );
 		if ( ! empty( $serialized ) ) {
 			$out['discount'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->discount_code );
+		$serialized = \SchemaOrg\json_serialize( $this->discount_code );
 		if ( ! empty( $serialized ) ) {
 			$out['discountCode'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->discount_currency );
+		$serialized = \SchemaOrg\json_serialize( $this->discount_currency );
 		if ( ! empty( $serialized ) ) {
 			$out['discountCurrency'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->identifier );
+		$serialized = \SchemaOrg\json_serialize( $this->identifier );
 		if ( ! empty( $serialized ) ) {
 			$out['identifier'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->image );
+		$serialized = \SchemaOrg\json_serialize( $this->image );
 		if ( ! empty( $serialized ) ) {
 			$out['image'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->is_gift );
+		$serialized = \SchemaOrg\json_serialize( $this->is_gift );
 		if ( ! empty( $serialized ) ) {
 			$out['isGift'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->main_entity_of_page );
+		$serialized = \SchemaOrg\json_serialize( $this->main_entity_of_page );
 		if ( ! empty( $serialized ) ) {
 			$out['mainEntityOfPage'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->merchant );
+		$serialized = \SchemaOrg\json_serialize( $this->merchant );
 		if ( ! empty( $serialized ) ) {
 			$out['merchant'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->name );
+		$serialized = \SchemaOrg\json_serialize( $this->name );
 		if ( ! empty( $serialized ) ) {
 			$out['name'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->order_date );
+		$serialized = \SchemaOrg\json_serialize( $this->order_date );
 		if ( ! empty( $serialized ) ) {
 			$out['orderDate'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->order_delivery );
+		$serialized = \SchemaOrg\json_serialize( $this->order_delivery );
 		if ( ! empty( $serialized ) ) {
 			$out['orderDelivery'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->order_number );
+		$serialized = \SchemaOrg\json_serialize( $this->order_number );
 		if ( ! empty( $serialized ) ) {
 			$out['orderNumber'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->order_status );
+		$serialized = \SchemaOrg\json_serialize( $this->order_status );
 		if ( ! empty( $serialized ) ) {
 			$out['orderStatus'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->ordered_item );
+		$serialized = \SchemaOrg\json_serialize( $this->ordered_item );
 		if ( ! empty( $serialized ) ) {
 			$out['orderedItem'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->part_of_invoice );
+		$serialized = \SchemaOrg\json_serialize( $this->part_of_invoice );
 		if ( ! empty( $serialized ) ) {
 			$out['partOfInvoice'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->payment_due );
+		$serialized = \SchemaOrg\json_serialize( $this->payment_due );
 		if ( ! empty( $serialized ) ) {
 			$out['paymentDue'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->payment_due_date );
+		$serialized = \SchemaOrg\json_serialize( $this->payment_due_date );
 		if ( ! empty( $serialized ) ) {
 			$out['paymentDueDate'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->payment_method );
+		$serialized = \SchemaOrg\json_serialize( $this->payment_method );
 		if ( ! empty( $serialized ) ) {
 			$out['paymentMethod'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->payment_method_id );
+		$serialized = \SchemaOrg\json_serialize( $this->payment_method_id );
 		if ( ! empty( $serialized ) ) {
 			$out['paymentMethodId'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->payment_url );
+		$serialized = \SchemaOrg\json_serialize( $this->payment_url );
 		if ( ! empty( $serialized ) ) {
 			$out['paymentUrl'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->potential_action );
+		$serialized = \SchemaOrg\json_serialize( $this->potential_action );
 		if ( ! empty( $serialized ) ) {
 			$out['potentialAction'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->same_as );
+		$serialized = \SchemaOrg\json_serialize( $this->same_as );
 		if ( ! empty( $serialized ) ) {
 			$out['sameAs'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->seller );
+		$serialized = \SchemaOrg\json_serialize( $this->seller );
 		if ( ! empty( $serialized ) ) {
 			$out['seller'] = $serialized;
 		}
 
-		$serialized = so_json_serialize( $this->url );
+		$serialized = \SchemaOrg\json_serialize( $this->url );
 		if ( ! empty( $serialized ) ) {
 			$out['url'] = $serialized;
 		}
