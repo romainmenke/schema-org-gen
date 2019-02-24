@@ -27,7 +27,7 @@ func main() {
 		err error
 	)
 
-	ctx, cancel := context.WithTimeout(context.Background(), time.Minute*30)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Hour*3)
 	defer cancel()
 
 	go func() {
@@ -54,22 +54,43 @@ func main() {
 
 	cmd := kingpin.MustParse(app.Parse(os.Args[1:]))
 
-	tm, err = fetch.TypemapRDF(ctx)
-	if err != nil {
-		log.Fatal(err)
+	versions := []string{
+		"2.0",
+		"2.1",
+		"2.2",
+		"3.0",
+		"3.1",
+		"3.2",
+		"3.3",
+		"3.4",
+		"master",
 	}
 
-	switch cmd {
-	case goCmd.FullCommand():
-		err = gengo.Generate(ctx, tm, "./schemaorggo", "schemaorggo")
+	for _, version := range versions {
+		tm, err = fetch.TypemapRDF(ctx, version)
 		if err != nil {
 			log.Fatal(err)
 		}
 
-	case phpCmd.FullCommand():
-		err = genphp.Generate(ctx, tm, "./schemaorgphp", "schemaorgphp")
-		if err != nil {
-			log.Fatal(err)
+		path := ""
+		if version == "master" {
+			path = "./releases/master/"
+		} else {
+			path = "./releases/v" + version + ".0/"
+		}
+
+		switch cmd {
+		case goCmd.FullCommand():
+			err = gengo.Generate(ctx, tm, path+"schemaorggo", "schemaorggo")
+			if err != nil {
+				log.Fatal(err)
+			}
+
+		case phpCmd.FullCommand():
+			err = genphp.Generate(ctx, tm, path+"schemaorgphp", "schemaorgphp")
+			if err != nil {
+				log.Fatal(err)
+			}
 		}
 	}
 }

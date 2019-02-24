@@ -51,12 +51,14 @@ func Generate(ctx context.Context, tm ast.Typemap, dir string, packageName strin
 		return err
 	}
 
-	cmd := exec.CommandContext(ctx, "./vendor-php/bin/phpcbf", "--standard=WordPress", "./schemaorgphp", dir)
-	err = cmd.Run()
+	cmd := exec.CommandContext(ctx, "./vendor-php/bin/phpcbf", "--standard=WordPress", dir)
+	output, err := cmd.CombinedOutput()
 	if err != nil {
 		log.Println(err)
 		err = nil
 	}
+
+	log.Println(string(output))
 
 	return nil
 }

@@ -12,10 +12,22 @@ import (
 	"golang.org/x/net/html"
 )
 
-func TypemapRDF(ctx context.Context) (ast.Typemap, error) {
-	req, err := http.NewRequest("GET", "https://raw.githubusercontent.com/schemaorg/schemaorg/master/data/releases/3.4/schema.rdfa", nil)
-	if err != nil {
-		return nil, err
+func TypemapRDF(ctx context.Context, version string) (ast.Typemap, error) {
+	var (
+		req *http.Request
+		err error
+	)
+
+	if version == "master" {
+		req, err = http.NewRequest("GET", "https://raw.githubusercontent.com/schemaorg/schemaorg/master/data/schema.rdfa", nil)
+		if err != nil {
+			return nil, err
+		}
+	} else {
+		req, err = http.NewRequest("GET", "https://raw.githubusercontent.com/schemaorg/schemaorg/master/data/releases/"+version+"/schema.rdfa", nil)
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	req = req.WithContext(ctx)
