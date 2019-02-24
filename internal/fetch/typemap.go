@@ -7,15 +7,27 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/romainmenke/schema-org-gen/internal/ast"
 	"github.com/romainmenke/schema-org-gen/internal/parsers"
-	"github.com/romainmenke/schema-org-gen/internal/typemap"
 	"golang.org/x/net/html"
 )
 
-func TypeMap(ctx context.Context) (*typemap.TypeMap, error) {
-	req, err := http.NewRequest("GET", "https://schema.org/docs/full.html", nil)
-	if err != nil {
-		return nil, err
+func TypemapRDF(ctx context.Context, version string) (ast.Typemap, error) {
+	var (
+		req *http.Request
+		err error
+	)
+
+	if version == "master" {
+		req, err = http.NewRequest("GET", "https://raw.githubusercontent.com/schemaorg/schemaorg/master/data/schema.rdfa", nil)
+		if err != nil {
+			return nil, err
+		}
+	} else {
+		req, err = http.NewRequest("GET", "https://raw.githubusercontent.com/schemaorg/schemaorg/master/data/releases/"+version+"/schema.rdfa", nil)
+		if err != nil {
+			return nil, err
+		}
 	}
 
 	req = req.WithContext(ctx)
@@ -37,7 +49,7 @@ func TypeMap(ctx context.Context) (*typemap.TypeMap, error) {
 
 	z := html.NewTokenizer(resp.Body)
 
-	tMap, err := parsers.IndexParser(z)
+	tMap, err := parsers.RDFAParser(z)
 	if err != nil {
 		return nil, err
 	}

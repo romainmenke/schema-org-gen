@@ -1,5 +1,4 @@
 <?php
-
 namespace SchemaOrg;
 
 function json_serialize( $value ) {
@@ -7,15 +6,15 @@ function json_serialize( $value ) {
 		return;
 	}
 
-	$out = array();
-
 	if ( is_array( $value ) ) {
+		$out = array();
+
 		foreach( $value as $index => $element ) {
 			if ( method_exists( $element, 'jsonSerialize' ) ) {
 				$out_part = $element->jsonSerialize();
-				unset($out_part['@context']);
+ 				unset($out_part['@context']);
 
-				array_push( $out, $out_part );
+ 				array_push( $out, $out_part );
 			} else {
 				array_push( $out, $element );
 			}
@@ -25,6 +24,8 @@ function json_serialize( $value ) {
 	}
 
 	if ( is_object( $value ) ) {
+		$out = array();
+
 		if ( method_exists( $value, 'jsonSerialize' ) ) {
 			$out = $value->jsonSerialize();
 		}
@@ -33,6 +34,5 @@ function json_serialize( $value ) {
 		return $out;
 	}
 
-	$out = $value;
-	return $out;
+	return $value;
 }

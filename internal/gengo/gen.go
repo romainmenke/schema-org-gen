@@ -6,10 +6,10 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/romainmenke/schema-org-gen/internal/typemap"
+	"github.com/romainmenke/schema-org-gen/internal/ast"
 )
 
-func Generate(ctx context.Context, tm *typemap.TypeMap, dir string, packageName string) error {
+func Generate(ctx context.Context, tm ast.Typemap, dir string, packageName string) error {
 	err := os.RemoveAll(dir)
 	if err != nil {
 		log.Println(err)
@@ -27,20 +27,23 @@ func Generate(ctx context.Context, tm *typemap.TypeMap, dir string, packageName 
 		return err
 	}
 
-	err = writeUtil(ctx, dir, packageName)
-	if err != nil {
-		return err
-	}
+	goTypes := listGoTypes(tm)
 
-	goTypes := []string{}
-	err = tm.Walk(ctx, listGoTypes(&goTypes))
-	if err != nil {
-		return err
-	}
+	for _, o := range tm {
+		select {
+		case <-ctx.Done():
+			return ctx.Err()
+		default:
+		}
 
-	err = tm.Walk(ctx, goTypeFile(goTypes, dir, packageName))
-	if err != nil {
-		return err
+		if len(o.Fields) == 0 {
+			continue
+		}
+
+		err := goTypeFile(ctx, goTypes, dir, packageName, o)
+		if err != nil {
+			return err
+		}
 	}
 
 	err = writeExample(ctx, dir, packageName)

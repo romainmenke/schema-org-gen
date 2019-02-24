@@ -1,38 +1,34 @@
 package gengo
 
 import (
-	"context"
 	"regexp"
 	"strings"
 
 	"github.com/romainmenke/schema-org-gen/internal/ast"
-	"github.com/romainmenke/schema-org-gen/internal/typemap"
 )
 
 var newLineRegex = regexp.MustCompile(`\r?\n`)
 
 func seeUrl(str string) string {
-	if strings.HasPrefix(str, "http") {
+	if strings.HasPrefix(str, "https://") {
 		return str
+	}
+
+	if strings.HasPrefix(str, "http://") {
+		return "https://" + strings.TrimPrefix(str, "http://")
 	}
 
 	return "https://schema.org" + str
 }
 
-func listGoTypes(sp *[]string) func(ctx context.Context, o *typemap.ObjectSource, err error) error {
-	return func(ctx context.Context, o *typemap.ObjectSource, err error) error {
-		if err != nil {
-			return err
-		}
-		if o == nil || o.Object == nil || sp == nil {
-			return nil
-		}
+func listGoTypes(tm ast.Typemap) []string {
+	out := []string{}
 
-		s := *sp
-		*sp = append(s, strings.Title(o.Object.Name))
-
-		return nil
+	for _, o := range tm {
+		out = append(out, strings.Title(o.Name))
 	}
+
+	return out
 }
 
 func normalizeTypes(types []ast.FieldType) []ast.FieldType {

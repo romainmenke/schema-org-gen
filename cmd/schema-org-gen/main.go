@@ -2,35 +2,32 @@ package main
 
 import (
 	"context"
-	"encoding/json"
-	"io"
 	"log"
 	"os"
 	"os/signal"
 	"syscall"
 	"time"
 
+	"github.com/romainmenke/schema-org-gen/internal/ast"
 	"github.com/romainmenke/schema-org-gen/internal/fetch"
 	"github.com/romainmenke/schema-org-gen/internal/gengo"
 	"github.com/romainmenke/schema-org-gen/internal/genphp"
-	"github.com/romainmenke/schema-org-gen/internal/typemap"
 	kingpin "gopkg.in/alecthomas/kingpin.v2"
 )
 
 func main() {
 
 	var (
-		app   = kingpin.New("schema-org-gen", "A generator for schema.org types")
-		clean = app.Flag("clean", "Fetch the typemap from schema.org before generating.").Bool()
+		app = kingpin.New("schema-org-gen", "A generator for schema.org types")
 
 		goCmd  = app.Command("go", "Generate for Go")
 		phpCmd = app.Command("php", "Generate for php")
 
-		tm  *typemap.TypeMap
+		tm  ast.Typemap
 		err error
 	)
 
-	ctx, cancel := context.WithTimeout(context.Background(), time.Minute*30)
+	ctx, cancel := context.WithTimeout(context.Background(), time.Hour*3)
 	defer cancel()
 
 	go func() {
@@ -57,99 +54,43 @@ func main() {
 
 	cmd := kingpin.MustParse(app.Parse(os.Args[1:]))
 
-	if clean != nil && *clean {
-		tm, err = tmFromSchemaOrg(ctx)
-		if err != nil {
-			log.Println(err)
-			return
-		}
-	} else {
-		tm, err = tmFromCache(ctx)
-		if err != nil {
-			log.Println(err)
-			return
-		}
+	versions := []string{
+		"2.0",
+		"2.1",
+		"2.2",
+		"3.0",
+		"3.1",
+		"3.2",
+		"3.3",
+		"3.4",
+		"master",
 	}
 
-	switch cmd {
-	case goCmd.FullCommand():
-		err = gengo.Generate(ctx, tm, "./schemaorggo", "schemaorggo")
+	for _, version := range versions {
+		tm, err = fetch.TypemapRDF(ctx, version)
 		if err != nil {
 			log.Fatal(err)
 		}
 
-	case phpCmd.FullCommand():
-		err = genphp.Generate(ctx, tm, "./schemaorgphp", "schemaorgphp")
-		if err != nil {
-			log.Fatal(err)
+		path := ""
+		if version == "master" {
+			path = "./releases/master/"
+		} else {
+			path = "./releases/v" + version + ".0/"
+		}
+
+		switch cmd {
+		case goCmd.FullCommand():
+			err = gengo.Generate(ctx, tm, path+"schemaorggo", "schemaorggo")
+			if err != nil {
+				log.Fatal(err)
+			}
+
+		case phpCmd.FullCommand():
+			err = genphp.Generate(ctx, tm, path+"schemaorgphp", "schemaorgphp")
+			if err != nil {
+				log.Fatal(err)
+			}
 		}
 	}
-
-}
-
-func tmFromCache(ctx context.Context) (*typemap.TypeMap, error) {
-	typeMapCacheFile, err := typemap.NewOrExistingTypeMapCacheFile()
-	if err != nil {
-		return nil, err
-	}
-	defer typeMapCacheFile.Close()
-
-	dec := json.NewDecoder(typeMapCacheFile)
-
-	tm := &typemap.TypeMap{}
-	err = dec.Decode(tm)
-	if err == io.EOF {
-		return tmFromSchemaOrg(ctx)
-	}
-	if err != nil {
-		return nil, err
-	}
-
-	err = typeMapCacheFile.Close()
-	if err != nil {
-		return nil, err
-	}
-
-	if tm.UpdatedAt.IsZero() {
-		return tmFromSchemaOrg(ctx)
-	}
-
-	return tm, nil
-}
-
-func tmFromSchemaOrg(ctx context.Context) (*typemap.TypeMap, error) {
-
-	typeMapCacheFile, err := typemap.NewTypeMapCacheFile()
-	if err != nil {
-		return nil, err
-	}
-	defer typeMapCacheFile.Close()
-
-	tm, err := fetch.TypeMap(ctx)
-	if err != nil {
-		return nil, err
-	}
-
-	err = tm.Walk(ctx, fetch.Object)
-	if err != nil {
-		return nil, err
-	}
-
-	err = tm.FlattenTypes(ctx)
-	if err != nil {
-		return nil, err
-	}
-
-	enc := json.NewEncoder(typeMapCacheFile)
-	err = enc.Encode(tm)
-	if err != nil {
-		return nil, err
-	}
-
-	err = typeMapCacheFile.Close()
-	if err != nil {
-		return nil, err
-	}
-
-	return tm, nil
 }

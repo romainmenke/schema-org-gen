@@ -1,0 +1,16 @@
+{
+  "name": "romainmenke/schema-org-gen",
+  "authors": [
+    {
+      "name": "Romain Menke",
+      "email": "romainmenke@gmail.com"
+    }
+  ],
+  "config": {
+    "vendor-dir": "vendor-php"
+  },
+  "require": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+    "wp-coding-standards/wpcs": "*"
+  }
+}
